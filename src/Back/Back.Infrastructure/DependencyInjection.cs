@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Back.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Back.Infrastructure
@@ -10,11 +12,15 @@ namespace Back.Infrastructure
         {
             var connectionString = configuration.GetConnectionString("Database");
 
-            /*
-            Add services to the container.
+
+            /*Add services to the container.
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(connectionString)); //ovo je konekcija za sql server, treba promeniti da odgovara postgreSql
-            */
+                options.UseSqlServer(connectionString)); //ovo je konekcija za sql server*/
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql(connectionString)); //konekcija za postgresql
+
+            //services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
             return services;
         }
