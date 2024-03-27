@@ -7,7 +7,7 @@ namespace Back.Infrastructure.Data
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
-            : base() { }
+            : base(options) { }
 
         public DbSet<User> Users => Set<User>();
         public DbSet<Ingredient> Ingredients => Set<Ingredient>();
