@@ -11,18 +11,14 @@ namespace Back.Domain.Models
         public IReadOnlyList<RecipeItem> RecipeItems => _recipeItems.AsReadOnly();
         public UserId UserId { get; private set; } = default!;
         public string RecipeName { get; private set; } = default!;
-        public int TypeOfFood { get; private set; } = default!;
+        public TypeOfFoodId TypeOfFoodId { get; private set; } = default!;
         public string Instructions { get; private set; } = default!;
         public int TimeToPrepare { get; private set; } = default!;
         public string Picture { get; private set; } = default!;
-        /* public decimal TotalCarbs
-         {
-             get => RecipeItems.Sum(x => x.Carbs);
-         }*/
-        public static Recipe Create(RecipeId id, UserId userId, string recipename, int typeoffood, string instructions, int timetoprepare, string picture)
+
+        public static Recipe Create(RecipeId id, UserId userId, string recipename, TypeOfFoodId typeoffoodid, string instructions, int timetoprepare, string picture)
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(recipename);
-            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(typeoffood);
             ArgumentException.ThrowIfNullOrWhiteSpace(instructions);
             ArgumentOutOfRangeException.ThrowIfNegativeOrZero(timetoprepare);
             ArgumentException.ThrowIfNullOrWhiteSpace(picture);
@@ -33,7 +29,7 @@ namespace Back.Domain.Models
                 Id = id,
                 UserId = userId,
                 RecipeName = recipename,
-                TypeOfFood = typeoffood,
+                TypeOfFoodId = typeoffoodid,
                 Instructions = instructions,
                 TimeToPrepare = timetoprepare,
                 Picture = picture
@@ -44,10 +40,10 @@ namespace Back.Domain.Models
             return recipe;
         }
 
-        public void Update(string recipename, int typeoffood, string instructions, int timetoprepare)
+        public void Update(string recipename, TypeOfFoodId typeoffoodid, string instructions, int timetoprepare)
         {
             RecipeName = recipename;
-            TypeOfFood = typeoffood;
+            TypeOfFoodId = typeoffoodid;
             Instructions = instructions;
             TimeToPrepare = timetoprepare;
 

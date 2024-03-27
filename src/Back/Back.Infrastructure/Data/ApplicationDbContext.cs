@@ -13,6 +13,9 @@ namespace Back.Infrastructure.Data
         public DbSet<Ingredient> Ingredients => Set<Ingredient>();
         public DbSet<Recipe> Recipes => Set<Recipe>();
         public DbSet<RecipeItem> RecipeItems => Set<RecipeItem>();
+        public DbSet<Question> Questions => Set<Question>();
+        public DbSet<TypeOfFood> TypesOfFood => Set<TypeOfFood>();
+        public DbSet<Like> Likes => Set<Like>();
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

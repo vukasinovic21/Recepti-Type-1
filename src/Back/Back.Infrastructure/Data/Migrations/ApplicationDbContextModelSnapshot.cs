@@ -76,6 +76,71 @@ namespace Back.Infrastructure.Data.Migrations
                     b.ToTable("Ingredients");
                 });
 
+            modelBuilder.Entity("Back.Domain.Models.Like", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("DateOfLike")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("LastModifiedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("RecipeId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RecipeId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Likes");
+                });
+
+            modelBuilder.Entity("Back.Domain.Models.Question", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("LastModifiedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("text");
+
+                    b.Property<string>("QuestionName")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuestionName")
+                        .IsUnique();
+
+                    b.ToTable("Questions");
+                });
+
             modelBuilder.Entity("Back.Domain.Models.Recipe", b =>
                 {
                     b.Property<Guid>("Id")
@@ -109,13 +174,15 @@ namespace Back.Infrastructure.Data.Migrations
                     b.Property<int>("TimeToPrepare")
                         .HasColumnType("integer");
 
-                    b.Property<int>("TypeOfFood")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("TypeOfFoodId")
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TypeOfFoodId");
 
                     b.HasIndex("UserId");
 
@@ -155,6 +222,36 @@ namespace Back.Infrastructure.Data.Migrations
                     b.HasIndex("RecipeId");
 
                     b.ToTable("RecipeItems");
+                });
+
+            modelBuilder.Entity("Back.Domain.Models.TypeOfFood", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("LastModifiedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("text");
+
+                    b.Property<string>("TypeName")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TypeName")
+                        .IsUnique();
+
+                    b.ToTable("TypesOfFood");
                 });
 
             modelBuilder.Entity("Back.Domain.Models.User", b =>
@@ -224,8 +321,29 @@ namespace Back.Infrastructure.Data.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Back.Domain.Models.Like", b =>
+                {
+                    b.HasOne("Back.Domain.Models.Recipe", null)
+                        .WithMany()
+                        .HasForeignKey("RecipeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Back.Domain.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Back.Domain.Models.Recipe", b =>
                 {
+                    b.HasOne("Back.Domain.Models.TypeOfFood", null)
+                        .WithMany()
+                        .HasForeignKey("TypeOfFoodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Back.Domain.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")

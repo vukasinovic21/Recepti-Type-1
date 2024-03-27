@@ -15,7 +15,7 @@ namespace Back.Infrastructure.Data.Configurations
                 dbId => IngredientId.Of(dbId));
 
             builder.Property(i => i.Name).HasMaxLength(256).IsRequired();
-            builder.HasIndex(u => u.Name).IsUnique();
+            builder.HasIndex(i => i.Name).IsUnique();
             builder.Property(i => i.Carbs).HasMaxLength(256);
             builder.Property(i => i.Sugar).HasMaxLength(256);
             builder.Property(i => i.Fat).HasMaxLength(256);

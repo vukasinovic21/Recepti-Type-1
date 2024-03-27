@@ -19,12 +19,16 @@ namespace Back.Infrastructure.Data.Configurations
                 .HasForeignKey(r => r.UserId)
                 .IsRequired();
 
+            builder.HasOne<TypeOfFood>()
+                .WithMany()
+                .HasForeignKey(r => r.TypeOfFoodId)
+                .IsRequired();
+
             builder.HasMany(r => r.RecipeItems)
                 .WithOne()
                 .HasForeignKey(ri => ri.RecipeId);
 
             builder.Property(r => r.RecipeName).HasMaxLength(256).IsRequired();
-            builder.Property(r => r.TypeOfFood).IsRequired();
             builder.Property(r => r.Instructions).IsRequired();
             builder.Property(r => r.TimeToPrepare).IsRequired();
             builder.Property(r => r.Picture);
