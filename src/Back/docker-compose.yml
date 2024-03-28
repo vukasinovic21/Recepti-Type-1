@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+
+  recipesdb:
+    image: postgres
+
+  back.api:
+    image: ${DOCKER_REGISTRY-}backapi
+    build:
+      context: .
+      dockerfile: Back.API/Dockerfile
