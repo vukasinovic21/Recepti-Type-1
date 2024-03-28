@@ -15,6 +15,7 @@ namespace Back.Domain.Models
         public string Instructions { get; private set; } = default!;
         public int TimeToPrepare { get; private set; } = default!;
         public string Picture { get; private set; } = default!;
+        
 
         public static Recipe Create(RecipeId id, UserId userId, string recipename, TypeOfFoodId typeoffoodid, string instructions, int timetoprepare, string picture)
         {

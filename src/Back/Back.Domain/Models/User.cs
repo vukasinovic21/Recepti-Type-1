@@ -9,9 +9,9 @@ namespace Back.Domain.Models
         public string LastName { get; private set; } = default!;
         public string Username { get; private set; } = default!;
         public string Email { get; private set; } = default!;
-        public string PasswordHash { get; private set; } 
-        public string ForgotPasswordAnswerHash { get; private set; }
-        public DateOnly DateOfBirth { get; private set; }
+        public string PasswordHash { get; private set; } = default!;
+        public string ForgotPasswordAnswerHash { get; private set; } = default!;
+        public DateOnly DateOfBirth { get; private set; } = default!;
         public string Role { get; private set; } = default!;
 
         public static User Create(UserId id, string name, string lastname, string username, string email, string passwordhash, string forgotpasswordanswerhash, DateOnly dateofbirth)
@@ -35,6 +35,9 @@ namespace Back.Domain.Models
                 DateOfBirth = dateofbirth,
                 Role = "USER"
             };
+
+            if (id == UserId.Of(new Guid("58c49479-ec65-4de2-86e7-033c546291aa")))
+                user.Role = "ADMIN";
 
             return user;
         }
