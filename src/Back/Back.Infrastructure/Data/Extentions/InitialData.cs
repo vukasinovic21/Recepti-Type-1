@@ -53,7 +53,8 @@ namespace Back.Infrastructure.Data.Extentions
                                 TypeOfFoodId.Of(new Guid("0077d8c5-d107-41cc-9902-6423068c8672")),
                                 "Pomesas 150g psenicnog belog brasna sa 50g maslinovog ulja",
                                 10,
-                                "nemaslike");
+                                "nemaslike",
+                                true);
                 recipe.Add(IngredientId.Of(new Guid("cb0c2b8a-dc5e-4c7f-a0f3-eb685273e786")), 150);
                 recipe.Add(IngredientId.Of(new Guid("72d93899-9d29-43b0-9bc2-e004e9167ac8")), 50);
 

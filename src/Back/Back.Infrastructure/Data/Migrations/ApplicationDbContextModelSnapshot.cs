@@ -166,6 +166,10 @@ namespace Back.Infrastructure.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<Boolean>("Shared")
+                        .IsRequired()
+                        .HasColumnType("boolean");
+
                     b.Property<string>("RecipeName")
                         .IsRequired()
                         .HasMaxLength(256)

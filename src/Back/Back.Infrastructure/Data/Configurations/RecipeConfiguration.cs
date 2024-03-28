@@ -32,6 +32,7 @@ namespace Back.Infrastructure.Data.Configurations
             builder.Property(r => r.Instructions).IsRequired();
             builder.Property(r => r.TimeToPrepare).IsRequired();
             builder.Property(r => r.Picture);
+            builder.Property(r => r.Shared).IsRequired();
         }
     }
 }

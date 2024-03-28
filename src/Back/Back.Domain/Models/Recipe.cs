@@ -15,15 +15,13 @@ namespace Back.Domain.Models
         public string Instructions { get; private set; } = default!;
         public int TimeToPrepare { get; private set; } = default!;
         public string Picture { get; private set; } = default!;
-        
+        public Boolean Shared { get; private set; } = default!;
 
-        public static Recipe Create(RecipeId id, UserId userId, string recipename, TypeOfFoodId typeoffoodid, string instructions, int timetoprepare, string picture)
+        public static Recipe Create(RecipeId id, UserId userId, string recipename, TypeOfFoodId typeoffoodid, string instructions, int timetoprepare, string picture, Boolean shared)
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(recipename);
             ArgumentException.ThrowIfNullOrWhiteSpace(instructions);
             ArgumentOutOfRangeException.ThrowIfNegativeOrZero(timetoprepare);
-            ArgumentException.ThrowIfNullOrWhiteSpace(picture);
-
 
             var recipe = new Recipe
             {
@@ -33,7 +31,8 @@ namespace Back.Domain.Models
                 TypeOfFoodId = typeoffoodid,
                 Instructions = instructions,
                 TimeToPrepare = timetoprepare,
-                Picture = picture
+                Picture = picture,
+                Shared = shared
             };
 
             recipe.AddDomainEvent(new RecipeCreatedEvent(recipe));

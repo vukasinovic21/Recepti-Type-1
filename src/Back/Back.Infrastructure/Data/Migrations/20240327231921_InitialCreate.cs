@@ -99,6 +99,7 @@ namespace Back.Infrastructure.Data.Migrations
                     Instructions = table.Column<string>(type: "text", nullable: false),
                     TimeToPrepare = table.Column<int>(type: "integer", nullable: false),
                     Picture = table.Column<string>(type: "text", nullable: false),
+                    Shared = table.Column<string>(type: "boolean", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     CreatedBy = table.Column<string>(type: "text", nullable: true),
                     LastModifiedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
