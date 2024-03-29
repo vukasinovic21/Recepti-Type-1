@@ -1,7 +1,4 @@
-﻿using Back.Domain.Models;
-using Back.Domain.ValueObjects;
-
-namespace Back.Application.Dtos
+﻿namespace Back.Application.Dtos
 {
     public record RecipeDto(
         Guid Id,

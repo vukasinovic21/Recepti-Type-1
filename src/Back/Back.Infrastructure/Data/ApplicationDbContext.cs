@@ -1,10 +1,11 @@
-﻿using Back.Domain.Models;
+﻿using Back.Application.Data;
+using Back.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace Back.Infrastructure.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
             : base(options) { }

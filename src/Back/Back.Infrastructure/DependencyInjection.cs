@@ -1,4 +1,5 @@
-﻿using Back.Infrastructure.Data;
+﻿using Back.Application.Data;
+using Back.Infrastructure.Data;
 using Back.Infrastructure.Data.Interceptors;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -22,7 +23,8 @@ namespace Back.Infrastructure
                 options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
                 options.UseNpgsql(connectionString); //konekcija za postgresql
             });
-            //services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
             return services;
         }
