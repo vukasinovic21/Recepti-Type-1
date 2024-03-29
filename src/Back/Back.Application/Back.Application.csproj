@@ -11,4 +11,11 @@
     <ProjectReference Include="..\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Recipes\Commands\" />
+    <Folder Include="Recipes\EventHandlers\" />
+    <Folder Include="Recipes\Queries\" />
+  </ItemGroup>
+
 </Project>
