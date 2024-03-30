@@ -1670,6 +1670,16 @@
 	  "Protein": 10.0,
 	  "kCal": 146,
 	  "GI": 35
+	},
+	{
+	  "Id": "b4e8d8d6-5c36-4e6d-ae78-78a8c720f20c",
+	  "Name": "Urme",
+	  "Carbs": 75.0,
+	  "Sugar": 63.4,
+	  "Fat": 0.4,
+	  "Protein": 2.0,
+	  "kCal": 282,
+	  "GI": 42
 	}
   ]
 }

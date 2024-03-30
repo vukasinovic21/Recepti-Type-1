@@ -16,11 +16,17 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Back.Application\Back.Application.csproj" />
     <ProjectReference Include="..\Back.Infrastructure\Back.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Endpoints\Ingredients\" />
+    <Folder Include="Endpoints\Auth\" />
   </ItemGroup>
 
 </Project>

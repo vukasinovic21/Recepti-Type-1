@@ -13,7 +13,7 @@ namespace Back.API
 
         public static WebApplication UseApiServices(this WebApplication app)
         {
-            //app.MapCarter();
+            app.MapCarter();
 
             return app;
         }
