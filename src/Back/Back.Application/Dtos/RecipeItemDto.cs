@@ -1,4 +1,4 @@
 ﻿namespace Back.Application.Dtos
 {
-    public record RecipeItemDto(Guid RecipeId, Guid IngredientId, int Quantity);
+    public record RecipeItemDto(Guid RecipeId, Guid IngredientId, decimal Quantity);
 }

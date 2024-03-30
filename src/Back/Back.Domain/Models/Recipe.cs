@@ -47,7 +47,7 @@ namespace Back.Domain.Models
             Instructions = instructions;
             TimeToPrepare = timetoprepare;
 
-            AddDomainEvent(new RecipeUpdateEvent(this));
+            AddDomainEvent(new RecipeUpdatedEvent(this));
         }
 
         public void Add(IngredientId ingredientId, decimal quantity)
