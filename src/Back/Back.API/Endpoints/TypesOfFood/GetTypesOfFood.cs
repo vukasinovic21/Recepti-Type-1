@@ -3,7 +3,7 @@ using Back.Domain.Models;
 
 namespace Back.API.Endpoints.TypesOfFood
 {
-    public record GetTypesOfFoodResponse(IEnumerable<TypeOfFood> TypesOfFood);
+    public record GetTypesOfFoodResponse(IEnumerable<TypeOfFoodDto> TypesOfFood);
     public class GetTypesOfFood : ICarterModule
     {
         public void AddRoutes(IEndpointRouteBuilder app)

@@ -3,5 +3,5 @@
     public record GetQuestionsQuery()
         : IQuery<GetQuestionsResult>;
 
-    public record GetQuestionsResult(IEnumerable<Question> Questions);
+    public record GetQuestionsResult(IEnumerable<QuestionDto> Questions);
 }

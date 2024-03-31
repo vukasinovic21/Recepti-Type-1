@@ -1,7 +1,4 @@
-﻿using Back.Application.Dtos;
-using Back.Domain.Models;
-
-namespace Back.Application.Extensions
+﻿namespace Back.Application.Extensions
 {
     public static class RecipeExtensions
     {

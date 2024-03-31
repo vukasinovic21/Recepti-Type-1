@@ -3,7 +3,7 @@ using Back.Domain.Models;
 
 namespace Back.API.Endpoints.Questions
 {
-    public record GetQuestionsResponse(IEnumerable<Question> Questions);
+    public record GetQuestionsResponse(IEnumerable<QuestionDto> Questions);
     public class GetQuestions : ICarterModule
     {
         public void AddRoutes(IEndpointRouteBuilder app)

@@ -6,11 +6,11 @@
         public async Task<GetQuestionsResult> Handle(GetQuestionsQuery query, CancellationToken cancellationToken)
         {
 
-            List<Question> questions = await dbContext.Questions
+            var questions = await dbContext.Questions
                                 .OrderBy(q => q.QuestionName)
                                 .ToListAsync(cancellationToken);
 
-            return new GetQuestionsResult(questions);
+            return new GetQuestionsResult(questions.ToQuestionsDtotoList());
         }
     }
 }

@@ -6,11 +6,11 @@
         public async Task<GetTypesOfFoodResult> Handle(GetTypesOfFoodQuery query, CancellationToken cancellationToken)
         {
 
-            List<TypeOfFood> typesoffood = await dbContext.TypesOfFood
+            var typesoffood = await dbContext.TypesOfFood
                                 .OrderBy(tof => tof.Id)
                                 .ToListAsync(cancellationToken);
 
-            return new GetTypesOfFoodResult(typesoffood);
+            return new GetTypesOfFoodResult(typesoffood.ToTypesOfFoodDtotoList());
         }
     }
 }

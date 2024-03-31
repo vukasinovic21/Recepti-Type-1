@@ -3,5 +3,5 @@
     public record GetTypesOfFoodQuery()
         : IQuery<GetTypesOfFoodResult>;
 
-    public record GetTypesOfFoodResult(IEnumerable<TypeOfFood> TypesOfFood);
+    public record GetTypesOfFoodResult(IEnumerable<TypeOfFoodDto> TypesOfFood);
 }

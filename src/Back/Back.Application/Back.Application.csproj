@@ -20,10 +20,8 @@
     <Folder Include="Ingredients\Queries\" />
     <Folder Include="Likes\Commands\" />
     <Folder Include="Likes\Queries\" />
-    <Folder Include="Questions\Commands\" />
     <Folder Include="RecipeItems\Commands\" />
     <Folder Include="RecipeItems\Queries\" />
-    <Folder Include="TypesOfFood\Commands\" />
     <Folder Include="Users\Commands\" />
     <Folder Include="Users\Queries\" />
   </ItemGroup>
