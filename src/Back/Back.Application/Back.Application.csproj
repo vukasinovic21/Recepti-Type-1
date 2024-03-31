@@ -15,4 +15,17 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Ingredients\Commands\" />
+    <Folder Include="Ingredients\Queries\" />
+    <Folder Include="Likes\Commands\" />
+    <Folder Include="Likes\Queries\" />
+    <Folder Include="Questions\Commands\" />
+    <Folder Include="RecipeItems\Commands\" />
+    <Folder Include="RecipeItems\Queries\" />
+    <Folder Include="TypesOfFood\Commands\" />
+    <Folder Include="Users\Commands\" />
+    <Folder Include="Users\Queries\" />
+  </ItemGroup>
+
 </Project>

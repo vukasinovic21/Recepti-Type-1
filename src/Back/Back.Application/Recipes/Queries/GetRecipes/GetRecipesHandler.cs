@@ -30,5 +30,4 @@ namespace Back.Application.Recipes.Queries.GetRecipes
                     recipes.ToRecipeDtotoList()));
         }
     }
-
 }
