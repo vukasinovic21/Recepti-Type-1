@@ -4,6 +4,18 @@ using Back.Infrastructure;
 using Back.Infrastructure.Data.Extentions;
 
 var builder = WebApplication.CreateBuilder(args);
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("*")
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod();
+                      });
+});
 
 // Add services to the container
 
@@ -11,7 +23,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services
     .AddApplicationServices()
     .AddInfrastructureServices(builder.Configuration)
-    .AddApiServices();
+    .AddApiServices(builder.Configuration);
 
 //Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -27,6 +39,8 @@ if(app.Environment.IsDevelopment())
 {
     await app.InitializeDatabaseAsync(); //uverava se da se izvrsava Update-Database komanda pri svakom pokretanju
 }
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseSwagger();
 app.UseSwaggerUI(c =>
