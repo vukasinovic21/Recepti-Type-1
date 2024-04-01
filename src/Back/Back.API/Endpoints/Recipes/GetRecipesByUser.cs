@@ -16,7 +16,7 @@ namespace Back.API.Endpoints.Recipes
                 return Results.Ok(response);
             })
             .WithName("GetRecipesByUser")
-            .Produces<CreateRecipeResponse>(StatusCodes.Status200OK)
+            .Produces<GetRecipesByUserResponse>(StatusCodes.Status200OK)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .ProducesProblem(StatusCodes.Status404NotFound)
             .WithSummary("Get Recipes By User")

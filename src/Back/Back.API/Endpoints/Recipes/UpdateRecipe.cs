@@ -20,7 +20,7 @@ namespace Back.API.Endpoints.Recipes
                 return Results.Ok(response);
             })
             .WithName("UpdateRecipe")
-            .Produces<CreateRecipeResponse>(StatusCodes.Status200OK)
+            .Produces<UpdateRecipeResponse>(StatusCodes.Status200OK)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Update Recipe")
             .WithDescription("Update Recipe"); ;
