@@ -31,12 +31,12 @@ namespace Back.Domain.Models
             DietName = dietname;
         }
 
-        public void Add(RecipeId recipeId/*, TypeOfMealId typeofmealId*/, DayOfWeek dayOfWeek)
+        /*public void Add(RecipeId recipeId, TypeOfMealId typeOfMealId, DayOfWeek dayOfWeek)
         {
-            var planOfDiet = new PlanOfDiet(Id, recipeId/*, typeofmealId*/, dayOfWeek);
+            var planOfDiet = new PlanOfDiet(Id, recipeId, typeOfMealId, dayOfWeek);
             _planOFDiets.Add(planOfDiet);
         }
-
+        */
         public void Remove(RecipeId recipeId)
         {
             var planOfDiet = _planOFDiets.FirstOrDefault(x => x.RecipeId == recipeId);

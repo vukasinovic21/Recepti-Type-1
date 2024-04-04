@@ -229,7 +229,7 @@ namespace Back.Infrastructure.Data.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     RecipeId = table.Column<Guid>(type: "uuid", nullable: false),
                     DietId = table.Column<Guid>(type: "uuid", nullable: false),
-                    //TypeOfMealId = table.Column<Guid>(type: "uuid", nullable: false),
+                    TypeOfMealId = table.Column<Guid>(type: "uuid", nullable: false),
                     DayOfWeek = table.Column<string>(type: "text", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     CreatedBy = table.Column<string>(type: "text", nullable: true),
@@ -240,7 +240,7 @@ namespace Back.Infrastructure.Data.Migrations
                 {
                     table.PrimaryKey("PK_PlanOfDiets", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PlanOfDiets_Diets_DietsId",
+                        name: "FK_PlanOfDiets_Diets_DietId",
                         column: x => x.DietId,
                         principalTable: "Diets",
                         principalColumn: "Id",
@@ -251,12 +251,12 @@ namespace Back.Infrastructure.Data.Migrations
                         principalTable: "Recipes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    /*table.ForeignKey(
-                        name: "FK_PlanOfDiets_TypesOfMeal_TypeOfMealId",
-                        column: x => x.TypeOfMealId,
-                        principalTable: "TypesOfMeal",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);*/
+                    table.ForeignKey(
+                       name: "FK_PlanOfDiets_TypesOfMeal_TypeOfMealId",
+                       column: x => x.TypeOfMealId,
+                       principalTable: "TypesOfMeal",
+                       principalColumn: "Id",
+                       onDelete: ReferentialAction.Cascade);
                 });
             
             migrationBuilder.CreateIndex(
@@ -311,11 +311,11 @@ namespace Back.Infrastructure.Data.Migrations
                 table: "PlanOfDiets",
                 column: "RecipeId");
 
-           /* migrationBuilder.CreateIndex(
+            migrationBuilder.CreateIndex(
                 name: "IX_PlanOfDiets_TypeOfMealId",
                 table: "PlanOfDiets",
                 column: "TypeOfMealId");
-            */
+            
             migrationBuilder.CreateIndex(
                 name: "IX_Diets_UserId",
                 table: "Diets",

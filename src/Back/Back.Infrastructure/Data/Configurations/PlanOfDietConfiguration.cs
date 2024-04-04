@@ -17,11 +17,11 @@ namespace Back.Infrastructure.Data.Configurations
             builder.HasOne<Recipe>()
                 .WithMany()
                 .HasForeignKey(pod => pod.RecipeId);
-
+            
             /*builder.HasOne<TypeOfMeal>()
                 .WithMany()
                 .HasForeignKey(pod => pod.TypeOfMealId);*/
-
+            
             builder.Property(pod => pod.DayOfWeek).IsRequired();
         }
     }

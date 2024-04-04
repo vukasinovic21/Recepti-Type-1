@@ -503,11 +503,11 @@ namespace Back.Infrastructure.Data.Migrations
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired();
             
-                /*b.HasOne("Back.Domain.Models.TypeOfMeal", null)
+                b.HasOne("Back.Domain.Models.TypeOfMeal", null)
                     .WithMany()
                     .HasForeignKey("TypeOfMealId")
                     .OnDelete(DeleteBehavior.Cascade)
-                    .IsRequired();*/
+                    .IsRequired();
             });
 
             modelBuilder.Entity("Back.Domain.Models.Diet", b =>

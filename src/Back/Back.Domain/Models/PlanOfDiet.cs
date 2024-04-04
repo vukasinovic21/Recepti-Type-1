@@ -5,12 +5,12 @@ namespace Back.Domain.Models
 {
     public class PlanOfDiet : Entity<PlanOfDietId>
     {
-        public PlanOfDiet(DietId dietId, RecipeId recipeId/*, TypeOfMealId TYPE*/, DayOfWeek dayOfWeek)
+        public PlanOfDiet(DietId dietId, RecipeId recipeId/*, TypeOfMealId typeOfMeal*/, DayOfWeek dayOfWeek)
         {
             Id = PlanOfDietId.Of(Guid.NewGuid());
             DietId = dietId;
             RecipeId = recipeId;
-            //TypeOfMealId = TYPE;
+            //TypeOfMealId = typeOfMeal;
             DayOfWeek = dayOfWeek;
         }
 
