@@ -42,6 +42,16 @@ namespace Back.Infrastructure.Data.Extentions
                TypeOfFood.Create(TypeOfFoodId.Of(new Guid("08a5ba31-df41-4175-bad5-5319cc8a12cf")),"Desert"),
            };
 
+        public static IEnumerable<TypeOfMeal> TypesOfMeal =>
+           new List<TypeOfMeal>
+           {
+               TypeOfMeal.Create(TypeOfMealId.Of(new Guid("01a5ba31-d107-41cc-9902-7da073e9f43b")),"Dorucak"),
+               TypeOfMeal.Create(TypeOfMealId.Of(new Guid("02863f22-e6ca-404f-a909-eb685273e786")),"Uzina prepodne"),
+               TypeOfMeal.Create(TypeOfMealId.Of(new Guid("03d56869-ec65-86e7-4de2-e004e9167ac8")),"Rucak"),
+               TypeOfMeal.Create(TypeOfMealId.Of(new Guid("04bb129c-76e6-3cd1-db54-b41521ed91bb")),"Uzina popodne"),
+               TypeOfMeal.Create(TypeOfMealId.Of(new Guid("056cb8fd-c9c7-435c-ac00-574c82929c34")),"Vecera"),
+           };
+
         public static IEnumerable<Recipe> RecipeWithItems
         {
             get

@@ -20,6 +20,9 @@
     <Folder Include="Ingredients\Queries\" />
     <Folder Include="Likes\Commands\" />
     <Folder Include="Likes\Queries\" />
+    <Folder Include="Diets\" />
+    <Folder Include="PlanOfDiets\" />
+    <Folder Include="TypesOfMeal\" />
     <Folder Include="RecipeItems\Commands\" />
     <Folder Include="RecipeItems\Queries\" />
     <Folder Include="Users\Commands\" />

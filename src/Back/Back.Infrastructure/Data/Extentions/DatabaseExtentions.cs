@@ -25,8 +25,11 @@ namespace Back.Infrastructure.Data.Extentions
             await SeedQuestionAsync(context);
             await SeedTypeOfFoodAsync(context);
             await SeedRecipeItemAsync(context);
+            await SeedTypeOfMealAsync(context); // dorucak, uzina1, rucak, uzina2, vecera
             //await SeedRecipeAsync(context); //mozda da se popunjava iz nekog fajla vec postojecih 
             //await SeedLikeAsync(context);
+            //await SeedDiets(context);
+
         }
 
         private static async Task SeedUserAsync(ApplicationDbContext context)//ako je prazna USERS tabela da se popuni na odgovarajuci nacin
@@ -61,6 +64,16 @@ namespace Back.Infrastructure.Data.Extentions
                 await context.SaveChangesAsync();
             }
         }
+
+        private static async Task SeedTypeOfMealAsync(ApplicationDbContext context)//ako je prazna TYPESOFMEAL tabela da se popuni na odgovarajuci nacin
+        {
+            if (!await context.TypesOfMeal.AnyAsync())
+            {
+                await context.TypesOfMeal.AddRangeAsync(InitialData.TypesOfMeal);
+                await context.SaveChangesAsync();
+            }
+        }
+
         private static async Task SeedRecipeItemAsync(ApplicationDbContext context)//popunjava RECIPES and RECIPEITEMS
         {
             if (!await context.Recipes.AnyAsync())
