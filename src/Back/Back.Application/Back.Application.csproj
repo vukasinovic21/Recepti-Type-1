@@ -16,11 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Diets\Commands\DeleteDiet\" />
+    <Folder Include="Diets\Commands\UpdateDiet\" />
     <Folder Include="Ingredients\Commands\" />
     <Folder Include="Ingredients\Queries\" />
     <Folder Include="Likes\Commands\" />
     <Folder Include="Likes\Queries\" />
-    <Folder Include="Diets\" />
     <Folder Include="PlanOfDiets\" />
     <Folder Include="TypesOfMeal\" />
     <Folder Include="RecipeItems\Commands\" />

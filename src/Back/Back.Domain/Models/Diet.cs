@@ -5,8 +5,8 @@ namespace Back.Domain.Models
 {
     public class Diet : Entity<DietId>
     {
-        private readonly List<PlanOfDiet> _planOFDiets = new(); //lista svih obroka
-        public IReadOnlyList<PlanOfDiet> PlanOfDiets => _planOFDiets.AsReadOnly();
+        private readonly List<PlanOfDiet> _planOfDiets = new(); //lista svih obroka
+        public IReadOnlyList<PlanOfDiet> PlanOfDiets => _planOfDiets.AsReadOnly();
         public UserId UserId { get; private set; } = default!;
         public string DietName { get; private set; } = default!;
         public UserId NutritionId { get; private set; } = default!;
@@ -20,7 +20,7 @@ namespace Back.Domain.Models
                 Id = id,
                 UserId = userId,
                 DietName = dietname,
-                NutritionId = null, //dok se ne stavi da moze nutricionista da zadaje planove ishrane
+                NutritionId = userId, //dok se ne stavi da moze nutricionista da zadaje planove ishrane
             };
 
             return diet;
@@ -34,15 +34,15 @@ namespace Back.Domain.Models
         public void Add(RecipeId recipeId, TypeOfMealId typeOfMealId, DayOfWeek dayOfWeek)
         {
             var planOfDiet = new PlanOfDiet(Id, recipeId, typeOfMealId, dayOfWeek);
-            _planOFDiets.Add(planOfDiet);
+            _planOfDiets.Add(planOfDiet);
         }
         
         public void Remove(RecipeId recipeId)
         {
-            var planOfDiet = _planOFDiets.FirstOrDefault(x => x.RecipeId == recipeId);
+            var planOfDiet = _planOfDiets.FirstOrDefault(x => x.RecipeId == recipeId);
             if (planOfDiet is not null)
             {
-                _planOFDiets.Remove(planOfDiet);
+                _planOfDiets.Remove(planOfDiet);
             }
         }
     }

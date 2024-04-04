@@ -230,7 +230,7 @@ namespace Back.Infrastructure.Data.Migrations
                     RecipeId = table.Column<Guid>(type: "uuid", nullable: false),
                     DietId = table.Column<Guid>(type: "uuid", nullable: false),
                     TypeOfMealId = table.Column<Guid>(type: "uuid", nullable: false),
-                    DayOfWeek = table.Column<string>(type: "text", nullable: true),
+                    DayOfWeek = table.Column<string>(type: "numeric", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     CreatedBy = table.Column<string>(type: "text", nullable: true),
                     LastModifiedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),

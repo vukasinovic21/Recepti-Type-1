@@ -314,7 +314,7 @@ namespace Back.Infrastructure.Data.Migrations
                     .HasColumnType("text");
 
                 b.Property<string>("DayOfWeek")
-                    .HasColumnType("text");
+                    .HasColumnType("numeric");
 
                 b.Property<Guid>("RecipeId")
                     .HasColumnType("uuid");
@@ -514,6 +514,7 @@ namespace Back.Infrastructure.Data.Migrations
             {
                 b.Navigation("PlanOfDiets");
             });
+
 #pragma warning restore 612, 618
         }
     }
