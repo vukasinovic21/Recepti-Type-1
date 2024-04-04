@@ -18,9 +18,9 @@ namespace Back.Infrastructure.Data.Configurations
                 .WithMany()
                 .HasForeignKey(pod => pod.RecipeId);
             
-            /*builder.HasOne<TypeOfMeal>()
+            builder.HasOne<TypeOfMeal>()
                 .WithMany()
-                .HasForeignKey(pod => pod.TypeOfMealId);*/
+                .HasForeignKey(pod => pod.TypeOfMealId);
             
             builder.Property(pod => pod.DayOfWeek).IsRequired();
         }
