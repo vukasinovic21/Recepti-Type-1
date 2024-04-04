@@ -29,7 +29,6 @@
   <ItemGroup>
     <Folder Include="Endpoints\Ingredients\" />
     <Folder Include="Endpoints\Auth\" />
-    <Folder Include="Endpoints\TypesOfMeal\" />
   </ItemGroup>
 
 </Project>

@@ -23,9 +23,9 @@
     <Folder Include="Likes\Commands\" />
     <Folder Include="Likes\Queries\" />
     <Folder Include="PlanOfDiets\" />
-    <Folder Include="TypesOfMeal\" />
     <Folder Include="RecipeItems\Commands\" />
     <Folder Include="RecipeItems\Queries\" />
+    <Folder Include="TypesOfMeal\Commands\" />
     <Folder Include="Users\Commands\" />
     <Folder Include="Users\Queries\" />
   </ItemGroup>

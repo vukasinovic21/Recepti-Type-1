@@ -15,8 +15,6 @@
                 .OrderBy(d => d.DietName)
                 .ToListAsync(cancellationToken);
 
-            Console.WriteLine("\n" + diets[0].PlanOfDiets[0].DayOfWeek + "\n");
-
             return new GetDietsByUserResult(diets.ToDietDtotoList());
         }
     }
