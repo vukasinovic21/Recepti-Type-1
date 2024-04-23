@@ -20,7 +20,6 @@
     <Folder Include="Diets\Commands\UpdateDiet\" />
     <Folder Include="Ingredients\Commands\" />
     <Folder Include="Ingredients\Queries\" />
-    <Folder Include="Likes\Commands\" />
     <Folder Include="Likes\Queries\" />
     <Folder Include="PlanOfDiets\" />
     <Folder Include="RecipeItems\Commands\" />

@@ -25,7 +25,7 @@ namespace Back.Domain.Models
 
             var user = new User
             {
-                Id = id,
+                Id = UserId.Of(Guid.NewGuid()),
                 Name = name,
                 LastName = lastname,
                 Username = username,
