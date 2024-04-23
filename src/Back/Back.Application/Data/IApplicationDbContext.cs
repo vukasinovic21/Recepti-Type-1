@@ -11,6 +11,9 @@ namespace Back.Application.Data
         DbSet<Question> Questions { get; }
         DbSet<TypeOfFood> TypesOfFood { get; }
         DbSet<Like> Likes { get; }
+        DbSet<Diet> Diets { get; }
+        DbSet<TypeOfMeal> TypesOfMeal { get; }
+        DbSet<PlanOfDiet> PlanOfDiets { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

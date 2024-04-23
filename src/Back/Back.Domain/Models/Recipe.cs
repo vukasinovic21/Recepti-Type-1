@@ -1,7 +1,6 @@
 ﻿using Back.Domain.Abstractions;
 using Back.Domain.Events;
 using Back.Domain.ValueObjects;
-using System.Xml.Linq;
 
 namespace Back.Domain.Models
 {

@@ -257,6 +257,111 @@ namespace Back.Infrastructure.Data.Migrations
 
                     b.ToTable("TypesOfFood");
                 });
+            //Diet
+            modelBuilder.Entity("Back.Domain.Models.Diet", b =>
+            {
+                b.Property<Guid>("Id")
+                    .HasColumnType("uuid");
+
+                b.Property<DateTime?>("CreatedAt")
+                    .HasColumnType("timestamp with time zone");
+
+                b.Property<string>("CreatedBy")
+                    .HasColumnType("text");
+
+                b.Property<DateTime?>("LastModifiedAt")
+                    .HasColumnType("timestamp with time zone");
+
+                b.Property<string>("LastModifiedBy")
+                    .HasColumnType("text");
+
+                b.Property<string>("DietName")
+                    .IsRequired()
+                    .HasMaxLength(256)
+                    .HasColumnType("character varying(256)");
+
+                b.Property<Guid>("UserId")
+                    .HasColumnType("uuid");
+
+                b.Property<Guid>("NutritionId")
+                    .HasColumnType("uuid");
+
+                b.HasKey("Id");
+
+                b.HasIndex("UserId");
+
+                b.ToTable("Diets");
+            });
+            //PlanOfDiet
+            modelBuilder.Entity("Back.Domain.Models.PlanOfDiet", b =>
+            {
+                b.Property<Guid>("Id")
+                    .HasColumnType("uuid");
+
+                b.Property<DateTime?>("CreatedAt")
+                    .HasColumnType("timestamp with time zone");
+
+                b.Property<string>("CreatedBy")
+                    .HasColumnType("text");
+
+                b.Property<Guid>("DietId")
+                    .HasColumnType("uuid");
+
+                b.Property<DateTime?>("LastModifiedAt")
+                    .HasColumnType("timestamp with time zone");
+
+                b.Property<string>("LastModifiedBy")
+                    .HasColumnType("text");
+
+                b.Property<string>("DayOfWeek")
+                    .HasColumnType("numeric");
+
+                b.Property<Guid>("RecipeId")
+                    .HasColumnType("uuid");
+
+               /* b.Property<Guid>("TypeOfMealId")
+                        .HasColumnType("uuid");*/
+
+                b.HasKey("Id");
+
+                b.HasIndex("DietId");
+
+                b.HasIndex("RecipeId");
+
+                //b.HasIndex("TypeOfMealId");
+
+                b.ToTable("PlanOfDiets");
+            });
+            //TypeOfMeal
+            modelBuilder.Entity("Back.Domain.Models.TypeOfMeal", b =>
+            {
+                b.Property<Guid>("Id")
+                    .HasColumnType("uuid");
+
+                b.Property<DateTime?>("CreatedAt")
+                    .HasColumnType("timestamp with time zone");
+
+                b.Property<string>("CreatedBy")
+                    .HasColumnType("text");
+
+                b.Property<DateTime?>("LastModifiedAt")
+                    .HasColumnType("timestamp with time zone");
+
+                b.Property<string>("LastModifiedBy")
+                    .HasColumnType("text");
+
+                b.Property<string>("TypeName")
+                    .IsRequired()
+                    .HasMaxLength(256)
+                    .HasColumnType("character varying(256)");
+
+                b.HasKey("Id");
+
+                b.HasIndex("TypeName")
+                    .IsUnique();
+
+                b.ToTable("TypesOfMeal");
+            });
 
             modelBuilder.Entity("Back.Domain.Models.User", b =>
                 {
@@ -374,6 +479,42 @@ namespace Back.Infrastructure.Data.Migrations
                 {
                     b.Navigation("RecipeItems");
                 });
+            
+            modelBuilder.Entity("Back.Domain.Models.Diet", b =>
+            {
+                b.HasOne("Back.Domain.Models.User", null)
+                    .WithMany()
+                    .HasForeignKey("UserId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+            });
+            
+            modelBuilder.Entity("Back.Domain.Models.PlanOfDiet", b =>
+            {
+                b.HasOne("Back.Domain.Models.Diet", null)
+                    .WithMany("PlanOfDiets")
+                    .HasForeignKey("DietId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+
+                b.HasOne("Back.Domain.Models.Recipe", null)
+                    .WithMany()
+                    .HasForeignKey("RecipeId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+            
+                b.HasOne("Back.Domain.Models.TypeOfMeal", null)
+                    .WithMany()
+                    .HasForeignKey("TypeOfMealId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+            });
+
+            modelBuilder.Entity("Back.Domain.Models.Diet", b =>
+            {
+                b.Navigation("PlanOfDiets");
+            });
+
 #pragma warning restore 612, 618
         }
     }

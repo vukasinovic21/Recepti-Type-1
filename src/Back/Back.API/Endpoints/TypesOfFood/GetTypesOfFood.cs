@@ -1,5 +1,4 @@
 ﻿using Back.Application.TypesOfFood.Queries.GetTypesOfFood;
-using Back.Domain.Models;
 
 namespace Back.API.Endpoints.TypesOfFood
 {

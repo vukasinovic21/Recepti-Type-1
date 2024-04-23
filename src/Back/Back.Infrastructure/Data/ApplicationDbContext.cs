@@ -17,7 +17,9 @@ namespace Back.Infrastructure.Data
         public DbSet<Question> Questions => Set<Question>();
         public DbSet<TypeOfFood> TypesOfFood => Set<TypeOfFood>();
         public DbSet<Like> Likes => Set<Like>();
-
+        public DbSet<Diet> Diets => Set<Diet>();
+        public DbSet<TypeOfMeal> TypesOfMeal => Set<TypeOfMeal>();
+        public DbSet<PlanOfDiet> PlanOfDiets => Set<PlanOfDiet>();
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
