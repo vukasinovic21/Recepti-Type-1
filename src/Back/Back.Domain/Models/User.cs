@@ -10,6 +10,7 @@ namespace Back.Domain.Models
         public string Username { get; private set; } = default!;
         public string Email { get; private set; } = default!;
         public string PasswordHash { get; private set; } = default!;
+        //public string QuestionId { get; private set; } = default!; //Ipak bi valjalo da se ubaci jer je logicnije tako. 
         public string ForgotPasswordAnswerHash { get; private set; } = default!;
         public DateOnly DateOfBirth { get; private set; } = default!;
         public string Role { get; private set; } = default!;
