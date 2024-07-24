@@ -10,7 +10,7 @@ import { AllUsersComponent } from '../all-users/all-users.component';
   declarations: [
     UserComponent,
     AdminComponent,
-    AllUsersComponent
+    AllUsersComponent,
   ],
   imports: [
     CommonModule

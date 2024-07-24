@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RecipeComponent } from './recipe.component';
 import { AllRecipesComponent } from '../all-recipes/all-recipes.component';
 import { CreateRecipeComponent } from '../create-recipe/create-recipe.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,9 @@ import { CreateRecipeComponent } from '../create-recipe/create-recipe.component'
     CreateRecipeComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class RecipeModule { }
