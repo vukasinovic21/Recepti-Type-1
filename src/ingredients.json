@@ -1,0 +1,1685 @@
+{
+  "Ingredients": [
+    {
+      "Id": "c68a6c5e-6f7f-4e5d-a07a-fc11e0edff05",
+      "Name": "Jabuka",
+      "Carbs": 13.8,
+      "Sugar": 10.4,
+      "Fat": 0.2,
+      "Protein": 0.3,
+      "kCal": 52,
+      "GI": 36
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c13",
+      "Name": "Banana",
+      "Carbs": 22.8,
+      "Sugar": 12.2,
+      "Fat": 0.3,
+      "Protein": 1.1,
+      "kCal": 89,
+      "GI": 51
+    },
+    {
+      "Id": "93d005bf-4e94-4e36-bb5b-9b163c4269eb",
+      "Name": "Šargarepa",
+      "Carbs": 9.6,
+      "Sugar": 4.7,
+      "Fat": 0.2,
+      "Protein": 0.6,
+      "kCal": 41,
+      "GI": 71
+    },
+    {
+      "Id": "9dcb8b18-7eb0-42e7-9359-fb0c03d3d110",
+      "Name": "Tikvica",
+      "Carbs": 3.1,
+      "Sugar": 2.1,
+      "Fat": 0.3,
+      "Protein": 1.2,
+      "kCal": 17,
+      "GI": 15
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c14",
+      "Name": "Kruška",
+      "Carbs": 15.5,
+      "Sugar": 9.8,
+      "Fat": 0.1,
+      "Protein": 0.4,
+      "kCal": 57,
+      "GI": 38
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c15",
+      "Name": "Kupina",
+      "Carbs": 7.7,
+      "Sugar": 4.4,
+      "Fat": 0.5,
+      "Protein": 1.3,
+      "kCal": 43,
+      "GI": 34
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c16",
+      "Name": "Zelena Salata",
+      "Carbs": 2.9,
+      "Sugar": 1.2,
+      "Fat": 0.2,
+      "Protein": 1.3,
+      "kCal": 15,
+      "GI": 10
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c18",
+      "Name": "Pileće Mes",
+      "Carbs": 0,
+      "Sugar": 0,
+      "Fat": 3.6,
+      "Protein": 31,
+      "kCal": 165,
+      "GI": 0
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c19",
+      "Name": "Jaje",
+      "Carbs": 0.6,
+      "Sugar": 0.6,
+      "Fat": 5.6,
+      "Protein": 12.7,
+      "kCal": 143,
+      "GI": 0
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c20",
+      "Name": "Mleko",
+      "Carbs": 4.7,
+      "Sugar": 4.7,
+      "Fat": 3.5,
+      "Protein": 3.4,
+      "kCal": 65,
+      "GI": 27
+    },
+	{
+      "Id": "c68a6c5e-6f7f-4e5d-a07a-fc11e0edff06",
+      "Name": "Žitarice",
+      "Carbs": 67.5,
+      "Sugar": 0.7,
+      "Fat": 1.6,
+      "Protein": 13.8,
+      "kCal": 353,
+      "GI": 60
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c21",
+      "Name": "Hleb",
+      "Carbs": 49.4,
+      "Sugar": 1.2,
+      "Fat": 1.3,
+      "Protein": 10.4,
+      "kCal": 268,
+      "GI": 71
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c22",
+      "Name": "Maslinovo Ulje",
+      "Carbs": 0,
+      "Sugar": 0,
+      "Fat": 100,
+      "Protein": 0,
+      "kCal": 884,
+      "GI": 0
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c23",
+      "Name": "Avokado",
+      "Carbs": 8.5,
+      "Sugar": 0.7,
+      "Fat": 14.7,
+      "Protein": 2,
+      "kCal": 160,
+      "GI": 15
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c24",
+      "Name": "Jagode",
+      "Carbs": 5.5,
+      "Sugar": 4.9,
+      "Fat": 0.5,
+      "Protein": 0.8,
+      "kCal": 29,
+      "GI": 40
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c25",
+      "Name": "Pasulj",
+      "Carbs": 22.8,
+      "Sugar": 0.3,
+      "Fat": 0.6,
+      "Protein": 7,
+      "kCal": 116,
+      "GI": 50
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c26",
+      "Name": "Riba",
+      "Carbs": 0,
+      "Sugar": 0,
+      "Fat": 4,
+      "Protein": 21.4,
+      "kCal": 119,
+      "GI": 0
+    },
+	{
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c27",
+      "Name": "Spanać",
+      "Carbs": 3.6,
+      "Sugar": 0.4,
+      "Fat": 0.4,
+      "Protein": 2.9,
+      "kCal": 23,
+      "GI": 15
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c28",
+      "Name": "Kinoa",
+      "Carbs": 21.3,
+      "Sugar": 0.9,
+      "Fat": 1.5,
+      "Protein": 4.4,
+      "kCal": 120,
+      "GI": 35
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c29",
+      "Name": "Bademi",
+      "Carbs": 4.5,
+      "Sugar": 1.2,
+      "Fat": 49.9,
+      "Protein": 21,
+      "kCal": 575,
+      "GI": 0
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c30",
+      "Name": "Orasi",
+      "Carbs": 13.7,
+      "Sugar": 2.6,
+      "Fat": 61,
+      "Protein": 15.2,
+      "kCal": 654,
+      "GI": 15
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c31",
+      "Name": "Svinjska Rebrenica",
+      "Carbs": 0,
+      "Sugar": 0,
+      "Fat": 31.6,
+      "Protein": 30.5,
+      "kCal": 417,
+      "GI": 0
+    },
+	{
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c32",
+      "Name": "Krompir",
+      "Carbs": 17.5,
+      "Sugar": 0.8,
+      "Fat": 0.1,
+      "Protein": 2,
+      "kCal": 77,
+      "GI": 87
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c33",
+      "Name": "Crveni Biber",
+      "Carbs": 9,
+      "Sugar": 4.2,
+      "Fat": 0.6,
+      "Protein": 1.9,
+      "kCal": 40,
+      "GI": 15
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c34",
+      "Name": "Limun",
+      "Carbs": 9,
+      "Sugar": 2.5,
+      "Fat": 0.3,
+      "Protein": 1.1,
+      "kCal": 29,
+      "GI": 20
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c35",
+      "Name": "Masline",
+      "Carbs": 6,
+      "Sugar": 0,
+      "Fat": 10.7,
+      "Protein": 1.2,
+      "kCal": 115,
+      "GI": 15
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c36",
+      "Name": "Margarin",
+      "Carbs": 0.5,
+      "Sugar": 0,
+      "Fat": 80,
+      "Protein": 0.5,
+      "kCal": 721,
+      "GI": 0
+    },
+	{
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c37",
+      "Name": "Krastavac",
+      "Carbs": 3.6,
+      "Sugar": 1.7,
+      "Fat": 0.1,
+      "Protein": 0.7,
+      "kCal": 15,
+      "GI": 15
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c38",
+      "Name": "Paradajz",
+      "Carbs": 3.9,
+      "Sugar": 2.6,
+      "Fat": 0.2,
+      "Protein": 0.9,
+      "kCal": 18,
+      "GI": 38
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c39",
+      "Name": "Kupus",
+      "Carbs": 5,
+      "Sugar": 3.2,
+      "Fat": 0.1,
+      "Protein": 1.3,
+      "kCal": 25,
+      "GI": 10
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c40",
+      "Name": "Pileća Prsa",
+      "Carbs": 0,
+      "Sugar": 0,
+      "Fat": 1.2,
+      "Protein": 31.2,
+      "kCal": 136,
+      "GI": 0
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c41",
+      "Name": "Rajčice",
+      "Carbs": 3.9,
+      "Sugar": 2.6,
+      "Fat": 0.2,
+      "Protein": 0.9,
+      "kCal": 18,
+      "GI": 38
+    },
+	{
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c42",
+      "Name": "Kiseli Krastavac",
+      "Carbs": 4.1,
+      "Sugar": 3.1,
+      "Fat": 0.1,
+      "Protein": 0.4,
+      "kCal": 19,
+      "GI": 0
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c43",
+      "Name": "Crni Luk",
+      "Carbs": 8.2,
+      "Sugar": 4.7,
+      "Fat": 0.1,
+      "Protein": 1.3,
+      "kCal": 40,
+      "GI": 10
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c44",
+      "Name": "Belance",
+      "Carbs": 0.7,
+      "Sugar": 0.7,
+      "Fat": 0,
+      "Protein": 10.6,
+      "kCal": 48,
+      "GI": 0
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c45",
+      "Name": "Zumanjak",
+      "Carbs": 1.3,
+      "Sugar": 0.6,
+      "Fat": 10.6,
+      "Protein": 12.5,
+      "kCal": 143,
+      "GI": 0
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c46",
+      "Name": "Integralni Hleb",
+      "Carbs": 40,
+      "Sugar": 3,
+      "Fat": 2,
+      "Protein": 8,
+      "kCal": 221,
+      "GI": 55
+    },
+	{
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c48",
+      "Name": "Brokoli",
+      "Carbs": 6.6,
+      "Sugar": 1.7,
+      "Fat": 0.7,
+      "Protein": 2.8,
+      "kCal": 34,
+      "GI": 15
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c49",
+      "Name": "Losos",
+      "Carbs": 0,
+      "Sugar": 0,
+      "Fat": 13.4,
+      "Protein": 20.4,
+      "kCal": 208,
+      "GI": 0
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c50",
+      "Name": "Mleveno Meso",
+      "Carbs": 0,
+      "Sugar": 0,
+      "Fat": 10.4,
+      "Protein": 20.9,
+      "kCal": 199,
+      "GI": 0
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c51",
+      "Name": "Crvena Paprika",
+      "Carbs": 6,
+      "Sugar": 4.2,
+      "Fat": 0.2,
+      "Protein": 0.9,
+      "kCal": 31,
+      "GI": 15
+    },
+	{
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c52",
+      "Name": "Integralni Pirinač",
+      "Carbs": 28,
+      "Sugar": 0.7,
+      "Fat": 2.9,
+      "Protein": 6.5,
+      "kCal": 135,
+      "GI": 50
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c53",
+      "Name": "Bademovo Mleko",
+      "Carbs": 0.1,
+      "Sugar": 0.1,
+      "Fat": 1.1,
+      "Protein": 0.4,
+      "kCal": 13,
+      "GI": 0
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c54",
+      "Name": "Ovas",
+      "Carbs": 60,
+      "Sugar": 1,
+      "Fat": 6,
+      "Protein": 11,
+      "kCal": 342,
+      "GI": 55
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c55",
+      "Name": "Pistaći",
+      "Carbs": 27,
+      "Sugar": 7,
+      "Fat": 44,
+      "Protein": 20,
+      "kCal": 562,
+      "GI": 15
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c56",
+      "Name": "Cvekla",
+      "Carbs": 10,
+      "Sugar": 9,
+      "Fat": 0.1,
+      "Protein": 1.6,
+      "kCal": 43,
+      "GI": 64
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c57",
+      "Name": "Limunov Sok",
+      "Carbs": 9,
+      "Sugar": 2.5,
+      "Fat": 0.3,
+      "Protein": 0.6,
+      "kCal": 29,
+      "GI": 20
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c58",
+      "Name": "Kukuruz",
+      "Carbs": 19,
+      "Sugar": 6,
+      "Fat": 1.5,
+      "Protein": 3.2,
+      "kCal": 86,
+      "GI": 55
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c59",
+      "Name": "Riža",
+      "Carbs": 28,
+      "Sugar": 0.1,
+      "Fat": 0.3,
+      "Protein": 2.7,
+      "kCal": 130,
+      "GI": 70
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c60",
+      "Name": "Kokosovo Mleko",
+      "Carbs": 2.9,
+      "Sugar": 1.7,
+      "Fat": 20.3,
+      "Protein": 2.9,
+      "kCal": 197,
+      "GI": 60
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c61",
+      "Name": "Bundeva",
+      "Carbs": 7,
+      "Sugar": 2.8,
+      "Fat": 0.1,
+      "Protein": 1,
+      "kCal": 26,
+      "GI": 75
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c62",
+      "Name": "Jogurt",
+      "Carbs": 5,
+      "Sugar": 4.7,
+      "Fat": 3.3,
+      "Protein": 3.5,
+      "kCal": 61,
+      "GI": 20
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c64",
+      "Name": "Tofu",
+      "Carbs": 1.9,
+      "Sugar": 0.7,
+      "Fat": 6,
+      "Protein": 8,
+      "kCal": 70,
+      "GI": 15
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c65",
+      "Name": "Mango",
+      "Carbs": 14,
+      "Sugar": 12,
+      "Fat": 0.3,
+      "Protein": 0.8,
+      "kCal": 60,
+      "GI": 51
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c66",
+      "Name": "Bosiljak",
+      "Carbs": 2,
+      "Sugar": 0.3,
+      "Fat": 0.6,
+      "Protein": 3.2,
+      "kCal": 22,
+      "GI": 45
+    },
+    {
+      "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c67",
+      "Name": "Integralni Hleb",
+      "Carbs": 40,
+      "Sugar": 3,
+      "Fat": 2,
+      "Protein": 8,
+      "kCal": 221,
+      "GI": 55
+    },
+	{
+	  "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c68",
+	  "Name": "Peršun",
+	  "Carbs": 5.4,
+	  "Sugar": 0.9,
+	  "Fat": 0.8,
+	  "Protein": 3,
+	  "kCal": 36,
+	  "GI": 45
+	},
+	{
+	  "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c69",
+	  "Name": "Suncokretovo Ulje",
+	  "Carbs": 0,
+	  "Sugar": 0,
+	  "Fat": 100,
+	  "Protein": 0,
+	  "kCal": 884,
+	  "GI": 0
+	},
+	{
+	  "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c70",
+	  "Name": "Kelj",
+	  "Carbs": 5.8,
+	  "Sugar": 2.2,
+	  "Fat": 0.4,
+	  "Protein": 3.6,
+	  "kCal": 43,
+	  "GI": 10
+	},
+	{
+	  "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c72",
+	  "Name": "Majonez",
+	  "Carbs": 0.7,
+	  "Sugar": 0.6,
+	  "Fat": 67,
+	  "Protein": 1.1,
+	  "kCal": 659,
+	  "GI": 30
+	},
+	{
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c82",
+    "Name": "Ananas",
+    "Carbs": 13.1,
+    "Sugar": 9.9,
+    "Fat": 0.2,
+    "Protein": 0.5,
+    "kCal": 50,
+    "GI": 66
+    },
+	{
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c81",
+    "Name": "Rukola",
+    "Carbs": 2,
+    "Sugar": 1.6,
+    "Fat": 0.7,
+    "Protein": 2.6,
+    "kCal": 25,
+    "GI": 15
+    },
+	{
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c76",
+    "Name": "Heljda",
+    "Carbs": 71,
+    "Sugar": 0.4,
+    "Fat": 3,
+    "Protein": 13,
+    "kCal": 340,
+    "GI": 50
+    },
+	{
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c73",
+    "Name": "Ricinusovo Ulje",
+    "Carbs": 0,
+    "Sugar": 0,
+    "Fat": 100,
+    "Protein": 0,
+    "kCal": 884,
+    "GI": 0
+    },
+    {
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c74",
+    "Name": "Cimet",
+    "Carbs": 80.6,
+    "Sugar": 2.2,
+    "Fat": 1.2,
+    "Protein": 3.9,
+    "kCal": 247,
+    "GI": 45
+    },
+	{
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c85",
+    "Name": "Kvinoja",
+    "Carbs": 21,
+    "Sugar": 0.9,
+    "Fat": 1.9,
+    "Protein": 4,
+    "kCal": 120,
+    "GI": 35
+  },
+  {
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c86",
+    "Name": "Slatka Paprika",
+    "Carbs": 6,
+    "Sugar": 4.2,
+    "Fat": 0.2,
+    "Protein": 0.9,
+    "kCal": 31,
+    "GI": 15
+  },
+  {
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c87",
+    "Name": "Suncokretovo Seme",
+    "Carbs": 20,
+    "Sugar": 2.6,
+    "Fat": 51,
+    "Protein": 20,
+    "kCal": 584,
+    "GI": 25
+  },
+  {
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c88",
+    "Name": "Sočivo",
+    "Carbs": 63,
+    "Sugar": 2,
+    "Fat": 0.6,
+    "Protein": 25,
+    "kCal": 353,
+    "GI": 30
+  },
+  {
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c89",
+    "Name": "Špargla",
+    "Carbs": 3,
+    "Sugar": 1.9,
+    "Fat": 0.1,
+    "Protein": 2.2,
+    "kCal": 20,
+    "GI": 15
+  },
+  {
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c90",
+    "Name": "Kafa",
+    "Carbs": 0,
+    "Sugar": 0,
+    "Fat": 0.5,
+    "Protein": 0.3,
+    "kCal": 2,
+    "GI": 0
+  },
+  {
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c91",
+    "Name": "Zelena Jabuka",
+    "Carbs": 13,
+    "Sugar": 10,
+    "Fat": 0.2,
+    "Protein": 0.3,
+    "kCal": 52,
+    "GI": 40
+  },
+	{
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c94",
+    "Name": "Beli Luk",
+    "Carbs": 33.1,
+    "Sugar": 1,
+    "Fat": 0.2,
+    "Protein": 6.4,
+    "kCal": 149,
+    "GI": 10
+  },
+  {
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c95",
+    "Name": "Šunka",
+    "Carbs": 1,
+    "Sugar": 0.9,
+    "Fat": 1.3,
+    "Protein": 18.2,
+    "kCal": 87,
+    "GI": 0
+  },
+	{
+	"Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c98",
+	"Name": "Tuna",
+	"Carbs": 0,
+	"Sugar": 0,
+	"Fat": 1,
+	"Protein": 30,
+	"kCal": 132,
+	"GI": 0
+	},
+	{
+	  "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c99",
+	  "Name": "Med",
+	  "Carbs": 82,
+	  "Sugar": 82,
+	  "Fat": 0,
+	  "Protein": 0.3,
+	  "kCal": 304,
+	  "GI": 58
+	},
+	  {
+	  "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c102",
+	  "Name": "Riža",
+	  "Carbs": 28,
+	  "Sugar": 0.1,
+	  "Fat": 0.3,
+	  "Protein": 2.7,
+	  "kCal": 130,
+	  "GI": 70
+	},
+	  {
+	  "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c97",
+	  "Name": "Prokelj",
+	  "Carbs": 5.1,
+	  "Sugar": 0.9,
+	  "Fat": 0.4,
+	  "Protein": 3.2,
+	  "kCal": 43,
+	  "GI": 15
+	},
+	
+	{
+	"Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c92",
+	"Name": "Crveno Grožđe",
+	"Carbs": 18,
+	"Sugar": 15,
+	"Fat": 0.2,
+	"Protein": 0.6,
+	"kCal": 69,
+	"GI": 59
+	},
+  {
+	"Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c94",
+	"Name": "Kikiriki Puter",
+	"Carbs": 12.3,
+	"Sugar": 3.1,
+	"Fat": 49.2,
+	"Protein": 25.3,
+	"kCal": 567,
+	"GI": 14
+	},
+  {
+	"Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c97",
+	"Name": "Artičoka",
+	"Carbs": 10.5,
+	"Sugar": 0.4,
+	"Fat": 0.2,
+	"Protein": 3.3,
+	"kCal": 47,
+	"GI": 15
+	},
+	{
+	"Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c98",
+	"Name": "Keleraba",
+	"Carbs": 3.1,
+	"Sugar": 2.6,
+	"Fat": 0.2,
+	"Protein": 1.1,
+	"kCal": 20,
+	"GI": 23
+	},
+	{
+	"Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c99",
+	"Name": "Kajsija",
+	"Carbs": 11.1,
+	"Sugar": 9.2,
+	"Fat": 0.1,
+	"Protein": 0.9,
+	"kCal": 48,
+	"GI": 34
+	},
+	{
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c104",
+    "Name": "Šljiva",
+    "Carbs": 14,
+    "Sugar": 12,
+    "Fat": 0.2,
+    "Protein": 0.6,
+    "kCal": 54,
+    "GI": 24
+  },
+	{
+    "Id": "3c0d2183-3f67-4891-a2a9-b0c972a85c106",
+    "Name": "Grožđe",
+    "Carbs": 18,
+    "Sugar": 16,
+    "Fat": 0.2,
+    "Protein": 0.6,
+    "kCal": 69,
+    "GI": 59
+  },
+  {
+      "Id": "fa4a2c5b-d6d0-4e30-b160-2e6b4e6bf0d7",
+      "Name": "Breskva",
+      "Carbs": 9.5,
+      "Sugar": 8.4,
+      "Fat": 0.1,
+      "Protein": 0.9,
+      "kCal": 39,
+      "GI": 28
+    },
+	{
+      "Id": "06cb9a53-828a-486e-819d-bb88c90c14ad",
+      "Name": "Narandža",
+      "Carbs": 8.2,
+      "Sugar": 6.5,
+      "Fat": 0.2,
+      "Protein": 1.0,
+      "kCal": 43,
+      "GI": 42
+    },
+	{
+      "Id": "abbf9188-96d6-47c4-94d0-68200b1cf2c1",
+      "Name": "Višnja",
+      "Carbs": 11.4,
+      "Sugar": 11.3,
+      "Fat": 0.3,
+      "Protein": 0.8,
+      "kCal": 50,
+      "GI": 22
+    },
+    {
+      "Id": "f5e045e5-3ae9-41f8-bf88-3fae289cbb1c",
+      "Name": "Trešnja",
+      "Carbs": 11.5,
+      "Sugar": 11.1,
+      "Fat": 0.3,
+      "Protein": 0.8,
+      "kCal": 50,
+      "GI": 22
+    },
+    {
+      "Id": "049b90a7-8fe2-4fc8-8c63-0cb9c3633d48",
+      "Name": "Malina",
+      "Carbs": 4.5,
+      "Sugar": 4.4,
+      "Fat": 0.3,
+      "Protein": 1.3,
+      "kCal": 25,
+      "GI": 40
+    },
+	{
+      "Id": "2cf4fd11-f32d-4878-a31f-8a3da8d60f46",
+      "Name": "Dinja",
+      "Carbs": 6.9,
+      "Sugar": 6.2,
+      "Fat": 0.3,
+      "Protein": 0.6,
+      "kCal": 28,
+      "GI": 59
+    },
+    {
+      "Id": "53a71a20-9446-43c6-b92a-5ae27e82552d",
+      "Name": "Lubenica",
+      "Carbs": 7.6,
+      "Sugar": 6.2,
+      "Fat": 0.2,
+      "Protein": 0.6,
+      "kCal": 30,
+      "GI": 75
+    },
+	{
+      "Id": "273f5065-c7b3-44e8-a059-0c5b70c45150",
+      "Name": "Borovnica",
+      "Carbs": 5.0,
+      "Sugar": 4.9,
+      "Fat": 0.3,
+      "Protein": 0.7,
+      "kCal": 29,
+      "GI": 25
+    },
+	    {
+      "Id": "9e183756-f22d-42e0-8b58-bf6890c2a747",
+      "Name": "Pšenično brašno",
+      "Carbs": 75.0,
+      "Sugar": 0.4,
+      "Fat": 1.0,
+      "Protein": 10.0,
+      "kCal": 350,
+      "GI": 85
+    },
+    {
+      "Id": "f176eb4c-eb8d-453a-9d21-d9b2c2a4d56e",
+      "Name": "Raženo brašno",
+      "Carbs": 66.5,
+      "Sugar": 1.0,
+      "Fat": 1.5,
+      "Protein": 8.5,
+      "kCal": 320,
+      "GI": 60
+    },
+    {
+      "Id": "d7d42664-1a0a-4849-bbb5-1c1d7d7d4db3",
+      "Name": "Kukuruzno brašno",
+      "Carbs": 78.0,
+      "Sugar": 1.5,
+      "Fat": 1.5,
+      "Protein": 7.5,
+      "kCal": 360,
+      "GI": 75
+    },
+    {
+      "Id": "c4fe7680-1088-4854-833f-903f92d31759",
+      "Name": "Ječmeno brašno",
+      "Carbs": 68.0,
+      "Sugar": 0.8,
+      "Fat": 1.0,
+      "Protein": 9.0,
+      "kCal": 330,
+      "GI": 65
+    },
+    {
+      "Id": "f6748689-2823-4bfb-ae86-eeec14326ac4",
+      "Name": "Ovseno brašno",
+      "Carbs": 66.0,
+      "Sugar": 0.4,
+      "Fat": 7.0,
+      "Protein": 13.0,
+      "kCal": 420,
+      "GI": 40
+    },
+    {
+      "Id": "e05134cb-ba38-47f2-a8f0-300d7823fc10",
+      "Name": "Kokosovo brašno",
+      "Carbs": 18.0,
+      "Sugar": 9.0,
+      "Fat": 64.0,
+      "Protein": 19.0,
+      "kCal": 660,
+      "GI": 45
+    },
+    {
+      "Id": "860cb1c4-9c97-4629-872a-961f2a3b4bf5",
+      "Name": "Bademovo brašno",
+      "Carbs": 19.0,
+      "Sugar": 4.0,
+      "Fat": 54.0,
+      "Protein": 21.0,
+      "kCal": 610,
+      "GI": 25
+    },
+    {
+      "Id": "16d1b3c6-9c7c-4a3d-a36e-78a9e83f5c35",
+      "Name": "Kikiriki brašno",
+      "Carbs": 30.0,
+      "Sugar": 3.0,
+      "Fat": 45.0,
+      "Protein": 30.0,
+      "kCal": 550,
+      "GI": 35
+    },
+    {
+      "Id": "38d6c739-f88f-4bfc-b56b-2f865f32c792",
+      "Name": "Proso brašno",
+      "Carbs": 65.0,
+      "Sugar": 0.4,
+      "Fat": 1.5,
+      "Protein": 10.5,
+      "kCal": 330,
+      "GI": 70
+    },
+    {
+      "Id": "7ac2b26d-5082-4bb4-bdd8-3a4ee7c5179c",
+      "Name": "Heljdino brašno",
+      "Carbs": 66.0,
+      "Sugar": 0.4,
+      "Fat": 1.5,
+      "Protein": 9.5,
+      "kCal": 340,
+      "GI": 55
+    },
+    {
+      "Id": "c31c9db3-85d8-4c78-a7b2-77ccf33e0376",
+      "Name": "Tapioka brašno",
+      "Carbs": 88.0,
+      "Sugar": 0.2,
+      "Fat": 0.2,
+      "Protein": 0.2,
+      "kCal": 360,
+      "GI": 85
+    },
+	{
+      "Id": "69b4c800-27a4-4e8e-b73f-f20d4cf25b30",
+      "Name": "Speltino brašno",
+      "Carbs": 62.9,
+      "Sugar": 0.4,
+      "Fat": 1.6,
+      "Protein": 14.6,
+      "kCal": 342,
+      "GI": 46
+    },
+	{
+      "Id": "f953863b-8d6b-4c39-a693-31ad6d1f8db1",
+      "Name": "Kinoa brašno",
+      "Carbs": 65.7,
+      "Sugar": 0.0,
+      "Fat": 2.5,
+      "Protein": 15.5,
+      "kCal": 369,
+      "GI": 53
+    },
+	{
+      "Id": "71d9f067-8a94-49a7-9f50-19237fb93a60",
+      "Name": "Rižino brašno",
+      "Carbs": 80.0,
+      "Sugar": 0.3,
+      "Fat": 0.3,
+      "Protein": 7.0,
+      "kCal": 360,
+      "GI": 68
+    }
+    {
+      "Id": "4d2ab152-7771-426e-8795-5db2462ecf65",
+      "Name": "Soya brašno",
+      "Carbs": 33.0,
+      "Sugar": 6.0,
+      "Fat": 18.0,
+      "Protein": 36.0,
+      "kCal": 430,
+      "GI": 15
+    },
+    {
+      "Id": "5981ff17-eb1b-4f6b-837a-4baf101ac9fc",
+      "Name": "Kesten brašno",
+      "Carbs": 77.0,
+      "Sugar": 0.4,
+      "Fat": 3.0,
+      "Protein": 10.0,
+      "kCal": 350,
+      "GI": 65
+    },
+    {
+      "Id": "1f1806d4-7c8f-4ba7-8000-b853a572b6ad",
+      "Name": "Krompirovo brašno",
+      "Carbs": 87.0,
+      "Sugar": 0.4,
+      "Fat": 0.2,
+      "Protein": 1.5,
+      "kCal": 360,
+      "GI": 85
+    },
+	{
+      "Id": "4a77b184-6df8-4de4-b107-156d5e03f7e4",
+      "Name": "Integralno pšenično brašno",
+      "Carbs": 72.3,
+      "Sugar": 2.0,
+      "Fat": 1.9,
+      "Protein": 11.0,
+      "kCal": 335,
+      "GI": 45
+    },
+    {
+      "Id": "8f987674-f5bb-4fb5-a1a7-bd6ae5a6fe32",
+      "Name": "Kukuruzno ulje",
+      "Carbs": 0,
+      "Sugar": 0,
+      "Fat": 100.0,
+      "Protein": 0,
+      "kCal": 900,
+      "GI": 0
+    },
+    {
+      "Id": "191118c8-0ac0-4b89-8b6d-eb2e1704b5c1",
+      "Name": "Kokosovo ulje",
+      "Carbs": 0,
+      "Sugar": 0,
+      "Fat": 100.0,
+      "Protein": 0,
+      "kCal": 890,
+      "GI": 0
+    },
+    {
+      "Id": "fae229e0-c78f-40b3-b8b4-f8a9d1e58f70",
+      "Name": "Ulje od lanenog semena",
+      "Carbs": 0,
+      "Sugar": 0,
+      "Fat": 100.0,
+      "Protein": 0,
+      "kCal": 884,
+      "GI": 0
+    },
+    {
+      "Id": "93e191e8-bde4-482d-9a91-2769e28cfdf6",
+      "Name": "Ulje od susama",
+      "Carbs": 0,
+      "Sugar": 0,
+      "Fat": 100.0,
+      "Protein": 0,
+      "kCal": 900,
+      "GI": 0
+    },
+    {
+      "Id": "61c64102-8ba1-4f68-8a61-41e4b5be2c7e",
+      "Name": "Ulje od soje",
+      "Carbs": 0,
+      "Sugar": 0,
+      "Fat": 100.0,
+      "Protein": 0,
+      "kCal": 900,
+      "GI": 0
+    },
+    {
+      "Id": "dc27221d-3b18-4aa3-a8fc-0f560d1ed3f7",
+      "Name": "Ulje od bundeve",
+      "Carbs": 0,
+      "Sugar": 0,
+      "Fat": 100.0,
+      "Protein": 0,
+      "kCal": 880,
+      "GI": 0
+    },
+    {
+      "Id": "8a98f3f4-93aa-4d2a-8204-21fc314b9f09",
+      "Name": "Ulje od grožđa",
+      "Carbs": 0,
+      "Sugar": 0,
+      "Fat": 100.0,
+      "Protein": 0,
+      "kCal": 900,
+      "GI": 0
+    },
+    {
+      "Id": "6fc6e38a-38c2-49b9-b29d-71b2270c568d",
+      "Name": "Ulje od avokada",
+      "Carbs": 0,
+      "Sugar": 0,
+      "Fat": 100.0,
+      "Protein": 0,
+      "kCal": 884,
+      "GI": 0
+    },
+	{
+      "Id": "b8c16348-3b7a-4f5c-a5d0-3be239d19730",
+      "Name": "Mlečna čokolada",
+      "Carbs": 60.5,
+      "Sugar": 57.0,
+      "Fat": 30.6,
+      "Protein": 7.1,
+      "kCal": 540,
+      "GI": 43
+    },
+    {
+      "Id": "e1aebff6-761b-4979-b3c3-42d6668fd17e",
+      "Name": "Tamna čokolada",
+      "Carbs": 45.9,
+      "Sugar": 24.5,
+      "Fat": 42.6,
+      "Protein": 4.9,
+      "kCal": 580,
+      "GI": 23
+    },
+    {
+      "Id": "5d670369-f85e-4f19-a31b-601f1db56c4b",
+      "Name": "Bela čokolada",
+      "Carbs": 59.3,
+      "Sugar": 59.3,
+      "Fat": 32.3,
+      "Protein": 8.4,
+      "kCal": 553,
+      "GI": 44
+    },
+    {
+      "Id": "1b7f0e5a-498b-4d64-935a-17b2457b3c02",
+      "Name": "Crna čokolada",
+      "Carbs": 59.4,
+      "Sugar": 44.0,
+      "Fat": 42.5,
+      "Protein": 6.3,
+      "kCal": 580,
+      "GI": 23
+    },
+    {
+      "Id": "57d636d2-9c59-4d4c-b9d2-9c25a64b0a5a",
+      "Name": "Crna čokolada sa narandžom",
+      "Carbs": 54.7,
+      "Sugar": 43.4,
+      "Fat": 36.5,
+      "Protein": 5.9,
+      "kCal": 550,
+      "GI": 21
+    },
+    {
+      "Id": "44712926-23e4-4c5b-8b30-91bb3638d147",
+      "Name": "Crna čokolada sa mentom",
+      "Carbs": 51.2,
+      "Sugar": 35.6,
+      "Fat": 36.9,
+      "Protein": 6.7,
+      "kCal": 535,
+      "GI": 19
+    },
+    {
+      "Id": "d4e68dbf-f99f-46b0-b335-07d44c3076fc",
+      "Name": "Crna čokolada sa kafom",
+      "Carbs": 51.0,
+      "Sugar": 40.0,
+      "Fat": 39.0,
+      "Protein": 7.0,
+      "kCal": 540,
+      "GI": 20
+    },
+    {
+      "Id": "46fc1b6e-28ed-4e4f-82c3-c3e70dcd8c67",
+      "Name": "Crna čokolada sa bademom",
+      "Carbs": 51.7,
+      "Sugar": 41.5,
+      "Fat": 39.3,
+      "Protein": 7.5,
+      "kCal": 545,
+      "GI": 20
+    },
+    {
+      "Id": "9f65ec58-8404-46bb-88e2-013ed3746fcf",
+      "Name": "Crna čokolada sa lešnikom",
+      "Carbs": 51.5,
+      "Sugar": 41.0,
+      "Fat": 39.0,
+      "Protein": 7.0,
+      "kCal": 545,
+      "GI": 21
+    },
+    {
+      "Id": "33b558b5-8d6f-458e-b024-bd0df7a7b643",
+      "Name": "Crna čokolada sa suvim grožđem",
+      "Carbs": 56.0,
+      "Sugar": 44.0,
+      "Fat": 37.0,
+      "Protein": 6.0,
+      "kCal": 540,
+      "GI": 22
+    },
+	{
+      "Id": "9c2031e2-d2c6-4efb-b49f-6c3c11a31d4d",
+      "Name": "Pšenične pahuljice",
+      "Carbs": 63.0,
+      "Sugar": 0.7,
+      "Fat": 1.1,
+      "Protein": 12.5,
+      "kCal": 353,
+      "GI": 67
+    },
+    {
+      "Id": "d3c1e267-c7dc-456d-88b7-bad4447d9e7b",
+      "Name": "Ječmene pahuljice",
+      "Carbs": 65.0,
+      "Sugar": 1.5,
+      "Fat": 1.3,
+      "Protein": 11.5,
+      "kCal": 351,
+      "GI": 55
+    },
+    {
+      "Id": "7d4ed0cb-d128-43e2-a9d4-31e486d27b38",
+      "Name": "Ovsene pahuljice",
+      "Carbs": 58.0,
+      "Sugar": 1.1,
+      "Fat": 7.0,
+      "Protein": 13.0,
+      "kCal": 379,
+      "GI": 55
+    },
+    {
+      "Id": "53e42f36-9d84-4879-bb84-e4a7a8cb2fa1",
+      "Name": "Ražene pahuljice",
+      "Carbs": 67.0,
+      "Sugar": 1.0,
+      "Fat": 1.5,
+      "Protein": 8.5,
+      "kCal": 343,
+      "GI": 35
+    },
+    {
+      "Id": "e800b801-6b4f-46e1-b663-f2081c2a3616",
+      "Name": "Kukuruzne pahuljice",
+      "Carbs": 85.0,
+      "Sugar": 7.6,
+      "Fat": 0.9,
+      "Protein": 7.6,
+      "kCal": 365,
+      "GI": 70
+    },
+    {
+      "Id": "1f334ee4-21e7-44a4-8ab7-7d6c3987d6fb",
+      "Name": "Rižine pahuljice",
+      "Carbs": 78.0,
+      "Sugar": 0.5,
+      "Fat": 0.4,
+      "Protein": 7.0,
+      "kCal": 356,
+      "GI": 80
+    },
+    {
+      "Id": "08cfb139-60cd-4de9-96e0-180b1a30b57f",
+      "Name": "Heljdine pahuljice",
+      "Carbs": 62.0,
+      "Sugar": 0.5,
+      "Fat": 1.5,
+      "Protein": 13.0,
+      "kCal": 358,
+      "GI": 50
+    },
+    {
+      "Id": "f2d98aa6-1e64-44f8-93f7-0090a9f17426",
+      "Name": "Kinoa pahuljice",
+      "Carbs": 60.0,
+      "Sugar": 2.0,
+      "Fat": 15.0,
+      "Protein": 15.0,
+      "kCal": 400,
+      "GI": 35
+    },
+    {
+      "Id": "10b26ac7-890b-4b7f-aa64-c8f5e775a7f4",
+      "Name": "Amarant pahuljice",
+      "Carbs": 60.0,
+      "Sugar": 1.5,
+      "Fat": 8.0,
+      "Protein": 15.0,
+      "kCal": 380,
+      "GI": 40
+    },
+    {
+      "Id": "88f04b34-36c3-431d-a4b6-9f396baf5c54",
+      "Name": "Proso pahuljice",
+      "Carbs": 70.0,
+      "Sugar": 2.5,
+      "Fat": 1.0,
+      "Protein": 11.0,
+      "kCal": 362,
+      "GI": 65
+    },
+	{
+      "Id": "78c8cfb5-9a56-494f-bfd4-4cb517bebd6f",
+      "Name": "Piletina",
+      "Carbs": 0.0,
+      "Sugar": 0.0,
+      "Fat": 1.4,
+      "Protein": 19.5,
+      "kCal": 93,
+      "GI": 0
+    },
+	 {
+      "Id": "b88883c7-48d2-4b13-a15c-7ed9c47d82f3",
+      "Name": "Junetina",
+      "Carbs": 0.0,
+      "Sugar": 0.0,
+      "Fat": 4.3,
+      "Protein": 20.1,
+      "kCal": 123,
+      "GI": 0
+    },
+    {
+      "Id": "9eb4d126-7e64-4b92-96e4-56ed7c9baf4e",
+      "Name": "Pileće belo meso",
+      "Carbs": 0.0,
+      "Sugar": 0.0,
+      "Fat": 0.6,
+      "Protein": 22.2,
+      "kCal": 102,
+      "GI": 0
+    },
+    {
+      "Id": "b28010d7-1712-4936-a0cf-5b06bc9c3148",
+      "Name": "Svinjsko meso",
+      "Carbs": 0.0,
+      "Sugar": 0.0,
+      "Fat": 28.5,
+      "Protein": 11.9,
+      "kCal": 320,
+      "GI": 0
+    },
+	{
+      "Id": "7a35e3e1-09a1-4c27-95f7-f526d13c5abf",
+      "Name": "Ćureće belo meso",
+      "Carbs": 0.0,
+      "Sugar": 0.0,
+      "Fat": 0.4,
+      "Protein": 21.8,
+      "kCal": 100,
+      "GI": 0
+    },
+	{
+      "Id": "c5c69b95-ec1f-4a79-816b-2eabedcb8d2d",
+      "Name": "Šampinjoni",
+      "Carbs": 3.3,
+      "Sugar": 2.0,
+      "Fat": 0.3,
+      "Protein": 3.1,
+      "kCal": 22,
+      "GI": 10
+    },
+    {
+      "Id": "f5fd17cd-2f4b-4a18-8ad9-9c330056f5b7",
+      "Name": "Vrganj",
+      "Carbs": 3.3,
+      "Sugar": 0.8,
+      "Fat": 1.4,
+      "Protein": 2.6,
+      "kCal": 30,
+      "GI": 10
+    },
+    {
+      "Id": "6f90176f-15f4-447f-85c7-96d6978b00bf",
+      "Name": "Žuti lisičar",
+      "Carbs": 3.3,
+      "Sugar": 0.9,
+      "Fat": 0.3,
+      "Protein": 2.6,
+      "kCal": 22,
+      "GI": 10
+    },
+    {
+      "Id": "9c05778d-74c6-46a5-a6e3-681a9ab3e295",
+      "Name": "Shiitake",
+      "Carbs": 5.7,
+      "Sugar": 2.3,
+      "Fat": 0.5,
+      "Protein": 2.2,
+      "kCal": 34,
+      "GI": 10
+    },
+    {
+      "Id": "c6b1f3de-0627-47cc-9686-b5cfe2643ed5",
+      "Name": "Reishi",
+      "Carbs": 6.7,
+      "Sugar": 1.3,
+      "Fat": 0.4,
+      "Protein": 1.6,
+      "kCal": 33,
+      "GI": 10
+    },
+	{
+      "Id": "7f6f6e9e-32b5-4e67-b05d-5ef3f63dd290",
+      "Name": "Pesto sos",
+      "Carbs": 3.2,
+      "Sugar": 0.3,
+      "Fat": 42.2,
+      "Protein": 7.0,
+      "kCal": 431,
+      "GI": 0
+    },
+    {
+      "Id": "9c9da583-0c3b-4b26-9f4e-06b02f50fe3c",
+      "Name": "Majonez",
+      "Carbs": 5.5,
+      "Sugar": 4.0,
+      "Fat": 77.0,
+      "Protein": 1.1,
+      "kCal": 720,
+      "GI": 0
+    },
+    {
+      "Id": "bc16e64a-7226-4a56-a6cd-d340b49907fb",
+      "Name": "Teriyaki sos",
+      "Carbs": 29.0,
+      "Sugar": 22.0,
+      "Fat": 0.0,
+      "Protein": 0.7,
+      "kCal": 117,
+      "GI": 0
+    },
+    {
+      "Id": "a0b2f62e-7c72-4034-b72d-1e83e3b390f2",
+      "Name": "Béarnaise sos",
+      "Carbs": 0.9,
+      "Sugar": 0.6,
+      "Fat": 99.0,
+      "Protein": 2.0,
+      "kCal": 929,
+      "GI": 0
+    },
+    {
+      "Id": "8e4266a3-06d3-438f-9d7a-9e22873ef77f",
+      "Name": "BBQ sos",
+      "Carbs": 42.0,
+      "Sugar": 40.0,
+      "Fat": 0.3,
+      "Protein": 0.7,
+      "kCal": 172,
+      "GI": 0
+    },
+	{
+      "Id": "f00cc308-416d-4a8c-a5ad-2f3281b2e584",
+      "Name": "Kečap",
+      "Carbs": 22.8,
+      "Sugar": 19.0,
+      "Fat": 0.1,
+      "Protein": 1.8,
+      "kCal": 101,
+      "GI": 0
+    },
+    {
+      "Id": "6f2c1f20-4a8f-4d39-8047-60bbf364ab78",
+      "Name": "Senf",
+      "Carbs": 5.7,
+      "Sugar": 2.0,
+      "Fat": 6.0,
+      "Protein": 5.7,
+      "kCal": 132,
+      "GI": 0
+    },
+	{
+      "Id": "8b0f2f02-89af-4cf0-ae35-15d496ef81c1",
+      "Name": "Spageti",
+      "Carbs": 25.0,
+      "Sugar": 0.9,
+      "Fat": 0.6,
+      "Protein": 5.0,
+      "kCal": 124,
+      "GI": 42
+    },
+    {
+      "Id": "2b3ecfb1-632d-40f2-907a-ba731cb5e26a",
+      "Name": "Fusili",
+      "Carbs": 27.0,
+      "Sugar": 1.1,
+      "Fat": 1.0,
+      "Protein": 5.0,
+      "kCal": 130,
+      "GI": 55
+    },
+    {
+      "Id": "431beeb1-5d9e-4b70-b9db-1ed025f23858",
+      "Name": "Pene",
+      "Carbs": 27.0,
+      "Sugar": 1.0,
+      "Fat": 1.0,
+      "Protein": 5.0,
+      "kCal": 130,
+      "GI": 45
+    },
+    {
+      "Id": "dc0d78ee-3621-4dbf-a16a-df7ac44eb4cd",
+      "Name": "Tagliatelle",
+      "Carbs": 25.0,
+      "Sugar": 0.9,
+      "Fat": 0.6,
+      "Protein": 5.0,
+      "kCal": 124,
+      "GI": 50
+    },
+    {
+      "Id": "7b05c5f0-b13c-4d79-8d34-14ad6906de6d",
+      "Name": "Ravioli",
+      "Carbs": 27.0,
+      "Sugar": 1.1,
+      "Fat": 1.0,
+      "Protein": 5.0,
+      "kCal": 130,
+      "GI": 60
+    },
+	{
+      "Id": "fd4ac9d3-0dd8-4e46-a3ad-57917b7ff308",
+      "Name": "Kisela pavlaka",
+      "Carbs": 3.2,
+      "Sugar": 3.2,
+      "Fat": 20.0,
+      "Protein": 3.0,
+      "kCal": 205,
+      "GI": 30
+    },
+    {
+      "Id": "1eef9d36-2f4f-44d8-aeed-63a46423c98b",
+      "Name": "Slag",
+      "Carbs": 10.0,
+      "Sugar": 10.0,
+      "Fat": 32.0,
+      "Protein": 2.0,
+      "kCal": 320,
+      "GI": 40
+    },
+    {
+      "Id": "8b3c7a17-1166-4953-8b6b-3e617e987381",
+      "Name": "Mascarpone",
+      "Carbs": 3.0,
+      "Sugar": 2.0,
+      "Fat": 40.0,
+      "Protein": 4.0,
+      "kCal": 450,
+      "GI": 45
+    },
+    {
+      "Id": "90a2be82-1b49-462d-ba8f-cb2b6a5a2596",
+      "Name": "Čokoladna krema",
+      "Carbs": 30.0,
+      "Sugar": 28.0,
+      "Fat": 15.0,
+      "Protein": 3.0,
+      "kCal": 280,
+      "GI": 50
+    },
+    {
+      "Id": "ce7f2bc3-92c6-4e8b-9530-5fc0d99e065d",
+      "Name": "Vanila krema",
+      "Carbs": 25.0,
+      "Sugar": 22.0,
+      "Fat": 18.0,
+      "Protein": 2.0,
+      "kCal": 250,
+      "GI": 55
+    },
+	{
+	  "Id": "d14ac0bd-17bb-4b1c-804d-5d1fcbcf7c23",
+	  "Name": "Grčki jogurt",
+	  "Carbs": 3.6,
+	  "Sugar": 3.6,
+	  "Fat": 10.0,
+	  "Protein": 10.0,
+	  "kCal": 146,
+	  "GI": 35
+	},
+	{
+	  "Id": "b4e8d8d6-5c36-4e6d-ae78-78a8c720f20c",
+	  "Name": "Urme",
+	  "Carbs": 75.0,
+	  "Sugar": 63.4,
+	  "Fat": 0.4,
+	  "Protein": 2.0,
+	  "kCal": 282,
+	  "GI": 42
+	}
+  ]
+}

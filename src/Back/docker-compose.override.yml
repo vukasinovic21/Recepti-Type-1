@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+
+  recipesdb:
+    container_name: recipesdb
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Adminadmin1
+      - POSTGRES_DB=RecipesDb
+    restart: always
+    ports:
+        - "5432:5432"
+    #volumes:
+      #- postgres_catalog:/var/lib/postgresql/data/
+
+  back.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__Database=Server=recipesdb;Port=5432;Database=RecipesDb;User Id=postgres;Password=Adminadmin1;Include Error Detail=true
+    depends_on:
+      - recipesdb
+    ports:
+      - "6003:8080"
+      - "6063:8081"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro

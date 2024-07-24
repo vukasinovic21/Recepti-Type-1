@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Back.Domain\Back.Domain.csproj" />
+    <ProjectReference Include="..\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Diets\Commands\DeleteDiet\" />
+    <Folder Include="Diets\Commands\UpdateDiet\" />
+    <Folder Include="Ingredients\Commands\" />
+    <Folder Include="Ingredients\Queries\" />
+    <Folder Include="Likes\Queries\" />
+    <Folder Include="PlanOfDiets\" />
+    <Folder Include="RecipeItems\Commands\" />
+    <Folder Include="RecipeItems\Queries\" />
+    <Folder Include="TypesOfMeal\Commands\" />
+    <Folder Include="Users\Commands\" />
+    <Folder Include="Users\Queries\" />
+  </ItemGroup>
+
+</Project>
