@@ -20,7 +20,7 @@ const routes: Routes =
     ]
   },*/
   {
-    path:"recipe/:id", component: RecipeComponent
+    path:"recipes/:id", component: RecipeComponent
   },
   {
     path:"allrecipes", component: AllRecipesComponent
