@@ -1,1 +1,17 @@
-<p>all-recipes works!</p>
+<div class="text-center mb-5 mt-3">
+    <h2>All recipes</h2>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-4" *ngFor="let recipe of recipes" (click)="showRecipeId(recipe.id)">
+            <b>Recipe name:</b> {{ recipe.recipeName }} <br>
+            <b>Instructions:</b> {{ recipe.instructions | slice:0:75 }}
+            <span *ngIf="recipe.instructions.length > 75">...</span> <br>
+            <b>Time to prepare:</b> {{ recipe.timeToPrepare }} min <br>
+            <b>Created at:</b> <span>{{ recipe.createdAt | date:'yyyy-MM-dd' }}</span> <br>
+            <b>Public:</b> {{ recipe.shared }} <br>
+            <b>Slika: </b>{{ recipe.picture }}
+        </div>
+    </div>
+</div>

@@ -6,14 +6,27 @@ import { AllUsersComponent } from './all-users/all-users.component';
 import { AllDietsComponent } from './all-diets/all-diets.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
+import { RecipeComponent } from './recipe/recipe.component';
 
 const routes: Routes = 
 [
   {
     path:"", component: HomeComponent
   },
+  /*{ path: 'recipes', component: AllRecipesComponent,
+    children: [
+      { path: 'create', component: CreateRecipeComponent }
+    ]
+  },*/
   {
-    path:"recipes", component: AllRecipesComponent 
+    path:"recipe/:id", component: RecipeComponent
+  },
+  {
+    path:"allrecipes", component: AllRecipesComponent
+  },
+  {
+    path:"create", component: CreateRecipeComponent
   },
   {
     path:"users", component: AllUsersComponent

@@ -11,6 +11,7 @@ import { RecipeItemModule } from './recipe-item/recipe-item.module';
 import { PlanOfDietModule } from './plan-of-diet/plan-of-diet.module';
 import { IngredientModule } from './ingredient/ingredient.module';
 import { AuthModule } from './auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AuthModule } from './auth/auth.module';
     RecipeItemModule,
     PlanOfDietModule,
     IngredientModule,
-    AuthModule
+    AuthModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

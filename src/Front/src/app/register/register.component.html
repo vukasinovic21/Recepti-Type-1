@@ -1,1 +1,75 @@
-<p>register works!</p>
+<div class="container col-md-6">
+    <div class="text-center mb-5 mt-3">
+        <h2>User Registration </h2>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+
+        <div class="row mb-3">
+            <div class="col">
+                <label class="form-label">Name</label>
+                <input class="form-control" type="text" formControlName="Name">
+                <small class="text-danger" *ngIf="registerForm.get('Name')?.invalid && registerForm.get('Name')?.touched">
+                    Name is required.
+                </small>
+            </div>
+            <div class="col">
+                <label class="form-label">Lastname</label>
+                <input class="form-control" type="text" formControlName="Lastname">
+                <small class="text-danger" *ngIf="registerForm.get('Lastname')?.invalid && registerForm.get('Lastname')?.touched">
+                    Lastname is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input class="form-control" type="text" formControlName="Username">
+            <small class="text-danger" *ngIf="registerForm.get('Username')?.invalid && registerForm.get('Username')?.touched">
+                Username is required.
+            </small>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input class="form-control" class="form-control" type="email" formControlName="Email">
+            <small class="text-danger" *ngIf="registerForm.get('Email')?.invalid && registerForm.get('Email')?.touched">
+                Email is required.
+            </small>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input class="form-control" type="password" formControlName="Password">
+            <small class="text-danger" *ngIf="registerForm.get('Password')?.invalid && registerForm.get('Password')?.touched">
+                Password is required.
+            </small>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Date of birth</label>
+            <input class="form-control" type="date" formControlName="DateOfBirth">
+            <small class="text-danger" *ngIf="registerForm.get('DateOfBirth')?.invalid && registerForm.get('DateOfBirth')?.touched">
+                Date of birth is required.
+            </small>
+        </div>
+
+
+        <div class="row mb-3">
+            <div class="col">
+                <label class="form-label">Choose question for reseting password</label><br>
+                <select class="form-select" aria-label="Default select example">
+                    <option *ngFor="let question of questions" value={{question.id}}>
+                        {{question.questionName}} <br><br>
+                    </option>
+                </select>
+            </div>    
+            <div class="col">
+                <label class="form-label">Answer previously selected question</label>
+                <input class="form-control" type="password" formControlName="ForgotPasswordAnswer">
+                <small class="text-danger" *ngIf="registerForm.get('ForgotPasswordAnswer')?.invalid && registerForm.get('ForgotPasswordAnswer')?.touched">
+                    Answer is required.
+                </small>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="registerForm.invalid">Register</button>
+    </form>
+</div>

@@ -1,1 +1,13 @@
-<p>create-recipe works!</p>
+
+<div class="text-center mb-5 mt-3">
+    <h2>Create new recipe </h2>
+</div>
+
+<div class="col-md-6">
+    <label class="form-label">Choose which type of food is this recipe</label><br>
+    <select class="form-select" aria-label="Default select example">
+        <option *ngFor="let typeOfFood of typesOfFood" value={{typeOfFood.id}}>
+            {{typeOfFood.typeName}} <br><br>
+        </option>
+    </select>
+</div>   
