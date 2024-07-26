@@ -3,10 +3,10 @@ using Back.Domain.ValueObjects;
 
 namespace Back.Application.Recipes.Queries.GetRecipesById
 {
-    public class GetRecipesByIdHandler(IApplicationDbContext dbContext)
-        : IQueryHandler<GetRecipesByIdQuery, GetRecipesByIdResult>
+    public class GetRecipesNutByIdHandler(IApplicationDbContext dbContext)
+        : IQueryHandler<GetRecipesNutByIdQuery, GetRecipesNutByIdResult>
     {
-        public async Task<GetRecipesByIdResult> Handle(GetRecipesByIdQuery query, CancellationToken cancellationToken)
+        public async Task<GetRecipesNutByIdResult> Handle(GetRecipesNutByIdQuery query, CancellationToken cancellationToken)
         {
             //get recipes with nutriotions by Id using dbContext
             //return result
@@ -44,7 +44,7 @@ namespace Back.Application.Recipes.Queries.GetRecipesById
 
             RecipeNutritionsDto result = new RecipeNutritionsDto(query.Id, recipeNutritions[0].RecipeName, Carbs, Sugar, Fat, Protein, kCal, GL, Weight);
 
-            return new GetRecipesByIdResult(result);
+            return new GetRecipesNutByIdResult(result);
         }
     }
 }
