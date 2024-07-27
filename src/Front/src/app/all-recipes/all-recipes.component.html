@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-4" *ngFor="let recipe of recipes" (click)="showRecipeId(recipe.id)">
+        <div class="col-4 mb-5" *ngFor="let recipe of recipes" (click)="showRecipeId(recipe.id)">
             <b>Recipe name:</b> {{ recipe.recipeName }} <br>
             <b>Instructions:</b> {{ recipe.instructions | slice:0:75 }}
             <span *ngIf="recipe.instructions.length > 75">...</span> <br>
