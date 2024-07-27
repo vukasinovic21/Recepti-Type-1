@@ -4,6 +4,7 @@ import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Recipe } from '../models/recipe';
+import { RecipeNutritions } from '../models/recipe-nutritions';
 
 @Injectable({
   providedIn: 'root'
@@ -33,19 +34,19 @@ export class RecipeService
     );
   }
 
-  getRecipeInfo(id: string): Observable<Recipe>
+  getRecipeInfo(id: string): Observable<Recipe[]>
   {
-    return this.http.get<{recipes: Recipe}>(this.backUrl + "/recipes/" + id)
+    return this.http.get<{recipes: Recipe[]}>(this.backUrl + "/recipes/id/" + id)
     .pipe(
       map(response => response.recipes)
     )
   }
 
-  getRecipeNutritiens(id: string): Observable<Recipe>
+  getRecipeNutritions(id: string): Observable<RecipeNutritions>
   {
-    return this.http.get<{recipes: Recipe}>(this.backUrl + "/recipes/nut/" + id)
+    return this.http.get<{recipeNutritions: RecipeNutritions}>(this.backUrl + "/recipes/id/nut/" + id)
     .pipe(
-      map(response => response.recipes)
+      map(response => response.recipeNutritions)
     )
   }
 

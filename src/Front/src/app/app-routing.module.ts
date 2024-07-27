@@ -23,7 +23,7 @@ const routes: Routes =
     path:"recipes/:id", component: RecipeComponent
   },
   {
-    path:"allrecipes", component: AllRecipesComponent
+    path:"recipes", component: AllRecipesComponent
   },
   {
     path:"create", component: CreateRecipeComponent

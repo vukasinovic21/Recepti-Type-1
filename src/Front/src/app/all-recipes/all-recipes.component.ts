@@ -26,7 +26,7 @@ export class AllRecipesComponent
 
     showRecipeId(recipeId:string): void
     {
-      this.router.navigate(['/recipes/:' + recipeId])
+      this.router.navigate(['/recipes/' + recipeId])
     }
 
 }
