@@ -37,7 +37,7 @@ namespace Back.Application.Recipes.Queries.GetRecipesById
                 Fat += (recipe.Quantity / 100) * ingredients[0].Fat;
                 Protein += (recipe.Quantity / 100) * ingredients[0].Protein;
                 kCal += (recipe.Quantity / 100) * ingredients[0].kCal;
-                GL += (((recipe.Quantity / 100) * ingredients[0].Carbs) * ingredients[0].GI) / 100;
+                GL += ((((recipe.Quantity / 100) * ingredients[0].Carbs) * ingredients[0].GI) / 100);
                 kCal += (recipe.Quantity / 100) * ingredients[0].kCal;
                 Weight += recipe.Quantity;
             }
