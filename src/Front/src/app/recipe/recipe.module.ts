@@ -4,6 +4,7 @@ import { RecipeComponent } from './recipe.component';
 import { AllRecipesComponent } from '../all-recipes/all-recipes.component';
 import { CreateRecipeComponent } from '../create-recipe/create-recipe.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class RecipeModule { }

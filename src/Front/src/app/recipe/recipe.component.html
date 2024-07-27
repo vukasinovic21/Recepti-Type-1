@@ -1,19 +1,19 @@
 
 
 <div class="text-center mb-5 mt-3">
-    <h2>Recipe info {{ recipe?.recipeName }}</h2>
+    <h2>{{ recipe?.recipeName }}</h2>
 </div>
 
 <div class="container">
     <div class="row">
-        <div class="col-4">
+        <div class="col-6">
             <b>Instrukcije:</b> {{ recipe?.instructions }} <br>
             <b>Vreme za pripremu:</b> {{ recipe?.timeToPrepare }} min <br>
             <b>Izbaceno:</b> <span>{{ recipe?.createdAt | date:'yyyy-MM-dd' }}</span> <br>
             <b>Javni:</b> {{ recipe?.shared }} <br>
             <b>Slika: </b>{{ recipe?.picture }}
         </div>
-        <div class="col-4">
+        <div class="col-6">
             <b>Ugljeni hidrati:</b> {{ recipeNutritions?.carbs }}g <br>
             <b>Seceri:</b> {{ recipeNutritions?.sugar }}g <br>
             <b>Masti:</b> {{ recipeNutritions?.fat }}g <br>
@@ -24,4 +24,6 @@
         </div>
     </div>
 </div>
+
+<button [routerLink]="['/recipes']">All recipes</button>
    
