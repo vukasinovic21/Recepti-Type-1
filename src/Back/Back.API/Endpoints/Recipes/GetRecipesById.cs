@@ -9,7 +9,7 @@ namespace Back.API.Endpoints.Recipes
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            app.MapGet("/recipes/id{Id}", async (Guid Id, ISender sender) =>
+            app.MapGet("/recipes/id/{Id}", async (Guid Id, ISender sender) =>
             {
                 var result = await sender.Send(new GetRecipesByIdQuery(Id));
 

@@ -7,7 +7,7 @@ namespace Back.API.Endpoints.Recipes
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            app.MapGet("/recipes/id/nut{Id}", async (Guid Id, ISender sender) =>
+            app.MapGet("/recipes/id/nut/{Id}", async (Guid Id, ISender sender) =>
             {
                 var result = await sender.Send(new GetRecipesNutByIdQuery(Id));
 

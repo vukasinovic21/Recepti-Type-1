@@ -33,4 +33,20 @@ export class RecipeService
     );
   }
 
+  getRecipeInfo(id: string): Observable<Recipe>
+  {
+    return this.http.get<{recipes: Recipe}>(this.backUrl + "/recipes/" + id)
+    .pipe(
+      map(response => response.recipes)
+    )
+  }
+
+  getRecipeNutritiens(id: string): Observable<Recipe>
+  {
+    return this.http.get<{recipes: Recipe}>(this.backUrl + "/recipes/nut/" + id)
+    .pipe(
+      map(response => response.recipes)
+    )
+  }
+
 }

@@ -21,7 +21,6 @@ export class AllRecipesComponent
 
       this.recipeService.getAllRecipes().subscribe( recipes => {
           this.recipes = recipes
-          console.log(recipes)
       });
     }
 
