@@ -30,8 +30,8 @@ export class RegisterComponent implements OnInit
         Name: ['', Validators.required],
         Lastname: ['', Validators.required],
         Username: ['', Validators.required],
-        Email: ['', Validators.required, Validators.email],
-        Password: ['', Validators.required, Validators.minLength(8)], // Validators.pattern['a-zA-Z *'] mozemo da stavimo neki patern za sifru 
+        Email: ['', [Validators.required, Validators.email]],
+        Password: ['', [Validators.required, Validators.minLength(8)]], // Validators.pattern['a-zA-Z *'] mozemo da stavimo neki patern za sifru 
         DateOfBirth: ['', Validators.required],
         ForgotPasswordAnswer: ['', Validators.required]
       })

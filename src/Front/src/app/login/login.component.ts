@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit
     ngOnInit(): void 
     {
       this.loginForm = this.formBuilder.group({
-        Email: ['', Validators.required, Validators.email],
-        Password: ['', Validators.required, Validators.minLength(8)],
+        Email: ['', [Validators.required, Validators.email]],
+        Password: ['', [Validators.required, Validators.minLength(8)]],
       })
     }
 
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit
         let loginUser: User = this.loginForm.value;
         this.authService.login(loginUser)
 
-        this.router.navigate(['/home'])
+        this.router.navigate(['/'])
       }
     }
 }
