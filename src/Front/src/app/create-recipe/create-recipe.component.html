@@ -1,13 +1,105 @@
+<div class="container col-md-6">
+    <div class="text-center mb-5 mt-3">
+        <h2>Create new recipe </h2>
+    </div>
 
-<div class="text-center mb-5 mt-3">
-    <h2>Create new recipe </h2>
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()" >
+
+        <div class="mb-3">
+            <label class="form-label">Name of recipe</label>
+            <input class="form-control" type="text" formControlName="recipeName">
+            <small class="text-danger" *ngIf="createForm.get('recipeName')?.invalid && createForm.get('recipeName')?.touched">
+                Name of recipe is required.
+            </small>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Instructions</label>
+            <textarea class="form-control" rows="5" formControlName="instructions"></textarea>
+            <small class="text-danger" *ngIf="createForm.get('instructions')?.invalid && createForm.get('instructions')?.touched">
+                Instructions are required.
+            </small>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Preparation time in minutes</label>
+            <input class="form-control" type="number" formControlName="timeToPrepare">
+            <small class="text-danger" *ngIf="createForm.get('timeToPrepare')?.invalid && createForm.get('timeToPrepare')?.touched">
+                Preparation time is required.
+            </small>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Choose image</label>
+            <input class="form-control" type="text" accept="image/*" formControlName="picture">
+            <!--<small class="text-danger" *ngIf="createForm.get('Image')?.invalid && createForm.get('Image')?.touched">
+                An image is required.
+            </small>-->
+        </div>
+
+        <div class="mb-3 form-check form-switch">
+            <label class="form-label">Do you want recipe to be private</label>
+            <input class="form-control form-check-input" type="checkbox" formControlName="shared">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Choose which type of food is this recipe</label><br>
+            <select class="form-select" aria-label="Default select example" formControlName="typeOfFood">
+                <option *ngFor="let typeOfFood of typesOfFood" value={{typeOfFood.id}}>
+                    {{typeOfFood.typeName}} <br><br>
+                </option>
+            </select>
+        </div>    
+
+        <!--Recipe items-->
+        <div class="row mb-3">
+            <div class="col-8 mb-3">
+                <label class="form-label">Add ingredients</label>
+            </div>
+            <div class="col-8"> 
+                <input class="form-control" type="text" formControlName="recipeItems">
+            </div>  
+            <div class="col-4">
+                <input class="form-control small-input" type="number" min="0" formControlName="recipeItems">
+            </div>
+            <!--
+            <div class="col-8 mb-3">
+                <label class="form-label">Add number of ingredients</label>
+            </div>
+            <div class="col-4">
+                <input class="form-control" type="number" formControlName="numFields" min="0" placeholder="Number of Fields">
+            </div>
+            <div formArrayName="ingredients">
+                <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i">
+                  <div class="row mb-3">
+                    <div class="col-8"> 
+                        <input class="form-control" type="text" [formControlName]="i">
+                    </div>  
+                    <div class="col-4">
+                        <input class="form-control small-input" type="number" min="0" [formControlName]="i">
+                    </div>
+                  </div>
+                </div>
+              </div>-->
+        </div>
+        <div class="row mb-3">
+            <div class="col-8"> 
+                <input class="form-control" type="text" formControlName="recipeItems">
+            </div>  
+            <div class="col-4">
+                <input class="form-control small-input" type="number" min="0" formControlName="recipeItems">
+            </div>    
+        </div>
+        <div class="row mb-3">
+            <div class="col-8"> 
+                <input class="form-control" type="text" formControlName="recipeItems">
+            </div>  
+            <div class="col-4">
+                <input class="form-control small-input" type="number" min="0" formControlName="recipeItems">
+            </div>    
+        </div>
+
+        <button class="btn btn-success" type="submit" [disabled]="createForm.invalid">Create new</button>
+        <button [routerLink]="['/']" class="btn btn-danger float-end" style="margin-left: auto;">Cancel</button>
+    </form>
 </div>
-
-<div class="col-md-6">
-    <label class="form-label">Choose which type of food is this recipe</label><br>
-    <select class="form-select" aria-label="Default select example">
-        <option *ngFor="let typeOfFood of typesOfFood" value={{typeOfFood.id}}>
-            {{typeOfFood.typeName}} <br><br>
-        </option>
-    </select>
-</div>   

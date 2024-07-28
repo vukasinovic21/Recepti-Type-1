@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Recipe } from '../models/recipe';
 import { RecipeNutritions } from '../models/recipe-nutritions';
+import { RecipeItem } from '../models/recipe-item';
+import { CreateRecipe } from '../models/create-recipe';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +50,14 @@ export class RecipeService
     .pipe(
       map(response => response.recipeNutritions)
     )
+  }
+
+  createNewRecipe(recipe: CreateRecipe): Observable<string>
+  {
+    return this.http.post<{id: string}>(this.backUrl + "/recipes", recipe)
+    .pipe(
+      map(response => response.id)
+    );
   }
 
 }
