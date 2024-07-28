@@ -8,8 +8,16 @@
             <b>Recipe name:</b> {{ recipe.recipeName }} <br>
             <b>Instructions:</b> {{ recipe.instructions | slice:0:75 }}
             <span *ngIf="recipe.instructions.length > 75">...</span> <br>
-            <b>Time to prepare:</b> {{ recipe.timeToPrepare }} min <br>
-            <b>Created at:</b> <span>{{ recipe.createdAt | date:'yyyy-MM-dd' }}</span> <br>
+
+            <b>Time to prepare:</b> <!--{{ recipe.timeToPrepare }} <br>-->
+            <span *ngIf="recipe.timeToPrepare <= 15" style="color:green"> <b>
+                {{ recipe.timeToPrepare}} </b> min</span>
+            <span *ngIf="recipe.timeToPrepare > 15 && recipe.timeToPrepare < 60" style="color:orange"> <b>
+                {{ recipe.timeToPrepare}} </b> min</span>
+            <span *ngIf="recipe.timeToPrepare > 45" style="color:red"> <b>
+                {{ recipe.timeToPrepare / 60  | number:'1.0-0' }} </b> h {{ recipe.timeToPrepare % 60 }} min </span><br>    
+
+            <b>Created at: </b> <span>{{ recipe.createdAt | date:'yyyy-MM-dd' }}</span> <br>
             <b>Public:</b> {{ recipe.shared }} <br>
             <b>Slika: </b>{{ recipe.picture }}
         </div>
