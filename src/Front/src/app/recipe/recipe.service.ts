@@ -54,7 +54,9 @@ export class RecipeService
 
   createNewRecipe(recipe: CreateRecipe): Observable<string>
   {
-    return this.http.post<{id: string}>(this.backUrl + "/recipes", recipe)
+    const query = {recipe:recipe};
+
+    return this.http.post<{id: string}>(this.backUrl + "/recipes", query)
     .pipe(
       map(response => response.id)
     );

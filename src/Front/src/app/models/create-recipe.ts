@@ -4,7 +4,7 @@ export interface CreateRecipe
 {
     userId: string,
     recipeName: string,
-    typeOfFood: string,
+    typeOfFoodId: string,
     instructions: string,
     timeToPrepare: number,
     picture: string, //treba da bude file(slika) nekad

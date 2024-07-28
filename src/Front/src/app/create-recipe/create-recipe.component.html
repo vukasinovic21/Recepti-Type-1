@@ -38,65 +38,32 @@
         </div>
 
         <div class="mb-3 form-check form-switch">
-            <label class="form-label">Do you want recipe to be private</label>
+            <label class="form-label">Do you want recipe to be public</label>
             <input class="form-control form-check-input" type="checkbox" formControlName="shared">
         </div>
 
         <div class="mb-3">
             <label class="form-label">Choose which type of food is this recipe</label><br>
-            <select class="form-select" aria-label="Default select example" formControlName="typeOfFood">
+            <select class="form-select" aria-label="Default select example" formControlName="typeOfFoodId">
                 <option *ngFor="let typeOfFood of typesOfFood" value={{typeOfFood.id}}>
                     {{typeOfFood.typeName}} <br><br>
                 </option>
             </select>
         </div>    
 
-        <!--Recipe items-->
-        <div class="row mb-3">
-            <div class="col-8 mb-3">
-                <label class="form-label">Add ingredients</label>
-            </div>
-            <div class="col-8"> 
-                <input class="form-control" type="text" formControlName="recipeItems">
-            </div>  
-            <div class="col-4">
-                <input class="form-control small-input" type="number" min="0" formControlName="recipeItems">
-            </div>
-            <!--
-            <div class="col-8 mb-3">
-                <label class="form-label">Add number of ingredients</label>
-            </div>
-            <div class="col-4">
-                <input class="form-control" type="number" formControlName="numFields" min="0" placeholder="Number of Fields">
-            </div>
-            <div formArrayName="ingredients">
-                <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i">
-                  <div class="row mb-3">
-                    <div class="col-8"> 
-                        <input class="form-control" type="text" [formControlName]="i">
-                    </div>  
-                    <div class="col-4">
-                        <input class="form-control small-input" type="number" min="0" [formControlName]="i">
-                    </div>
-                  </div>
+        <div class="mb-3">
+            <div formArrayName="recipeItems">
+                <div *ngFor="let item of recipeItems.controls; let i = index" [formGroupName]="i" class="row">
+                <div class="col-8">
+                    <label class="form-label">Ingredient Id</label>
+                    <input class="form-control" type="text" formControlName="ingredientId">
                 </div>
-              </div>-->
-        </div>
-        <div class="row mb-3">
-            <div class="col-8"> 
-                <input class="form-control" type="text" formControlName="recipeItems">
-            </div>  
-            <div class="col-4">
-                <input class="form-control small-input" type="number" min="0" formControlName="recipeItems">
-            </div>    
-        </div>
-        <div class="row mb-3">
-            <div class="col-8"> 
-                <input class="form-control" type="text" formControlName="recipeItems">
-            </div>  
-            <div class="col-4">
-                <input class="form-control small-input" type="number" min="0" formControlName="recipeItems">
-            </div>    
+                <div class="col-4">
+                    <label class="form-label">Quantity</label>
+                    <input class="form-control small-input" type="number" min="0" formControlName="quantity">
+                </div>
+                </div>
+            </div>
         </div>
 
         <button class="btn btn-success" type="submit" [disabled]="createForm.invalid">Create new</button>

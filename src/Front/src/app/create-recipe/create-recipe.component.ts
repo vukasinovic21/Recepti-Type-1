@@ -17,14 +17,9 @@ export class CreateRecipeComponent implements OnInit
   typesOfFood: TypeOfFood[] = [];  
   createForm: FormGroup = new FormGroup({});
 
-  constructor(private formBuilder: FormBuilder, private recipeService: RecipeService, private router: Router){}
+  response: string = '';
 
-  /*
-  numFields: number = 0; 
-  get ingredients() 
-  {
-    return this.createForm.get('ingredients') as FormArray;
-  }*/
+  constructor(private formBuilder: FormBuilder, private recipeService: RecipeService, private router: Router){}
 
   ngOnInit(): void 
   {
@@ -36,47 +31,39 @@ export class CreateRecipeComponent implements OnInit
     this.createForm = this.formBuilder.group({
       userId: ['f8a9e484-65e9-4b01-94b6-7da073e9f43b'],
       recipeName: ['', Validators.required],
-      typeOfFood: ['', Validators.required],
+      typeOfFoodId: ['', Validators.required],
       instructions: ['', Validators.required],
       timeToPrepare: ['', Validators.required],
       picture: ['slikaRecepta'],
-      shared: [''],
-      //recipeItems: this.formBuilder.array([this.createItem()])
-
-      /*ingredientName: [''],
-      numFields: [0],
-      ingredients: this.formBuilder.array([])  // FormArray for dynamic fields*/
+      shared: [true],
+      recipeItems: this.formBuilder.array([this.createItem(), this.createItem(), this.createItem()])
     });
 
-    /*this.createForm.get('numFields')?.valueChanges.subscribe(value => {
-      this.updateFields(value);
-    });*/
+  }
+  get recipeItems(): FormArray 
+  {
+    return this.createForm.get('recipeItems') as FormArray;
   }
 
-  /*updateFields(count: number) 
+  createItem(): FormGroup 
   {
-    const ingredientsArray = this.ingredients;
-    
-    // Clear existing fields
-    while (ingredientsArray.length) {
-      ingredientsArray.removeAt(0);
-    }
-
-    // Add new fields
-    for (let i = 0; i < count; i++) {
-      ingredientsArray.push(this.formBuilder.control(''));
-    }
-  }*/
+    return this.formBuilder.group({
+      ingredientId: ['', Validators.required],
+      quantity: [0, [Validators.required, Validators.min(0)]]
+    });
+  }
 
   onSubmit()
   {
     if(this.createForm.valid)
     {
       let recipe: CreateRecipe = this.createForm.value;
-      console.log(recipe);
-      //this.recipeService.createNewRecipe(recipe)
+      this.recipeService.createNewRecipe(recipe).subscribe( str => {
+        this.response = str
+        console.log(this.response);
+      })
       
-      //this.router.navigate(['/recipes'])
+      this.router.navigate(['/recipes'])
     }
   }
 }
