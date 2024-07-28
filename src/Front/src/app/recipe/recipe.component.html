@@ -21,11 +21,23 @@
             <b>Masti:</b> {{ recipeNutritions?.fat }}g <br>
             <b>Proteini:</b> {{ recipeNutritions?.protein }}g <br>
             <b>Energetska vrednost: </b>{{ recipeNutritions?.kCal }} kCal <br>
-            <b>Glikemijsko opterecenje (GL):</b><!-- {{ recipeNutritions?.gl }} <br>-->
-            <b><span *ngIf="recipeNutritions && recipeNutritions.gl < 10" style="color:green"> {{ recipeNutritions.gl}} </span>
-            <span *ngIf="recipeNutritions && recipeNutritions.gl > 10 && recipeNutritions.gl < 20" style="color:orange"> {{ recipeNutritions.gl}} </span>
-            <span *ngIf="recipeNutritions && recipeNutritions.gl > 20" style="color:red"> {{ recipeNutritions.gl}} </span> </b><br>
-
+            
+            <b>Glikemijsko opterecenje celog jela (GL):</b><!-- {{ recipeNutritions?.gl }} <br>-->
+            <b><span *ngIf="recipeNutritions && recipeNutritions.gl < 10" style="color:green"> 
+                {{ recipeNutritions.gl | number:'1.2-2' }} </span>
+            <span *ngIf="recipeNutritions && recipeNutritions.gl >= 10 && recipeNutritions.gl < 20" style="color:orange"> 
+                {{ recipeNutritions.gl | number:'1.2-2' }} </span>
+            <span *ngIf="recipeNutritions && recipeNutritions.gl >= 20" style="color:red"> 
+                {{ recipeNutritions.gl | number:'1.2-2' }} </span> </b><br>
+            
+            <b>Glikemijsko opterecenje za 100g (GL):</b><!-- {{ recipeNutritions?.gl }} <br>-->
+            <b><span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100 < 10" style="color:green"> 
+                {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span>
+            <span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100  >= 10 && recipeNutritions.gl / recipeNutritions.weight * 100 < 20" style="color:orange"> 
+                {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span>
+            <span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100  >= 20" style="color:red"> 
+                {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span> </b><br> 
+                
             <b>Ukupna tezina: </b> 
             <span *ngIf="recipeNutritions && recipeNutritions.weight > 1000"> {{ recipeNutritions.weight / 1000 }} kg</span> 
             <span *ngIf="recipeNutritions && recipeNutritions.weight <= 1000"> {{ recipeNutritions.weight }} g </span>
