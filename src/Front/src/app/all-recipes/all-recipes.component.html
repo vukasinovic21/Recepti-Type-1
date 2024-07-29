@@ -22,6 +22,26 @@
             <b>Created at: </b> <span>{{ recipe.createdAt | date:'yyyy-MM-dd' }}</span> <br>
             <b>Public:</b> {{ recipe.shared }} <br>
             <b>Slika: </b>{{ recipe.picture }}
+            <!--<div fxLayout="row wrap" fxLayoutGap="50px grid">
+            <mat-card class="example-card" appearance="outlined"> //lep prikaz pomocu mat-card sa sve slikom
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>{{ recipe.recipeName }}</mat-card-title>
+                  <mat-card-subtitle>TypeOfFood</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <p>
+                    {{ recipe.instructions | slice:0:150 }}
+                    <span *ngIf="recipe.instructions.length > 150">...</span>
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button>LIKE</button>
+                  <button mat-button>SHARE</button>
+                </mat-card-actions>
+              </mat-card>
+            </div>-->
         </div>
     </div>
 </div>

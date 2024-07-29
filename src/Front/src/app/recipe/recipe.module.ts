@@ -5,7 +5,8 @@ import { AllRecipesComponent } from '../all-recipes/all-recipes.component';
 import { CreateRecipeComponent } from '../create-recipe/create-recipe.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
+import { MatCardModule } from '@angular/material/card'
+import { FlexModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -18,7 +19,9 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    MatCardModule,
+    FlexModule
   ]
 })
 export class RecipeModule { }
