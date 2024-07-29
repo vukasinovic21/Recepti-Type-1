@@ -7,7 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card'
 import { FlexModule } from '@angular/flex-layout';
-
+import { MatInputModule } from '@angular/material/input'
+import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { FlexModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     RouterModule,
     MatCardModule,
-    FlexModule
+    FlexModule,
+    MatInputModule,
+    MatSelectModule
   ]
 })
 export class RecipeModule { }

@@ -7,6 +7,7 @@ import { Recipe } from '../models/recipe';
 import { RecipeNutritions } from '../models/recipe-nutritions';
 import { RecipeItem } from '../models/recipe-item';
 import { CreateRecipe } from '../models/create-recipe';
+import { Like } from '../models/like';
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +58,15 @@ export class RecipeService
     const query = {recipe:recipe};
 
     return this.http.post<{id: string}>(this.backUrl + "/recipes", query)
+    .pipe(
+      map(response => response.id)
+    );
+  }
+
+  likeRecipe(like: Like): Observable<string>
+  {
+    const query = {like: like};
+    return this.http.post<{id: string}>(this.backUrl + "/likes", query)
     .pipe(
       map(response => response.id)
     );

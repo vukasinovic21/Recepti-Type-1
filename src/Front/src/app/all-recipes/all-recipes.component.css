@@ -19,3 +19,7 @@ mat-card{
 img{
     height:200px;
 }
+
+.sort-dropdown{
+    margin-left: 20px;
+}

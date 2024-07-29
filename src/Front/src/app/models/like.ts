@@ -1,2 +1,5 @@
-export interface Like {
+export interface Like 
+{
+    recipeId: string,
+    userId: string
 }
