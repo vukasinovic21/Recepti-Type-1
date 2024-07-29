@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 import { RecipeComponent } from './recipe/recipe.component';
+import { CreateDietComponent } from './create-diet/create-diet.component';
 
 const routes: Routes = 
 [
@@ -27,6 +28,9 @@ const routes: Routes =
   },
   {
     path:"create", component: CreateRecipeComponent
+  },
+  {
+    path:"diet/create", component: CreateDietComponent
   },
   {
     path:"users", component: AllUsersComponent

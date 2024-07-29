@@ -1,0 +1,21 @@
+.example-card {
+    max-width: 300px;
+    height: 400px;
+  }
+  
+.example-header-image {
+background-size: cover;
+}
+
+mat-card:hover{
+    transform: scale(1.10);
+    cursor:pointer;
+}
+
+mat-card{
+    transition: transform .2s;
+}
+
+img{
+    height:200px;
+}

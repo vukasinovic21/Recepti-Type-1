@@ -13,6 +13,8 @@ import { IngredientModule } from './ingredient/ingredient.module';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatButtonModule } from '@angular/material/button'
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     PlanOfDietModule,
     IngredientModule,
     AuthModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [
     provideAnimationsAsync()

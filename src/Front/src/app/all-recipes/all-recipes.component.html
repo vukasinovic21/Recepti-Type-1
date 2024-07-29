@@ -1,15 +1,15 @@
 <div class="text-center mb-5 mt-3">
-    <h2>All recipes</h2>
+    <h1>All recipes</h1>
 </div>
 
-<div class="container">
+<!--<div class="container">
     <div class="row">
         <div class="col-4 mb-5" *ngFor="let recipe of recipes" (click)="showRecipeId(recipe.id)">
             <b>Recipe name:</b> {{ recipe.recipeName }} <br>
             <b>Instructions:</b> {{ recipe.instructions | slice:0:75 }}
             <span *ngIf="recipe.instructions.length > 75">...</span> <br>
 
-            <b>Time to prepare:</b> <!--{{ recipe.timeToPrepare }} <br>-->
+            <b>Time to prepare:</b> 
             <span *ngIf="recipe.timeToPrepare <= 15" style="color:green"> <b>
                 {{ recipe.timeToPrepare}} </b> min</span>
             <span *ngIf="recipe.timeToPrepare > 15 && recipe.timeToPrepare < 60" style="color:orange"> <b>
@@ -22,29 +22,31 @@
             <b>Created at: </b> <span>{{ recipe.createdAt | date:'yyyy-MM-dd' }}</span> <br>
             <b>Public:</b> {{ recipe.shared }} <br>
             <b>Slika: </b>{{ recipe.picture }}
-            <!--<div fxLayout="row wrap" fxLayoutGap="50px grid">
-            <mat-card class="example-card" appearance="outlined"> //lep prikaz pomocu mat-card sa sve slikom
+        </div>
+    </div>
+</div>
+-->
+
+<div class-="container">
+    <div fxLayout="row wrap" fxLayoutGap="50px grid" >
+        <div *ngFor="let recipe of recipes" (click)="showRecipeId(recipe.id)">
+            <mat-card class="example-card" appearance="outlined"> <!--lep prikaz pomocu mat-card sa sve slikom-->
                 <mat-card-header>
-                  <div mat-card-avatar class="example-header-image"></div>
-                  <mat-card-title>{{ recipe.recipeName }}</mat-card-title>
-                  <mat-card-subtitle>TypeOfFood</mat-card-subtitle>
+                    <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/female.svg');"></div>
+                    <mat-card-title>{{ recipe.recipeName }}</mat-card-title>
+                    <mat-card-subtitle> Smuti i napitci </mat-card-subtitle><!--{{ recipe.userId }} ili {{ recipe.typeOfFoodId}}-->
                 </mat-card-header>
-                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                <img mat-card-image src="assets/images/{{ recipe.picture }}.jpg" alt="{{ recipe.recipeName }}">
                 <mat-card-content>
-                  <p>
-                    {{ recipe.instructions | slice:0:150 }}
-                    <span *ngIf="recipe.instructions.length > 150">...</span>
-                  </p>
+                    {{ recipe.instructions | slice:0:75 }}
+                    <span *ngIf="recipe.instructions.length > 75">...</span>
                 </mat-card-content>
                 <mat-card-actions>
-                  <button mat-button>LIKE</button>
-                  <button mat-button>SHARE</button>
+                    <button mat-button>Like</button>
+                    <button mat-button>Share</button>
                 </mat-card-actions>
-              </mat-card>
-            </div>-->
+            </mat-card>
         </div>
     </div>
 </div>
 <br>
-
-<button [routerLink]="['/']" class="btn btn-primary">Pocetna</button>
