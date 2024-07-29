@@ -14,8 +14,10 @@
                 {{ recipe.timeToPrepare}} </b> min</span>
             <span *ngIf="recipe.timeToPrepare > 15 && recipe.timeToPrepare < 60" style="color:orange"> <b>
                 {{ recipe.timeToPrepare}} </b> min</span>
-            <span *ngIf="recipe.timeToPrepare > 45" style="color:red"> <b>
-                {{ recipe.timeToPrepare / 60  | number:'1.0-0' }} </b> h {{ recipe.timeToPrepare % 60 }} min </span><br>    
+            <span *ngIf="recipe.timeToPrepare > 60 && recipe.timeToPrepare % 60 < 30" style="color:red"> <b>
+                {{ recipe.timeToPrepare / 60  | number:'1.0-0' }} </b> h {{ recipe.timeToPrepare % 60 }} min </span>    
+            <span *ngIf="recipe.timeToPrepare > 60 && recipe.timeToPrepare % 60 > 30" style="color:red"> <b>
+                {{ (recipe.timeToPrepare / 60 - 1)  | number:'1.0-0' }} </b> h {{ recipe.timeToPrepare % 60 }} min </span><br>   
 
             <b>Created at: </b> <span>{{ recipe.createdAt | date:'yyyy-MM-dd' }}</span> <br>
             <b>Public:</b> {{ recipe.shared }} <br>

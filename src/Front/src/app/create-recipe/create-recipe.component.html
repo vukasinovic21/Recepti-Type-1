@@ -5,12 +5,21 @@
 
     <form [formGroup]="createForm" (ngSubmit)="onSubmit()" >
 
-        <div class="mb-3">
-            <label class="form-label">Name of recipe</label>
-            <input class="form-control" type="text" formControlName="recipeName">
-            <small class="text-danger" *ngIf="createForm.get('recipeName')?.invalid && createForm.get('recipeName')?.touched">
-                Name of recipe is required.
-            </small>
+        <div class="row mb-3">
+            <div class="col-8">
+                <label class="form-label">Name of recipe</label>
+                <input class="form-control" type="text" formControlName="recipeName">
+                <small class="text-danger" *ngIf="createForm.get('recipeName')?.invalid && createForm.get('recipeName')?.touched">
+                    Name of recipe is required.
+                </small>
+            </div>
+            <div class="col-4">
+                <label class="form-label">Time needed</label>
+                <input class="form-control" type="number" formControlName="timeToPrepare">
+                <small class="text-danger" *ngIf="createForm.get('timeToPrepare')?.invalid && createForm.get('timeToPrepare')?.touched">
+                    Preparation time is required.
+                </small>
+            </div>
         </div>
 
         <div class="mb-3">
@@ -18,14 +27,6 @@
             <textarea class="form-control" rows="5" formControlName="instructions"></textarea>
             <small class="text-danger" *ngIf="createForm.get('instructions')?.invalid && createForm.get('instructions')?.touched">
                 Instructions are required.
-            </small>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Preparation time in minutes</label>
-            <input class="form-control" type="number" formControlName="timeToPrepare">
-            <small class="text-danger" *ngIf="createForm.get('timeToPrepare')?.invalid && createForm.get('timeToPrepare')?.touched">
-                Preparation time is required.
             </small>
         </div>
 
