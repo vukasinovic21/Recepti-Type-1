@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Recipe } from '../models/recipe';
 import { Like } from '../models/like';
 import { RecipeService } from '../recipe/recipe.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
 
 @Component({
@@ -22,14 +22,20 @@ export class AllRecipesComponent
       userId: ''
     };  
 
-    constructor(private recipeService: RecipeService, private router: Router){}
+    constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute){}
 
     ngOnInit(): void 
     {
-
       this.recipeService.getAllRecipes().subscribe( recipes => {
           this.recipes = recipes;
+          this.filteredRecipes = recipes; 
+      });
+
+      this.route.queryParams.subscribe(() => {
+        this.recipeService.getAllRecipes().subscribe( recipes => {
+          this.recipes = recipes;
           this.filteredRecipes = recipes;
+        });
       });
     }
 

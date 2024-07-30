@@ -44,10 +44,9 @@
             </div>  
             <div class="col">
                 <label class="form-label">Choose image</label>
-                <input class="form-control" type="text" accept="image/*" formControlName="picture">
-                <!--<small class="text-danger" *ngIf="createForm.get('Image')?.invalid && createForm.get('Image')?.touched">
-                    An image is required.
-                </small>-->
+                <!--<input class="form-control" type="text" accept="image/*" formControlName="picture">-->
+                <input class="form-control" type="file" (change)="onChange($event)" id="pictures">
+                <input class="form-control" type="hidden" formControlName="picture"> 
             </div>
         </div>
 

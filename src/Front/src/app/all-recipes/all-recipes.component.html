@@ -48,7 +48,7 @@
                     <mat-card-title>{{ recipe.recipeName }}</mat-card-title>
                     <mat-card-subtitle> Smuti i napitci </mat-card-subtitle><!--{{ recipe.userId }} ili {{ recipe.typeOfFoodId}}-->
                 </mat-card-header>
-                <img mat-card-image src="assets/images/{{ recipe.picture }}.jpg" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
+                <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
                 <mat-card-content>
                     {{ recipe.instructions | slice:0:75 }}
                     <span *ngIf="recipe.instructions.length > 75">...</span>

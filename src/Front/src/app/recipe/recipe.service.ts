@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { TypeOfFood } from '../models/type-of-food';
 import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 import { Recipe } from '../models/recipe';
 import { RecipeNutritions } from '../models/recipe-nutritions';
 import { RecipeItem } from '../models/recipe-item';
@@ -55,6 +55,28 @@ export class RecipeService
 
   createNewRecipe(recipe: CreateRecipe): Observable<string>
   {
+    /*
+    const formData = new FormData(); 
+    const file: HTMLInputElement | null = document.getElementById('picture') as HTMLInputElement;
+
+    formData.append('userId', recipe.userId);
+    formData.append('recipeName', recipe.recipeName);
+    formData.append('typeOfFoodId', recipe.typeOfFoodId);
+    formData.append('instructions', recipe.instructions);
+    formData.append('timeToPrepare', recipe.timeToPrepare.toString());
+    formData.append('shared', recipe.shared.toString());
+    formData.append('recipeItems', JSON.stringify(recipe.recipeItems));
+
+    if(file && file.files && file.files.length > 0)
+    {
+      formData.append('picture', file.files[0]);
+    }
+
+    return this.http.post<{id: string}>(this.backUrl + "/recipes", formData)
+    .pipe(
+      map(response => response.id)
+    );*/
+
     const query = {recipe:recipe};
 
     return this.http.post<{id: string}>(this.backUrl + "/recipes", query)
@@ -70,6 +92,29 @@ export class RecipeService
     .pipe(
       map(response => response.id)
     );
+  }
+
+  addPicture() : Observable<string>
+  {
+    const formData = new FormData(); 
+    const file: HTMLInputElement | null = document.getElementById('pictures') as HTMLInputElement;
+
+    if(file.files)
+    {
+      formData.append('picture', file.files[0]);
+
+      return this.http.post<string>(this.backUrl + "/recipes/picture", formData).pipe(
+        catchError(error => {
+          console.error('Error uploading picture:', error);
+          return of('Error uploading picture'); // Return a user-friendly message or handle error as needed
+        })
+      );
+    } 
+    else 
+    {
+      console.error('No file selected.');
+      return of('No file selected.'); // Return a user-friendly message
+    }
   }
 
 }

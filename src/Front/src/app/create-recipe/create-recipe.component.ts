@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { TypeOfFood } from '../models/type-of-food';
 import { RecipeService } from '../recipe/recipe.service';
 import { Router } from '@angular/router';
@@ -17,6 +17,9 @@ export class CreateRecipeComponent implements OnInit
   typesOfFood: TypeOfFood[] = [];  
   createForm: FormGroup = new FormGroup({});
 
+  @ViewChild('file') file: ElementRef | undefined;
+  imageUrl!: File;
+
   response: string = '';
 
   constructor(private formBuilder: FormBuilder, private recipeService: RecipeService, private router: Router){}
@@ -34,7 +37,7 @@ export class CreateRecipeComponent implements OnInit
       typeOfFoodId: ['', Validators.required],
       instructions: ['', Validators.required],
       timeToPrepare: ['', Validators.required],
-      picture: ['slikaRecepta'],
+      picture: ['defaultRecipe.jpg'], //ako se ne ubaci slika da se uzme defaultRecipe slika iz baze
       shared: [true],
       recipeItems: this.formBuilder.array([this.createItem(), this.createItem(), this.createItem()])
     });
@@ -53,17 +56,32 @@ export class CreateRecipeComponent implements OnInit
     });
   }
 
+  onChange(event:any) : void 
+  { 
+    this.imageUrl = <File>event.target.files[0];
+    this.createForm.get('picture')?.setValue(this.imageUrl.name); 
+    //dodeliti picture-u iz createForma pravu vrednost ako se ne doda slika dodace se default slika
+  } 
+
   onSubmit()
   {
     if(this.createForm.valid)
     {
       let recipe: CreateRecipe = this.createForm.value;
-      this.recipeService.createNewRecipe(recipe).subscribe( str => {
-        this.response = str
-        console.log(this.response);
-      })
-      
-      this.router.navigate(['/recipes'])
+      this.recipeService.createNewRecipe(recipe).subscribe({ 
+        next: (str) => {
+          this.response = str
+
+          if(this.createForm.get('picture')?.value != 'defaultRecipe.jpg')
+            this.recipeService.addPicture().subscribe();
+
+          this.router.navigate(['/recipes'], { queryParams: { refresh: new Date().getTime() } })
+      },
+      error: (err) => 
+      {
+        console.error("An error ocurred during creating new Recipe:", err);
+      }
+    });
     }
   }
 }
