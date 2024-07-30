@@ -37,6 +37,10 @@
         <mat-select (selectionChange)="sortRecipes($event.value)" placeholder="Sort">
             <mat-option value="timeLowHigh">Time: Low to High</mat-option>
             <mat-option value="timeHighLow">Time: High to Low</mat-option>
+            <mat-option value="nameA-Z">Name: A-Z</mat-option>
+            <mat-option value="nameZ-A">Name: Z-A</mat-option>
+            <!--<mat-option value="likeLowHigh">Likes: Low to High</mat-option>
+            <mat-option value="likeHighLow">Likes: High to Low</mat-option>-->
         </mat-select>
     </mat-form-field>
 
@@ -45,6 +49,13 @@
             <mat-card class="example-card" appearance="outlined"> <!--lep prikaz pomocu mat-card sa sve slikom-->
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/female.svg');"></div>
+                    
+                    <span *ngIf="recipe.timeToPrepare <= 15" style="color:green"> <b> <!--NEKAKO DA BUDU ZAOKRUZENO LEPO MOZE I PORED DUGMICA-->
+                        {{ recipe.timeToPrepare}} </b>min</span>
+                    <span *ngIf="recipe.timeToPrepare > 15 && recipe.timeToPrepare < 60" style="color:orange"> <b>
+                        {{ recipe.timeToPrepare}} </b>min</span>
+                    <span *ngIf="recipe.timeToPrepare > 60 " style="color:red"> <b>
+                        {{ recipe.timeToPrepare}} </b>min</span>   
                     <mat-card-title>{{ recipe.recipeName }}</mat-card-title>
                     <mat-card-subtitle> Smuti i napitci </mat-card-subtitle><!--{{ recipe.userId }} ili {{ recipe.typeOfFoodId}}-->
                 </mat-card-header>

@@ -67,6 +67,24 @@ export class AllRecipesComponent
       {
         this.filteredRecipes.sort((a,b) => b.timeToPrepare - a.timeToPrepare)
       }
+      else if(this.sortOrder === "nameA-Z")
+      {
+        this.filteredRecipes.sort((a, b) => a.recipeName.localeCompare(b.recipeName));
+      }
+      else if(this.sortOrder === "nameZ-A")
+      {
+        this.filteredRecipes.sort((a, b) => b.recipeName.localeCompare(a.recipeName));
+      }
+      else if(this.sortOrder === "likeLowHigh")
+      {
+        //implementirati
+        //this.filteredRecipes.sort((a,b) => b.timeToPrepare - a.timeToPrepare)
+      }
+      else if(this.sortOrder === "likeHighLow")
+      {
+        //implementirati
+        //this.filteredRecipes.sort((a,b) => b.timeToPrepare - a.timeToPrepare)
+      } 
     }
 
     likeRecipe(recipeId:string): void
