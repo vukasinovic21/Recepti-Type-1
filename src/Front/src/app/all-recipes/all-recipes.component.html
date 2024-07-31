@@ -14,6 +14,8 @@
             <mat-option value="timeHighLow">Time: High to Low</mat-option>
             <mat-option value="nameA-Z">Name: A-Z</mat-option>
             <mat-option value="nameZ-A">Name: Z-A</mat-option>
+            <mat-option value="newest">Posted: Newest</mat-option>
+            <mat-option value="oldest">Posted: Oldest</mat-option>
             <!--<mat-option value="likeLowHigh">Likes: Low to High</mat-option>
             <mat-option value="likeHighLow">Likes: High to Low</mat-option>-->
         </mat-select>
@@ -42,11 +44,11 @@
                     <!--BROJ LAJKOVA DA BUDE PRIKAZAN-->
                     <b>Posted at: </b> <span> {{ recipe.createdAt | date:'yyyy-MM-dd' }} </span>
 
-                    <span class="circle" *ngIf="recipe.timeToPrepare <= 15" style="color:green"> <!--NEKAKO DA BUDU ZAOKRUZENO LEPO MOZE I PORED DUGMICA-->
+                    <span class="circle green" *ngIf="recipe.timeToPrepare <= 15"> <!--NEKAKO DA BUDU ZAOKRUZENO LEPO MOZE I PORED DUGMICA-->
                         {{ recipe.timeToPrepare}} min</span>
-                    <span class="circle" *ngIf="recipe.timeToPrepare > 15 && recipe.timeToPrepare < 60" style="color:orange">
+                    <span class="circle orange" *ngIf="recipe.timeToPrepare > 15 && recipe.timeToPrepare < 60" >
                         {{ recipe.timeToPrepare}} min</span>
-                    <span class="circle" *ngIf="recipe.timeToPrepare > 60 " style="color:red">
+                    <span class="circle red" *ngIf="recipe.timeToPrepare > 60 ">
                         {{ recipe.timeToPrepare}}min</span>   
                 </mat-card-actions>
             </mat-card>

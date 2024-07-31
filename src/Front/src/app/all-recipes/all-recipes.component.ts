@@ -76,6 +76,14 @@ export class AllRecipesComponent
       {
         this.filteredRecipes.sort((a, b) => b.recipeName.localeCompare(a.recipeName));
       }
+      else if(this.sortOrder === "newest")
+      {
+        this.filteredRecipes.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+      }
+      else if(this.sortOrder === "oldest")
+      {
+        this.filteredRecipes.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+      }
       else if(this.sortOrder === "likeLowHigh")
       {
         //implementirati
