@@ -56,6 +56,17 @@ export class AllRecipesComponent
       this.sortRecipes(this.sortOrder);  
     }
 
+   
+    likeRecipe(recipeId:string): void
+    {
+      this.like.recipeId = recipeId;
+      this.like.userId = "f8a9e484-65e9-4b01-94b6-7da073e9f43b"; //uzeti iz cookie-ja pravu vrednost kada se uradi 
+      //na backu neka stoji da ako je lajkovano moze da dislajkuje samo tj ne moze 2 puta isti korisnik da lajkuje isti recept
+      this.recipeService.likeRecipe(this.like).subscribe( str => {
+        console.log(str);
+      })
+    }
+
     sortRecipes(sortValue: string)
     {
       this.sortOrder = sortValue;
@@ -94,15 +105,6 @@ export class AllRecipesComponent
         //implementirati
         //this.filteredRecipes.sort((a,b) => b.timeToPrepare - a.timeToPrepare)
       } 
-    }
-
-    likeRecipe(recipeId:string): void
-    {
-      this.like.recipeId = recipeId;
-      this.like.userId = "f8a9e484-65e9-4b01-94b6-7da073e9f43b"; //uzeti iz cookie-ja pravu vrednost kada se uradi
-      this.recipeService.likeRecipe(this.like).subscribe( str => {
-        console.log(str);
-      })
     }
 
 }

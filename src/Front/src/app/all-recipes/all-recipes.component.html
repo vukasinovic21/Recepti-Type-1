@@ -25,9 +25,9 @@
         <div *ngFor="let recipe of filteredRecipes">
             <mat-card class="example-card" appearance="outlined"> <!--lep prikaz pomocu mat-card sa sve slikom-->
                 <mat-card-header>
-                    <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/female.svg');"></div>
-                    <mat-card-title>{{ recipe.recipeName }}</mat-card-title>
-                    <mat-card-subtitle> Smuti i napitci </mat-card-subtitle><!--{{ recipe.userId }} ili {{ recipe.typeOfFoodId}}-->
+                    <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/female.svg');"></div><!--(click)="showUserId(recipe.userId)"--> <!--KLIKOM NA SLIKU DA SE OTVORI JAVAN PROFIL TOG KORISNIKA -->
+                    <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
+                    <mat-card-subtitle> Smuti i napitci </mat-card-subtitle><!--<mat-card-subtitle (click)="showTypeOfFoodId(recipe.typeOfFoodId)">{{ recipe.typeOfFoodId }}</mat-card-subtitle> --><!--KLIKOM NA TIP HRANE DA SE OTVORE SVI RECEPTI TOG TIPA -->
                 </mat-card-header>
 
                 <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
@@ -42,7 +42,7 @@
                     <!--<button mat-button (click)="likeRecipe(recipe.id)">Like</button>
                     <button mat-button>Share</button>--> <!--OSTAVITI ZA POJEDINACNI PRIKAZ RECEPTA-->
                     <!--BROJ LAJKOVA DA BUDE PRIKAZAN-->
-                    <b>Posted at: </b> <span> {{ recipe.createdAt | date:'yyyy-MM-dd' }} </span>
+                    <b>Posted: &nbsp;</b> <span> {{ recipe.createdAt | date:'dd-MM-yyyy' }} </span>
 
                     <span class="circle green" *ngIf="recipe.timeToPrepare <= 15"> <!--NEKAKO DA BUDU ZAOKRUZENO LEPO MOZE I PORED DUGMICA-->
                         {{ recipe.timeToPrepare}} min</span>
