@@ -53,6 +53,15 @@ export class RecipeService
     )
   }
 
+  getRecipeUser(id: string): Observable<Recipe[]>
+  {
+    return this.http.get<{recipes: Recipe[]}>(this.backUrl + "/recipes/user/" + id)
+    .pipe(
+      map(response => response.recipes)
+    )
+  }
+
+
   createNewRecipe(recipe: CreateRecipe): Observable<string>
   {
     const capitalizedValue = recipe.recipeName.charAt(0).toUpperCase() + recipe.recipeName.slice(1);

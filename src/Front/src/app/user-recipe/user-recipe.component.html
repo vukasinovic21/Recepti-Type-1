@@ -1,5 +1,5 @@
 <div class="text-center mb-5 mt-3">
-    <h1>All recipes</h1>
+    <h1>User taj i taj - recepti(profil)</h1>
 </div>
 
 <div class="container">
@@ -16,18 +16,16 @@
             <mat-option value="nameZ-A">Name: Z-A</mat-option>
             <mat-option value="newest">Posted: Newest</mat-option>
             <mat-option value="oldest">Posted: Oldest</mat-option>
-            <!--<mat-option value="likeLowHigh">Likes: Low to High</mat-option>
-            <mat-option value="likeHighLow">Likes: High to Low</mat-option>-->
         </mat-select>
     </mat-form-field>
 
     <div fxLayout="row wrap" fxLayoutGap="50px grid" >
         <div *ngFor="let recipe of filteredRecipes">
-            <mat-card class="example-card" appearance="outlined"> <!--lep prikaz pomocu mat-card sa sve slikom-->
+            <mat-card class="example-card" appearance="outlined"> 
                 <mat-card-header>
-                    <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/female.svg');" (click)="showUserId(recipe.userId)"></div><!--KLIKOM NA SLIKU DA SE OTVORI JAVAN PROFIL TOG KORISNIKA -->
+                    <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/female.svg');"></div> 
                     <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
-                    <mat-card-subtitle> Smuti i napitci </mat-card-subtitle><!--<mat-card-subtitle (click)="showTypeOfFoodId(recipe.typeOfFoodId)">{{ recipe.typeOfFoodId }}</mat-card-subtitle> --><!--KLIKOM NA TIP HRANE DA SE OTVORE SVI RECEPTI TOG TIPA -->
+                    <mat-card-subtitle> Smuti i napitci </mat-card-subtitle>
                 </mat-card-header>
 
                 <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
@@ -39,9 +37,6 @@
                 </mat-card-content>
 
                 <mat-card-actions>
-                    <!--<button mat-button (click)="likeRecipe(recipe.id)">Like</button>
-                    <button mat-button>Share</button>--> <!--OSTAVITI ZA POJEDINACNI PRIKAZ RECEPTA-->
-                    <!--BROJ LAJKOVA DA BUDE PRIKAZAN-->
                     <b>Posted: &nbsp;</b> <span> {{ recipe.createdAt | date:'dd-MM-yyyy' }} </span>
 
                     <span class="circle green" *ngIf="recipe.timeToPrepare <= 15"> <!--NEKAKO DA BUDU ZAOKRUZENO LEPO MOZE I PORED DUGMICA-->

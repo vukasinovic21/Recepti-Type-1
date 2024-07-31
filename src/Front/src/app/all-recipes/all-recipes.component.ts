@@ -42,7 +42,18 @@ export class AllRecipesComponent
 
     showRecipeId(recipeId:string): void
     {
-      this.router.navigate(['/recipes/' + recipeId])
+      this.router.navigate(['/recipes/' + recipeId]);
+    }
+
+    showTypeOfFoodId(typeOfFoodId:string): void
+    {
+      this.router.navigate(['/recipes/typeoffood/' + typeOfFoodId]); //svi recepti tog tipa
+    }
+
+    showUserId(userId:string): void
+    {
+      this.router.navigate(['/recipes/user/' + userId]); //svi recepti tog korisnika
+      //ili mozda javni profil korisnika kad se prikljucio, koliko recepata, username, genericna slika i svi recepti
     }
 
     search(event: Event): void

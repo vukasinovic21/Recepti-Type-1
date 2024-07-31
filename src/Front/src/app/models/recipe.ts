@@ -6,9 +6,9 @@ export interface Recipe
 {
     id: string,
     createdAt: Date,
-    userId: User,
+    userId: string,
     recipeName: string,
-    typeOfFood: TypeOfFood,
+    typeOfFood: string,
     instructions: string,
     timeToPrepare: number,
     picture: string,

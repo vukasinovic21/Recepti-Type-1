@@ -1,0 +1,60 @@
+.example-card {
+    width: 320px;
+    height: 420px;
+  }
+  
+.example-header-image {
+background-size: cover;
+}
+
+mat-card:hover{
+    transform: scale(1.10);
+    cursor:pointer;
+}
+
+mat-card{
+    transition: transform .2s;
+}
+
+img{
+    height:200px;
+}
+
+.sort-dropdown{
+    margin-left: 20px;
+}
+
+.mat-card-actions {
+    display: flex; /* Use flexbox layout */
+    justify-content: space-between; /* Distribute space between items, pushing items to the edges */
+    align-items: center; /* Center items vertically */
+}
+
+.circle {
+    float: right;
+    /*display: inline-block;*/
+    width: 60px; /* Adjust width and height as needed */
+    height: 60px; /* Adjust width and height as needed */
+    line-height: 50px; /* Centers text vertically */
+    text-align: center; /* Centers text horizontally */
+    border-radius: 50%; /* Makes it a circle */
+    border: 3px solid; /* Border color and thickness */
+    background-color: white; /* Circle color */
+    font-weight: bold; /* Optional: make text bold */
+    margin-left: auto;
+  }
+
+.circle.green {
+    border-color: green;
+    color:green;
+}
+
+.circle.orange {
+    border-color: orange;
+    color:orange;
+}
+
+.circle.red {
+    border-color: red;
+    color:red;
+}

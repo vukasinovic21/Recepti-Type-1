@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { CreateDietComponent } from './create-diet/create-diet.component';
+import { UserRecipeComponent } from './user-recipe/user-recipe.component';
 
 const routes: Routes = 
 [
@@ -22,6 +23,9 @@ const routes: Routes =
   },*/
   {
     path:"recipes/:id", component: RecipeComponent
+  },
+  {
+    path:"recipes/user/:id", component: UserRecipeComponent
   },
   {
     path:"recipes", component: AllRecipesComponent

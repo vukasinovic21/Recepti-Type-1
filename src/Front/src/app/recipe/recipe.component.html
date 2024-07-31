@@ -43,7 +43,8 @@
             <span *ngIf="recipeNutritions && recipeNutritions.weight <= 1000"> {{ recipeNutritions.weight }} g </span>
         </div>
     </div>
-    <button class="btn btn-primary" [routerLink]="['/recipes']">Back</button>
+    <button class="btn btn-primary" [routerLink]="['/recipes']">All recipes</button>&nbsp;&nbsp;
+    <button class="btn btn-primary" [routerLink]="['/recipes/user', recipe?.userId]">Users recipes</button>
 </div>
 
    

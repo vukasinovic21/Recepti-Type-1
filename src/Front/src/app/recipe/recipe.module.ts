@@ -8,13 +8,15 @@ import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card'
 import { FlexModule } from '@angular/flex-layout';
 import { MatInputModule } from '@angular/material/input'
-import { MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
+import { UserRecipeComponent } from '../user-recipe/user-recipe.component'
 
 @NgModule({
   declarations: [
     RecipeComponent,
     AllRecipesComponent,
-    CreateRecipeComponent
+    CreateRecipeComponent,
+    UserRecipeComponent
   ],
   imports: [
     CommonModule,
