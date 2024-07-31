@@ -2,31 +2,6 @@
     <h1>All recipes</h1>
 </div>
 
-<!--<div class="container">
-    <div class="row">
-        <div class="col-4 mb-5" *ngFor="let recipe of recipes" (click)="showRecipeId(recipe.id)">
-            <b>Recipe name:</b> {{ recipe.recipeName }} <br>
-            <b>Instructions:</b> {{ recipe.instructions | slice:0:75 }}
-            <span *ngIf="recipe.instructions.length > 75">...</span> <br>
-
-            <b>Time to prepare:</b> 
-            <span *ngIf="recipe.timeToPrepare <= 15" style="color:green"> <b>
-                {{ recipe.timeToPrepare}} </b> min</span>
-            <span *ngIf="recipe.timeToPrepare > 15 && recipe.timeToPrepare < 60" style="color:orange"> <b>
-                {{ recipe.timeToPrepare}} </b> min</span>
-            <span *ngIf="recipe.timeToPrepare > 60 && recipe.timeToPrepare % 60 < 30" style="color:red"> <b>
-                {{ recipe.timeToPrepare / 60  | number:'1.0-0' }} </b> h {{ recipe.timeToPrepare % 60 }} min </span>    
-            <span *ngIf="recipe.timeToPrepare > 60 && recipe.timeToPrepare % 60 > 30" style="color:red"> <b>
-                {{ (recipe.timeToPrepare / 60 - 1)  | number:'1.0-0' }} </b> h {{ recipe.timeToPrepare % 60 }} min </span><br>   
-
-            <b>Created at: </b> <span>{{ recipe.createdAt | date:'yyyy-MM-dd' }}</span> <br>
-            <b>Public:</b> {{ recipe.shared }} <br>
-            <b>Slika: </b>{{ recipe.picture }}
-        </div>
-    </div>
-</div>
--->
-
 <div class="container">
 
     <mat-form-field>
@@ -49,24 +24,30 @@
             <mat-card class="example-card" appearance="outlined"> <!--lep prikaz pomocu mat-card sa sve slikom-->
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/female.svg');"></div>
-                    
-                    <span *ngIf="recipe.timeToPrepare <= 15" style="color:green"> <b> <!--NEKAKO DA BUDU ZAOKRUZENO LEPO MOZE I PORED DUGMICA-->
-                        {{ recipe.timeToPrepare}} </b>min</span>
-                    <span *ngIf="recipe.timeToPrepare > 15 && recipe.timeToPrepare < 60" style="color:orange"> <b>
-                        {{ recipe.timeToPrepare}} </b>min</span>
-                    <span *ngIf="recipe.timeToPrepare > 60 " style="color:red"> <b>
-                        {{ recipe.timeToPrepare}} </b>min</span>   
                     <mat-card-title>{{ recipe.recipeName }}</mat-card-title>
                     <mat-card-subtitle> Smuti i napitci </mat-card-subtitle><!--{{ recipe.userId }} ili {{ recipe.typeOfFoodId}}-->
                 </mat-card-header>
+
                 <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
+                <br>
                 <mat-card-content>
                     {{ recipe.instructions | slice:0:75 }}
+                    <span *ngIf="recipe.instructions.length <= 75"><br><br></span>
                     <span *ngIf="recipe.instructions.length > 75">...</span>
                 </mat-card-content>
+
                 <mat-card-actions>
-                    <button mat-button (click)="likeRecipe(recipe.id)">Like</button>
-                    <button mat-button>Share</button>
+                    <!--<button mat-button (click)="likeRecipe(recipe.id)">Like</button>
+                    <button mat-button>Share</button>--> <!--OSTAVITI ZA POJEDINACNI PRIKAZ RECEPTA-->
+                    <!--BROJ LAJKOVA DA BUDE PRIKAZAN-->
+                    <b>Posted at: </b> <span> {{ recipe.createdAt | date:'yyyy-MM-dd' }} </span>
+
+                    <span class="circle" *ngIf="recipe.timeToPrepare <= 15" style="color:green"> <!--NEKAKO DA BUDU ZAOKRUZENO LEPO MOZE I PORED DUGMICA-->
+                        {{ recipe.timeToPrepare}} min</span>
+                    <span class="circle" *ngIf="recipe.timeToPrepare > 15 && recipe.timeToPrepare < 60" style="color:orange">
+                        {{ recipe.timeToPrepare}} min</span>
+                    <span class="circle" *ngIf="recipe.timeToPrepare > 60 " style="color:red">
+                        {{ recipe.timeToPrepare}}min</span>   
                 </mat-card-actions>
             </mat-card>
         </div>

@@ -55,28 +55,8 @@ export class RecipeService
 
   createNewRecipe(recipe: CreateRecipe): Observable<string>
   {
-    /*
-    const formData = new FormData(); 
-    const file: HTMLInputElement | null = document.getElementById('picture') as HTMLInputElement;
-
-    formData.append('userId', recipe.userId);
-    formData.append('recipeName', recipe.recipeName);
-    formData.append('typeOfFoodId', recipe.typeOfFoodId);
-    formData.append('instructions', recipe.instructions);
-    formData.append('timeToPrepare', recipe.timeToPrepare.toString());
-    formData.append('shared', recipe.shared.toString());
-    formData.append('recipeItems', JSON.stringify(recipe.recipeItems));
-
-    if(file && file.files && file.files.length > 0)
-    {
-      formData.append('picture', file.files[0]);
-    }
-
-    return this.http.post<{id: string}>(this.backUrl + "/recipes", formData)
-    .pipe(
-      map(response => response.id)
-    );*/
-
+    const capitalizedValue = recipe.recipeName.charAt(0).toUpperCase() + recipe.recipeName.slice(1);
+    recipe.recipeName = capitalizedValue;
     const query = {recipe:recipe};
 
     return this.http.post<{id: string}>(this.backUrl + "/recipes", query)
