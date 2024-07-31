@@ -8,7 +8,8 @@ import { map } from 'rxjs';
 @Component({
   selector: 'app-all-recipes',
   templateUrl: './all-recipes.component.html',
-  styleUrl: './all-recipes.component.css'
+  styleUrl: './all-recipes.component.css',
+  animations: []
 })
 export class AllRecipesComponent 
 {
@@ -97,3 +98,4 @@ export class AllRecipesComponent
     }
 
 }
+
