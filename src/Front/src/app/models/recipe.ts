@@ -13,5 +13,5 @@ export interface Recipe
     timeToPrepare: number,
     picture: string,
     shared: boolean,
-    recipeItems: RecipeItem
+    recipeItems: RecipeItem[]
 }

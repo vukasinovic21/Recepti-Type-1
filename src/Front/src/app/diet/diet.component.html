@@ -1,3 +1,12 @@
 
-<h1>Main part</h1>
-<p>This area will be larger and will fill the remaining space.</p>
+<div class="container">
+    <div class="text-center">
+        <h1 class="font">{{ diet.dietName }}</h1> <!--KAD SE IZABERE DIJETA IZBACI POTREBNE STVARI ALI POSLE PUKNE ?!?-->
+    </div>
+
+    <div>
+        <b>Napravljeno: </b> <span>{{ diet.createdAt | date:'yyyy-MM-dd' }}</span> <br>
+        
+    </div>
+</div>
+

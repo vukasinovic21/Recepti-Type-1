@@ -7,9 +7,9 @@ namespace Back.API.Endpoints.Diets
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            app.MapGet("/diets/name/{dietName}", async (string recipeName, ISender sender) =>
+            app.MapGet("/diets/name/{dietName}", async (string dietName, ISender sender) =>
             {
-                var result = await sender.Send(new GetDietsByNameQuery(recipeName));
+                var result = await sender.Send(new GetDietsByNameQuery(dietName));
 
                 var response = result.Adapt<GetDietsByNameResponse>();
 

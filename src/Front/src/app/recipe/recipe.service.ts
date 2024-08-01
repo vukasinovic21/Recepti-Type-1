@@ -8,6 +8,7 @@ import { RecipeNutritions } from '../models/recipe-nutritions';
 import { RecipeItem } from '../models/recipe-item';
 import { CreateRecipe } from '../models/create-recipe';
 import { Like } from '../models/like';
+import { RecipeIngredients } from '../models/recipe-ingredients';
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +53,15 @@ export class RecipeService
       map(response => response.recipeNutritions)
     )
   }
+
+  getRecipeIngredients(id: string): Observable<RecipeIngredients[]>
+  {
+    return this.http.get<{recipeIngredients: RecipeIngredients[]}>(this.backUrl + "/recipes/id/ingredients/" + id)
+    .pipe(
+      map(response => response.recipeIngredients)
+    )
+  }
+
 
   getRecipeUser(id: string): Observable<Recipe[]>
   {

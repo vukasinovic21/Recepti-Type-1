@@ -24,8 +24,8 @@ export class DietComponent implements OnInit
 
   showDiet(dietId: string): void
   {
-    this.dietService.getDietById(this.dietId).subscribe( diet => {
-      this.diet = diet;
+    this.dietService.getDietById(dietId).subscribe( diet => {
+      this.diet = diet[0];
     });
   }
 

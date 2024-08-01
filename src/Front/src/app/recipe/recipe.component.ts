@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { __param } from 'tslib';
 import { ActivatedRoute } from '@angular/router';
 import { RecipeNutritions } from '../models/recipe-nutritions';
+import { RecipeIngredients } from '../models/recipe-ingredients';
 
 @Component({
   selector: 'app-recipe',
@@ -17,6 +18,7 @@ export class RecipeComponent
 
     recipe?: Recipe;  
     recipeNutritions?: RecipeNutritions;
+    recipeIngredients: RecipeIngredients[] = [];
 
     constructor(private recipeService: RecipeService, private router: Router, private activatedRoute: ActivatedRoute){}
 
@@ -26,9 +28,10 @@ export class RecipeComponent
 
       this.getNutritions(id);
       this.getInfo(id);
+      this.getIngredients(id);
     }
 
-    getNutritions(recipeId:string): void //recipes/id/nut{id} //treba promeniti
+    getNutritions(recipeId:string): void 
     {
       this.recipeService.getRecipeNutritions(recipeId).subscribe( recipeNutritions => {
         this.recipeNutritions = recipeNutritions;
@@ -39,6 +42,13 @@ export class RecipeComponent
     {
       this.recipeService.getRecipeInfo(recipeId).subscribe( recipe => {
         this.recipe = recipe[0]
+      });
+    }
+
+    getIngredients(recipeId:string): void 
+    {
+      this.recipeService.getRecipeIngredients(recipeId).subscribe( recipeIngredients => {
+        this.recipeIngredients = recipeIngredients;
       });
     }
 

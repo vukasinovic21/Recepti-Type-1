@@ -22,11 +22,11 @@ export class DietService {
     );
   }
 
-  getDietById(dietId: string): Observable<Diet>
+  getDietById(dietId: string): Observable<Diet[]>
   {
-    return this.http.get<{diet:Diet}>(this.backUrl + "/diets/id/" + dietId)
+    return this.http.get<{diets:Diet[]}>(this.backUrl + "/diets/id/" + dietId)
     .pipe(
-      map(response => response.diet)
+      map(response => response.diets)
     );
   }
 

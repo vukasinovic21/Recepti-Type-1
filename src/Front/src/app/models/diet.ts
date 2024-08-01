@@ -7,5 +7,5 @@ export interface Diet
     dietName: string,
     nutritionId: string,
     createdAt: Date,
-    planOfDiets: PlanOfDiet
+    planOfDiets: PlanOfDiet[]
 }

@@ -11,43 +11,58 @@
                 <img class="img" src="assets/images/{{ recipe?.picture }}" alt="{{ recipe?.recipeName }}">
             </div>
             <br>
-            
-            <b>Instrukcije:</b> {{ recipe?.instructions }} <br><br> <!--DA BUDE SA OBE STRANE PORAVNANO I DA BUDE U RAVNI SA SLIKOM-->
-            <!--<b>Vreme za pripremu:</b> {{ recipe?.timeToPrepare }} min <br>
-            <b>Izbaceno: </b> <span>{{ recipe?.createdAt | date:'yyyy-MM-dd' }}</span> <br>-->
+            <div class="instructions">
+                <h1 class="color">Nacin pripreme</h1>
+                {{ recipe?.instructions }} <br><br> 
+            </div>
         </div>
+
         <div class="col-md-4">
             <h1 class="color">Nutritivne vrednosti</h1>
-            <b>Ugljeni hidrati:</b> {{ recipeNutritions?.carbs }}g <br>
-            <b>Seceri:</b> {{ recipeNutritions?.sugar }}g <br>
-            <b>Masti:</b> {{ recipeNutritions?.fat }}g <br>
-            <b>Proteini:</b> {{ recipeNutritions?.protein }}g <br>
-            <b>Energetska vrednost: </b>{{ recipeNutritions?.kCal }} kCal <br>
-            
-            <b>Glikemijsko opterecenje (GL):</b><!-- {{ recipeNutritions?.gl }} <br>-->
-            <b><span *ngIf="recipeNutritions && recipeNutritions.gl < 10" style="color:green"> 
-                {{ recipeNutritions.gl | number:'1.2-2' }} </span>
-            <span *ngIf="recipeNutritions && recipeNutritions.gl >= 10 && recipeNutritions.gl < 20" style="color:orange"> 
-                {{ recipeNutritions.gl | number:'1.2-2' }} </span>
-            <span *ngIf="recipeNutritions && recipeNutritions.gl >= 20" style="color:red"> 
-                {{ recipeNutritions.gl | number:'1.2-2' }} </span> </b><br>
-            
-            <b>Glikemijsko opterecenje za 100g:</b><!-- {{ recipeNutritions?.gl }} <br>-->
-            <b><span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100 < 10" style="color:green"> 
-                {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span>
-            <span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100  >= 10 && recipeNutritions.gl / recipeNutritions.weight * 100 < 20" style="color:orange"> 
-                {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span>
-            <span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100  >= 20" style="color:red"> 
-                {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span> </b><br> 
+            <div class="font2">
+                <b>Ugljeni hidrati:</b> {{ recipeNutritions?.carbs }}g <br>
+                <b>Seceri:</b> {{ recipeNutritions?.sugar }}g <br>
+                <b>Masti:</b> {{ recipeNutritions?.fat }}g <br>
+                <b>Proteini:</b> {{ recipeNutritions?.protein }}g <br>
+                <b>Energetska vrednost: </b>{{ recipeNutritions?.kCal }} kCal <br>
                 
-            <br><b>Ukupna kolicina: </b> 
-            <span *ngIf="recipeNutritions && recipeNutritions.weight > 1000"> {{ recipeNutritions.weight / 1000 }} kg</span> 
-            <span *ngIf="recipeNutritions && recipeNutritions.weight <= 1000"> {{ recipeNutritions.weight }} g </span>
+                <b>Glikemijsko opterecenje (GL):</b><!-- {{ recipeNutritions?.gl }} <br>-->
+                <b><span *ngIf="recipeNutritions && recipeNutritions.gl < 10" style="color:green"> 
+                    {{ recipeNutritions.gl | number:'1.2-2' }} </span>
+                <span *ngIf="recipeNutritions && recipeNutritions.gl >= 10 && recipeNutritions.gl < 20" style="color:orange"> 
+                    {{ recipeNutritions.gl | number:'1.2-2' }} </span>
+                <span *ngIf="recipeNutritions && recipeNutritions.gl >= 20" style="color:red"> 
+                    {{ recipeNutritions.gl | number:'1.2-2' }} </span> </b><br>
+                
+                <b>Glikemijsko opterecenje za 100g:</b><!-- {{ recipeNutritions?.gl }} <br>-->
+                <b><span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100 < 10" style="color:green"> 
+                    {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span>
+                <span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100  >= 10 && recipeNutritions.gl / recipeNutritions.weight * 100 < 20" style="color:orange"> 
+                    {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span>
+                <span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100  >= 20" style="color:red"> 
+                    {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span> </b><br> 
+                    
+                <br><b>Ukupna kolicina: </b> 
+                <span *ngIf="recipeNutritions && recipeNutritions.weight > 1000"> {{ recipeNutritions.weight / 1000 }} kg</span> 
+                <span *ngIf="recipeNutritions && recipeNutritions.weight <= 1000"> {{ recipeNutritions.weight }} g </span>
 
-            <hr class="solid-hr">
-            <br>
-            <b>Vreme za pripremu:</b> {{ recipe?.timeToPrepare }} min <br>
-            <b>Izbaceno: </b> <span>{{ recipe?.createdAt | date:'yyyy-MM-dd' }}</span> <br>
+                <hr class="solid-hr">
+                
+                <b>Vreme za pripremu:</b> {{ recipe?.timeToPrepare }} min <br>
+                <b>Izbaceno: </b> <span>{{ recipe?.createdAt | date:'yyyy-MM-dd' }}</span> <br>
+
+                <hr class="solid-hr">
+            </div>
+            <div>
+                <h1 class="color">Potrebne namirnice</h1>
+                <div *ngFor="let item of recipeIngredients" class="font2">
+                    {{item.ingredientName}} - <!--ako je jaje i tako jos nesto poznato sto ide na komad promeniti u kolicini ?!? -->
+                    <b><span *ngIf="item.quantity >= 1000 && item.quantity % 1000 != 0">{{ item.quantity / 1000 | number:'1.2-2' }} Kg</span></b>
+                    <b><span *ngIf="item.quantity >= 1000 && item.quantity % 1000 == 0">{{ item.quantity / 1000 }} Kg</span></b>
+                    <b><span *ngIf="item.quantity < 1000">{{ item.quantity }} g</span></b>
+                </div>
+            </div>
+            
         </div>
     </div>
     <br>

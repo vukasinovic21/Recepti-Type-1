@@ -1,9 +1,15 @@
 .img
 {
-    width: 90%; /* Adjust image to be responsive */
+    width: 95%; /* Adjust image to be responsive */
     height: auto; /* Maintain aspect ratio */
     max-width: 100%; /* Prevent image from being larger than its container */
-    max-height: 540px; /* Optional: limit the maximum height */
+    max-height: 550px; /* Optional: limit the maximum height */
+}
+
+.instructions
+{
+    width: 95%;
+    text-align: justify;
 }
 
 @media (max-width: 600px) {
@@ -23,11 +29,21 @@
     font-size: 50px;
     color: #669999;
 }
+.font2
+{
+    font-size: 15px;
+}
+
+.font2.b
+{
+    font-weight: 0;
+}
 
 .solid-hr {
     border: 0;                 
     height: 1.5px;               
     background-color: #669999;   
+    max-width: 333px;
 }
 
 .color
