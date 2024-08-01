@@ -24,3 +24,7 @@ body {
     max-width: 800px;
     margin: auto;
 }
+
+.mat-button.color {
+    color: white !important;
+}

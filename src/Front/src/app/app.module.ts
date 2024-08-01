@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatButtonModule } from '@angular/material/button'
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { MatButtonModule } from '@angular/material/button'
     AuthModule,
     HttpClientModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [
     provideAnimationsAsync()

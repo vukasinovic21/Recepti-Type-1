@@ -14,6 +14,8 @@ import { PlanOfDietModule } from './plan-of-diet/plan-of-diet.module';
 import { RecipeItemModule } from './recipe-item/recipe-item.module';
 import { RecipeModule } from './recipe/recipe.module';
 import { UserModule } from './user/user.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -32,7 +34,9 @@ describe('AppComponent', () => {
         AuthModule,
         HttpClientModule,
         MatToolbarModule,
-        MatButtonModule
+        MatButtonModule,
+        MatMenuModule,
+        MatIconModule
       ],
       declarations: [
         AppComponent

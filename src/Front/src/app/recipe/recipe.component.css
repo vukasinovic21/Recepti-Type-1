@@ -1,0 +1,42 @@
+.img
+{
+    width: 100%; /* Adjust image to be responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Prevent image from being larger than its container */
+    max-height: 450px; /* Optional: limit the maximum height */
+}
+
+@media (max-width: 600px) {
+    .img {
+        max-height: 300px; /* Adjust height for smaller screens */
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+    .img {
+        max-height: 400px; /* Adjust height for medium-sized screens */
+    }
+}
+
+.font
+{
+    font-size: 50px;
+    color: #669999;
+}
+
+.solid-hr {
+    border: 0;                 
+    height: 1.5px;               
+    background-color: #669999;   
+}
+
+.color
+{
+    color:#993300; 
+}
+
+.btn.color
+{
+    background-color:#001a33;
+    color:white;
+}

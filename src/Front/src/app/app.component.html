@@ -1,14 +1,36 @@
 
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <h2>Recepti Type 1 </h2>
-        <a href="/recipes" mat-button>All recipes</a>
-        <a href="/create" mat-button>New recipe</a>
-        <a href="/diet/create" mat-button>New diet</a>
-        <a href="/login" mat-button>Login</a>
-        <a href="/register" mat-button>Register</a>
+<mat-toolbar>
+    <mat-toolbar-row >
+        <h1>Recepti Type 1 </h1>
+        <span class="left-buttons">
+            <button *ngIf="!isMobile" [routerLink]="['/recipes']" class="color">All recipes</button>
+            <button *ngIf="!isMobile" [routerLink]="['/create']" class="color">New recipe</button>
+            <button *ngIf="!isMobile" [routerLink]="['/diet/create']" class="color">New diet</button>
+        </span>
+        <span class="spacer"></span>
+        <span class="right-buttons">
+            <button *ngIf="!isMobile" [routerLink]="['/login']" class="color">Login</button>
+            <button *ngIf="!isMobile" [routerLink]="['/register']" class="color">Register</button>
+        </span>
+        <span class="menu">
+            <button *ngIf="!isMobile" [matMenuTriggerFor]="menu" aria-label="More options" class="menu-button">
+                <mat-icon class="menu-icon">more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['/recipes']">All recipes</button>
+                <button mat-menu-item [routerLink]="['/create']">New recipe</button>
+                <button mat-menu-item [routerLink]="['/diet/create']">New diet</button>
+                <button mat-menu-item [routerLink]="['/login']">Login</button>
+                <button mat-menu-item [routerLink]="['/register']">Register</button>
+              </mat-menu>
+        </span>
     </mat-toolbar-row>
 </mat-toolbar>
 
 <router-outlet> </router-outlet>
 
+<!--<a href="/recipes" mat-button style="color: white;">All recipes</a>
+        <a href="/create" mat-button style="color: white;">New recipe</a>
+        <a href="/diet/create" mat-button style="color: white;">New diet</a>
+        <a href="/login" mat-button style="color: white;">Login</a>
+        <a href="/register" mat-button style="color: white;">Register</a>-->

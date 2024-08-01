@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Recepti type 1 - Front';
+isMobile: any;
 }

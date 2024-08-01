@@ -1,0 +1,85 @@
+.mat-toolbar
+{
+    background-color:#669999;
+    color:#001a33;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mat-button.color
+{
+    color:white !important;
+}
+
+.color
+{
+    background-color: transparent;
+    border: transparent;
+    color:white !important;
+    font-size: 80%;
+    margin-left: 15px;
+}
+
+.left-buttons 
+{
+    display: flex;
+    align-items: center;
+}
+
+.spacer
+{
+    flex: 1;
+}
+
+.right-buttons
+{
+    display: flex;
+    align-items: center;
+}
+
+.menu-button
+{
+    background-color: #669999;
+    border-color: #001a33;
+    color:#001a33;
+    padding-bottom: 0;
+    border-radius: 10px;
+}
+
+.menu-icon
+{
+    color:#001a33;
+    margin-top: 4px;
+}
+
+@media (max-width: 650px) 
+{
+    .left-buttons {
+        display: none; 
+      }
+    
+      .right-buttons{
+        display: none; 
+      }
+  
+      .menu .mat-icon {
+        font-size: 25px; /* Adjust icon size */
+      }
+
+      .menu  {
+        display: block; /* Ensure button is visible */
+      }
+
+      mat-menu {
+        display: block !important; /* Ensure mat-menu is visible when triggered */
+        color:white;
+        background-color: #669999;
+      }
+}
+@media (min-width: 650px) 
+{
+    .menu  {
+        display: none; 
+      }
+
+}
