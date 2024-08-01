@@ -21,6 +21,19 @@
             <mat-option value="likeHighLow">Likes: High to Low</mat-option>-->
           </mat-select>
         </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Type of food</mat-label>
+            <mat-select [(ngModel)]="selectedTypes" multiple>
+              <mat-option *ngFor="let type of allTypesOfFood" [value]="type.id" class="hidden" >
+                <mat-checkbox
+                    (change)="filterTypeOfFood(type.id)"
+                    [checked]="isSelected(type.id)">
+                </mat-checkbox>
+                {{type.typeName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
       </div>
 
     <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="50px grid"> <!--fxLayoutAlign="center center"-->

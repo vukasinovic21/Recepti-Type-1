@@ -4,6 +4,7 @@ import { Like } from '../models/like';
 import { RecipeService } from '../recipe/recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
+import { TypeOfFood } from '../models/type-of-food';
 
 @Component({
   selector: 'app-all-recipes',
@@ -16,6 +17,10 @@ export class AllRecipesComponent
 
     recipes: Recipe[] = [];  
     filteredRecipes: Recipe[] = [];
+
+    selectedTypes: String[] = []; //lista za typeoffoodId za filter
+    allTypesOfFood: TypeOfFood[] = [];
+    
     sortOrder = "";
     like: Like = 
     {
@@ -38,6 +43,10 @@ export class AllRecipesComponent
           this.filteredRecipes = recipes;
         });
       });
+
+      this.recipeService.getAllTypesOfMeal().subscribe( types => {
+        this.allTypesOfFood = types;
+      })
     }
 
     showRecipeId(recipeId:string): void
@@ -67,7 +76,30 @@ export class AllRecipesComponent
       this.sortRecipes(this.sortOrder);  
     }
 
-   
+    filterTypeOfFood(filterOption: string): void
+    {
+      const index = this.selectedTypes.indexOf(filterOption);
+      if (index === -1) 
+        this.selectedTypes.push(filterOption);
+      else 
+        this.selectedTypes.splice(index, 1);
+
+      if(this.selectedTypes.length > 0) // ako nije prazna lista filtera onda samo te sa liste
+      {
+        this.filteredRecipes = this.recipes.filter(
+          recipe => this.selectedTypes.includes(recipe.typeOfFoodId))
+      }
+      else //ako je prazna lista onda sve recepte ali sortiranje ostaje ako je bilo izabrano
+        this.filteredRecipes = this.recipes;
+      
+      this.sortRecipes(this.sortOrder);  
+    }
+
+    isSelected(option: string): boolean 
+    {
+      return this.selectedTypes.includes(option);
+    }
+
     likeRecipe(recipeId:string): void
     {
       this.like.recipeId = recipeId;

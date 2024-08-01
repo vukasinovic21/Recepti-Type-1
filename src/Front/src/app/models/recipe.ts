@@ -8,7 +8,7 @@ export interface Recipe
     createdAt: Date,
     userId: string,
     recipeName: string,
-    typeOfFood: string,
+    typeOfFoodId: string,
     instructions: string,
     timeToPrepare: number,
     picture: string,

@@ -9,7 +9,9 @@ import { MatCardModule } from '@angular/material/card'
 import { FlexModule } from '@angular/flex-layout';
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { UserRecipeComponent } from '../user-recipe/user-recipe.component'
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { UserRecipeComponent } from '../user-recipe/user-recipe.component'
     MatCardModule,
     FlexModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule 
   ]
 })
 export class RecipeModule { }

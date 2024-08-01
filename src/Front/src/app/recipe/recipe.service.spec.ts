@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 describe('RecipeService', () => {
   let service: RecipeService;
@@ -26,7 +27,8 @@ describe('RecipeService', () => {
         MatInputModule,
         MatSelectModule,
         RouterTestingModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        MatCheckboxModule
       ]
     });
     service = TestBed.inject(RecipeService);
