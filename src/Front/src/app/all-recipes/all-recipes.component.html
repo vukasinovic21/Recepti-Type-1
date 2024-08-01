@@ -4,11 +4,11 @@
 
 <div class="container">
 
-    <mat-form-field>
+    <mat-form-field class="search">
         <input matInput (keyup)="search($event)" placeholder="Search">
     </mat-form-field>
 
-    <mat-form-field class="sort-dropdown">
+    <mat-form-field>
         <mat-select (selectionChange)="sortRecipes($event.value)" placeholder="Sort">
             <mat-option value="timeLowHigh">Time: Low to High</mat-option>
             <mat-option value="timeHighLow">Time: High to Low</mat-option>

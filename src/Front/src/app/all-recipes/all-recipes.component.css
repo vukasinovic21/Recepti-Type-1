@@ -20,6 +20,11 @@ img{
     height:200px;
 }
 
+.search
+{
+    margin-right: 20px;
+}
+
 .sort-dropdown{
     margin-left: 20px;
 }

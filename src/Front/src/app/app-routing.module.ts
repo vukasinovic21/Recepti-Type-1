@@ -34,7 +34,7 @@ const routes: Routes =
     path:"create", component: CreateRecipeComponent
   },
   {
-    path:"diet/create", component: CreateDietComponent
+    path:"diets/create", component: CreateDietComponent
   },
   {
     path:"users", component: AllUsersComponent
