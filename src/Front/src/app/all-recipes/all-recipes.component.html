@@ -4,12 +4,13 @@
 
 <div class="container">
 
-    <mat-form-field class="search">
-        <input matInput (keyup)="search($event)" placeholder="Search">
-    </mat-form-field>
-
-    <mat-form-field>
-        <mat-select (selectionChange)="sortRecipes($event.value)" placeholder="Sort">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="20px"> <!--OVO JE DODATNO SAMO-->
+        <mat-form-field class="search">
+          <input matInput (keyup)="search($event)" placeholder="Search">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-select (selectionChange)="sortRecipes($event.value)" placeholder="Sort">
             <mat-option value="timeLowHigh">Time: Low to High</mat-option>
             <mat-option value="timeHighLow">Time: High to Low</mat-option>
             <mat-option value="nameA-Z">Name: A-Z</mat-option>
@@ -18,11 +19,12 @@
             <mat-option value="oldest">Posted: Oldest</mat-option>
             <!--<mat-option value="likeLowHigh">Likes: Low to High</mat-option>
             <mat-option value="likeHighLow">Likes: High to Low</mat-option>-->
-        </mat-select>
-    </mat-form-field>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-    <div fxLayout="row wrap" fxLayoutGap="50px grid" >
-        <div *ngFor="let recipe of filteredRecipes">
+    <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="50px grid"> <!--fxLayoutAlign="center center"-->
+        <div *ngFor="let recipe of filteredRecipes"> 
             <mat-card class="example-card" appearance="outlined"> <!--lep prikaz pomocu mat-card sa sve slikom-->
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/female.svg');" (click)="showUserId(recipe.userId)"></div><!--KLIKOM NA SLIKU DA SE OTVORI JAVAN PROFIL TOG KORISNIKA -->
