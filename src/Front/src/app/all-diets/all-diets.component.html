@@ -3,17 +3,30 @@
         <div class="row h-100">
             <!-- Sidebar -->
             <div class="col-md-2 p-3 sidebar">
+
+                <div class="div-space1">
+                    <input matInput (keyup)="search($event)" placeholder="Search" class="div-space1">
+                </div>
+                
+                <mat-select (selectionChange)="sortDiets($event.value)" placeholder="Sort" class="div-space2">
+                    <mat-option value="nameA-Z">Name: A-Z</mat-option>
+                    <mat-option value="nameZ-A">Name: Z-A</mat-option>
+                    <mat-option value="newest">Posted: Newest</mat-option>
+                    <mat-option value="oldest">Posted: Oldest</mat-option>
+                </mat-select>
+                <hr>
                 <ul class="list-group">
-                    <li class="list-group-item" *ngFor="let diet of diets">
-                    {{ diet.dietName }}
+                    <li class="list-group-item" *ngFor="let diet of filteredDiets" (click)="showDietId(diet.id)">
+                     {{ diet.dietName }}
                     </li>
                 </ul>
             </div>
         
             <!-- Main Content -->
-            <div class="col-md-10 p-3" >
+            <div class="col-md-10 p-3" > <!--OVO DA SE POPUNI TEK KAD SE IZABERE NEKA DIJETA tj da se otvori komponenta diet-->
                 <h1>Main Content Area</h1>
                 <p>This area will be larger and will fill the remaining space.</p>
+                <router-outlet></router-outlet>
             </div>
         </div>
     </div>

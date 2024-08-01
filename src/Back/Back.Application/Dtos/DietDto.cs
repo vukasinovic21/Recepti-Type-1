@@ -4,6 +4,7 @@
         Guid Id,
         Guid UserId,
         string DietName,
-        Guid NutritionId,
+        Guid NutritionId, 
+        DateTime CreatedAt,
         List<PlanOfDietDto> PlanOfDiets);
 }

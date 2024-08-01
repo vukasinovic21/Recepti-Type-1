@@ -10,6 +10,7 @@
                     UserId: diet.UserId.Value,
                     DietName: diet.DietName,
                     NutritionId: diet.NutritionId.Value,
+                    CreatedAt: diet.CreatedAt.Value,
                     PlanOfDiets: diet.PlanOfDiets.Select(pod => new PlanOfDietDto(pod.DietId.Value, pod.RecipeId.Value, pod.TypeOfMealId.Value, pod.DayOfWeek)).ToList()
                     ));
         }

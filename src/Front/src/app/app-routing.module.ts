@@ -10,6 +10,7 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { CreateDietComponent } from './create-diet/create-diet.component';
 import { UserRecipeComponent } from './user-recipe/user-recipe.component';
+import { DietComponent } from './diet/diet.component';
 
 const routes: Routes = 
 [
@@ -39,8 +40,12 @@ const routes: Routes =
   {
     path:"users", component: AllUsersComponent
   },
-  {
-    path:"diets", component: AllDietsComponent 
+  { 
+    path: 'diets', component: AllDietsComponent,
+    children: 
+    [
+      { path: ':id', component: DietComponent }
+    ]
   },
   {
     path:"login", component: LoginComponent
