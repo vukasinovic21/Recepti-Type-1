@@ -17,13 +17,14 @@ export class AllDietsComponent
   constructor(private dietService: DietService, private router: Router, private route: ActivatedRoute){}
   
   ngOnInit(): void 
-  {
-    this.dietService.getAllDietsUser("userId iz cookie-ja?").subscribe( diets => {
+  {//userId iz cookie-ja?
+    this.dietService.getAllDietsUser("f8a9e484-65e9-4b01-94b6-7da073e9f43b").subscribe( diets => {
         this.diets = diets;
     });
 
+    //userId iz cookie-ja?
     this.route.queryParams.subscribe(() => {
-      this.dietService.getAllDietsUser("userId iz cookie-ja?").subscribe( diets => {
+      this.dietService.getAllDietsUser("f8a9e484-65e9-4b01-94b6-7da073e9f43b").subscribe( diets => {
         this.diets = diets;
         this.filteredDiets = diets;
       });
@@ -31,7 +32,7 @@ export class AllDietsComponent
   }
 
   showDietId(dietId:string): void //da prebaci na izgled dijete dietId
-  {
+  {//koristiti parent/child route da se samo doda na postojeci prikaz i div sa odgovarajucom dijetom ?!
     this.router.navigate(['/diets/id/' + dietId]); //napraviti na beku
   }
 
@@ -56,6 +57,14 @@ export class AllDietsComponent
     else if(this.sortOrder === "nameZ-A")
     {
       this.filteredDiets.sort((a, b) => b.dietName.localeCompare(a.dietName));
+    }
+    else if(this.sortOrder === "newest")
+    {
+      this.filteredDiets.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    }
+    else if(this.sortOrder === "oldest")
+    {
+      this.filteredDiets.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
     }
   }
 }

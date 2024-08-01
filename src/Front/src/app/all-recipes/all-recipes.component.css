@@ -3,6 +3,11 @@
     margin-right:auto; /*!important kad se ovo stavi tek onda se primenjuje al nesto ne radi*/
 }
 
+.hidden
+{
+    display: none;
+}
+
 .example-card {
     width: 320px;
     height: 420px;

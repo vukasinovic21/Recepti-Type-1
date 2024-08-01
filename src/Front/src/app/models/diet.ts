@@ -1,5 +1,11 @@
+import { PlanOfDiet } from "./plan-of-diet"
+
 export interface Diet 
 {
-    dietName: string;
+    id: string,
+    userId: string 
+    dietName: string,
+    nutritionId: string,
+    createdAt: Date,
+    planOfDiets: PlanOfDiet
 }
-//dopuniti sa ostalim podacima za dijetu.
