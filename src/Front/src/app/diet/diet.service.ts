@@ -22,6 +22,14 @@ export class DietService {
     );
   }
 
+  getDietById(dietId: string): Observable<Diet>
+  {
+    return this.http.get<{diet:Diet}>(this.backUrl + "/diets/id/" + dietId)
+    .pipe(
+      map(response => response.diet)
+    );
+  }
+
   createNewDiet(diet: CreateDiet): Observable<string>
   {
     const capitalizedValue = diet.dietName.charAt(0).toUpperCase() + diet.dietName.slice(1);

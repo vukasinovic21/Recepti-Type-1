@@ -31,9 +31,9 @@ export class AllDietsComponent
     });
   }
 
-  showDietId(dietId:string): void //da prebaci na izgled dijete dietId
-  {//koristiti parent/child route da se samo doda na postojeci prikaz i div sa odgovarajucom dijetom ?!
-    this.router.navigate(['/diets/' + dietId]); //napraviti na beku
+  showDietId(dietId:string): void 
+  {
+    this.router.navigate(['/diets/' + dietId]); 
   }
 
   search(event: Event): void
