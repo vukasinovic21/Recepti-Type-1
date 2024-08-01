@@ -1,9 +1,9 @@
 .img
 {
-    width: 100%; /* Adjust image to be responsive */
+    width: 90%; /* Adjust image to be responsive */
     height: auto; /* Maintain aspect ratio */
     max-width: 100%; /* Prevent image from being larger than its container */
-    max-height: 450px; /* Optional: limit the maximum height */
+    max-height: 540px; /* Optional: limit the maximum height */
 }
 
 @media (max-width: 600px) {
