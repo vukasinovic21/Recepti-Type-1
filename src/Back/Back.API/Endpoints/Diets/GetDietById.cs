@@ -3,7 +3,7 @@
 namespace Back.API.Endpoints.Diets
 {
 
-    public record GetDietsByIdResponse(IEnumerable<DietDto> Diets);
+    public record GetDietsByIdResponse(IEnumerable<DietInfoDto> Diets);
     public class GetDietById : ICarterModule
     {
         public void AddRoutes(IEndpointRouteBuilder app)
