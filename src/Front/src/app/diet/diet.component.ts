@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DietService } from './diet.service';
 import { Diet } from '../models/diet';
 import { PlanOfDiet } from '../models/plan-of-diet';
@@ -19,7 +19,7 @@ export class DietComponent implements OnInit
   headers: string[] = []; 
   rows: string[] = [];
 
-  constructor(private dietService: DietService, private activatedRoute: ActivatedRoute) {}
+  constructor(private dietService: DietService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   mealTypeMap: { [key: string]: string } = {
     '01a5ba31-d107-41cc-9902-7da073e9f43b': 'Dorucak',
@@ -61,9 +61,14 @@ export class DietComponent implements OnInit
           recipeName: meal.recipeName,
           recipeId: meal.recipeId,
           picture: meal.picture 
-        } : { recipeName: '/', recipeId: '', picture: '' };
+        } : { recipeName: 'Primer recepta', recipeId: '', picture: '' };
       });
     });
+  }
+
+  showRecipeId(recipeId:string): void
+  {
+    this.router.navigate(['/recipes/' + recipeId]);
   }
 
   downloadDietPdf(dietId:string): void

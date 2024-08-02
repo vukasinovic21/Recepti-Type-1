@@ -9,3 +9,29 @@
     justify-content: space-between;
     align-items: center; /* Aligns items vertically centered, optional */
 }
+
+.table-border
+{
+    border: #669999;
+}
+
+.img
+{
+    height: 75px;
+    width: 100px;
+}
+
+.field
+{
+    max-width: 0px !important;
+}
+
+.field1
+{
+    max-width: 45px !important;
+}
+
+.text
+{
+    text-align: center;
+}

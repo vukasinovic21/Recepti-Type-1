@@ -14,9 +14,9 @@
             </div>
         </div>
 
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped table-bordered table-border">
             <thead>
-              <tr>
+              <tr class="text">
                 <th></th>
                 <th>Ponedeljak</th>
                 <th>Utorak</th>
@@ -29,11 +29,14 @@
             </thead>
             <tbody>
               <tr *ngFor="let meal of tableData; let i = index">
-                <th><!--{{tableData[0]}} ovde su svi dorucci za svaki dan redom  -->
+                <th class="field1 text">
                     {{ rows[i] }}
                 </th>
-                <td *ngFor="let cell of meal">
-                    {{ cell.recipeName }} 
+                <td *ngFor="let cell of meal" class="field text">
+                    <div *ngIf="cell.recipeName" (click)="showRecipeId(cell.recipeId)">
+                      {{ cell.recipeName }}<br> 
+                      <img class="img" src="assets/images/{{ cell.picture }}"> <!--alt="{{ cell.recipeName }}"-->
+                    </div>
                 </td>
               </tr>
             </tbody>
