@@ -3,3 +3,9 @@
     font-size: 40px;
     color: #669999;
 }
+
+.sides {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Aligns items vertically centered, optional */
+}

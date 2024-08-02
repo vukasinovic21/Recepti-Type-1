@@ -56,10 +56,19 @@ export class DietComponent implements OnInit
         const meal = this.diet.planOfDiets.find(diet =>
           diet.dayOfWeek === day && diet.typeOfMealId === typeId
         );
-        return meal ? meal.recipeName : ''; 
+        return meal ? 
+        {
+          recipeName: meal.recipeName,
+          recipeId: meal.recipeId,
+          picture: meal.picture 
+        } : { recipeName: '/', recipeId: '', picture: '' };
       });
     });
+  }
 
+  downloadDietPdf(dietId:string): void
+  {
+    //uraditi da se dijeta skida kao pdf fajl
   }
 
 }

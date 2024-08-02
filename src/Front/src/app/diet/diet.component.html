@@ -5,7 +5,14 @@
     </div>
 
     <div>
-        &nbsp;<b>Kreirano: </b> <span>{{ diet.createdAt | date:'yyyy-MM-dd' }}</span> <br><br>
+        <div class="sides">
+            <div class="left">
+                &nbsp;<b>Kreirano: </b> <span>{{ diet.createdAt | date:'yyyy-MM-dd' }}</span> 
+            </div>
+            <div class="right">
+                <button class="btn btn-outline-secondary" (click)="downloadDietPdf('{{diet.Id}}')">Download in pdf</button>
+            </div>
+        </div>
 
         <table class="table table-striped table-bordered">
             <thead>
@@ -26,7 +33,7 @@
                     {{ rows[i] }}
                 </th>
                 <td *ngFor="let cell of meal">
-                    {{ cell }} 
+                    {{ cell.recipeName }} 
                 </td>
               </tr>
             </tbody>

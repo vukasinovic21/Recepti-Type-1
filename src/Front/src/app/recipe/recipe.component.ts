@@ -52,4 +52,9 @@ export class RecipeComponent
       });
     }
 
+    downloadRecipePdf(recipeId:string): void
+    {
+      //uraditi da se recept skida kao pdf fajl
+    }
+
 }

@@ -66,8 +66,9 @@
         </div>
     </div>
     <br>
-    <button class="btn color" [routerLink]="['/recipes']">All recipes</button>&nbsp;&nbsp;
+    <button class="btn color" [routerLink]="['/recipes']">All recipes</button>
     <button class="btn color" [routerLink]="['/recipes/user', recipe?.userId]">Users recipes</button>
+    <button class="btn color" (click)="downloadRecipePdf('{{recipe?.Id}}')">Download in pdf</button>
 </div>
 
    
