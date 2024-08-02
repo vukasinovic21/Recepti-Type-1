@@ -56,13 +56,10 @@ export class DietComponent implements OnInit
         const meal = this.diet.planOfDiets.find(diet =>
           diet.dayOfWeek === day && diet.typeOfMealId === typeId
         );
-        return meal ? meal.recipeName : ''; //ako mozemo da vratimo ceo objekat pa u html-u da prikazem vise stvari
+        return meal ? meal.recipeName : ''; 
       });
     });
 
-    /*this.tableData = Array.from({ length: 5 }, (_, rowIndex) =>
-      Array.from({ length: 7 }, (_, colIndex) => rowIndex * 7 + colIndex + 1)
-    );*/
   }
 
 }

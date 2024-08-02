@@ -22,8 +22,12 @@
             </thead>
             <tbody>
               <tr *ngFor="let meal of tableData; let i = index">
-                <th>{{ rows[i] }}</th>
-                <td *ngFor="let cell of meal">{{ cell }}</td>
+                <th><!--{{tableData[0]}} ovde su svi dorucci za svaki dan redom  -->
+                    {{ rows[i] }}
+                </th>
+                <td *ngFor="let cell of meal">
+                    {{ cell }} 
+                </td>
               </tr>
             </tbody>
           </table>
