@@ -12,7 +12,7 @@ import { PlanOfDiet } from '../models/plan-of-diet';
 export class DietComponent implements OnInit
 {
 
-  dietId: string = '';
+  dietId: string = "";
   diet!: Diet;
 
   tableData: any[][] = [];
@@ -32,8 +32,8 @@ export class DietComponent implements OnInit
   
   ngOnInit(): void 
   {
-    let id = this.activatedRoute.snapshot.paramMap.get('id') ?? 'default-value';
-    this.showDiet(id);
+    this.dietId = this.activatedRoute.snapshot.paramMap.get('id') ?? 'default-value';
+    this.showDiet(this.dietId);
   }
 
   showDiet(dietId: string): void

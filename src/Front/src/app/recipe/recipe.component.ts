@@ -19,6 +19,7 @@ export class RecipeComponent
     recipe?: Recipe;  
     recipeNutritions?: RecipeNutritions;
     recipeIngredients: RecipeIngredients[] = [];
+    kolicina!: number;
 
     constructor(private recipeService: RecipeService, private router: Router, private activatedRoute: ActivatedRoute){}
 
