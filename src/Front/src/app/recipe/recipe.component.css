@@ -56,6 +56,11 @@
     color:#993300; 
 }
 
+.small
+{
+    font-size: 0.8em;
+}
+
 .btn.color
 {
     background-color:#001a33;
