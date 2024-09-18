@@ -15,6 +15,11 @@
     border: #669999;
 }
 
+.table th, .table td, .table tr
+{
+    max-width: 50px;
+}
+
 .img
 {
     height: 75px;
