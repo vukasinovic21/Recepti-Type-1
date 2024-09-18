@@ -15,7 +15,7 @@ import { DietComponent } from './diet/diet.component';
 const routes: Routes = 
 [
   {
-    path:"", component: HomeComponent
+    path:"", component: AllRecipesComponent
   },
   /*{ path: 'recipes', component: AllRecipesComponent,
     children: [

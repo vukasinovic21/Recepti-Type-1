@@ -4,7 +4,9 @@
     height: auto; /* Maintain aspect ratio */
     max-width: 100%; /* Prevent image from being larger than its container */
     max-height: 550px; /* Optional: limit the maximum height */
+    border-radius: 10px;
 }
+
 
 .instructions
 {

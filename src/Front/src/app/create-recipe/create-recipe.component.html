@@ -44,18 +44,48 @@
             </div>  
             <div class="col">
                 <label class="form-label">Choose image</label>
-                <!--<input class="form-control" type="text" accept="image/*" formControlName="picture">-->
                 <input class="form-control" type="file" (change)="onChange($event)" id="pictures">
                 <input class="form-control" type="hidden" formControlName="picture"> 
             </div>
         </div>
-
+        <!--
         <div class="mb-3 form-check form-switch">
             <label class="form-label">Do you want recipe to be public</label>
             <input class="form-control form-check-input" type="checkbox" formControlName="shared">
+        </div>-->
+        <!--dodato odavde-->
+        <div class="row mb-3">
+            <div class="col">
+                    <label class="form-label">Choose number of ingredients</label>
+                    <input type="number" class="form-control" min="0" placeholder="Number of ingredients"  [(ngModel)]="kolicina" />
+            </div>
+            <div class="col">
+                <br><br>
+                <div class="form-check form-switch">
+                    <label class="form-label">Do you want recipe to be public</label>
+                    <input class="form-control form-check-input " type="checkbox" formControlName="shared">
+                </div>
+            </div>
         </div>
-          
-
+        <div *ngIf="kolicina > 0">
+            Izabrano: {{kolicina}} sastojaka.
+        </div>
+        <!--dovde-->
+        <div class="mb-3">
+            <div>
+                <div *ngFor="let item of recipeItems.controls; let i = index" [formGroupName]="i" class="row">
+                <div class="col-8">
+                    <label class="form-label">Ingredient Id</label>
+                    <input class="form-control" type="text" formControlName="ingredientId">
+                </div>
+                <div class="col-4">
+                    <label class="form-label">Quantity</label>
+                    <input class="form-control small-input" type="number" min="0" formControlName="quantity">
+                </div>
+                </div>
+            </div>
+        </div>
+        <!--
         <div class="mb-3">
             <div formArrayName="recipeItems">
                 <div *ngFor="let item of recipeItems.controls; let i = index" [formGroupName]="i" class="row">
@@ -70,7 +100,7 @@
                 </div>
             </div>
         </div>
-
+        -->
         <button class="btn btn-success" type="submit" [disabled]="createForm.invalid">Create new</button>
         <button [routerLink]="['/']" class="btn btn-danger float-end" style="margin-left: auto;">Cancel</button>
     </form>

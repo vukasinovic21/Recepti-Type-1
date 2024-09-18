@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, Renderer2 } from '@angular/core';
 import { Recipe } from '../models/recipe';
 import { RecipeService } from './recipe.service';
 import { Router } from '@angular/router';
@@ -6,6 +6,8 @@ import { __param } from 'tslib';
 import { ActivatedRoute } from '@angular/router';
 import { RecipeNutritions } from '../models/recipe-nutritions';
 import { RecipeIngredients } from '../models/recipe-ingredients';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-recipe',
@@ -20,8 +22,9 @@ export class RecipeComponent
     recipeNutritions?: RecipeNutritions;
     recipeIngredients: RecipeIngredients[] = [];
     kolicina!: number;
+    @ViewChild('content', { static: false }) content!: ElementRef;
 
-    constructor(private recipeService: RecipeService, private router: Router, private activatedRoute: ActivatedRoute){}
+    constructor(private recipeService: RecipeService, private router: Router, private activatedRoute: ActivatedRoute, private renderer: Renderer2){}
 
     ngOnInit(): void 
     {
@@ -53,9 +56,49 @@ export class RecipeComponent
       });
     }
 
-    downloadRecipePdf(recipeId:string): void
+    downloadRecipePdf(): void
     {
       //uraditi da se recept skida kao pdf fajl
+      const element = this.content.nativeElement;
+
+      const noPrintElements = document.querySelectorAll('.no-pdf');
+      noPrintElements.forEach(el => 
+      {
+        (el as HTMLElement).style.display = 'none';
+      });
+
+      this.renderer.setStyle(element, 'width', '958px');
+
+      html2canvas(element).then((canvas) => 
+      {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        
+        const imgWidth = 210; 
+        const pageHeight = 297; 
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        let heightLeft = imgHeight;
+        let position = 0;
+
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+
+        while (heightLeft >= 0) {
+          position = heightLeft - imgHeight;
+          pdf.addPage();
+          pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
+
+        pdf.save(this.recipe?.recipeName+'.pdf');
+      });
+
+      noPrintElements.forEach(el => 
+      {
+        (el as HTMLElement).style.display = 'block';
+      });
+
+      this.renderer.removeStyle(element, 'width');
     }
 
 }

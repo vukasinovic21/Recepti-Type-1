@@ -1,92 +1,96 @@
+<div #content>
+    <br>
+    <div class="text-center mt-3 ">
+        <h1 class="font">{{ recipe?.recipeName }}</h1>
+    </div>
 
-<br>
-<div class="text-center mt-3 ">
-    <h1 class="font">{{ recipe?.recipeName }}</h1>
-</div>
-
-<div class="container mb-5">
-    <div class="row">
-        <div class="col-md-8">
-            <div>
-                <img class="img" src="assets/images/{{ recipe?.picture }}" alt="{{ recipe?.recipeName }}">
-            </div>
-            <br>
-            <div class="instructions">
-                <h1 class="color">Nacin pripreme</h1>
-                {{ recipe?.instructions }} <br><br> 
-            </div>
-
-            <h1 class="color">Kako potrositi unesene kalorije</h1>
-            <div class="row">
-                <div class="col-md-3">
-                    <input type="number" class="form-control" min="0" placeholder="Pojeo sam X g?"  [(ngModel)]="kolicina" /><br>
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-md-8">
+                <div>
+                    <img class="img" src="assets/images/{{ recipe?.picture }}" alt="{{ recipe?.recipeName }}">
                 </div>
-                <div *ngIf="kolicina > 0" class="col-md-9">
-                    <span class="material-icons">directions_walk</span> &nbsp;
-                    {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 70 | number:'1.2-2' }}km
-                    {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 70 * 11 | number:'1.2-2' }}min
-                    <span class="material-icons">directions_run</span> &nbsp;
-                    {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 90 | number:'1.2-2' }}km
-                    {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 90 * 6 | number:'1.2-2' }}min
-                    <span class="material-icons">pool</span> &nbsp;
-                    {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 240 | number:'1.2-2' }}km
-                    {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 240 * 20 | number:'1.2-2' }}km
+                <br>
+                <div class="instructions">
+                    <h1 class="color">Nacin pripreme</h1>
+                    {{ recipe?.instructions }} <br><br> 
+                </div>
+                
+                <div class="no-pdf">
+                    <h1 class="color">Kako potrositi unesene kalorije</h1>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="number" class="form-control" min="0" placeholder="Pojeo sam X g?"  [(ngModel)]="kolicina" /><br>
+                        </div>
+                        <div *ngIf="kolicina > 0" class="col-md-9">
+                            <span class="material-icons">directions_walk</span> &nbsp;
+                            {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 70 | number:'1.2-2' }}km
+                            {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 70 * 11 | number:'1.2-2' }}min
+                            <span class="material-icons">directions_run</span> &nbsp;
+                            {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 90 | number:'1.2-2' }}km
+                            {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 90 * 6 | number:'1.2-2' }}min
+                            <span class="material-icons">pool</span> &nbsp;
+                            {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 240 | number:'1.2-2' }}km
+                            {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 240 * 20 | number:'1.2-2' }}km
+                        </div>
+                    </div>
                 </div>
             </div>
-           </div>
 
-        <div class="col-md-4">
-            <h1 class="color">Nutritivne vrednosti</h1>
-            <div class="font2">
-                <b>Ugljeni hidrati:</b> {{ recipeNutritions?.carbs }}g &nbsp;({{recipeNutritions!.carbs / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
-                <b>Seceri:</b> {{ recipeNutritions?.sugar }}g &nbsp;({{recipeNutritions!.sugar / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
-                <b>Masti:</b> {{ recipeNutritions?.fat }}g &nbsp;({{recipeNutritions!.fat / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
-                <b>Proteini:</b> {{ recipeNutritions?.protein }}g &nbsp;({{recipeNutritions!.protein / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
-                <b>Energetska vrednost: </b>{{ recipeNutritions?.kCal }} kCal &nbsp;({{recipeNutritions!.kCal / recipeNutritions!.weight * 100 | number:'1.2-2'}}kCal)<br>
-                
-                <b>Glikemijsko opterecenje (GL):</b><!-- {{ recipeNutritions?.gl }} <br>-->
-                <b><span *ngIf="recipeNutritions && recipeNutritions.gl < 10" style="color:green"> 
-                    {{ recipeNutritions.gl | number:'1.2-2' }} </span>
-                <span *ngIf="recipeNutritions && recipeNutritions.gl >= 10 && recipeNutritions.gl < 20" style="color:orange"> 
-                    {{ recipeNutritions.gl | number:'1.2-2' }} </span>
-                <span *ngIf="recipeNutritions && recipeNutritions.gl >= 20" style="color:red"> 
-                    {{ recipeNutritions.gl | number:'1.2-2' }} </span> </b><br>
-                
-                <b>Glikemijsko opterecenje za 100g:</b><!-- {{ recipeNutritions?.gl }} <br>-->
-                <b><span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100 < 10" style="color:green"> 
-                    {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span>
-                <span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100  >= 10 && recipeNutritions.gl / recipeNutritions.weight * 100 < 20" style="color:orange"> 
-                    {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span>
-                <span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100  >= 20" style="color:red"> 
-                    {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span> </b><br> 
+            <div class="col-md-4">
+                <h1 class="color">Nutritivne vrednosti</h1>
+                <div class="font2">
+                    <b>Ugljeni hidrati:</b> {{ recipeNutritions?.carbs }}g &nbsp;({{recipeNutritions!.carbs / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
+                    <b>Seceri:</b> {{ recipeNutritions?.sugar }}g &nbsp;({{recipeNutritions!.sugar / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
+                    <b>Masti:</b> {{ recipeNutritions?.fat }}g &nbsp;({{recipeNutritions!.fat / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
+                    <b>Proteini:</b> {{ recipeNutritions?.protein }}g &nbsp;({{recipeNutritions!.protein / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
+                    <b>Energija: </b>{{ recipeNutritions?.kCal }} kCal &nbsp;({{recipeNutritions!.kCal / recipeNutritions!.weight * 100 | number:'1.2-2'}}kCal)<br>
                     
-                <br><b>Ukupna kolicina: </b> 
-                <span *ngIf="recipeNutritions && recipeNutritions.weight > 1000"> {{ recipeNutritions.weight / 1000 }} kg</span> 
-                <span *ngIf="recipeNutritions && recipeNutritions.weight <= 1000"> {{ recipeNutritions.weight }} g </span>
-                
-                <small class="small"><i> *Ukupno(na 100g)</i></small>
-                <hr class="solid-hr">
-                
-                <b>Vreme za pripremu:</b> {{ recipe?.timeToPrepare }} min <br>
-                <b>Izbaceno: </b> <span>{{ recipe?.createdAt | date:'yyyy-MM-dd' }}</span> <br>
+                    <b>Glikemijsko opterecenje (GL):</b><!-- {{ recipeNutritions?.gl }} <br>-->
+                    <b><span *ngIf="recipeNutritions && recipeNutritions.gl < 10" style="color:green"> 
+                        {{ recipeNutritions.gl | number:'1.2-2' }} </span>
+                    <span *ngIf="recipeNutritions && recipeNutritions.gl >= 10 && recipeNutritions.gl < 20" style="color:orange"> 
+                        {{ recipeNutritions.gl | number:'1.2-2' }} </span>
+                    <span *ngIf="recipeNutritions && recipeNutritions.gl >= 20" style="color:red"> 
+                        {{ recipeNutritions.gl | number:'1.2-2' }} </span> </b><br>
+                    
+                    <b>Glikemijsko opterecenje za 100g:</b><!-- {{ recipeNutritions?.gl }} <br>-->
+                    <b><span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100 < 10" style="color:green"> 
+                        {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span>
+                    <span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100  >= 10 && recipeNutritions.gl / recipeNutritions.weight * 100 < 20" style="color:orange"> 
+                        {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span>
+                    <span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100  >= 20" style="color:red"> 
+                        {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span> </b><br> 
+                        
+                    <br><b>Ukupna kolicina: </b> 
+                    <span *ngIf="recipeNutritions && recipeNutritions.weight > 1000"> {{ recipeNutritions.weight / 1000 }} kg</span> 
+                    <span *ngIf="recipeNutritions && recipeNutritions.weight <= 1000"> {{ recipeNutritions.weight }} g </span>
+                    
+                    <small class="small"><i> *Ukupno(na 100g)</i></small>
+                    <hr class="solid-hr">
+                    
+                    <b>Vreme za pripremu:</b> {{ recipe?.timeToPrepare }} min <br>
+                    <b>Izbaceno: </b> <span>{{ recipe?.createdAt | date:'yyyy-MM-dd' }}</span> <br>
 
-                <hr class="solid-hr">
-            </div>
-            <div>
-                <h1 class="color">Potrebne namirnice</h1>
-                <div *ngFor="let item of recipeIngredients" class="font2">
-                    {{item.ingredientName}} - <!--ako je jaje i tako jos nesto poznato sto ide na komad promeniti u kolicini ?!? -->
-                    <b><span *ngIf="item.quantity >= 1000 && item.quantity % 1000 != 0">{{ item.quantity / 1000 | number:'1.2-2' }} Kg</span></b>
-                    <b><span *ngIf="item.quantity >= 1000 && item.quantity % 1000 == 0">{{ item.quantity / 1000 }} Kg</span></b>
-                    <b><span *ngIf="item.quantity < 1000">{{ item.quantity }} g</span></b>
+                    <hr class="solid-hr">
+                </div>
+                <div>
+                    <h1 class="color">Potrebne namirnice</h1>
+                    <div *ngFor="let item of recipeIngredients" class="font2">
+                        {{item.ingredientName}} - <!--ako je jaje i tako jos nesto poznato sto ide na komad promeniti u kolicini ?!? -->
+                        <b><span *ngIf="item.quantity >= 1000 && item.quantity % 1000 != 0">{{ item.quantity / 1000 | number:'1.2-2' }} Kg</span></b>
+                        <b><span *ngIf="item.quantity >= 1000 && item.quantity % 1000 == 0">{{ item.quantity / 1000 }} Kg</span></b>
+                        <b><span *ngIf="item.quantity < 1000">{{ item.quantity }} g</span></b>
+                    </div>
                 </div>
             </div>
         </div>
+        <br>
+        <div class="no-pdf">
+            <button class="btn color" [routerLink]="['/recipes']">All recipes</button>
+            <button class="btn color" [routerLink]="['/recipes/user', recipe?.userId]">Users recipes</button>
+            <button class="btn color" (click)="downloadRecipePdf()">Download in pdf</button>
+        </div>
     </div>
-    <br>
-    <button class="btn color" [routerLink]="['/recipes']">All recipes</button>
-    <button class="btn color" [routerLink]="['/recipes/user', recipe?.userId]">Users recipes</button>
-    <button class="btn color" (click)="downloadRecipePdf('{{recipe?.Id}}')">Download in pdf</button>
 </div>
-
    

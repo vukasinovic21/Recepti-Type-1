@@ -21,6 +21,10 @@ export class CreateRecipeComponent implements OnInit
   imageUrl!: File;
 
   response: string = '';
+  kolicina!: number;
+
+  sastojci!: string;
+  kolicinaSastojaka!: number;
 
   constructor(private formBuilder: FormBuilder, private recipeService: RecipeService, private router: Router){}
 

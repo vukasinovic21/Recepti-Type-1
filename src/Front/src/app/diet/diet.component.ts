@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Renderer2} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DietService } from './diet.service';
 import { Diet } from '../models/diet';
 import { PlanOfDiet } from '../models/plan-of-diet';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-diet',
@@ -18,8 +20,9 @@ export class DietComponent implements OnInit
   tableData: any[][] = [];
   headers: string[] = []; 
   rows: string[] = [];
+  @ViewChild('content', { static: false }) content!: ElementRef;
 
-  constructor(private dietService: DietService, private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(private dietService: DietService, private activatedRoute: ActivatedRoute, private router: Router, private renderer: Renderer2) {}
 
   mealTypeMap: { [key: string]: string } = {
     '01a5ba31-d107-41cc-9902-7da073e9f43b': 'Dorucak',
@@ -71,9 +74,48 @@ export class DietComponent implements OnInit
     this.router.navigate(['/recipes/' + recipeId]);
   }
 
-  downloadDietPdf(dietId:string): void
+
+  downloadDietPdf(): void
   {
     //uraditi da se dijeta skida kao pdf fajl
+    const element = this.content.nativeElement;
+
+    const noPrintElements = document.querySelectorAll('.no-pdf');
+    noPrintElements.forEach(el => 
+    {
+      (el as HTMLElement).style.display = 'none';
+    });
+
+    this.renderer.setStyle(element, 'width', '1500px');
+
+    html2canvas(element).then((canvas) => 
+    {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('l', 'mm', 'a4');
+      
+      const imgWidth = 297; 
+      const pageHeight = 210; 
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+
+      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+
+      while (heightLeft >= 0) {
+        let position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+      pdf.save(this.diet?.dietName+'.pdf');
+    });
+
+    noPrintElements.forEach(el => 
+    {
+      (el as HTMLElement).style.display = 'block';
+    });
+
+    this.renderer.removeStyle(element, 'width');
   }
 
 }

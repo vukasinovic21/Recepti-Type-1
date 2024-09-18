@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container" #content id="content">
     <div class="text-center">
         <h1 class="font">{{ diet.dietName }}</h1> <!--KAD SE IZABERE DIJETA IZBACI POTREBNE STVARI ALI POSLE PUKNE ?!?-->
     </div>
@@ -9,8 +9,8 @@
             <div class="left">
                 &nbsp;<b>Kreirano: </b> <span>{{ diet.createdAt | date:'yyyy-MM-dd' }}</span> 
             </div>
-            <div class="right">
-                <button class="btn btn-outline-secondary" (click)="downloadDietPdf('{{diet.Id}}')">Download in pdf</button>
+            <div class="right no-pdf" >
+                <button class="btn btn-outline-secondary" (click)="downloadDietPdf()">Download in pdf</button>
             </div>
         </div>
 
