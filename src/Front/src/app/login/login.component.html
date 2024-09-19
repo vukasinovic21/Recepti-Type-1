@@ -1,22 +1,22 @@
 <div class="container col-md-6 small">
     <div class="text-center mb-5 mt-3">
-        <h2>User Login </h2>
+        <h2>Korisnička prijava </h2>
     </div>
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
 
         <div class="mb-3">
-            <label class="form-label">Email</label>
+            &nbsp;<label class="form-label">Email</label>
             <input class="form-control" class="form-control" type="email" formControlName="Email">
             <small class="text-danger" *ngIf="loginForm.get('Email')?.invalid && loginForm.get('Email')?.touched">
-                Email is required.
+                Email je obavezan.
             </small>
         </div>
         <div class="mb-3">
-            <label class="form-label">Password</label>
+            &nbsp;<label class="form-label">Lozinka</label>
             <input class="form-control" type="password" formControlName="Password">
             <small class="text-danger" *ngIf="loginForm.get('Password')?.invalid && loginForm.get('Password')?.touched">
-                Password is required.
+                Lozinka je obavezna.
             </small>
         </div>
 

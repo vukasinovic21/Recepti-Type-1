@@ -85,6 +85,11 @@ export class DietComponent implements OnInit
     {
       (el as HTMLElement).style.display = 'none';
     });
+    /*const img = document.querySelectorAll('.img');
+    img.forEach(img =>
+    {
+      (img as HTMLElement).style.display = 'block';
+    });*/
 
     this.renderer.setStyle(element, 'width', '1500px');
 
@@ -114,6 +119,10 @@ export class DietComponent implements OnInit
     {
       (el as HTMLElement).style.display = 'block';
     });
+   /* img.forEach(img =>
+    {
+      (img as HTMLElement).style.display = 'none';
+    });*/
 
     this.renderer.removeStyle(element, 'width');
   }

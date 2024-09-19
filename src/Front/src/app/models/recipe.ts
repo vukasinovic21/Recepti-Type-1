@@ -1,6 +1,4 @@
 import { RecipeItem } from "./recipe-item";
-import { TypeOfFood } from "./type-of-food";
-import { User } from "./user";
 
 export interface Recipe 
 {
