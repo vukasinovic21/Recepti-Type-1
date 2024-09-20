@@ -42,7 +42,7 @@
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/female.svg');" (click)="showUserId(recipe.userId)"></div><!--KLIKOM NA SLIKU DA SE OTVORI JAVAN PROFIL TOG KORISNIKA -->
                     <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
-                    <mat-card-subtitle> Smuti i napitci </mat-card-subtitle><!--<mat-card-subtitle (click)="showTypeOfFoodId(recipe.typeOfFoodId)">{{ recipe.typeOfFoodId }}</mat-card-subtitle> --><!--KLIKOM NA TIP HRANE DA SE OTVORE SVI RECEPTI TOG TIPA -->
+                    <mat-card-subtitle> {{ getTypeName(recipe.typeOfFoodId) }} </mat-card-subtitle><!--<mat-card-subtitle (click)="showTypeOfFoodId(recipe.typeOfFoodId)">{{ recipe.typeOfFoodId }}</mat-card-subtitle> --><!--KLIKOM NA TIP HRANE DA SE OTVORE SVI RECEPTI TOG TIPA -->
                 </mat-card-header>
 
                 <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">

@@ -59,6 +59,12 @@ export class AllRecipesComponent
       this.router.navigate(['/recipes/typeoffood/' + typeOfFoodId]); //svi recepti tog tipa
     }
 
+    getTypeName(id: string): string 
+    {
+      const type = this.allTypesOfFood.find(type => type.id === id);
+      return type ? type.typeName : 'Unknown';
+    }
+
     showUserId(userId:string): void
     {
       this.router.navigate(['/recipes/user/' + userId]); //svi recepti tog korisnika

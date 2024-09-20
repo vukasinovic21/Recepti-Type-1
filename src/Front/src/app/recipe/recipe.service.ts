@@ -83,6 +83,8 @@ export class RecipeService
   {
     const capitalizedValue = recipe.recipeName.charAt(0).toUpperCase() + recipe.recipeName.slice(1);
     recipe.recipeName = capitalizedValue;
+    const capitalizedValue2 = recipe.instructions.charAt(0).toUpperCase() + recipe.instructions.slice(1);
+    recipe.instructions = capitalizedValue2;
     const query = {recipe:recipe};
 
     return this.http.post<{id: string}>(this.backUrl + "/recipes", query)
