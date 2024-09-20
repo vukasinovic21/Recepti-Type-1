@@ -58,7 +58,6 @@ export class RecipeComponent
 
     downloadRecipePdf(): void
     {
-      //uraditi da se recept skida kao pdf fajl
       const element = this.content.nativeElement;
 
       const noPrintElements = document.querySelectorAll('.no-pdf');

@@ -77,7 +77,6 @@ export class DietComponent implements OnInit
 
   downloadDietPdf(): void
   {
-    //uraditi da se dijeta skida kao pdf fajl
     const element = this.content.nativeElement;
 
     const noPrintElements = document.querySelectorAll('.no-pdf');
@@ -85,11 +84,13 @@ export class DietComponent implements OnInit
     {
       (el as HTMLElement).style.display = 'none';
     });
-    /*const img = document.querySelectorAll('.img');
+    const img = document.querySelectorAll('.img');
+    let originalDisplay: string;
     img.forEach(img =>
     {
+      originalDisplay = (img as HTMLElement).style.display;
       (img as HTMLElement).style.display = 'block';
-    });*/
+    });
 
     this.renderer.setStyle(element, 'width', '1500px');
 
@@ -119,10 +120,10 @@ export class DietComponent implements OnInit
     {
       (el as HTMLElement).style.display = 'block';
     });
-   /* img.forEach(img =>
+    img.forEach(img =>
     {
-      (img as HTMLElement).style.display = 'none';
-    });*/
+      (img as HTMLElement).style.display = originalDisplay;
+    });
 
     this.renderer.removeStyle(element, 'width');
   }
