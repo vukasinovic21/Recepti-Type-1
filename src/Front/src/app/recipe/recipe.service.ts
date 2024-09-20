@@ -9,6 +9,7 @@ import { RecipeItem } from '../models/recipe-item';
 import { CreateRecipe } from '../models/create-recipe';
 import { Like } from '../models/like';
 import { RecipeIngredients } from '../models/recipe-ingredients';
+import { Ingredient } from '../models/ingredient';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,6 @@ export class RecipeService
 {
 
   private backUrl = environment.backUrl;
-  private allTypesOfFood: TypeOfFood[] = [];
-  private allRecipes: Recipe[] = [];
 
   constructor(private http: HttpClient){}
 
@@ -27,6 +26,14 @@ export class RecipeService
     return this.http.get<{ typesOfFood: TypeOfFood[]}>(this.backUrl + "/typesoffood")
     .pipe(
       map(response => response.typesOfFood)
+    );
+  }
+
+  getAllIngredients(): Observable<Ingredient[]> 
+  {
+    return this.http.get<{ ingredients: Ingredient[]}>(this.backUrl + "/ingredients")
+    .pipe(
+      map(response => response.ingredients)
     );
   }
 

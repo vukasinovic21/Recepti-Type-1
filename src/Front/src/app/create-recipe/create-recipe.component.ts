@@ -4,6 +4,7 @@ import { RecipeService } from '../recipe/recipe.service';
 import { Router } from '@angular/router';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CreateRecipe } from '../models/create-recipe';
+import { Ingredient } from '../models/ingredient';
 
 @Component({
   selector: 'app-create-recipe',
@@ -14,6 +15,7 @@ export class CreateRecipeComponent implements OnInit
 {
 
   typesOfFood: TypeOfFood[] = [];  
+  ingredients: Ingredient[] = [];
   createForm: FormGroup = new FormGroup({});
 
   @ViewChild('file') file: ElementRef | undefined;
@@ -27,8 +29,12 @@ export class CreateRecipeComponent implements OnInit
   {
 
     this.recipeService.getAllTypesOfMeal().subscribe( types => {
-        this.typesOfFood = types
+        this.typesOfFood = types;
     });
+
+    this.recipeService.getAllIngredients().subscribe( ingredients => {
+      this.ingredients = ingredients;
+    })
 
     this.createForm = this.formBuilder.group({
       userId: ['f8a9e484-65e9-4b01-94b6-7da073e9f43b'], //promeniti na ulogovanog korisnika!

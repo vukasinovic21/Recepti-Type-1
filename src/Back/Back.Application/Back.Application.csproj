@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <Folder Include="Ingredients\Commands\" />
-    <Folder Include="Ingredients\Queries\" />
     <Folder Include="Likes\Commands\" />
     <Folder Include="Likes\Queries\" />
     <Folder Include="RecipeItems\Commands\" />

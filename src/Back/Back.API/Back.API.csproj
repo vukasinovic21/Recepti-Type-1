@@ -27,7 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Endpoints\Ingredients\" />
     <Folder Include="Endpoints\Auth\" />
   </ItemGroup>
 

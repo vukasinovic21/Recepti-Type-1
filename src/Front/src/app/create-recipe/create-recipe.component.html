@@ -67,9 +67,12 @@
             <div formArrayName="recipeItems">
                 <div *ngFor="let item of recipeItems.controls; let i = index" [formGroupName]="i" class="row">
                     <div class="col-8">
-                        <label class="form-label" *ngIf="i === 0">Ingredient Id</label>
+                        <label class="form-label" *ngIf="i === 0">Ingredient</label>
                         <label class="form-label" *ngIf="i > 0"></label>
-                        <input class="form-control" type="text" formControlName="ingredientId">
+                        <select class="form-control" formControlName="ingredientId">
+                            <option value="">Select an ingredient</option>
+                            <option *ngFor="let ingredient of ingredients" [value]="ingredient.id">{{ ingredient.name }}</option>
+                        </select>
                     </div>
                     <div class="col-4">
                         <label class="form-label" *ngIf="i === 0">Quantity</label>
