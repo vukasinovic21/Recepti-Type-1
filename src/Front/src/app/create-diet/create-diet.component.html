@@ -1,2 +1,40 @@
-<p>create-diet works!</p>
+<div class="container col-md-6">
+    <div class="text-center mb-5 mt-3">
+        <h2>Create new diet </h2>
+    </div>
+
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()" >
+
+        <div class="row mb-3">
+            <div class="col">
+                <label class="form-label">Name of diet</label>
+                <input class="form-control" type="text" formControlName="dietName">
+                <small class="text-danger" *ngIf="createForm.get('dietName')?.invalid && createForm.get('dietName')?.touched">
+                    Name of diet is required.
+                </small>
+            </div><div class="col"></div>
+        </div>
+        <div class="mb-3">
+            <div>
+                <div *ngFor="let item of planOfDiets.controls; let i = index" [formGroupName]="i" class="row">
+                    <div class="col-8">
+                        <label class="form-label">Recipe Id</label>
+                        <input class="form-control" type="text" formControlName="recipeId">
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label">typeOfMealId</label>
+                        <input class="form-control small-input" type="number" min="0" formControlName="typeOfMealId">
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label">dayOfWeek</label>
+                        <input class="form-control small-input" type="number" min="0" formControlName="dayOfWeek">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-success" type="submit" [disabled]="createForm.invalid">Create new</button>
+        <button [routerLink]="['/']" class="btn btn-danger float-end" style="margin-left: auto;">Cancel</button>
+    </form>
+</div>
 <!-- Gde god se preskoci neki obrok dodati vodu ili staviti da moraju da se unesu svi obroci? -->
+<!-- Neka ga prazno ipak -->

@@ -105,14 +105,14 @@ export class RecipeService
       return this.http.post<string>(this.backUrl + "/recipes/picture", formData).pipe(
         catchError(error => {
           console.error('Error uploading picture:', error);
-          return of('Error uploading picture'); // Return a user-friendly message or handle error as needed
+          return of('Error uploading picture'); 
         })
       );
     } 
     else 
     {
-      console.error('No file selected.');
-      return of('No file selected.'); // Return a user-friendly message
+      //console.error('No file selected.');
+      return of('No file selected.'); 
     }
   }
 

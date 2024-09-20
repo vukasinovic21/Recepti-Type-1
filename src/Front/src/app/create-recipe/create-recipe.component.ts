@@ -4,7 +4,6 @@ import { RecipeService } from '../recipe/recipe.service';
 import { Router } from '@angular/router';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CreateRecipe } from '../models/create-recipe';
-import { RecipeItem } from '../models/recipe-item';
 
 @Component({
   selector: 'app-create-recipe',
@@ -21,10 +20,6 @@ export class CreateRecipeComponent implements OnInit
   imageUrl!: File;
 
   response: string = '';
-  kolicina!: number;
-
-  sastojci!: string;
-  kolicinaSastojaka!: number;
 
   constructor(private formBuilder: FormBuilder, private recipeService: RecipeService, private router: Router){}
 
@@ -36,14 +31,19 @@ export class CreateRecipeComponent implements OnInit
     });
 
     this.createForm = this.formBuilder.group({
-      userId: ['f8a9e484-65e9-4b01-94b6-7da073e9f43b'],
+      userId: ['f8a9e484-65e9-4b01-94b6-7da073e9f43b'], //promeniti na ulogovanog korisnika!
       recipeName: ['', Validators.required],
       typeOfFoodId: ['', Validators.required],
       instructions: ['', Validators.required],
       timeToPrepare: ['', Validators.required],
       picture: ['defaultRecipe.jpg'], //ako se ne ubaci slika da se uzme defaultRecipe slika iz baze
       shared: [true],
-      recipeItems: this.formBuilder.array([this.createItem(), this.createItem(), this.createItem()])
+      kolicina: [1],
+      recipeItems: this.formBuilder.array([this.createItem()])
+    });
+
+    this.createForm.get('kolicina')?.valueChanges.subscribe(value => {
+      this.setRecipeItems(value);
     });
 
   }
@@ -59,6 +59,21 @@ export class CreateRecipeComponent implements OnInit
       quantity: [0, [Validators.required, Validators.min(0)]]
     });
   }
+
+
+  setRecipeItems(count: number) 
+  {
+    const items = this.recipeItems;
+    while (items.length !== 0) 
+    {
+      items.removeAt(0);
+    }
+    for (let i = 0; i < count; i++) 
+    {
+      items.push(this.createItem());
+    }
+  }
+
 
   onChange(event:any) : void 
   { 
@@ -77,9 +92,15 @@ export class CreateRecipeComponent implements OnInit
           this.response = str
 
           if(this.createForm.get('picture')?.value != 'defaultRecipe.jpg')
-            this.recipeService.addPicture().subscribe();
-
-          this.router.navigate(['/recipes'], { queryParams: { refresh: new Date().getTime() } })
+          {
+            this.recipeService.addPicture().subscribe({
+              next: () => {
+                this.router.navigate(['/recipes/' + this.response]);
+              }
+            });
+          }
+          else
+            this.router.navigate(['/recipes/' + this.response], { queryParams: { refresh: new Date().getTime() } })
       },
       error: (err) => 
       {
