@@ -38,7 +38,7 @@ export class CreateRecipeComponent implements OnInit
       timeToPrepare: ['', Validators.required],
       picture: ['defaultRecipe.jpg'], //ako se ne ubaci slika da se uzme defaultRecipe slika iz baze
       shared: [true],
-      kolicina: [1],
+      kolicina: [1, [Validators.required, Validators.min(1)]],
       recipeItems: this.formBuilder.array([this.createItem()])
     });
 

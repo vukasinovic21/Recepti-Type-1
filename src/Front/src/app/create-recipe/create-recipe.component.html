@@ -52,7 +52,7 @@
         <div class="row mb-3">
             <div class="col">
                     <label class="form-label">Choose number of ingredients</label>
-                    <input type="number" class="form-control" min="0" placeholder="Number of ingredients"  formControlName="kolicina" />
+                    <input type="number" class="form-control" min="1" placeholder="Number of ingredients"  formControlName="kolicina" />
             </div>
             <div class="col">
                 <br><br>
@@ -62,37 +62,20 @@
                 </div>
             </div>
         </div>
-        <!--
-            <div *ngIf="createForm.get('kolicina')?.value > 0">
-                Izabrano: {{createForm.get('kolicina')?.value}} sastojaka.
-            </div>
-        dovde-->
-        <!--<div class="mb-3">
-            <div>
-                <div *ngFor="let item of recipeItems.controls; let i = index" [formGroupName]="i" class="row">
-                <div class="col-8">
-                    <label class="form-label">Ingredient Id</label>
-                    <input class="form-control" type="text" formControlName="ingredientId">
-                </div>
-                <div class="col-4">
-                    <label class="form-label">Quantity</label>
-                    <input class="form-control small-input" type="number" min="0" formControlName="quantity">
-                </div>
-                </div>
-            </div>
-        </div>-->
         
         <div class="mb-3">
             <div formArrayName="recipeItems">
                 <div *ngFor="let item of recipeItems.controls; let i = index" [formGroupName]="i" class="row">
-                <div class="col-8">
-                    <label class="form-label">Ingredient Id</label>
-                    <input class="form-control" type="text" formControlName="ingredientId">
-                </div>
-                <div class="col-4">
-                    <label class="form-label">Quantity</label>
-                    <input class="form-control small-input" type="number" min="0" formControlName="quantity">
-                </div>
+                    <div class="col-8">
+                        <label class="form-label" *ngIf="i === 0">Ingredient Id</label>
+                        <label class="form-label" *ngIf="i > 0"></label>
+                        <input class="form-control" type="text" formControlName="ingredientId">
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label" *ngIf="i === 0">Quantity</label>
+                        <label class="form-label" *ngIf="i > 0"></label>
+                        <input class="form-control small-input" type="number" min="0" formControlName="quantity">
+                    </div>
                 </div>
             </div>
         </div>
