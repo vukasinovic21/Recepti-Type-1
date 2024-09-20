@@ -13,6 +13,7 @@ export class AllDietsComponent
   diets: Diet[] = [];  
   filteredDiets: Diet[] = [];
   sortOrder = "";
+  selectedDietId: string | null = null;
 
   constructor(private dietService: DietService, private router: Router, private activatedRoute: ActivatedRoute){}
   
@@ -33,6 +34,7 @@ export class AllDietsComponent
 
   showDietId(dietId:string): void 
   {
+    this.selectedDietId = dietId;
     this.router.navigate(['/diets/' + dietId]); 
   }
 

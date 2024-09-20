@@ -16,8 +16,8 @@
                 </mat-select>
                 <hr>
                 <ul class="list-group">
-                    <li class="list-group-item " *ngFor="let diet of filteredDiets" (click)="showDietId(diet.id)">
-                     {{ diet.dietName }} <!-- DA BUDE KAO DUGME KAD SE PREDJE MISEM PREKO NJEGA -->
+                    <li class="list-group-item " *ngFor="let diet of filteredDiets" [class.active]="diet.id === selectedDietId"  (click)="showDietId(diet.id)">
+                    {{ diet.dietName }}
                     </li>
                 </ul>
             </div>

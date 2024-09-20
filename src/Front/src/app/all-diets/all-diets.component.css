@@ -12,3 +12,20 @@
     width: 100%;
     margin-left: 3px;
 }
+
+.list-group-item
+{
+    cursor: pointer; 
+}
+
+.list-group-item:hover {
+    background-color:  #669999;
+    color: white; 
+    border-color:  #669999;
+}
+
+.list-group-item.active {
+    background-color: #669999;
+    color: white; 
+    border-color: #669999;
+}

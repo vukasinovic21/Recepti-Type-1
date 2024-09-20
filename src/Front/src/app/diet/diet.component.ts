@@ -35,8 +35,11 @@ export class DietComponent implements OnInit
   
   ngOnInit(): void 
   {
-    this.dietId = this.activatedRoute.snapshot.paramMap.get('id') ?? 'default-value';
-    this.showDiet(this.dietId);
+    this.activatedRoute.params.subscribe(params => {
+      this.dietId = params['id']; 
+      this.showDiet(this.dietId); 
+    });
+
   }
 
   showDiet(dietId: string): void

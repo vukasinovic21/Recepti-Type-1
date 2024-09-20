@@ -39,14 +39,22 @@
             </div>
         </div>
 
+        <div *ngIf="showAlert" class="custom-alert">
+            <div class="alert-content">
+              <p>You need to input at least one meal</p>
+              <button (click)="closeAlert()">OK</button>
+            </div>
+        </div>
+
         <div class="mb-3" >
             <div formArrayName="planOfDiets">
                 <div class="row">
                     <div *ngFor="let item of planOfDiets.controls; let i = index" [formGroupName]="i" class="size2">
-                        <div class="form-group">
-                            <label class="form-label"></label>
-                            <input class="form-control" type="text" formControlName="recipeId">
-                        </div>
+                        <label class="form-label"></label>
+                        <select class="form-control" formControlName="recipeId">
+                            <option value="">Select a recipe</option>
+                            <option *ngFor="let recipe of recipes" [value]="recipe.id">{{ recipe.recipeName }}</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -54,7 +62,7 @@
 
         <div>
             <button class="btn btn-success" type="submit" [disabled]="createForm.invalid">Create new</button>
-            <button [routerLink]="['/']" class="btn btn-danger" style="margin-left: 10px;">Cancel</button>
+            <button [routerLink]="['/diets']" class="btn btn-danger" style="margin-left: 10px;">Cancel</button>
         </div>
     </form>
 </div>

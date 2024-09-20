@@ -18,6 +18,7 @@ export class CreateDietComponent implements OnInit
   createForm: FormGroup = new FormGroup({});
 
   response: string = '';
+  showAlert = false;
 
   constructor(private formBuilder: FormBuilder, private recipeService: RecipeService, private dietService: DietService, private router: Router){}
 
@@ -78,11 +79,18 @@ export class CreateDietComponent implements OnInit
     if(this.createForm.valid)
       {
         const validPlanOfDiets = this.planOfDiets.controls.filter(control => control.get('recipeId')?.value !== '');
+
+        if (validPlanOfDiets.length === 0) 
+        {
+          this.showAlert = true; 
+          return;
+        }
+
         const validPlansFormArray = this.formBuilder.array(validPlanOfDiets.map(control => control.value));
         this.createForm.setControl('planOfDiets', validPlansFormArray);
         
         let diet: CreateDiet = this.createForm.value;
-        console.log(diet);
+        //console.log(diet);
         this.dietService.createNewDiet(diet).subscribe({ 
           next: (str) => {
             this.response = str;
@@ -90,5 +98,10 @@ export class CreateDietComponent implements OnInit
           }
         })
       }
+  }
+
+  closeAlert() 
+  {
+    this.showAlert = false; 
   }
 }
