@@ -34,6 +34,22 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+
+          <mat-form-field>
+            <mat-select [(ngModel)]="recipesPerPage" (selectionChange)="perPage($event.value)" placeholder="8 per page">
+              <mat-option value=8>8 per page</mat-option>
+              <mat-option value=16>16 per page</mat-option>
+              <mat-option value=24>24 per page</mat-option>
+              <mat-option value=32>32 per page</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput type="number" placeholder="Page" [(ngModel)]="currentPage" (change)="goToPage(currentPage)" min="1" [max]="maxPages">
+          </mat-form-field>
+          
+          <p *ngIf="maxPages > 0">Max Pages: {{ maxPages }}</p>
+          
       </div>
 
     <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="50px grid"> <!--fxLayoutAlign="center center"-->

@@ -22,6 +22,10 @@ export class AllRecipesComponent
     allTypesOfFood: TypeOfFood[] = [];
     
     sortOrder = "";
+    recipesPerPage = 8;
+    numberOfRecipes = 0;
+    currentPage = 1; 
+
     like: Like = 
     {
       recipeId: '',
@@ -32,13 +36,13 @@ export class AllRecipesComponent
 
     ngOnInit(): void 
     {
-      this.recipeService.getAllRecipes().subscribe( recipes => {
+      this.recipeService.getAllRecipesPage(this.currentPage-1, this.recipesPerPage).subscribe( recipes => {
           this.recipes = recipes;
           this.filteredRecipes = recipes; 
       });
 
       this.route.queryParams.subscribe(() => {
-        this.recipeService.getAllRecipes().subscribe( recipes => {
+        this.recipeService.getAllRecipesPage(this.currentPage-1, this.recipesPerPage).subscribe( recipes => {
           this.recipes = recipes;
           this.filteredRecipes = recipes;
         });
@@ -46,6 +50,10 @@ export class AllRecipesComponent
 
       this.recipeService.getAllTypesOfMeal().subscribe( types => {
         this.allTypesOfFood = types;
+      })
+     
+      this.recipeService.getAllRecipesCount().subscribe(number =>{
+        this.numberOfRecipes = number;
       })
     }
 
@@ -156,5 +164,34 @@ export class AllRecipesComponent
       } 
     }
 
+    perPage(perPage: number)
+    {
+      this.recipesPerPage = perPage;
+      this.recipeService.getAllRecipesPage(this.currentPage-1, perPage).subscribe( recipes => {
+        this.recipes = recipes;
+        this.filteredRecipes = recipes; 
+      });
+    }
+
+    get maxPages(): number 
+    {
+      return Math.ceil(this.numberOfRecipes / this.recipesPerPage);
+    }
+
+    goToPage(page: number) 
+    {
+      if (page >= 1 && page <= this.maxPages) 
+      {
+        this.currentPage = page;
+      } 
+      else 
+      {
+        console.log('Invalid page number');
+      }
+      this.recipeService.getAllRecipesPage(this.currentPage-1, this.recipesPerPage).subscribe( recipes => {
+        this.recipes = recipes;
+        this.filteredRecipes = recipes; 
+      });
+    }
 }
 
