@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { UserRecipeComponent } from '../user-recipe/user-recipe.component'
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { UserRecipeComponent } from '../user-recipe/user-recipe.component'
     FlexModule,
     MatInputModule,
     MatSelectModule,
-    MatCheckboxModule 
+    MatCheckboxModule,
+    MatPaginatorModule
   ]
 })
 export class RecipeModule { }

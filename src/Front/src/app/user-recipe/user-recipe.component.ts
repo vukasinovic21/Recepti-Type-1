@@ -18,25 +18,26 @@ export class UserRecipeComponent
   filteredRecipes: Recipe[] = [];
   sortOrder = "";
   user?: User;
+  userId!: string;
 
   constructor(private recipeService: RecipeService, private router: Router, private activatedRoute: ActivatedRoute, private userServise: UserService){}
 
   ngOnInit(): void 
   {
-    let userId = this.activatedRoute.snapshot.paramMap.get('id') ?? "default-value";
+    this.userId = this.activatedRoute.snapshot.paramMap.get('id') ?? "default-value";
     
-    //this.getUserInfo(userId);
-    this.getRecipeUser(userId);
+    this.getUserInfo(this.userId);
+    this.getRecipeUser(this.userId);
 
     this.activatedRoute.queryParams.subscribe(() => {
-      this.recipeService.getRecipeUser(userId).subscribe( recipes => {
+      this.recipeService.getRecipeUser(this.userId).subscribe( recipes => {
         this.recipes = recipes;
         this.filteredRecipes = recipes;
       });
     });
   }
 
-  getUserInfo(userId:string): void //nije implementirano na beku
+  getUserInfo(userId:string): void 
   {
     this.userServise.getUser(userId).subscribe( user => {
       if (user) {

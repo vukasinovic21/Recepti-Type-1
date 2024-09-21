@@ -43,12 +43,6 @@
               <mat-option value=32>32 per page</mat-option>
             </mat-select>
           </mat-form-field>
-
-          <mat-form-field>
-            <input matInput type="number" placeholder="Page" [(ngModel)]="currentPage" (change)="goToPage(currentPage)" min="1" [max]="maxPages">
-          </mat-form-field>
-          
-          <p *ngIf="maxPages > 0">Max Pages: {{ maxPages }}</p>
           
       </div>
 
@@ -84,6 +78,11 @@
                 </mat-card-actions>
             </mat-card>
         </div>
+    </div>
+    <div class="smallb">
+      <p *ngIf="maxPages > 0">Page: <input class="inputb" type="number" placeholder="Page" [(ngModel)]="currentPage" (change)="goToPage(currentPage)" min="1" [max]="maxPages"> of {{ maxPages }}</p> 
+      <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+      <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === maxPages">Next</button>
     </div>
 </div>
 <br>

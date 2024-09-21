@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Recipe } from '../models/recipe';
 import { Like } from '../models/like';
 import { RecipeService } from '../recipe/recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
 import { TypeOfFood } from '../models/type-of-food';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-all-recipes',
@@ -25,6 +26,9 @@ export class AllRecipesComponent
     recipesPerPage = 8;
     numberOfRecipes = 0;
     currentPage = 1; 
+
+    /*pageEvent!: PageEvent;
+    @ViewChild(MatPaginator) paginator!: MatPaginator;*/
 
     like: Like = 
     {
@@ -55,6 +59,7 @@ export class AllRecipesComponent
       this.recipeService.getAllRecipesCount().subscribe(number =>{
         this.numberOfRecipes = number;
       })
+
     }
 
     showRecipeId(recipeId:string): void
@@ -79,18 +84,18 @@ export class AllRecipesComponent
       //ili mozda javni profil korisnika kad se prikljucio, koliko recepata, username, genericna slika i svi recepti
     }
 
-    search(event: Event): void
+    search(event: Event): void //treba da pretrazi sve recepte a ne samo sa trenutne stranice
     {
       let searchTerm = (event.target as HTMLInputElement).value;
       searchTerm = searchTerm.toLowerCase();
 
       this.filteredRecipes = this.recipes.filter(
         recipe => recipe.recipeName.toLowerCase().includes(searchTerm))
-
+        
       this.sortRecipes(this.sortOrder);  
     }
 
-    filterTypeOfFood(filterOption: string): void
+    filterTypeOfFood(filterOption: string): void //treba da pretrazi sve recepte a ne samo sa trenutne stranice
     {
       const index = this.selectedTypes.indexOf(filterOption);
       if (index === -1) 
@@ -127,7 +132,7 @@ export class AllRecipesComponent
     sortRecipes(sortValue: string)
     {
       this.sortOrder = sortValue;
-
+      this.numberOfRecipes = this.filteredRecipes.length;
       if(this.sortOrder === "timeLowHigh")
       {
         this.filteredRecipes.sort((a,b) => a.timeToPrepare - b.timeToPrepare)
@@ -193,5 +198,13 @@ export class AllRecipesComponent
         this.filteredRecipes = recipes; 
       });
     }
+
+    /*onPaginateChange(event: PageEvent): void 
+    {
+      this.recipeService.getAllRecipesPage(event.pageIndex, event.pageSize).subscribe( recipes => {
+        this.recipes = recipes;
+        this.filteredRecipes = recipes; 
+      });
+    }*/
 }
 
