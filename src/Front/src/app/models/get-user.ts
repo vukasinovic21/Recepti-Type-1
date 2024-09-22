@@ -1,12 +1,11 @@
-export interface User 
+export interface GetUser 
 {
     id: string,
     Name: string,
     Lastname: string
     Username: string,
     Email: string,
-    Password: string,
-    ForgotPasswordAnswer: string, 
     DateOfBirth: Date,
-    Sex: string
+    Role: string,
+    CreatedAt: Date
 }

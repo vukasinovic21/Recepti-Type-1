@@ -43,12 +43,25 @@
                 Password is required and must be at least 8 characters long.
             </small>
         </div>
-        <div class="mb-3">
-            <label class="form-label">Date of birth</label>
-            <input class="form-control" type="date" formControlName="DateOfBirth">
-            <small class="text-danger" *ngIf="registerForm.get('DateOfBirth')?.invalid && registerForm.get('DateOfBirth')?.touched">
-                Date of birth is required.
-            </small>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label class="form-label">Date of birth</label>
+                <input class="form-control" type="date" formControlName="DateOfBirth">
+                <small class="text-danger" *ngIf="registerForm.get('DateOfBirth')?.invalid && registerForm.get('DateOfBirth')?.touched">
+                    Date of birth is required.
+                </small>
+            </div>
+            <div class="col">
+                <label class="form-label">Sex</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option value=1>Female</option>
+                    <option value=2>Male</option>
+                </select>
+                <small class="text-danger" *ngIf="registerForm.get('Sex')?.invalid && registerForm.get('Sex')?.touched">
+                    Sex is required.
+                </small>
+            </div>
         </div>
 
 

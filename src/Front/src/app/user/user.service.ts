@@ -4,6 +4,7 @@ import { Observable, map } from 'rxjs';
 import { Recipe } from '../models/recipe';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { GetUser } from '../models/get-user';
 
 @Injectable({
   providedIn: 'root'
@@ -17,19 +18,20 @@ export class UserService
   
   constructor(private http: HttpClient){}
 
-  getAllUsers(): Observable<User[]> //implementirati na beku
+  getAllUsers(): Observable<GetUser[]> //implementirati na beku
   {
-    return this.http.get<{users: User[]}>(this.backUrl + "/users/")
+    return this.http.get<{users: GetUser[]}>(this.backUrl + "/users/")
     .pipe(
       map(response => response.users)
     );
   }
 
-  getUser(id: string): Observable<User> //implementirati na beku
+  getUser(id: string): Observable<GetUser> 
   {
-    return this.http.get<{user: User}>(this.backUrl + "/users/id/" + id)
+    return this.http.get<{user: GetUser[]}>(this.backUrl + "/users/id/" + id)
     .pipe(
-      map(response => response.user)
+      map(response => response.user[0])
     );
   }
+
 }

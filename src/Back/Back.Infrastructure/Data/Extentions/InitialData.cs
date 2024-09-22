@@ -9,8 +9,8 @@ namespace Back.Infrastructure.Data.Extentions
         public static IEnumerable<User> Users =>
            new List<User>
            {
-               User.Create(UserId.Of(new Guid("58c49479-ec65-4de2-86e7-033c546291aa")),"Admin", "Admin", "Admin", "Admin@gmail.com", "AdminPasswordHash", "AdminResponseHash", new DateOnly(2000, 4, 21)),
-               User.Create(UserId.Of(new Guid("f8a9e484-65e9-4b01-94b6-7da073e9f43b")),"Ivana", "Vukasinovic", "Ivana", "i.vukasinovic69@gmail.com", "nikjovPasswordHash", "BadiResponseHash", new DateOnly(1969, 7, 14))
+               User.Create(UserId.Of(new Guid("58c49479-ec65-4de2-86e7-033c546291aa")),"Admin", "Admin", "Admin", "Admin@gmail.com", "AdminPasswordHash", QuestionId.Of(new Guid("47b38368-3cd1-76e6-db54-574c82929c34")), "AdminResponseHash", new DateOnly(2000, 4, 21), "Male"),
+               User.Create(UserId.Of(new Guid("f8a9e484-65e9-4b01-94b6-7da073e9f43b")),"Ivana", "Vukasinovic", "Ivana", "i.vukasinovic69@gmail.com", "nikjovPasswordHash", QuestionId.Of(new Guid("47b38368-3cd1-76e6-db54-574c82929c34")), "BadiResponseHash", new DateOnly(1969, 7, 14), "Female")
            };
 
         public static IEnumerable<Ingredient> Ingredients =>

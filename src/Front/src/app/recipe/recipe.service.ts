@@ -53,6 +53,14 @@ export class RecipeService
     );
   }
 
+  getRecipeUserCount(id: string): Observable<number>
+  {
+    return this.http.get<{recipes: {count:number}}>(this.backUrl + "/recipes/user/" + id)
+    .pipe(
+      map(response => response.recipes.count)
+    )
+  }
+
   getAllRecipesPage(pageNumber:number, perPage: number): Observable<Recipe[]>
   {
     return this.http.get<{recipes: {data:Recipe[]}}>(this.backUrl + "/recipes?PageIndex="+ pageNumber + "&PageSize=" + perPage)
@@ -60,7 +68,6 @@ export class RecipeService
       map(response => response.recipes.data)
     );
   }
-
 
   getRecipeInfo(id: string): Observable<Recipe[]>
   {

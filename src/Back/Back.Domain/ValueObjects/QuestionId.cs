@@ -5,6 +5,7 @@ namespace Back.Domain.ValueObjects
     public record QuestionId
     {
         public Guid Value { get; }
+        //private QuestionId() { }
         private QuestionId(Guid value) => Value = value;
 
         public static QuestionId Of(Guid value)

@@ -5,6 +5,9 @@ import { Recipe } from '../models/recipe';
 import { RecipeService } from '../recipe/recipe.service';
 import { User } from '../models/user';
 import { UserService } from '../user/user.service';
+import { GetUser } from '../models/get-user';
+import { Observable } from 'rxjs';
+import { TypeOfFood } from '../models/type-of-food';
 
 @Component({
   selector: 'app-user-recipe',
@@ -14,35 +17,51 @@ import { UserService } from '../user/user.service';
 export class UserRecipeComponent 
 {
 
+  user?: GetUser;
   recipes: Recipe[] = [];  
   filteredRecipes: Recipe[] = [];
-  sortOrder = "";
-  user?: User;
-  userId!: string;
 
-  constructor(private recipeService: RecipeService, private router: Router, private activatedRoute: ActivatedRoute, private userServise: UserService){}
+  sortOrder = "";
+  recipesPerPage = 8;
+  numberOfRecipes = 0;
+  currentPage = 1; 
+  
+  userId: string = '';
+
+  allTypesOfFood: TypeOfFood[] = [];
+
+  constructor(private recipeService: RecipeService, private router: Router, protected activatedRoute: ActivatedRoute, private userService: UserService){}
 
   ngOnInit(): void 
   {
     this.userId = this.activatedRoute.snapshot.paramMap.get('id') ?? "default-value";
     
+    //this.getRecipeUser(this.userId);
     this.getUserInfo(this.userId);
-    this.getRecipeUser(this.userId);
 
-    this.activatedRoute.queryParams.subscribe(() => {
+    /*this.activatedRoute.queryParams.subscribe(() => {
       this.recipeService.getRecipeUser(this.userId).subscribe( recipes => {
         this.recipes = recipes;
         this.filteredRecipes = recipes;
       });
-    });
+    });*/
+
+    this.recipeService.getAllTypesOfMeal().subscribe( types => {
+      this.allTypesOfFood = types;
+    })
+
+    this.recipeService.getRecipeUserCount(this.userId).subscribe(number =>{
+      this.numberOfRecipes = number;
+    })
   }
 
-  getUserInfo(userId:string): void 
+  getUserInfo(userId:string): void
   {
-    this.userServise.getUser(userId).subscribe( user => {
-      if (user) {
-        this.user = user;
-      }
+    this.userService.getUser(userId).subscribe( user1 => {
+      this.user = user1;
+      console.log(this.user)
+      if(this.user)
+        this.getRecipeUser(userId);
     });
   }
 
@@ -52,6 +71,12 @@ export class UserRecipeComponent
       this.recipes = recipes;
       this.filteredRecipes = recipes; 
     });
+  }
+
+  getTypeName(id: string): string 
+  {
+    const type = this.allTypesOfFood.find(type => type.id === id);
+    return type ? type.typeName : 'Unknown';
   }
 
   showRecipeId(recipeId:string): void
@@ -78,6 +103,7 @@ export class UserRecipeComponent
   sortRecipes(sortValue: string)
   {
     this.sortOrder = sortValue;
+    this.numberOfRecipes = this.filteredRecipes.length;
 
     if(this.sortOrder === "timeLowHigh")
     {
@@ -114,6 +140,34 @@ export class UserRecipeComponent
       //this.filteredRecipes.sort((a,b) => b.timeToPrepare - a.timeToPrepare)
     } 
   }
+  perPage(perPage: number)
+  {
+    this.recipesPerPage = perPage;
+    this.recipeService.getAllRecipesPage(this.currentPage-1, perPage).subscribe( recipes => {
+      this.recipes = recipes;
+      this.filteredRecipes = recipes; 
+    });
+  }
 
+  get maxPages(): number 
+  {
+    return Math.ceil(this.numberOfRecipes / this.recipesPerPage);
+  }
+
+  goToPage(page: number) 
+  {
+    if (page >= 1 && page <= this.maxPages) 
+    {
+      this.currentPage = page;
+    } 
+    else 
+    {
+      console.log('Invalid page number');
+    } // mora da se promeni na getUserRecipesPage
+    this.recipeService.getAllRecipesPage(this.currentPage-1, this.recipesPerPage).subscribe( recipes => {
+      this.recipes = recipes;
+      this.filteredRecipes = recipes; 
+    });
+  }
 }
 

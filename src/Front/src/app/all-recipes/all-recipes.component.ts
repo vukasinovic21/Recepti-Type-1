@@ -198,13 +198,5 @@ export class AllRecipesComponent
         this.filteredRecipes = recipes; 
       });
     }
-
-    /*onPaginateChange(event: PageEvent): void 
-    {
-      this.recipeService.getAllRecipesPage(event.pageIndex, event.pageSize).subscribe( recipes => {
-        this.recipes = recipes;
-        this.filteredRecipes = recipes; 
-      });
-    }*/
 }
 

@@ -20,6 +20,12 @@ namespace Back.Infrastructure.Data.Configurations
             builder.Property(u => u.Email).HasMaxLength(256).IsRequired();
             builder.HasIndex(u => u.Email).IsUnique();
             builder.Property(u => u.PasswordHash).HasMaxLength(256).IsRequired();
+
+            builder.HasOne<Question>()
+                .WithMany()
+                .HasForeignKey(u => u.QuestionId)
+                .IsRequired();
+
             builder.Property(u => u.ForgotPasswordAnswerHash).HasMaxLength(256).IsRequired();
             builder.Property(u => u.DateOfBirth).IsRequired();
             builder.Property(u => u.Role)

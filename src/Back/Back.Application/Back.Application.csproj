@@ -16,13 +16,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Auth\Queries\" />
     <Folder Include="Ingredients\Commands\" />
     <Folder Include="Likes\Commands\" />
     <Folder Include="Likes\Queries\" />
     <Folder Include="RecipeItems\Commands\" />
     <Folder Include="RecipeItems\Queries\" />
     <Folder Include="Users\Commands\" />
-    <Folder Include="Users\Queries\" />
+    <Folder Include="Users\Queries\GetAllUsers\" />
   </ItemGroup>
 
 </Project>

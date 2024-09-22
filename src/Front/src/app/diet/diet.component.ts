@@ -15,7 +15,7 @@ export class DietComponent implements OnInit
 {
 
   dietId: string = "";
-  diet!: Diet;
+  diet?: Diet;
 
   tableData: any[][] = [];
   headers: string[] = []; 
@@ -59,7 +59,7 @@ export class DietComponent implements OnInit
 
     this.tableData = mealTypes.map(typeId => {
       return daysOfWeek.map(day => {
-        const meal = this.diet.planOfDiets.find(diet =>
+        const meal = this.diet?.planOfDiets.find(diet =>
           diet.dayOfWeek === day && diet.typeOfMealId === typeId
         );
         return meal ? 

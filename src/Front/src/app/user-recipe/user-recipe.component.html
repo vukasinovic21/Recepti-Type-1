@@ -1,5 +1,6 @@
 <div class="text-center mb-5 mt-3">
     <h1> {{ userId }}</h1>
+    <h1> {{ user?.CreatedAt }}</h1>
 </div>
 
 <div class="container">
@@ -19,13 +20,22 @@
         </mat-select>
     </mat-form-field>
 
+    <!--<mat-form-field>
+        <mat-select [(ngModel)]="recipesPerPage" (selectionChange)="perPage($event.value)" placeholder="8 per page">
+          <mat-option value=8>8 per page</mat-option>
+          <mat-option value=16>16 per page</mat-option>
+          <mat-option value=24>24 per page</mat-option>
+          <mat-option value=32>32 per page</mat-option>
+        </mat-select>
+    </mat-form-field>-->
+
     <div fxLayout="row wrap" fxLayoutGap="50px grid" >
         <div *ngFor="let recipe of filteredRecipes">
             <mat-card class="example-card" appearance="outlined"> 
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/female.svg');"></div> 
                     <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
-                    <mat-card-subtitle> Smuti i napitci </mat-card-subtitle>
+                    <mat-card-subtitle> {{ getTypeName(recipe.typeOfFoodId) }} </mat-card-subtitle>
                 </mat-card-header>
 
                 <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
@@ -49,5 +59,11 @@
             </mat-card>
         </div>
     </div>
+
+    <!--<div class="smallb">
+        <p *ngIf="maxPages > 0">Page: <input class="inputb" type="number" placeholder="Page" [(ngModel)]="currentPage" (change)="goToPage(currentPage)" min="1" [max]="maxPages"> of {{ maxPages }}</p> 
+        <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+        <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === maxPages">Next</button>
+      </div>-->
 </div>
 <br>
