@@ -16,15 +16,12 @@ export class IsLoggedGuard implements CanActivate {
     {
       if(localStorage.getItem("jwt"))
       {
-        /*this.authService.validate().subscribe({next: (res) => {
-          return true;
-        }, error: () => {
-          this.router.navigate(['login']);
-        }})*/
+        this.authService.loggedin();
         return true;
       }
       else 
       {
+        this.authService.loggedout();
         this.router.navigate(['login']);
         return false
       }

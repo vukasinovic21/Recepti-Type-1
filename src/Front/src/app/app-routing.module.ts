@@ -12,6 +12,7 @@ import { CreateDietComponent } from './create-diet/create-diet.component';
 import { UserRecipeComponent } from './user-recipe/user-recipe.component';
 import { DietComponent } from './diet/diet.component';
 import { NoLoggedGuard } from './guards/no-logged.guard';
+import { IsLoggedGuard } from './guards/is-logged.guard';
 
 const routes: Routes = 
 [
@@ -33,10 +34,14 @@ const routes: Routes =
     path:"recipes", component: AllRecipesComponent
   },
   {
-    path:"create", component: CreateRecipeComponent
+    path:"create", 
+    component: CreateRecipeComponent,
+    canActivate:[IsLoggedGuard]
   },
   {
-    path:"diets/create", component: CreateDietComponent
+    path:"diets/create", 
+    component: CreateDietComponent,
+    canActivate:[IsLoggedGuard]
   },
   {
     path:"users", component: AllUsersComponent
@@ -46,7 +51,8 @@ const routes: Routes =
     children: 
     [
       { path: ':id', component: DietComponent }
-    ]
+    ],
+    canActivate:[IsLoggedGuard]
   },
   {
     path:"login", 

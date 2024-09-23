@@ -38,6 +38,6 @@ export class AppComponent
     localStorage.removeItem('jwt');
     this.isLogged = false;
     this.authService.loggedout();
-    this.router.navigate(['/'])
+    this.router.navigate(['/login'])
   }
 }

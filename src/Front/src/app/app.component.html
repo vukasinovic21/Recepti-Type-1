@@ -20,12 +20,12 @@
               </button>
               <mat-menu #menu="matMenu">
                 <button mat-menu-item [routerLink]="['/recipes']">All recipes</button>
-                <button *ngIf="!isLogged" mat-menu-item [routerLink]="['/create']">New recipe</button>
-                <button *ngIf="!isLogged" mat-menu-item [routerLink]="['/diets']">All diets</button>
-                <button *ngIf="!isLogged" mat-menu-item [routerLink]="['/diets/create']">New diet</button>
+                <button *ngIf="isLogged" mat-menu-item [routerLink]="['/create']">New recipe</button>
+                <button *ngIf="isLogged" mat-menu-item [routerLink]="['/diets']">All diets</button>
+                <button *ngIf="isLogged" mat-menu-item [routerLink]="['/diets/create']">New diet</button>
                 <button *ngIf="!isLogged" mat-menu-item [routerLink]="['/login']">Login</button>
                 <button *ngIf="!isLogged" mat-menu-item [routerLink]="['/register']">Register</button>
-                <button *ngIf="isLogged" class="color" (click)="logout()">Logout</button>
+                <button *ngIf="isLogged" mat-menu-item (click)="logout()">Logout</button>
               </mat-menu>
         </span>
     </mat-toolbar-row>
