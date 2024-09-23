@@ -59,7 +59,7 @@ export class UserRecipeComponent
   {
     this.userService.getUser(userId).subscribe( user1 => {
       this.user = user1;
-      console.log(this.user)
+      //console.log(this.user)
       if(this.user)
         this.getRecipeUser(userId);
     });

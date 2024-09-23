@@ -11,6 +11,13 @@
     color:white !important;
 }
 
+.img
+{
+    width:45px;
+    height: 45px;
+    margin-right: 5px;
+}
+
 .color
 {
     background-color: transparent;
@@ -61,7 +68,7 @@
     margin-top: 4px;
 }
 
-@media (max-width: 650px) 
+@media (max-width: 720px) 
 {
     .left-buttons {
         display: none; 
@@ -85,7 +92,7 @@
         background-color: #669999;
       }
 }
-@media (min-width: 650px) 
+@media (min-width: 720px) 
 {
     .menu  {
         display: none; 
