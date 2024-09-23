@@ -33,9 +33,15 @@ export class LoginComponent implements OnInit
       {
         let loginUser: User = this.loginForm.value;
         this.authService.login(loginUser.email, loginUser.passwordHash).subscribe( jwt =>
-          //this.jwt = jwt
+        {
+          this.jwt = jwt;
+          if(this.jwt == "User not found")
+            alert("User not found")
+          else if(this.jwt == "Bad password")
+            alert("Bad password")
+          else localStorage.setItem('jwt', this.jwt);
           this.router.navigate(['/'])
-        );
+        });
       }
     }
 }

@@ -12,6 +12,7 @@
         <span class="right-buttons">
             <button *ngIf="!isMobile" [routerLink]="['/login']" class="color">Login</button>
             <button *ngIf="!isMobile" [routerLink]="['/register']" class="color">Register</button>
+            <button class="color" (click)="logout()">Logout</button>
         </span>
         <span class="menu">
             <button *ngIf="!isMobile" [matMenuTriggerFor]="menu" aria-label="More options" class="menu-button">
@@ -24,6 +25,7 @@
                 <button mat-menu-item [routerLink]="['/diets/create']">New diet</button>
                 <button mat-menu-item [routerLink]="['/login']">Login</button>
                 <button mat-menu-item [routerLink]="['/register']">Register</button>
+                <button class="color" (click)="logout()">Logout</button>
               </mat-menu>
         </span>
     </mat-toolbar-row>

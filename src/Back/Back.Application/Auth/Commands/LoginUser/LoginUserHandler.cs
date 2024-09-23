@@ -4,29 +4,34 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Back.Application.Auth.Queries.LoginUser
+namespace Back.Application.Auth.Commands.LoginUser
 {
     public class LoginUserHandler(IApplicationDbContext dbContext, IConfiguration configuration)
-        : IQueryHandler<LoginUserQuery, LoginUserResult>
+        : ICommandHandler<LoginUserCommand, LoginUserResult>
     {
 
-        public async Task<LoginUserResult> Handle(LoginUserQuery query, CancellationToken cancellationToken)
+        public async Task<LoginUserResult> Handle(LoginUserCommand command, CancellationToken cancellationToken)
         {
-            //login by name and password
+            //login by email and password
             //return jwt if correct
-
+            await Console.Out.WriteLineAsync(command.User.Email);
             var users = await dbContext.Users
-                .Where(u => u.Email == query.loginDto.Email)
+                .Where(u => u.Email == command.User.Email)
                 .ToListAsync(cancellationToken);
 
-            var user = users[0];
 
-            if(BCrypt.Net.BCrypt.Verify(query.loginDto.Passwordhash, user.PasswordHash))
+            var user = users.FirstOrDefault();
+            if (user == null)
+            {
+                return new LoginUserResult("User not found");
+            }
+
+            if (BCrypt.Net.BCrypt.Verify(command.User.PasswordHash, user.PasswordHash))
             {
                 return new LoginUserResult(CreateToken(user));
             }
 
-            return new LoginUserResult("Error");
+            return new LoginUserResult("Bad password");
         }
 
         private string CreateToken(User user)
@@ -41,7 +46,7 @@ namespace Back.Application.Auth.Queries.LoginUser
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
                 configuration.GetSection("AppSettings:Token").Value!));
-            Console.WriteLine(configuration.GetSection("AppSettings:Token").Value);
+
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
             var token = new JwtSecurityToken(
@@ -49,9 +54,8 @@ namespace Back.Application.Auth.Queries.LoginUser
                 expires: DateTime.Now.AddDays(1),
                 signingCredentials: creds
                 );
-            
-            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
 
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
             return jwt;
         }
     }

@@ -4,5 +4,5 @@
     public record LoginUserDto(
 
         string Email,
-        string Passwordhash);
+        string PasswordHash);
 }

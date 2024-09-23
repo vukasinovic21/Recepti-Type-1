@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Auth\Queries\" />
     <Folder Include="Ingredients\Commands\" />
     <Folder Include="Likes\Commands\" />
     <Folder Include="Likes\Queries\" />
