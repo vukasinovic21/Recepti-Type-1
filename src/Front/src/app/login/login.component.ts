@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -39,8 +40,12 @@ export class LoginComponent implements OnInit
             alert("User not found")
           else if(this.jwt == "Bad password")
             alert("Bad password")
-          else localStorage.setItem('jwt', this.jwt);
-          this.router.navigate(['/'])
+          else 
+          { 
+            localStorage.setItem('jwt', this.jwt);
+            this.authService.loggedin(); // da se obaveste sve ostale komponente da je ulogovan
+            this.router.navigate(['/'])
+          }
         });
       }
     }

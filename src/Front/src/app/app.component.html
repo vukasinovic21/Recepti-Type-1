@@ -4,15 +4,15 @@
         <h1>Recepti Type 1 </h1>
         <span class="left-buttons">
             <button *ngIf="!isMobile" [routerLink]="['/recipes']" class="color">All recipes</button>
-            <button *ngIf="!isMobile" [routerLink]="['/create']" class="color">New recipe</button>
-            <button *ngIf="!isMobile" [routerLink]="['/diets']" class="color">All diets</button>
-            <button *ngIf="!isMobile" [routerLink]="['/diets/create']" class="color">New diet</button>
+            <button *ngIf="!isMobile && isLogged" [routerLink]="['/create']" class="color">New recipe</button>
+            <button *ngIf="!isMobile && isLogged" [routerLink]="['/diets']" class="color">All diets</button>
+            <button *ngIf="!isMobile && isLogged" [routerLink]="['/diets/create']" class="color">New diet</button>
         </span>
         <span class="spacer"></span>
         <span class="right-buttons">
-            <button *ngIf="!isMobile" [routerLink]="['/login']" class="color">Login</button>
-            <button *ngIf="!isMobile" [routerLink]="['/register']" class="color">Register</button>
-            <button class="color" (click)="logout()">Logout</button>
+            <button *ngIf="!isMobile && !isLogged" [routerLink]="['/login']" class="color">Login</button>
+            <button *ngIf="!isMobile && !isLogged" [routerLink]="['/register']" class="color">Register</button>
+            <button *ngIf="!isMobile && isLogged" class="color" (click)="logout()">Logout</button>
         </span>
         <span class="menu">
             <button *ngIf="!isMobile" [matMenuTriggerFor]="menu" aria-label="More options" class="menu-button">
@@ -20,21 +20,15 @@
               </button>
               <mat-menu #menu="matMenu">
                 <button mat-menu-item [routerLink]="['/recipes']">All recipes</button>
-                <button mat-menu-item [routerLink]="['/create']">New recipe</button>
-                <button mat-menu-item [routerLink]="['/diets']">All diets</button>
-                <button mat-menu-item [routerLink]="['/diets/create']">New diet</button>
-                <button mat-menu-item [routerLink]="['/login']">Login</button>
-                <button mat-menu-item [routerLink]="['/register']">Register</button>
-                <button class="color" (click)="logout()">Logout</button>
+                <button *ngIf="!isLogged" mat-menu-item [routerLink]="['/create']">New recipe</button>
+                <button *ngIf="!isLogged" mat-menu-item [routerLink]="['/diets']">All diets</button>
+                <button *ngIf="!isLogged" mat-menu-item [routerLink]="['/diets/create']">New diet</button>
+                <button *ngIf="!isLogged" mat-menu-item [routerLink]="['/login']">Login</button>
+                <button *ngIf="!isLogged" mat-menu-item [routerLink]="['/register']">Register</button>
+                <button *ngIf="isLogged" class="color" (click)="logout()">Logout</button>
               </mat-menu>
         </span>
     </mat-toolbar-row>
 </mat-toolbar>
 
 <router-outlet> </router-outlet>
-
-<!--<a href="/recipes" mat-button style="color: white;">All recipes</a>
-        <a href="/create" mat-button style="color: white;">New recipe</a>
-        <a href="/diet/create" mat-button style="color: white;">New diet</a>
-        <a href="/login" mat-button style="color: white;">Login</a>
-        <a href="/register" mat-button style="color: white;">Register</a>-->

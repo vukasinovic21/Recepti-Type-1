@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { Question } from '../models/question';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, timeout } from 'rxjs';
+import { BehaviorSubject, map, Observable, timeout } from 'rxjs';
 import { environment } from '../environments/environment';
 
 @Injectable({
@@ -12,9 +12,22 @@ export class AuthService
 {
   //in service we want to provide CRUD operations
 
+  private loggedIn = new BehaviorSubject<boolean>(true);
+  isLoggedIn = this.loggedIn.asObservable();
+
   private backUrl = environment.backUrl;
 
   constructor(private http: HttpClient){}
+
+  loggedin() 
+  {
+    this.loggedIn.next(true); 
+  }
+
+  loggedout() 
+  {
+    this.loggedIn.next(false); 
+  }
 
   login(email:string, passwordHash:string): Observable<string>
   {

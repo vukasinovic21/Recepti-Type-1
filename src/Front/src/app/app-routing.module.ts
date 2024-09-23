@@ -11,6 +11,7 @@ import { RecipeComponent } from './recipe/recipe.component';
 import { CreateDietComponent } from './create-diet/create-diet.component';
 import { UserRecipeComponent } from './user-recipe/user-recipe.component';
 import { DietComponent } from './diet/diet.component';
+import { NoLoggedGuard } from './guards/no-logged.guard';
 
 const routes: Routes = 
 [
@@ -48,10 +49,14 @@ const routes: Routes =
     ]
   },
   {
-    path:"login", component: LoginComponent
+    path:"login", 
+    component: LoginComponent,
+    canActivate:[NoLoggedGuard]
   },
   {
-    path:"register", component: RegisterComponent 
+    path:"register", 
+    component: RegisterComponent,
+    canActivate:[NoLoggedGuard]
   }
 ];
 
