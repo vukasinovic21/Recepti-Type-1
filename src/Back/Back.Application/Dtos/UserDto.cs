@@ -8,5 +8,7 @@
         string Email,
         DateOnly DateOfBirth,
         string Role,
-        DateTime CreatedAt);
+        DateTime CreatedAt,
+        string Sex,
+        Guid QuestionId);
 }

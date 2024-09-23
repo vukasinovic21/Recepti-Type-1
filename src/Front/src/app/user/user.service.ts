@@ -5,6 +5,7 @@ import { Recipe } from '../models/recipe';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { GetUser } from '../models/get-user';
+import { UserInfo } from '../models/user-info';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,9 @@ export class UserService
   
   constructor(private http: HttpClient){}
 
-  getAllUsers(): Observable<GetUser[]> //implementirati na beku
+  getAllUsers(): Observable<UserInfo[]> 
   {
-    return this.http.get<{users: GetUser[]}>(this.backUrl + "/users/")
+    return this.http.get<{users: UserInfo[]}>(this.backUrl + "/users/")
     .pipe(
       map(response => response.users)
     );
@@ -34,4 +35,11 @@ export class UserService
     );
   }
 
+  getUserInfo(id: string): Observable<UserInfo> 
+  {
+    return this.http.get<{user: UserInfo[]}>(this.backUrl + "/users/id/" + id)
+    .pipe(
+      map(response => response.user[0])
+    );
+  }
 }

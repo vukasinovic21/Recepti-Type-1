@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './auth/auth.service';
+import { UserService } from './user/user.service';
+import { UserInfo } from './models/user-info';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +17,9 @@ export class AppComponent
   isLogged = false;
   username = '';
 
-  constructor(private authService: AuthService, private router: Router){}
+  user?: UserInfo;
+
+  constructor(private authService: AuthService, private router: Router, private userService: UserService){}
 
   ngOnInit()
   {
@@ -27,6 +31,13 @@ export class AppComponent
         this.authService.currentUsername.subscribe((username) => {
           this.username = username; 
         });
+        let userid = localStorage.getItem("userid");
+        if(userid)
+        {
+          this.authService.currentUser.subscribe((user) => {
+            this.user = user; 
+          });
+        }
       }
     });
   }

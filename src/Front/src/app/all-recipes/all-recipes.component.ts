@@ -7,6 +7,8 @@ import { map } from 'rxjs';
 import { TypeOfFood } from '../models/type-of-food';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { AuthService } from '../auth/auth.service';
+import { UserInfo } from '../models/user-info';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-all-recipes',
@@ -22,7 +24,8 @@ export class AllRecipesComponent
 
     selectedTypes: String[] = []; //lista za typeoffoodId za filter
     allTypesOfFood: TypeOfFood[] = [];
-    
+    allUsers: UserInfo[] = [];
+
     sortOrder = "";
     recipesPerPage = 8;
     numberOfRecipes = 0;
@@ -37,7 +40,7 @@ export class AllRecipesComponent
       userId: ''
     };  
 
-    constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute){}
+    constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute, private usersService: UserService){}
 
     ngOnInit(): void 
     {
@@ -60,6 +63,10 @@ export class AllRecipesComponent
       this.recipeService.getAllRecipesCount().subscribe(number =>{
         this.numberOfRecipes = number;
       })
+
+      this.usersService.getAllUsers().subscribe( users => {
+        this.allUsers = users;
+      })
     }
 
     showRecipeId(recipeId:string): void
@@ -76,6 +83,12 @@ export class AllRecipesComponent
     {
       const type = this.allTypesOfFood.find(type => type.id === id);
       return type ? type.typeName : 'Unknown';
+    }
+
+    getUserSex(id: string): string 
+    {
+      const userinfo = this.allUsers.find(userinfo => userinfo.id === id);
+      return userinfo ? userinfo.sex : 'Unknown';
     }
 
     showUserId(userId:string): void

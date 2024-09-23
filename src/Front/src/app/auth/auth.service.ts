@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, map, Observable, timeout } from 'rxjs';
 import { environment } from '../environments/environment';
 import { jwtDecode } from "jwt-decode";
+import { UserInfo } from '../models/user-info';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,18 @@ export class AuthService
 
   private username = new BehaviorSubject<string>('');
   currentUsername = this.username.asObservable();
+
+  private user = new BehaviorSubject<UserInfo>({id: '',
+                                                name: '',
+                                                lastname: '',
+                                                username: '',
+                                                email: '',
+                                                dateOfBirth: new Date(),
+                                                role: '',
+                                                createdAt: new Date(), 
+                                                sex: '',
+                                                questionId: ''});
+  currentUser = this.user.asObservable();
 
   private backUrl = environment.backUrl;
 
@@ -35,6 +48,16 @@ export class AuthService
       this.username.next(username);
 
       localStorage.setItem('userid', this.getClaimValue(decodedToken, 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'));
+      const userid = localStorage.getItem("userid");
+      if(userid)
+      {
+        this.getUserInfo(userid).subscribe(user =>
+          {
+             this.user.next(user);
+          }
+        );
+      }
+
     }
   }
 
@@ -47,6 +70,16 @@ export class AuthService
   {
     this.loggedIn.next(false); 
     this.username.next("");
+    this.user.next({id: '',
+      name: '',
+      lastname: '',
+      username: '',
+      email: '',
+      dateOfBirth: new Date(),
+      role: '',
+      createdAt: new Date(), 
+      sex: '',
+      questionId: ''});
   }
 
   login(email:string, passwordHash:string): Observable<string>
@@ -89,5 +122,13 @@ export class AuthService
   update(id: string): void
   {
     //treba da promenimo nesto kod usera
+  }
+
+  getUserInfo(id: string): Observable<UserInfo> 
+  {
+    return this.http.get<{user: UserInfo[]}>(this.backUrl + "/users/id/" + id)
+    .pipe(
+      map(response => response.user[0])
+    );
   }
 }

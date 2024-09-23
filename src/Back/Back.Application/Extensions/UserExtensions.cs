@@ -14,7 +14,9 @@ namespace Back.Application.Extensions
                     Email: user.Email,
                     DateOfBirth: user.DateOfBirth,
                     Role: user.Role,
-                    CreatedAt: user.CreatedAt.Value
+                    CreatedAt: user.CreatedAt.Value,
+                    Sex: user.Sex,
+                    QuestionId: user.QuestionId.Value
                     ));
         }
     }

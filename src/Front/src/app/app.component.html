@@ -13,7 +13,7 @@
             <button *ngIf="!isMobile && !isLogged" [routerLink]="['/login']" class="color">Login</button>
             <button *ngIf="!isMobile && !isLogged" [routerLink]="['/register']" class="color">Register</button>
             <button *ngIf="!isMobile && isLogged" class="color"  (click)="showUserId()">
-                <img class="img" *ngIf="!isMobile && isLogged" src="assets/images/Female.svg">
+                <img class="img" *ngIf="!isMobile && isLogged" src="assets/images/{{this.user?.sex}}.svg">
                 {{ this.username }}
             </button>
             <button *ngIf="!isMobile && isLogged" class="color2" (click)="logout()">Logout</button>

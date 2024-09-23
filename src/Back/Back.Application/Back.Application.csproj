@@ -26,7 +26,6 @@
     <Folder Include="RecipeItems\Commands\" />
     <Folder Include="RecipeItems\Queries\" />
     <Folder Include="Users\Commands\" />
-    <Folder Include="Users\Queries\GetAllUsers\" />
   </ItemGroup>
 
 </Project>
