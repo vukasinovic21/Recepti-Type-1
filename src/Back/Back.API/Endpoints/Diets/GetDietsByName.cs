@@ -20,7 +20,8 @@ namespace Back.API.Endpoints.Diets
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .ProducesProblem(StatusCodes.Status404NotFound)
             .WithSummary("Get Diets By Name")
-            .WithDescription("Get Diets By Name"); ;
+            .WithDescription("Get Diets By Name")
+            .RequireAuthorization(); ;
         }
     }
 }

@@ -24,7 +24,8 @@ namespace Back.API.Endpoints.Diets
             .Produces<CreateDietResponse>(StatusCodes.Status201Created)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Create Diet")
-            .WithDescription("Create Diet");
+            .WithDescription("Create Diet")
+            .RequireAuthorization();
         }
     }
 }

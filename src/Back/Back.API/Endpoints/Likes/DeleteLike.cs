@@ -20,7 +20,8 @@ namespace Back.API.Endpoints.Likes
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .ProducesProblem(StatusCodes.Status404NotFound)
             .WithSummary("Delete Like")
-            .WithDescription("Delete ReLikecipe"); ;
+            .WithDescription("Delete ReLikecipe")
+            .RequireAuthorization();  
         }
     }
 }

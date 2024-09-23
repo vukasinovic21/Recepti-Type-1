@@ -18,7 +18,7 @@ namespace Back.API.Endpoints.Recipes
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .ProducesProblem(StatusCodes.Status404NotFound)
             .WithSummary("Get Recipes By Id with nutritions")
-            .WithDescription("Get Recipes By Id with nutritions"); ;
+            .WithDescription("Get Recipes By Id with nutritions"); 
         }
     }
 }

@@ -25,7 +25,8 @@ namespace Back.API.Endpoints.Recipes
             .Produces<CreateRecipeResponse>(StatusCodes.Status201Created)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Create Recipe")
-            .WithDescription("Create Recipe");
+            .WithDescription("Create Recipe")
+            .RequireAuthorization(); 
         }
     }
 }

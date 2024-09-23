@@ -23,7 +23,8 @@ namespace Back.API.Endpoints.Recipes
             .Produces<UpdateRecipeResponse>(StatusCodes.Status200OK)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Update Recipe")
-            .WithDescription("Update Recipe"); ;
+            .WithDescription("Update Recipe")
+            .RequireAuthorization();
         }
     }
 }

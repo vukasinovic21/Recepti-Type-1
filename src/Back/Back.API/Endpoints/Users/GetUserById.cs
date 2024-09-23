@@ -19,7 +19,7 @@ namespace Back.API.Endpoints.Users
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .ProducesProblem(StatusCodes.Status404NotFound)
             .WithSummary("Get User By Id")
-            .WithDescription("Get User By Id"); ;
+            .WithDescription("Get User By Id"); 
         }
     }
 }

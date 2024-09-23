@@ -21,7 +21,8 @@ namespace Back.API.Endpoints.Diets
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .ProducesProblem(StatusCodes.Status404NotFound)
             .WithSummary("Get Diet By Id")
-            .WithDescription("Get Diet By Id"); ;
+            .WithDescription("Get Diet By Id")
+            .RequireAuthorization(); ; 
         }
     }
 }

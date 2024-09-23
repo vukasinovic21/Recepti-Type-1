@@ -24,7 +24,8 @@ namespace Back.API.Endpoints.TypesOfFood
             .Produces<CreateTypeOfFoodResponse>(StatusCodes.Status201Created)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Create Type Of Food")
-            .WithDescription("Create Type Of Food");
+            .WithDescription("Create Type Of Food")
+            .RequireAuthorization(); //trebalo bi samo Admin
         }
     }
 }
