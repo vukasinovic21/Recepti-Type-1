@@ -14,7 +14,7 @@ export class DietService {
   
   constructor(private http: HttpClient){}
 
-  getAllDietsUser(userId: string): Observable<Diet[]> //treba da se dovrsi
+  getAllDietsUser(userId: string | null): Observable<Diet[]> //treba da se dovrsi
   {
     return this.http.get<{diets:Diet[]}>(this.backUrl + "/diets/user/" + userId)
     .pipe(

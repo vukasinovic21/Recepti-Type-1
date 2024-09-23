@@ -47,7 +47,7 @@ export class RecipeService
 
   getAllRecipesCount():  Observable<number>
   {
-    return this.http.get<{recipes: {count:number}}>(this.backUrl + "/recipes")
+    return this.http.get<{recipes: {count:number}}>(this.backUrl + "/recipesPublic")
     .pipe(
       map(response => response.recipes.count)
     );
@@ -63,7 +63,7 @@ export class RecipeService
 
   getAllRecipesPage(pageNumber:number, perPage: number): Observable<Recipe[]>
   {
-    return this.http.get<{recipes: {data:Recipe[]}}>(this.backUrl + "/recipes?PageIndex="+ pageNumber + "&PageSize=" + perPage)
+    return this.http.get<{recipes: {data:Recipe[]}}>(this.backUrl + "/recipesPublic?PageIndex="+ pageNumber + "&PageSize=" + perPage)
     .pipe(
       map(response => response.recipes.data)
     );

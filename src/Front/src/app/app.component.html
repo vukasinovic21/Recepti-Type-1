@@ -12,7 +12,7 @@
         <span class="right-buttons">
             <button *ngIf="!isMobile && !isLogged" [routerLink]="['/login']" class="color">Login</button>
             <button *ngIf="!isMobile && !isLogged" [routerLink]="['/register']" class="color">Register</button>
-            <button *ngIf="!isMobile && isLogged" class="color">{{ this.username }}</button>
+            <button *ngIf="!isMobile && isLogged" class="color"  (click)="showUserId()">{{ this.username }}</button>
             <button *ngIf="!isMobile && isLogged" class="color2" (click)="logout()">Logout</button>
         </span>
         <span class="menu">
@@ -26,7 +26,7 @@
                 <button *ngIf="isLogged" mat-menu-item [routerLink]="['/diets/create']">New diet</button>
                 <button *ngIf="!isLogged" mat-menu-item [routerLink]="['/login']">Login</button>
                 <button *ngIf="!isLogged" mat-menu-item [routerLink]="['/register']">Register</button>
-                <button *ngIf="isLogged" mat-menu-item>{{ this.username }}</button>
+                <button *ngIf="isLogged" mat-menu-item (click)="showUserId()">{{ this.username }}</button>
                 <button *ngIf="isLogged" mat-menu-item (click)="logout()">Logout</button>
               </mat-menu>
         </span>

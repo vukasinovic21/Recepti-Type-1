@@ -18,14 +18,14 @@ export class AllDietsComponent
   constructor(private dietService: DietService, private router: Router, private activatedRoute: ActivatedRoute){}
   
   ngOnInit(): void 
-  {//userId iz cookie-ja?
-    this.dietService.getAllDietsUser("f8a9e484-65e9-4b01-94b6-7da073e9f43b").subscribe( diets => {
+  {
+    this.dietService.getAllDietsUser(localStorage.getItem("userid")).subscribe( diets => {
         this.diets = diets;
     });
 
-    //userId iz cookie-ja?
+    
     this.activatedRoute.queryParams.subscribe(() => {
-      this.dietService.getAllDietsUser("f8a9e484-65e9-4b01-94b6-7da073e9f43b").subscribe( diets => {
+      this.dietService.getAllDietsUser(localStorage.getItem("userid")).subscribe( diets => {
         this.diets = diets;
         this.filteredDiets = diets;
       });

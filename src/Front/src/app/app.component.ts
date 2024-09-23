@@ -45,9 +45,15 @@ export class AppComponent
     }
   }
 
+  showUserId()
+  {
+    this.router.navigate(['/recipes/user/'+localStorage.getItem("userid")]);
+  }
+
   logout() 
   {
     localStorage.removeItem('jwt');
+    localStorage.removeItem('userid');
     this.isLogged = false;
     this.username = '';
     this.authService.loggedout();

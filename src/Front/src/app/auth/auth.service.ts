@@ -29,18 +29,12 @@ export class AuthService
     this.loggedIn.next(true); 
     const jwt = localStorage.getItem('jwt');
     if(jwt)
-    {
-      /*const claimMapping: { [key: string]: string } = 
-      {
-        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role": "Role",
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "Email",
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "Name",
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Surname"
-      };*/
-      
+    {    
       const decodedToken = jwtDecode<Jwt>(jwt);
       const username = this.getClaimValue(decodedToken, 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name');
       this.username.next(username);
+
+      localStorage.setItem('userid', this.getClaimValue(decodedToken, 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'));
     }
   }
 

@@ -37,7 +37,7 @@ export class CreateRecipeComponent implements OnInit
     })
 
     this.createForm = this.formBuilder.group({
-      userId: ['f8a9e484-65e9-4b01-94b6-7da073e9f43b'], //promeniti na ulogovanog korisnika!
+      userId: [localStorage.getItem("userid")], 
       recipeName: ['', Validators.required],
       typeOfFoodId: ['', Validators.required],
       instructions: ['', Validators.required],

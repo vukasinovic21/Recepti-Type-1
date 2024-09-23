@@ -122,7 +122,12 @@ export class AllRecipesComponent
     likeRecipe(recipeId:string): void
     {
       this.like.recipeId = recipeId;
-      this.like.userId = "f8a9e484-65e9-4b01-94b6-7da073e9f43b"; //uzeti iz cookie-ja pravu vrednost kada se uradi 
+      let userid = localStorage.getItem("userid"); 
+      if(userid)
+      {
+        this.like.userId = userid; 
+      }
+        
       //na backu neka stoji da ako je lajkovano moze da dislajkuje samo tj ne moze 2 puta isti korisnik da lajkuje isti recept
       this.recipeService.likeRecipe(this.like).subscribe( str => {
         console.log(str);

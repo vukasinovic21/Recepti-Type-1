@@ -15,6 +15,7 @@
                     <mat-option value="oldest">Posted: Oldest</mat-option>
                 </mat-select>
                 <hr>
+                <h3 *ngIf="filteredDiets.length == 0">Trenutno nemate kreiranih dijeta</h3>
                 <ul class="list-group">
                     <li class="list-group-item " *ngFor="let diet of filteredDiets" [class.active]="diet.id === selectedDietId"  (click)="showDietId(diet.id)">
                     {{ diet.dietName }}

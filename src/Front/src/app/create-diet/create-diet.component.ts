@@ -30,9 +30,9 @@ export class CreateDietComponent implements OnInit
     });
 
     this.createForm = this.formBuilder.group({
-      userId: ['f8a9e484-65e9-4b01-94b6-7da073e9f43b'], //promeniti na ulogovanog korisnika!
+      userId: [localStorage.getItem("userid")], 
       dietName: ['', Validators.required],
-      nutritionId: ['f8a9e484-65e9-4b01-94b6-7da073e9f43b'], //promeniti na ulogovanog korisnika, nekad na nutricionistu ako ga bude!
+      nutritionId: [localStorage.getItem("userid")], // Nekad nutricionista ako ga bude!
       kolicina: [1, [Validators.required, Validators.min(1), Validators.max(7)]], //broj dana dijete od 1 do 7 maks
       planOfDiets: this.formBuilder.array([])
     });
