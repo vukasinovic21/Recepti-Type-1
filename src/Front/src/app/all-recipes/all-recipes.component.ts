@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
 import { TypeOfFood } from '../models/type-of-food';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-all-recipes',
@@ -59,7 +60,6 @@ export class AllRecipesComponent
       this.recipeService.getAllRecipesCount().subscribe(number =>{
         this.numberOfRecipes = number;
       })
-
     }
 
     showRecipeId(recipeId:string): void

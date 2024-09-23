@@ -13,11 +13,14 @@ import { UserRecipeComponent } from './user-recipe/user-recipe.component';
 import { DietComponent } from './diet/diet.component';
 import { NoLoggedGuard } from './guards/no-logged.guard';
 import { IsLoggedGuard } from './guards/is-logged.guard';
+import { AllGuard } from './guards/all-guard';
 
 const routes: Routes = 
 [
   {
-    path:"", component: AllRecipesComponent
+    path:"", 
+    component: AllRecipesComponent,
+    canActivate:[AllGuard] //mogu i jedni i drugi
   },
   /*{ path: 'recipes', component: AllRecipesComponent,
     children: [
@@ -25,18 +28,24 @@ const routes: Routes =
     ]
   },*/
   {
-    path:"recipes/:id", component: RecipeComponent
+    path:"recipes/:id", 
+    component: RecipeComponent,
+    canActivate:[AllGuard]
   },
   {
-    path:"recipes/user/:id", component: UserRecipeComponent
+    path:"recipes/user/:id", 
+    component: UserRecipeComponent,
+    canActivate:[AllGuard]
   },
   {
-    path:"recipes", component: AllRecipesComponent
+    path:"recipes", component: 
+    AllRecipesComponent,
+    canActivate:[AllGuard]
   },
   {
     path:"create", 
     component: CreateRecipeComponent,
-    canActivate:[IsLoggedGuard]
+    canActivate:[IsLoggedGuard] //moze samo ulogovan
   },
   {
     path:"diets/create", 
@@ -44,10 +53,12 @@ const routes: Routes =
     canActivate:[IsLoggedGuard]
   },
   {
-    path:"users", component: AllUsersComponent
+    path:"users", 
+    component: AllUsersComponent
   },
   { 
-    path: 'diets', component: AllDietsComponent,
+    path: 'diets', 
+    component: AllDietsComponent,
     children: 
     [
       { path: ':id', component: DietComponent }
@@ -57,7 +68,7 @@ const routes: Routes =
   {
     path:"login", 
     component: LoginComponent,
-    canActivate:[NoLoggedGuard]
+    canActivate:[NoLoggedGuard] //moze samo nelogovan 
   },
   {
     path:"register", 

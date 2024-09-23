@@ -13,6 +13,7 @@ export class AppComponent
   isMobile: any;
 
   isLogged = false;
+  username = '';
 
   constructor(private authService: AuthService, private router: Router){}
 
@@ -21,15 +22,26 @@ export class AppComponent
     this.checkLogin();
     this.authService.isLoggedIn.subscribe((loggedIn) => {
       this.isLogged = loggedIn;
+      if(this.isLogged)
+      {
+        this.authService.currentUsername.subscribe((username) => {
+          this.username = username; 
+        });
+      }
     });
   }
 
-  checkLogin()
+  checkLogin() 
   {
-    var jwt = localStorage.getItem("jwt");
-    if(jwt)
+    const jwt = localStorage.getItem("jwt");
+    this.isLogged = !!jwt; 
+    if (this.isLogged) 
     {
-      this.isLogged = true;
+      this.username = localStorage.getItem('username') || ''; 
+    } 
+    else 
+    {
+      this.username = ''; 
     }
   }
 
@@ -37,6 +49,7 @@ export class AppComponent
   {
     localStorage.removeItem('jwt');
     this.isLogged = false;
+    this.username = '';
     this.authService.loggedout();
     this.router.navigate(['/login'])
   }

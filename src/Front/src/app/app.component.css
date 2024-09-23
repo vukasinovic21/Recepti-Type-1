@@ -20,6 +20,15 @@
     margin-left: 15px;
 }
 
+.color2
+{
+    background-color: transparent;
+    border: transparent;
+    color:darkred !important;
+    font-size: 80%;
+    margin-left: 15px;
+}
+
 .left-buttons 
 {
     display: flex;

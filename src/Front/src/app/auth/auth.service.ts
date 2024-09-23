@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
+import { Jwt } from '../models/jwt';
 import { Question } from '../models/question';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, map, Observable, timeout } from 'rxjs';
 import { environment } from '../environments/environment';
+import { jwtDecode } from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +17,9 @@ export class AuthService
   private loggedIn = new BehaviorSubject<boolean>(true);
   isLoggedIn = this.loggedIn.asObservable();
 
+  private username = new BehaviorSubject<string>('');
+  currentUsername = this.username.asObservable();
+
   private backUrl = environment.backUrl;
 
   constructor(private http: HttpClient){}
@@ -22,11 +27,32 @@ export class AuthService
   loggedin() 
   {
     this.loggedIn.next(true); 
+    const jwt = localStorage.getItem('jwt');
+    if(jwt)
+    {
+      /*const claimMapping: { [key: string]: string } = 
+      {
+        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role": "Role",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "Email",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "Name",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Surname"
+      };*/
+      
+      const decodedToken = jwtDecode<Jwt>(jwt);
+      const username = this.getClaimValue(decodedToken, 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name');
+      this.username.next(username);
+    }
+  }
+
+  getClaimValue(decodedToken: any, claimUri: string): string 
+  {
+    return decodedToken[claimUri];
   }
 
   loggedout() 
   {
     this.loggedIn.next(false); 
+    this.username.next("");
   }
 
   login(email:string, passwordHash:string): Observable<string>
