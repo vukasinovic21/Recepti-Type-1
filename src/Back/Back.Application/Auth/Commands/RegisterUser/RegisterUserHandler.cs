@@ -1,4 +1,5 @@
 ﻿using Back.Application.Dtos;
+using BCrypt.Net;
 
 namespace Back.Application.Auth.Commands.RegisterUser
 {
@@ -22,15 +23,17 @@ namespace Back.Application.Auth.Commands.RegisterUser
 
         private User RegisterUser(RegisterUserDto userDto)
         {
+            string passHash = BCrypt.Net.BCrypt.HashPassword(userDto.Passwordhash);
+            string answerHash = BCrypt.Net.BCrypt.HashPassword(userDto.ForgotPasswordAnswerHash);
             var newUser = User.Create(
                 id: UserId.Of(Guid.NewGuid()),
                 name: userDto.Name,
                 lastname: userDto.LastName,
                 username: userDto.Username,
                 email: userDto.Email,
-                passwordhash: userDto.Passwordhash,
+                passwordhash: passHash,
                 questionId: QuestionId.Of(userDto.QuestionId),
-                forgotpasswordanswerhash: userDto.ForgotPasswordAnswerHash,
+                forgotpasswordanswerhash: answerHash,
                 dateofbirth: userDto.DateOfBirth,
                 Sex: userDto.Sex
                 );

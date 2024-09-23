@@ -1,7 +1,4 @@
-﻿
-using Back.Application.Dtos;
-
-namespace Back.Application.Dtos
+﻿namespace Back.Application.Dtos
 {
     public record RegisterUserDto(
         Guid Id,

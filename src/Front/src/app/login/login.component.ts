@@ -15,13 +15,15 @@ export class LoginComponent implements OnInit
   
     loginForm: FormGroup = new FormGroup({});
 
+    jwt: string = '';
+
     constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router){}
 
     ngOnInit(): void 
     {
       this.loginForm = this.formBuilder.group({
-        Email: ['', [Validators.required, Validators.email]],
-        Password: ['', [Validators.required, Validators.minLength(8)]],
+        email: ['', [Validators.required, Validators.email]],
+        passwordHash: ['', [Validators.required]],
       })
     }
 
@@ -30,9 +32,10 @@ export class LoginComponent implements OnInit
       if(this.loginForm.valid)
       {
         let loginUser: User = this.loginForm.value;
-        this.authService.login(loginUser)
-
-        this.router.navigate(['/'])
+        this.authService.login(loginUser.email, loginUser.passwordHash).subscribe( jwt =>
+          //this.jwt = jwt
+          this.router.navigate(['/'])
+        );
       }
     }
 }

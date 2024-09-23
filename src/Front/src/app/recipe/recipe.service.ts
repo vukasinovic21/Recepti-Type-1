@@ -111,6 +111,8 @@ export class RecipeService
     recipe.instructions = capitalizedValue2;
     const query = {recipe:recipe};
 
+    console.log(query)    
+
     return this.http.post<{id: string}>(this.backUrl + "/recipes", query)
     .pipe(
       map(response => response.id)

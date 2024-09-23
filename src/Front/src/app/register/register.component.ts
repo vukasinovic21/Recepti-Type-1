@@ -27,14 +27,15 @@ export class RegisterComponent implements OnInit
       });
 
       this.registerForm = this.formBuilder.group({
-        Name: ['', Validators.required],
-        Lastname: ['', Validators.required],
-        Username: ['', Validators.required],
-        Email: ['', [Validators.required, Validators.email]],
-        Password: ['', [Validators.required, Validators.minLength(8)]], // Validators.pattern['a-zA-Z *'] mozemo da stavimo neki patern za sifru 
-        DateOfBirth: ['', Validators.required],
-        ForgotPasswordAnswer: ['', Validators.required],
-        Sex: [0, Validators.required]
+        name: ['', Validators.required],
+        lastname: ['', Validators.required],
+        username: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        passwordHash: ['', [Validators.required, Validators.minLength(8)]], // Validators.pattern['a-zA-Z *'] mozemo da stavimo neki patern za sifru 
+        questionId: ['', Validators.required],
+        forgotPasswordAnswerHash: ['', Validators.required],
+        dateOfBirth: ['', Validators.required],
+        sex: ['']
       })
     }
 
@@ -43,9 +44,9 @@ export class RegisterComponent implements OnInit
       if(this.registerForm.valid)
       {
         let registerUser: User = this.registerForm.value;
-        this.authService.register(registerUser)
-
-        this.router.navigate(['/login'])
+        this.authService.register(registerUser).subscribe( id =>
+          this.router.navigate(['/login'])
+        )
       }
     }
 }

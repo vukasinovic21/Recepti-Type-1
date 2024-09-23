@@ -7,15 +7,15 @@
 
         <div class="mb-3">
             &nbsp;<label class="form-label">Email</label>
-            <input class="form-control" class="form-control" type="email" formControlName="Email">
-            <small class="text-danger" *ngIf="loginForm.get('Email')?.invalid && loginForm.get('Email')?.touched">
+            <input class="form-control" class="form-control" type="email" formControlName="email">
+            <small class="text-danger" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
                 Email je obavezan.
             </small>
         </div>
         <div class="mb-3">
             &nbsp;<label class="form-label">Lozinka</label>
-            <input class="form-control" type="password" formControlName="Password">
-            <small class="text-danger" *ngIf="loginForm.get('Password')?.invalid && loginForm.get('Password')?.touched">
+            <input class="form-control" type="password" formControlName="passwordHash">
+            <small class="text-danger" *ngIf="loginForm.get('passwordHash')?.invalid && loginForm.get('passwordHash')?.touched">
                 Lozinka je obavezna.
             </small>
         </div>

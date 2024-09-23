@@ -8,15 +8,15 @@
         <div class="row mb-3">
             <div class="col">
                 <label class="form-label">Name</label>
-                <input class="form-control" type="text" formControlName="Name">
-                <small class="text-danger" *ngIf="registerForm.get('Name')?.invalid && registerForm.get('Name')?.touched">
+                <input class="form-control" type="text" formControlName="name">
+                <small class="text-danger" *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
                     Name is required.
                 </small>
             </div>
             <div class="col">
                 <label class="form-label">Lastname</label>
-                <input class="form-control" type="text" formControlName="Lastname">
-                <small class="text-danger" *ngIf="registerForm.get('Lastname')?.invalid && registerForm.get('Lastname')?.touched">
+                <input class="form-control" type="text" formControlName="lastname">
+                <small class="text-danger" *ngIf="registerForm.get('lastname')?.invalid && registerForm.get('lastname')?.touched">
                     Lastname is required.
                 </small>
             </div>
@@ -24,22 +24,22 @@
 
         <div class="mb-3">
             <label class="form-label">Username</label>
-            <input class="form-control" type="text" formControlName="Username">
-            <small class="text-danger" *ngIf="registerForm.get('Username')?.invalid && registerForm.get('Username')?.touched">
+            <input class="form-control" type="text" formControlName="username">
+            <small class="text-danger" *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
                 Username is required.
             </small>
         </div>
         <div class="mb-3">
             <label class="form-label">Email</label>
-            <input class="form-control" class="form-control" type="email" formControlName="Email">
-            <small class="text-danger" *ngIf="registerForm.get('Email')?.invalid && registerForm.get('Email')?.touched">
+            <input class="form-control" class="form-control" type="email" formControlName="email">
+            <small class="text-danger" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
                 Correct email format is required.
             </small>
         </div>
         <div class="mb-3">
             <label class="form-label">Password</label>
-            <input class="form-control" type="password" formControlName="Password">
-            <small class="text-danger" *ngIf="registerForm.get('Password')?.invalid && registerForm.get('Password')?.touched">
+            <input class="form-control" type="password" formControlName="passwordHash">
+            <small class="text-danger" *ngIf="registerForm.get('passwordHash')?.invalid && registerForm.get('passwordHash')?.touched">
                 Password is required and must be at least 8 characters long.
             </small>
         </div>
@@ -47,18 +47,18 @@
         <div class="row mb-3">
             <div class="col">
                 <label class="form-label">Date of birth</label>
-                <input class="form-control" type="date" formControlName="DateOfBirth">
-                <small class="text-danger" *ngIf="registerForm.get('DateOfBirth')?.invalid && registerForm.get('DateOfBirth')?.touched">
+                <input class="form-control" type="date" formControlName="dateOfBirth">
+                <small class="text-danger" *ngIf="registerForm.get('dateOfBirth')?.invalid && registerForm.get('dateOfBirth')?.touched">
                     Date of birth is required.
                 </small>
             </div>
             <div class="col">
                 <label class="form-label">Sex</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option value=1>Female</option>
-                    <option value=2>Male</option>
+                <select class="form-select" aria-label="Default select example" formControlName="sex">
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
                 </select>
-                <small class="text-danger" *ngIf="registerForm.get('Sex')?.invalid && registerForm.get('Sex')?.touched">
+                <small class="text-danger" *ngIf="registerForm.get('sex')?.invalid && registerForm.get('sex')?.touched">
                     Sex is required.
                 </small>
             </div>
@@ -68,7 +68,7 @@
         <div class="row mb-3">
             <div class="col">
                 <label class="form-label">Choose question for reseting password</label><br>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" formControlName="questionId">
                     <option *ngFor="let question of questions" value={{question.id}}>
                         {{question.questionName}} <br><br>
                     </option>
@@ -76,8 +76,8 @@
             </div>    
             <div class="col">
                 <label class="form-label">Answer previously selected question</label>
-                <input class="form-control" type="password" formControlName="ForgotPasswordAnswer">
-                <small class="text-danger" *ngIf="registerForm.get('ForgotPasswordAnswer')?.invalid && registerForm.get('ForgotPasswordAnswer')?.touched">
+                <input class="form-control" type="password" formControlName="forgotPasswordAnswerHash">
+                <small class="text-danger" *ngIf="registerForm.get('forgotPasswordAnswerHash')?.invalid && registerForm.get('forgotPasswordAnswerHash')?.touched">
                     Answer is required.
                 </small>
             </div>

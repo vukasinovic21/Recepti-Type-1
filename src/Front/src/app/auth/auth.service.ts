@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { Question } from '../models/question';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { map, Observable, timeout } from 'rxjs';
 import { environment } from '../environments/environment';
 
 @Injectable({
@@ -13,19 +13,31 @@ export class AuthService
   //in service we want to provide CRUD operations
 
   private backUrl = environment.backUrl;
-  private allQuestions: Question[] = [];
-  
 
   constructor(private http: HttpClient){}
 
-  login(user: User): void
+  login(email:string, passwordHash:string): Observable<string>
   {
-    //treba da pronadjemo usera
+    const query ={user:{email,passwordHash}};
+    return this.http.post<{jwt: string}>(this.backUrl + "/auth/login", query)
+    .pipe(
+      map(response => response.jwt)
+    );
   }
 
-  register(user: User): void
+  register(user: User): Observable<string>
   {
-    //treba da posaljemo novog usera
+    const capitalizedValue = user.name.charAt(0).toUpperCase() + user.name.slice(1);
+    user.name = capitalizedValue;
+    const capitalizedValue2 = user.lastname.charAt(0).toUpperCase() + user.lastname.slice(1);
+    user.lastname = capitalizedValue2;
+
+    const query = {user:user};
+
+    return this.http.post<{id: string}>(this.backUrl + "/auth/register", query)
+    .pipe(
+      map(response => response.id)
+    );
   }
 
   getAllQuestions(): Observable<Question[]> 
