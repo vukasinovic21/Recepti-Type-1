@@ -39,13 +39,26 @@
                 <th class="field1 text">
                     {{ rows[i] }}
                 </th>
-                <td *ngFor="let cell of meal" class="field text">
+                <td *ngFor="let cell of meal; let j = index" class="field text">
                     <div *ngIf="cell.recipeName" (click)="showRecipeId(cell.recipeId)" class="recipe-container">
-                      {{ cell.recipeName }} <br><!--<br>--> 
+                      <b>{{ cell.recipeName }}</b> <br><!--<br>--> 
                       <img class="img" src="assets/images/{{ cell.picture }}">  <!--alt="{{ cell.recipeName }}"-->
                       <div class="hover-content">
-                        {{getNutritions(cell.recipeId)}}
-                        {{recipeNutritions.carbs}}
+                         <!--{{getNutritions(cell.recipeId)}}-->
+                         <div *ngFor="let nutrition of allNutritions[i][j]">
+                          Carbs: {{ nutrition.carbs / nutrition.weight * 100 | number:'1.2-2' }}g<br>
+                          Sugar: {{ nutrition.sugar / nutrition.weight * 100 | number:'1.2-2' }}g<br>
+                          Fat: {{ nutrition.fat / nutrition.weight * 100 | number:'1.2-2' }}g<br>
+                          Protein: {{ nutrition.protein / nutrition.weight * 100 | number:'1.2-2' }}g<br>
+                          kCal: {{ nutrition.kCal / nutrition.weight * 100 | number:'1.2-2' }}<br>
+                          GL: <span *ngIf="nutrition.gl / nutrition.weight * 100 < 10" style="color:green"> 
+                                {{ nutrition.gl / nutrition.weight * 100 | number:'1.2-2' }} </span>
+                              <span *ngIf="nutrition.gl / nutrition.weight * 100 >= 10 && nutrition.gl / nutrition.weight * 100 < 20" style="color:orange"> 
+                                {{ nutrition.gl / nutrition.weight * 100 | number:'1.2-2' }} </span>
+                              <span *ngIf="nutrition.gl / nutrition.weight * 100 >= 20" style="color:red"> 
+                                {{ nutrition.gl / nutrition.weight * 100 | number:'1.2-2' }} </span> <br>
+                          
+                        </div>
                       </div>
                     </div>
                 </td>

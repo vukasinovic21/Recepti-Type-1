@@ -18,8 +18,10 @@ export class DietComponent implements OnInit
 
   dietId: string = "";
   diet?: Diet;
-  recipeNutritions!: RecipeNutritions;
-  
+  allNutritions: any[][] = [];
+  recipeNutritions: RecipeNutritions[] = [];
+
+
   tableData: any[][] = [];
   headers: string[] = []; 
   rows: string[] = [];
@@ -53,10 +55,10 @@ export class DietComponent implements OnInit
     });
   }
 
-  getNutritions(recipeId:string): void
+  getNutritions(recipeId: string, mealIndex: number, dayIndex: number): void 
   {
-    this.recipeService.getRecipeNutritions(recipeId).subscribe( recipeNutritions => {
-      this.recipeNutritions = recipeNutritions;
+    this.recipeService.getRecipeNutritions(recipeId).subscribe(recipeNutritions => {
+      this.allNutritions[mealIndex][dayIndex] = recipeNutritions;
     });
   }
 
@@ -77,7 +79,28 @@ export class DietComponent implements OnInit
           recipeName: meal.recipeName,
           recipeId: meal.recipeId,
           picture: meal.picture
-        } : { recipeName: '', recipeId: '', picture: '' };
+        } : { recipeName: ' ', recipeId: '', picture: '' };
+      });
+    });
+
+    this.makeNutritions();
+  }
+
+  makeNutritions(): void
+  {
+    this.tableData.forEach((meal, i) => {
+      this.allNutritions[i] = [];
+      meal.forEach((cell, j) => {
+        if (cell.recipeId) 
+        {
+          this.recipeService.getRecipeNutritions(cell.recipeId).subscribe(recipeNutritions => {
+            this.allNutritions[i][j] = Array.isArray(recipeNutritions) ? recipeNutritions : [recipeNutritions];
+          });
+        } 
+        else
+        {
+          this.allNutritions[i][j] = []; 
+        }
       });
     });
   }
