@@ -37,6 +37,7 @@
                         <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');"></div> 
 
                         <span *ngIf="!recipe.shared" class="material-icons">lock</span> &nbsp;
+                        <span *ngIf="recipe.userId == loggedUser" class="material-icons" (click)="delete(recipe.id)">delete</span> &nbsp;
                         <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
                         <mat-card-subtitle> {{ getTypeName(recipe.typeOfFoodId) }} </mat-card-subtitle>
                     </mat-card-header>

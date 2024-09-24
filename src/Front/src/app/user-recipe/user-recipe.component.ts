@@ -29,6 +29,7 @@ export class UserRecipeComponent
   currentPage = 1; 
   
   userId: string = '';
+  loggedUser = localStorage.getItem("userid");
 
   allTypesOfFood: TypeOfFood[] = [];
   allUsers: UserInfo[] = [];
@@ -60,6 +61,15 @@ export class UserRecipeComponent
     this.userService.getAllUsers().subscribe( users => {
       this.allUsers = users;
     })
+  }
+
+  delete(id: string): void
+  {
+    this.recipeService.delete(id).subscribe({
+      next: (isDeleted: boolean) => {
+        this.getRecipeLoggedUser(this.userId)
+    }
+    });
   }
 
   getUserSex(id: string): string 

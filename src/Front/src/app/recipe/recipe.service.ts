@@ -159,4 +159,11 @@ export class RecipeService
     }
   }
 
+  delete(id: string) : Observable<boolean>
+  {
+    return this.http.delete<{isSuccess: boolean}>(this.backUrl + "/recipes/" + id)
+    .pipe(
+      map(response => response.isSuccess)
+    );
+  }
 }
