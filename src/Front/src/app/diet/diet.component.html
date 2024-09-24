@@ -1,15 +1,15 @@
 
 <div class="container" #content id="content">
     <div class="text-center">
-        <h1 class="font">{{ diet?.dietName }}</h1> <!--KAD SE IZABERE DIJETA IZBACI POTREBNE STVARI ALI POSLE PUKNE ?!?-->
+        <h1 class="font">{{ diet?.dietName }}</h1> 
     </div>
 
     <div>
         <div class="sides">
             <div class="left">
-                &nbsp;<b>Kreirano: </b> <span>{{ diet?.createdAt | date:'yyyy-MM-dd' }}</span> 
+                &nbsp;<b>Created at: </b> <span>{{ diet?.createdAt | date:'yyyy-MM-dd' }}</span> 
             </div>
-            <div class="right no-pdf" >
+            <div class="right no-pdf mb-2" >
                 <button class="btn btn-outline-secondary" (click)="downloadDietPdf()">Download in pdf</button>
             </div>
         </div>
@@ -18,13 +18,20 @@
             <thead>
               <tr class="text">
                 <th></th>
-                <th>Ponedeljak</th>
+                <!--<th>Ponedeljak</th>
                 <th>Utorak</th>
                 <th>Sreda</th>
                 <th>Cetvrtak</th>
                 <th>Petak</th>
                 <th>Subota</th>
-                <th>Nedelja</th>
+                <th>Nedelja</th>-->
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
               </tr>
             </thead>
             <tbody>
@@ -33,9 +40,13 @@
                     {{ rows[i] }}
                 </th>
                 <td *ngFor="let cell of meal" class="field text">
-                    <div *ngIf="cell.recipeName" (click)="showRecipeId(cell.recipeId)">
-                      {{ cell.recipeName }}<br> 
-                      <img class="img" src="assets/images/{{ cell.picture }}"> <!--alt="{{ cell.recipeName }}"-->
+                    <div *ngIf="cell.recipeName" (click)="showRecipeId(cell.recipeId)" class="recipe-container">
+                      {{ cell.recipeName }} <br><!--<br>--> 
+                      <img class="img" src="assets/images/{{ cell.picture }}">  <!--alt="{{ cell.recipeName }}"-->
+                      <div class="hover-content">
+                        {{getNutritions(cell.recipeId)}}
+                        {{recipeNutritions.carbs}}
+                      </div>
                     </div>
                 </td>
               </tr>

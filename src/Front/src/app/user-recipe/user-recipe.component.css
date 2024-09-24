@@ -16,6 +16,10 @@ mat-card{
     transition: transform .2s;
 }
 
+.bottom
+{
+    margin-top: -50px;
+}
 
 img{
     height:200px;

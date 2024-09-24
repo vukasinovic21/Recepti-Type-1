@@ -24,6 +24,7 @@
 {
     height: 75px;
     width: 100px;
+    /*display: block;*/
 }
 
 .field
@@ -31,9 +32,26 @@
     max-width: 0px !important;
 }
 
+
+.hover-content
+{
+    display: none; 
+}
+
+.recipe-container:hover .hover-content 
+{
+    display: block; 
+}
+
+.recipe-container:hover .img 
+{
+    display: none;
+}
+
 .field1
 {
     max-width: 45px !important;
+    vertical-align: middle;
 }
 
 .text

@@ -5,6 +5,8 @@ import { Diet } from '../models/diet';
 import { PlanOfDiet } from '../models/plan-of-diet';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import { RecipeNutritions } from '../models/recipe-nutritions';
+import { RecipeService } from '../recipe/recipe.service';
 
 @Component({
   selector: 'app-diet',
@@ -16,20 +18,21 @@ export class DietComponent implements OnInit
 
   dietId: string = "";
   diet?: Diet;
-
+  recipeNutritions!: RecipeNutritions;
+  
   tableData: any[][] = [];
   headers: string[] = []; 
   rows: string[] = [];
   @ViewChild('content', { static: false }) content!: ElementRef;
 
-  constructor(private dietService: DietService, private activatedRoute: ActivatedRoute, private router: Router, private renderer: Renderer2) {}
+  constructor(private dietService: DietService, private activatedRoute: ActivatedRoute, private router: Router, private renderer: Renderer2, private recipeService: RecipeService) {}
 
   mealTypeMap: { [key: string]: string } = {
-    '01a5ba31-d107-41cc-9902-7da073e9f43b': 'Dorucak',
-    '02863f22-e6ca-404f-a909-eb685273e786': 'Uzina prepodne',   
-    '03d56869-ec65-86e7-4de2-e004e9167ac8': 'Rucak',
-    '04bb129c-76e6-3cd1-db54-b41521ed91bb': 'Uzina popodne', 
-    '056cb8fd-c9c7-435c-ac00-574c82929c34': 'Vecera',    
+    '01a5ba31-d107-41cc-9902-7da073e9f43b': 'Breakfast',//'Dorucak',
+    '02863f22-e6ca-404f-a909-eb685273e786': 'Morning snack',   //'Uzina prepodne',   
+    '03d56869-ec65-86e7-4de2-e004e9167ac8': 'Lunch',//'Rucak',
+    '04bb129c-76e6-3cd1-db54-b41521ed91bb': 'Afternoon snack', //'Uzina popodne', 
+    '056cb8fd-c9c7-435c-ac00-574c82929c34': 'Dinner',  //'Vecera',    
   };
 
   
@@ -50,6 +53,13 @@ export class DietComponent implements OnInit
     });
   }
 
+  getNutritions(recipeId:string): void
+  {
+    this.recipeService.getRecipeNutritions(recipeId).subscribe( recipeNutritions => {
+      this.recipeNutritions = recipeNutritions;
+    });
+  }
+
   makeTable():void
   {
     const mealTypes = Object.keys(this.mealTypeMap);
@@ -66,8 +76,8 @@ export class DietComponent implements OnInit
         {
           recipeName: meal.recipeName,
           recipeId: meal.recipeId,
-          picture: meal.picture 
-        } : { recipeName: 'Primer recepta', recipeId: '', picture: '' };
+          picture: meal.picture
+        } : { recipeName: '', recipeId: '', picture: '' };
       });
     });
   }

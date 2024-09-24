@@ -39,7 +39,7 @@ export class RecipeService
 
   getAllRecipes(): Observable<Recipe[]>
   {
-    return this.http.get<{recipes: {data:Recipe[]}}>(this.backUrl + "/recipes")
+    return this.http.get<{recipes: {data:Recipe[]}}>(this.backUrl + "/recipesPublic?PageSize="+10000)
     .pipe(
       map(response => response.recipes.data)
     );

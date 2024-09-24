@@ -22,7 +22,7 @@ export class AllRecipesComponent
     recipes: Recipe[] = [];  
     filteredRecipes: Recipe[] = [];
 
-    selectedTypes: String[] = []; //lista za typeoffoodId za filter
+    selectedTypes: String[] = []; 
     allTypesOfFood: TypeOfFood[] = [];
     allUsers: UserInfo[] = [];
 
@@ -30,9 +30,6 @@ export class AllRecipesComponent
     recipesPerPage = 8;
     numberOfRecipes = 0;
     currentPage = 1; 
-
-    /*pageEvent!: PageEvent;
-    @ViewChild(MatPaginator) paginator!: MatPaginator;*/
 
     like: Like = 
     {
@@ -44,7 +41,7 @@ export class AllRecipesComponent
 
     ngOnInit(): void 
     {
-      this.recipeService.getAllRecipesPage(this.currentPage-1, this.recipesPerPage).subscribe( recipes => {
+      /*this.recipeService.getAllRecipesPage(this.currentPage-1, this.recipesPerPage).subscribe( recipes => {
           this.recipes = recipes;
           this.filteredRecipes = recipes; 
       });
@@ -54,15 +51,20 @@ export class AllRecipesComponent
           this.recipes = recipes;
           this.filteredRecipes = recipes;
         });
+      });*/
+
+      this.recipeService.getAllRecipes().subscribe(recipes => {
+        this.recipes = recipes; // all recipes
+        this.applyFiltersAndPagination();
       });
 
       this.recipeService.getAllTypesOfMeal().subscribe( types => {
         this.allTypesOfFood = types;
       })
      
-      this.recipeService.getAllRecipesCount().subscribe(number =>{
+      /*this.recipeService.getAllRecipesCount().subscribe(number =>{
         this.numberOfRecipes = number;
-      })
+      })*/
 
       this.usersService.getAllUsers().subscribe( users => {
         this.allUsers = users;
@@ -97,15 +99,32 @@ export class AllRecipesComponent
       //ili mozda javni profil korisnika kad se prikljucio, koliko recepata, username, genericna slika i svi recepti
     }
 
+    applyFiltersAndPagination(): void 
+    {
+      let filtered = this.selectedTypes.length > 0 
+        ? this.recipes.filter(recipe => this.selectedTypes.includes(recipe.typeOfFoodId)) 
+        : this.recipes;
+
+        filtered = this.applySearch(filtered);
+        filtered = this.applySort(filtered); 
+
+      this.numberOfRecipes = filtered.length;
+      this.filteredRecipes = filtered.slice((this.currentPage - 1) * this.recipesPerPage, this.currentPage * this.recipesPerPage);
+    }
+
     search(event: Event): void //treba da pretrazi sve recepte a ne samo sa trenutne stranice
     {
-      let searchTerm = (event.target as HTMLInputElement).value;
-      searchTerm = searchTerm.toLowerCase();
+      const searchTerm = (event.target as HTMLInputElement).value.toLowerCase();
+      this.applyFiltersAndPagination();  
+    }
 
-      this.filteredRecipes = this.recipes.filter(
-        recipe => recipe.recipeName.toLowerCase().includes(searchTerm))
-        
-      this.sortRecipes(this.sortOrder);  
+    applySearch(recipes: Recipe[]): Recipe[] 
+    {
+      const searchTerm = (document.querySelector('.search input') as HTMLInputElement)?.value.toLowerCase() || '';
+      if (searchTerm) {
+        return recipes.filter(recipe => recipe.recipeName.toLowerCase().includes(searchTerm));
+      }
+      return recipes;
     }
 
     filterTypeOfFood(filterOption: string): void //treba da pretrazi sve recepte a ne samo sa trenutne stranice
@@ -115,16 +134,8 @@ export class AllRecipesComponent
         this.selectedTypes.push(filterOption);
       else 
         this.selectedTypes.splice(index, 1);
-
-      if(this.selectedTypes.length > 0) // ako nije prazna lista filtera onda samo te sa liste
-      {
-        this.filteredRecipes = this.recipes.filter(
-          recipe => this.selectedTypes.includes(recipe.typeOfFoodId))
-      }
-      else //ako je prazna lista onda sve recepte ali sortiranje ostaje ako je bilo izabrano
-        this.filteredRecipes = this.recipes;
       
-      this.sortRecipes(this.sortOrder);  
+      this.applyFiltersAndPagination();
     }
 
     isSelected(option: string): boolean 
@@ -147,44 +158,53 @@ export class AllRecipesComponent
       })
     }
 
-    sortRecipes(sortValue: string)
+    sortRecipes(order: string): void 
     {
-      this.sortOrder = sortValue;
-      this.numberOfRecipes = this.filteredRecipes.length;
+      this.sortOrder = order;
+      this.applyFiltersAndPagination(); 
+    }
+
+    applySort(recipes: Recipe[]): Recipe[]
+    {
+      //this.sortOrder = sortValue;
+      //this.numberOfRecipes = this.filteredRecipes.length;\
+      let sortedRecipes = [...recipes];
+      
       if(this.sortOrder === "timeLowHigh")
       {
-        this.filteredRecipes.sort((a,b) => a.timeToPrepare - b.timeToPrepare)
+        recipes.sort((a,b) => a.timeToPrepare - b.timeToPrepare)
       }
       else if(this.sortOrder === "timeHighLow")
       {
-        this.filteredRecipes.sort((a,b) => b.timeToPrepare - a.timeToPrepare)
+        recipes.sort((a,b) => b.timeToPrepare - a.timeToPrepare)
       }
       else if(this.sortOrder === "nameA-Z")
       {
-        this.filteredRecipes.sort((a, b) => a.recipeName.localeCompare(b.recipeName));
+        recipes.sort((a, b) => a.recipeName.localeCompare(b.recipeName));
       }
       else if(this.sortOrder === "nameZ-A")
       {
-        this.filteredRecipes.sort((a, b) => b.recipeName.localeCompare(a.recipeName));
+        recipes.sort((a, b) => b.recipeName.localeCompare(a.recipeName));
       }
       else if(this.sortOrder === "newest")
       {
-        this.filteredRecipes.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        recipes.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
       }
       else if(this.sortOrder === "oldest")
       {
-        this.filteredRecipes.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+        recipes.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
       }
       else if(this.sortOrder === "likeLowHigh")
       {
         //implementirati
-        //this.filteredRecipes.sort((a,b) => b.timeToPrepare - a.timeToPrepare)
+        //recipes.sort((a,b) => b.timeToPrepare - a.timeToPrepare)
       }
       else if(this.sortOrder === "likeHighLow")
       {
         //implementirati
-        //this.filteredRecipes.sort((a,b) => b.timeToPrepare - a.timeToPrepare)
+        //recipes.sort((a,b) => b.timeToPrepare - a.timeToPrepare)
       } 
+      return recipes;
     }
 
     perPage(perPage: number)
@@ -200,21 +220,19 @@ export class AllRecipesComponent
     {
       return Math.ceil(this.numberOfRecipes / this.recipesPerPage);
     }
-
-    goToPage(page: number) 
+    goToPage(page: number): void 
     {
       if (page >= 1 && page <= this.maxPages) 
       {
         this.currentPage = page;
-      } 
-      else 
-      {
-        console.log('Invalid page number');
+        this.applyFiltersAndPagination();
       }
-      this.recipeService.getAllRecipesPage(this.currentPage-1, this.recipesPerPage).subscribe( recipes => {
-        this.recipes = recipes;
-        this.filteredRecipes = recipes; 
-      });
+    }
+    
+    resetPage() 
+    {
+      this.currentPage = 1;  
+      this.applyFiltersAndPagination();
     }
 }
 
