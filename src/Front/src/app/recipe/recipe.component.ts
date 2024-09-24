@@ -8,6 +8,7 @@ import { RecipeNutritions } from '../models/recipe-nutritions';
 import { RecipeIngredients } from '../models/recipe-ingredients';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import { TypeOfFood } from '../models/type-of-food';
 
 @Component({
   selector: 'app-recipe',
@@ -21,6 +22,8 @@ export class RecipeComponent
     recipe?: Recipe;  
     recipeNutritions?: RecipeNutritions;
     recipeIngredients: RecipeIngredients[] = [];
+    allTypesOfFood: TypeOfFood[] = [];
+    type?: string;
     kolicina!: number;
     @ViewChild('content', { static: false }) content!: ElementRef;
 
@@ -33,6 +36,8 @@ export class RecipeComponent
       this.getNutritions(id);
       this.getInfo(id);
       this.getIngredients(id);
+
+      this.getTypeName();
     }
 
     getNutritions(recipeId:string): void 
@@ -47,6 +52,17 @@ export class RecipeComponent
       this.recipeService.getRecipeInfo(recipeId).subscribe( recipe => {
         this.recipe = recipe[0]
       });
+    }
+
+    getTypeName(): string | undefined
+    {
+      this.recipeService.getAllTypesOfMeal().subscribe( types => {
+        this.allTypesOfFood = types;
+      })
+      const type = this.allTypesOfFood.find(type => type.id === this.recipe?.typeOfFoodId);
+      if(type != undefined)
+        this.type = type.typeName;
+      return type?.typeName;
     }
 
     getIngredients(recipeId:string): void 
