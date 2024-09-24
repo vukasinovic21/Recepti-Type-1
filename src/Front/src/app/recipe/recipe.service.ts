@@ -102,6 +102,14 @@ export class RecipeService
     )
   }
 
+  getRecipeUserPublic(id: string): Observable<Recipe[]>
+  {
+    return this.http.get<{recipes: Recipe[]}>(this.backUrl + "/recipes/user/public/" + id)
+    .pipe(
+      map(response => response.recipes)
+    )
+  }
+
 
   createNewRecipe(recipe: CreateRecipe): Observable<string>
   {

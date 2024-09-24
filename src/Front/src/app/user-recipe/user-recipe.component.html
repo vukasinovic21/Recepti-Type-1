@@ -48,7 +48,7 @@
                     </mat-card-content>
 
                     <mat-card-actions>
-                        <b>Posted: &nbsp;</b> <span> {{ recipe.createdAt | date:'dd-MM-yyyy' }} </span>
+                        <b>Posted: &nbsp;</b> <span> {{ recipe.createdAt | date:'dd-MM-yyyy' }} </span><!--P - private-->
 
                         <span class="circle green" *ngIf="recipe.timeToPrepare <= 15"> <!--NEKAKO DA BUDU ZAOKRUZENO LEPO MOZE I PORED DUGMICA-->
                             {{ recipe.timeToPrepare}} min</span>

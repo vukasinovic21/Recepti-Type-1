@@ -72,12 +72,28 @@ export class UserRecipeComponent
     this.userService.getUser(userId).subscribe( user1 => {
       this.user = user1;
       //console.log(this.user)
-      if(this.user)
+      const loggedUser = localStorage.getItem("userid");
+      if(loggedUser)
+      {
+        if(loggedUser == userId)
+          this.getRecipeLoggedUser(userId);
+        else
+          this.getRecipeUser(userId);
+      }
+      else
         this.getRecipeUser(userId);
     });
   }
 
   getRecipeUser(userId:string): void
+  {
+    this.recipeService.getRecipeUserPublic(userId).subscribe( recipes => {
+      this.recipes = recipes;
+      this.filteredRecipes = recipes; 
+    });
+  }
+
+  getRecipeLoggedUser(userId:string): void
   {
     this.recipeService.getRecipeUser(userId).subscribe( recipes => {
       this.recipes = recipes;
