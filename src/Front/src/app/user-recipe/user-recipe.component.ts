@@ -8,6 +8,7 @@ import { UserService } from '../user/user.service';
 import { GetUser } from '../models/get-user';
 import { Observable } from 'rxjs';
 import { TypeOfFood } from '../models/type-of-food';
+import { UserInfo } from '../models/user-info';
 
 @Component({
   selector: 'app-user-recipe',
@@ -29,7 +30,8 @@ export class UserRecipeComponent
   userId: string = '';
 
   allTypesOfFood: TypeOfFood[] = [];
-
+  allUsers: UserInfo[] = [];
+  
   constructor(private recipeService: RecipeService, private router: Router, protected activatedRoute: ActivatedRoute, private userService: UserService){}
 
   ngOnInit(): void 
@@ -53,6 +55,16 @@ export class UserRecipeComponent
     this.recipeService.getRecipeUserCount(this.userId).subscribe(number =>{
       this.numberOfRecipes = number;
     })
+
+    this.userService.getAllUsers().subscribe( users => {
+      this.allUsers = users;
+    })
+  }
+
+  getUserSex(id: string): string 
+  {
+    const userinfo = this.allUsers.find(userinfo => userinfo.id === id);
+    return userinfo ? userinfo.sex : 'Unknown';
   }
 
   getUserInfo(userId:string): void
