@@ -31,13 +31,15 @@
             </mat-select>
         </mat-form-field>-->
         <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="50px grid">
+            <div *ngIf="filteredRecipes.length == 0"><h1>Trenutno nemate kreiranih recepata</h1></div>
             <div *ngFor="let recipe of filteredRecipes">
                 <mat-card class="example-card" appearance="outlined"> 
                     <mat-card-header>
-                        <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');"></div> 
-
-                        <span *ngIf="!recipe.shared" class="material-icons">lock</span> &nbsp;
-                        <span *ngIf="recipe.userId == loggedUser" class="material-icons" (click)="delete(recipe.id)">delete</span> &nbsp;
+                        <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');"></div>  
+                            <span *ngIf="!recipe.shared" class="material-icons mini">lock</span> 
+                            <div class="right">
+                                <span *ngIf="recipe.userId == loggedUser" class="material-icons" (click)="delete(recipe.id)">delete</span> &nbsp;
+                            </div>
                         <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
                         <mat-card-subtitle> {{ getTypeName(recipe.typeOfFoodId) }} </mat-card-subtitle>
                     </mat-card-header>

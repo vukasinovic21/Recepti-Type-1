@@ -16,10 +16,18 @@ mat-card{
     transition: transform .2s;
 }
 
+.right 
+{
+    margin-left: auto; 
+}
 
 .bottom
 {
     margin-top: -50px;
+}
+
+.mini
+{
 }
 
 img{

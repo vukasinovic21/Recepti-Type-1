@@ -79,7 +79,7 @@ export class DietComponent implements OnInit
           recipeName: meal.recipeName,
           recipeId: meal.recipeId,
           picture: meal.picture
-        } : { recipeName: ' ', recipeId: '', picture: '' };
+        } : { recipeName: '', recipeId: '', picture: '' };
       });
     });
 
@@ -125,7 +125,7 @@ export class DietComponent implements OnInit
     img.forEach(img =>
     {
       originalDisplay = (img as HTMLElement).style.display;
-      (img as HTMLElement).style.display = 'block';
+      (img as HTMLElement).style.display = 'block;text-align: center;';
     });
 
     this.renderer.setStyle(element, 'width', '1500px');
