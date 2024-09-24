@@ -9,6 +9,7 @@ import { GetUser } from '../models/get-user';
 import { Observable } from 'rxjs';
 import { TypeOfFood } from '../models/type-of-food';
 import { UserInfo } from '../models/user-info';
+import LockIcon from '@mui/icons-material/Lock';
 
 @Component({
   selector: 'app-user-recipe',

@@ -35,6 +35,8 @@
                 <mat-card class="example-card" appearance="outlined"> 
                     <mat-card-header>
                         <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');"></div> 
+
+                        <span *ngIf="!recipe.shared" class="material-icons">lock</span> &nbsp;
                         <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
                         <mat-card-subtitle> {{ getTypeName(recipe.typeOfFoodId) }} </mat-card-subtitle>
                     </mat-card-header>
@@ -48,15 +50,14 @@
                     </mat-card-content>
 
                     <mat-card-actions>
-                        <b>Posted: &nbsp;</b> <span> {{ recipe.createdAt | date:'dd-MM-yyyy' }} </span><!--P - private-->
-
-                        <span class="circle green" *ngIf="recipe.timeToPrepare <= 15"> <!--NEKAKO DA BUDU ZAOKRUZENO LEPO MOZE I PORED DUGMICA-->
+                        <b>Posted: &nbsp;</b> <span> {{ recipe.createdAt | date:'dd-MM-yyyy' }} </span>
+                        <span class="circle green" *ngIf="recipe.timeToPrepare <= 15"> 
                             {{ recipe.timeToPrepare}} min</span>
                         <span class="circle orange" *ngIf="recipe.timeToPrepare > 15 && recipe.timeToPrepare < 60" >
                             {{ recipe.timeToPrepare}} min</span>
                         <span class="circle red" *ngIf="recipe.timeToPrepare > 60 ">
                             {{ recipe.timeToPrepare}}min</span>   
-                    </mat-card-actions>
+                    </mat-card-actions>                    
                 </mat-card>
             </div>
         </div>
