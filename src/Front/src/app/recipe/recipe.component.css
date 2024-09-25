@@ -38,12 +38,18 @@
 }
 .font2
 {
-    font-size: 15px;
+    font-size: 18px;/*15px*/
 }
 
-.font2.b
+.center 
 {
-    font-weight: 0;
+    margin: 0 auto;
+    max-width: fit-content; /* Adjust width as needed */
+}
+
+.font2 b
+{
+    font-weight: 600;
 }
 
 .solid-hr {
@@ -56,6 +62,9 @@
 .color
 {
     color:#993300; 
+    font-size: 28px;
+    display: inline-block;
+    text-align: left;
 }
 
 .small
@@ -68,4 +77,9 @@
     background-color:#001a33;
     color:white;
     margin-right: 5px;
+}
+
+.no-pdf .btn 
+{
+    font-size: 15px;      
 }

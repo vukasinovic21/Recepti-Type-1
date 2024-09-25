@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit
 {
   
     questions: Question[] = [];  
+    showAlert = false;
 
     registerForm: FormGroup = new FormGroup({});
 
@@ -44,9 +45,18 @@ export class RegisterComponent implements OnInit
       if(this.registerForm.valid)
       {
         let registerUser: User = this.registerForm.value;
-        this.authService.register(registerUser).subscribe( id =>
-          this.router.navigate(['/login'])
-        )
+        this.authService.register(registerUser).subscribe(
+          id => {
+            this.router.navigate(['/']);
+          },
+          error => {
+            this.showAlert = true;
+          }
+        );
       }
+    }
+    closeAlert() 
+    {
+      this.showAlert = false; 
     }
 }

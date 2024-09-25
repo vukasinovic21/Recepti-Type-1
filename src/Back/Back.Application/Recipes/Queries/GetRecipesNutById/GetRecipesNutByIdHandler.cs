@@ -31,15 +31,36 @@ namespace Back.Application.Recipes.Queries.GetRecipesById
                 List<Ingredient> ingredients = new List<Ingredient>( dbContext.Ingredients
                     .Where(i => i.Id == recipe.IngredientId)
                     .OrderBy(i => i.Id));
-                
-                Carbs += (recipe.Quantity / 100) * ingredients[0].Carbs;
-                Sugar += (recipe.Quantity / 100) * ingredients[0].Sugar;
-                Fat += (recipe.Quantity / 100) * ingredients[0].Fat;
-                Protein += (recipe.Quantity / 100) * ingredients[0].Protein;
-                kCal += (recipe.Quantity / 100) * ingredients[0].kCal;
-                GL += ((((recipe.Quantity / 100) * ingredients[0].Carbs) * ingredients[0].GI) / 100);
-                kCal += (recipe.Quantity / 100) * ingredients[0].kCal;
-                Weight += recipe.Quantity;
+
+                if (ingredients[0].Name.Contains("Jaje"))
+                {
+                    Carbs += recipe.Quantity * ingredients[0].Carbs;
+                    Sugar += recipe.Quantity * ingredients[0].Sugar;
+                    Fat += recipe.Quantity * ingredients[0].Fat;
+                    Protein += recipe.Quantity * ingredients[0].Protein;
+                    kCal += recipe.Quantity * ingredients[0].kCal;
+                    GL += (((recipe.Quantity * ingredients[0].Carbs) * ingredients[0].GI) / 100);
+                    kCal += recipe.Quantity * ingredients[0].kCal;
+                    if(ingredients[0].Name == "Jaje S (<53g)")
+                        Weight += recipe.Quantity * 50;
+                    if (ingredients[0].Name == "Jaje M (53-63g)")
+                        Weight += recipe.Quantity * 58;
+                    if (ingredients[0].Name == "Jaje L (63-73g)")
+                        Weight += recipe.Quantity * 68;
+                    else
+                        Weight += recipe.Quantity * 75;
+                }
+                else
+                {
+                    Carbs += (recipe.Quantity / 100) * ingredients[0].Carbs;
+                    Sugar += (recipe.Quantity / 100) * ingredients[0].Sugar;
+                    Fat += (recipe.Quantity / 100) * ingredients[0].Fat;
+                    Protein += (recipe.Quantity / 100) * ingredients[0].Protein;
+                    kCal += (recipe.Quantity / 100) * ingredients[0].kCal;
+                    GL += ((((recipe.Quantity / 100) * ingredients[0].Carbs) * ingredients[0].GI) / 100);
+                    kCal += (recipe.Quantity / 100) * ingredients[0].kCal;
+                    Weight += recipe.Quantity;
+                }
             }
 
             RecipeNutritionsDto result = new RecipeNutritionsDto(query.Id, recipeNutritions[0].RecipeName, Carbs, Sugar, Fat, Protein, kCal, GL, Weight);

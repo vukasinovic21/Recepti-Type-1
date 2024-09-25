@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit
 {
   
     loginForm: FormGroup = new FormGroup({});
+    showAlert = false;
+    showAlert2 = false;
 
     jwt: string = '';
 
@@ -37,9 +39,15 @@ export class LoginComponent implements OnInit
         {
           this.jwt = jwt;
           if(this.jwt == "User not found")
-            alert("User not found")
+          {
+            this.showAlert = true;
+            this.showAlert2 = false;
+          }
           else if(this.jwt == "Bad password")
-            alert("Bad password")
+          {
+            this.showAlert = false;
+            this.showAlert2 = true;
+          }
           else 
           { 
             localStorage.setItem('jwt', this.jwt);
@@ -48,5 +56,10 @@ export class LoginComponent implements OnInit
           }
         });
       }
+    }
+    closeAlert() 
+    {
+      this.showAlert = false; 
+      this.showAlert2 = false; 
     }
 }

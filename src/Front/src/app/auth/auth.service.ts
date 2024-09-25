@@ -3,7 +3,7 @@ import { User } from '../models/user';
 import { Jwt } from '../models/jwt';
 import { Question } from '../models/question';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, map, Observable, timeout } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, throwError, timeout } from 'rxjs';
 import { environment } from '../environments/environment';
 import { jwtDecode } from "jwt-decode";
 import { UserInfo } from '../models/user-info';
@@ -102,7 +102,15 @@ export class AuthService
 
     return this.http.post<{id: string}>(this.backUrl + "/auth/register", query)
     .pipe(
-      map(response => response.id)
+      map(response => response.id),
+      catchError(error => {
+        if (error.status === 500) 
+        {
+          return throwError(() => new Error("An user with this email already exists."));
+        }
+        else
+          return throwError(() => new Error("An unexpected error occurred"));
+      })
     );
   }
 

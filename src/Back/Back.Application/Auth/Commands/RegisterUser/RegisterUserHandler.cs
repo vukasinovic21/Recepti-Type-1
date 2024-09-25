@@ -12,6 +12,13 @@ namespace Back.Application.Auth.Commands.RegisterUser
             //Register user entity from command object
             //save to database
             //return result
+            var existingUser = await dbContext.Users
+                .FirstOrDefaultAsync(u => u.Email == command.User.Email, cancellationToken);
+
+            if(existingUser != null)
+            {
+                throw new InvalidOperationException("An user with this email already exists.");
+            }
 
             var user = RegisterUser(command.User);
 

@@ -19,6 +19,12 @@
                 Password is required.
             </small>
         </div>
+        <div *ngIf="showAlert">
+            <p style="color:red">User not found.</p>
+        </div>
+        <div *ngIf="showAlert2">
+            <p style="color:red">Bad password. Try again.</p>
+        </div>
 
         <button class="btn btn-success float-end" type="submit" [disabled]="loginForm.invalid">Login</button>
         <button [routerLink]="['/']" class="btn btn-primary" >Continue as guest</button>

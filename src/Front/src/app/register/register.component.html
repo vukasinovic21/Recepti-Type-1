@@ -82,7 +82,12 @@
                 </small>
             </div>
         </div>
-
+        <div *ngIf="showAlert" class="custom-alert">
+            <div class="alert-content">
+              <p>An user with this email already exists.</p>
+              <button (click)="closeAlert()">OK</button>
+            </div>
+        </div>
         <button class="btn btn-success float-end" type="submit" [disabled]="registerForm.invalid">Register</button>
         <button [routerLink]="['/login']" class="btn btn-primary" >Already have account?</button>
     </form>
