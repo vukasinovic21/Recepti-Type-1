@@ -1,9 +1,21 @@
-<div class="container">
-    <h2>Welcome to the Recepti Type 1 </h2>
-    <button [routerLink]="['/recipes']" class="btn btn-primary">All recipes </button>&nbsp;
-    <button [routerLink]="['/create']" class="btn btn-primary">New recipe</button>&nbsp;
-    <button [routerLink]="['/diet/create']" class="btn btn-primary">New diet</button>&nbsp;
-    <button [routerLink]="['/login']" class="btn btn-primary">Login </button>&nbsp;
-    <button [routerLink]="['/register']" class="btn btn-primary">Register</button>&nbsp;
-</div>
+<div class="color">
+    <div class="container">
+        <div class="mb-5 text-center">
+            <h1>Welcome to the Recepti Type 1 </h1>
+        </div>
+        <div fxLayout="" fxLayoutAlign="center center" fxLayoutGap="50px grid"> 
+            <div *ngFor="let recipe of filteredRecipes"> 
+                <mat-card class="example-card" appearance="outlined"> 
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');" (click)="showUserId(recipe.userId)"></div><!--KLIKOM NA SLIKU DA SE OTVORI JAVAN PROFIL TOG KORISNIKA -->
+                        <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
+                        <mat-card-subtitle> {{ getTypeName(recipe.typeOfFoodId) }} </mat-card-subtitle>
+                    </mat-card-header>
 
+                    <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
+                    <br>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

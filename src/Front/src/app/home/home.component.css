@@ -1,0 +1,157 @@
+.right-space
+{
+    margin-right:auto; 
+}
+
+.hidden
+{
+    display: none;
+}
+
+.example-card 
+{
+    width: 320px;
+    height: 420px;
+  }
+  
+.example-header-image 
+{
+background-size: cover;
+}
+
+mat-card:hover
+{
+    transform: scale(1.10);
+    cursor:pointer;
+}
+
+mat-card
+{
+    transition: transform .2s;
+}
+
+img
+{
+    height:200px;
+}
+
+.search
+{
+    margin-right: 20px;
+}
+
+.sort-dropdown
+{
+    margin-left: 20px;
+}
+
+.mat-card-actions {
+    display: flex; /* Use flexbox layout */
+    justify-content: space-between; /* Distribute space between items, pushing items to the edges */
+    align-items: center; /* Center items vertically */
+}
+
+.circle {
+    float: right;
+    /*display: inline-block;*/
+    width: 60px; /* Adjust width and height as needed */
+    height: 60px; /* Adjust width and height as needed */
+    line-height: 50px; /* Centers text vertically */
+    text-align: center; /* Centers text horizontally */
+    border-radius: 50%; /* Makes it a circle */
+    border: 3px solid; /* Border color and thickness */
+    background-color: white; /* Circle color */
+    font-weight: bold; /* Optional: make text bold */
+    margin-left: auto;
+  }
+
+.circle.green {
+    border-color: green;
+    color:green;
+}
+
+.circle.orange {
+    border-color: orange;
+    color:orange;
+}
+
+.circle.red {
+    border-color: red;
+    color:red;
+}
+
+.bottom
+{
+    margin-top: -50px;
+}
+
+.smallb
+{
+    display: flex;
+    align-items: center;
+
+    border: none;
+    background-color: transparent;
+    font-size: 16px; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    padding: 0.25rem 0;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87); 
+    transition: border-color 0.3s ease-in-out;
+
+    margin-top: 30px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.smallb button 
+{
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 3px;
+}
+  
+.smallb button.active 
+{
+    background-color: #3f51b5;
+    color: white;
+}
+  
+.smallb button[disabled] 
+{
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.smallb p
+{
+    margin-top: 10px;
+}
+
+.inputb
+{
+    border: none;
+    /*border-radius: 3px;*/
+    background-color: white;
+    font-size: inherit;
+    font-family: inherit;
+    width: 35px; 
+    text-align: center;
+    color: inherit; 
+}
+
+.inputb:focus 
+{
+    outline: none;
+    border-bottom: 1px solid gray; 
+}
+  
+.color
+{
+    background-color: #669999; 
+    min-height: 100vh;
+}

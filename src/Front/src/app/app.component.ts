@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './auth/auth.service';
 import { UserService } from './user/user.service';
 import { UserInfo } from './models/user-info';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,7 +19,14 @@ export class AppComponent
 
   user?: UserInfo;
 
-  constructor(private authService: AuthService, private router: Router, private userService: UserService){}
+  constructor(
+    private authService: AuthService, 
+    private router: Router, 
+    private userService: UserService,
+    private translate: TranslateService)
+    {
+      this.translate.setDefaultLang('en');
+    }
 
   ngOnInit()
   {
@@ -54,6 +61,13 @@ export class AppComponent
     {
       this.username = ''; 
     }
+  }
+
+  changeLanguage(event: Event) 
+  {
+    const selectedLang = (event.target as HTMLSelectElement).value;
+    this.translate.use(selectedLang);  
+    //staviti u local storage izabrani jezik kako se ne bi resetovao na refresh
   }
 
   showUserId()

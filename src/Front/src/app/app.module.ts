@@ -11,7 +11,7 @@ import { RecipeItemModule } from './recipe-item/recipe-item.module';
 import { PlanOfDietModule } from './plan-of-diet/plan-of-diet.module';
 import { IngredientModule } from './ingredient/ingredient.module';
 import { AuthModule } from './auth/auth.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatButtonModule } from '@angular/material/button'
@@ -19,6 +19,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth-interceptor';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) 
+{
+  console.log('Loading translations from ../assets/locales/');
+  return new TranslateHttpLoader(http, '../assets/locales/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -39,7 +47,14 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+    }),
   ],
   providers: [
     provideAnimationsAsync(),

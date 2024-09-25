@@ -12,7 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { UserRecipeComponent } from '../user-recipe/user-recipe.component'
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatInputModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    TranslateModule 
   ]
 })
 export class RecipeModule { }

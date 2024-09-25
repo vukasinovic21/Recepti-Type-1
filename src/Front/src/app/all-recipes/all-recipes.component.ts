@@ -37,7 +37,11 @@ export class AllRecipesComponent
       userId: ''
     };  
 
-    constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute, private usersService: UserService){}
+    constructor(
+      private recipeService: RecipeService, 
+      private router: Router, 
+      private route: ActivatedRoute, 
+      private usersService: UserService){}
 
     ngOnInit(): void 
     {
@@ -70,7 +74,6 @@ export class AllRecipesComponent
         this.allUsers = users;
       })
     }
-
     showRecipeId(recipeId:string): void
     {
       this.router.navigate(['/recipes/' + recipeId]);

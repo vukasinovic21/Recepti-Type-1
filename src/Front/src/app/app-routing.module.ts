@@ -14,6 +14,7 @@ import { DietComponent } from './diet/diet.component';
 import { NoLoggedGuard } from './guards/no-logged.guard';
 import { IsLoggedGuard } from './guards/is-logged.guard';
 import { AllGuard } from './guards/all-guard';
+import { TranslateService } from '@ngx-translate/core';
 
 const routes: Routes = 
 [
@@ -27,6 +28,11 @@ const routes: Routes =
       { path: 'create', component: CreateRecipeComponent }
     ]
   },*/
+  {
+    path:"home", 
+    component: HomeComponent,
+    canActivate:[AllGuard] 
+  },
   {
     path:"recipes/:id", 
     component: RecipeComponent,

@@ -11,6 +11,27 @@
     color:white !important;
 }
 
+.lang-color
+{
+    background-color: #669999;
+    border: none;
+    color: white;
+}
+
+.lang-color .options 
+{
+    background-color: white; 
+    color: #669999;    
+    cursor: pointer;
+}
+
+.lang-color:focus .options 
+{
+    background-color: white; 
+    color: #669999;    
+    cursor: pointer;
+}
+
 .img
 {
     width:45px;
@@ -51,6 +72,13 @@
 {
     display: flex;
     align-items: center;
+}
+
+.clickable-header 
+{
+    cursor: pointer; 
+    color: inherit; 
+    text-decoration: none; 
 }
 
 .menu-button
