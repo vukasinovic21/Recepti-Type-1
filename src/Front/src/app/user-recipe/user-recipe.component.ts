@@ -22,6 +22,8 @@ export class UserRecipeComponent
   user?: GetUser;
   recipes: Recipe[] = [];  
   filteredRecipes: Recipe[] = [];
+  showAlert = false;
+  deleteThis = '';
 
   sortOrder = "";
   recipesPerPage = 8;
@@ -65,7 +67,17 @@ export class UserRecipeComponent
 
   delete(id: string): void
   {
-    this.recipeService.delete(id).subscribe({
+    this.showAlert = true;
+    this.deleteThis = id;
+  }
+  closeAlert() 
+  {
+    this.showAlert = false; 
+  }
+  closeAlert1() 
+  {
+    this.showAlert = false; 
+    this.recipeService.delete(this.deleteThis).subscribe({
       next: (isDeleted: boolean) => {
         this.getRecipeLoggedUser(this.userId)
     }

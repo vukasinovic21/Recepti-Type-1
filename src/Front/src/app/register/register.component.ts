@@ -46,7 +46,14 @@ export class RegisterComponent implements OnInit
       {
         let registerUser: User = this.registerForm.value;
         this.authService.register(registerUser).subscribe(
-          id => {
+          id => 
+          {
+            this.authService.login(registerUser.email, registerUser.passwordHash).subscribe( jwt =>
+              {
+                localStorage.setItem('jwt', jwt);
+                this.authService.loggedin(); // da se obaveste sve ostale komponente da je ulogovan
+                this.router.navigate(['/'])
+              });
             this.router.navigate(['/']);
           },
           error => {

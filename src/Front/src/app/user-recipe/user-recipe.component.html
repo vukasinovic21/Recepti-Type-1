@@ -64,7 +64,13 @@
                 </mat-card>
             </div>
         </div>
-
+        <div *ngIf="showAlert" class="custom-alert">
+            <div class="alert-content">
+              <p>Do you want to delete the recipe?</p>
+              <button class="button1" (click)="closeAlert()">Cancel</button>&nbsp;&nbsp;
+              <button (click)="closeAlert1()">Delete</button>
+            </div>
+        </div>
         <!--<div class="smallb">
             <p *ngIf="maxPages > 0">Page: <input class="inputb" type="number" placeholder="Page" [(ngModel)]="currentPage" (change)="goToPage(currentPage)" min="1" [max]="maxPages"> of {{ maxPages }}</p> 
             <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>

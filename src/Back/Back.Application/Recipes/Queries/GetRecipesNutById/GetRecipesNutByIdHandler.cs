@@ -43,9 +43,9 @@ namespace Back.Application.Recipes.Queries.GetRecipesById
                     kCal += recipe.Quantity * ingredients[0].kCal;
                     if(ingredients[0].Name == "Jaje S (<53g)")
                         Weight += recipe.Quantity * 50;
-                    if (ingredients[0].Name == "Jaje M (53-63g)")
+                    else if (ingredients[0].Name == "Jaje M (53-63g)")
                         Weight += recipe.Quantity * 58;
-                    if (ingredients[0].Name == "Jaje L (63-73g)")
+                    else if (ingredients[0].Name == "Jaje L (63-73g)")
                         Weight += recipe.Quantity * 68;
                     else
                         Weight += recipe.Quantity * 75;
