@@ -13,17 +13,17 @@
                 </div>
                 <br>
                 <div class="instructions">
-                    <h1 class="color">Nacin pripreme</h1>
+                    <h1 class="color">Method of preparation</h1>
                     <div class="font2">
                         {{ recipe?.instructions }} <br><br> 
                     </div>
                 </div>
                 
                 <div class="no-pdf">
-                    <h1 class="color">Kako potrositi unesene kalorije</h1>
+                    <h1 class="color">How to burn up the calories</h1>
                     <div class="row">
                         <div class="col-md-3">
-                            <input type="number" class="form-control" min="0" placeholder="Pojeo sam X g?"  [(ngModel)]="kolicina" /><br>
+                            <input type="number" class="form-control" min="0" placeholder="How much will you eat?"  [(ngModel)]="kolicina" /><br>
                         </div>
                         <div *ngIf="kolicina > 0" class="col-md-9">
                             <span class="material-icons">directions_walk</span> &nbsp;
@@ -42,15 +42,15 @@
 
             <div class="col-md-4">
                 <div class="center ">
-                    <h1 class="color">Nutritivne vrednosti</h1>
+                    <h1 class="color">Nutritional values</h1>
                     <div class="font2" *ngIf="recipeNutritions">
-                        <b>Ugljeni hidrati:</b> {{ recipeNutritions.carbs }}g &nbsp;({{recipeNutritions!.carbs / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
-                        <b>Seceri:</b> {{ recipeNutritions.sugar }}g &nbsp;({{recipeNutritions!.sugar / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
-                        <b>Masti:</b> {{ recipeNutritions.fat }}g &nbsp;({{recipeNutritions!.fat / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
-                        <b>Proteini:</b> {{ recipeNutritions.protein }}g &nbsp;({{recipeNutritions!.protein / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
-                        <b>Energija: </b>{{ recipeNutritions.kCal }} kCal &nbsp;({{recipeNutritions!.kCal / recipeNutritions!.weight * 100 | number:'1.2-2'}}kCal)<br>
+                        <b>Carbs:</b> {{ recipeNutritions.carbs }}g &nbsp;({{recipeNutritions!.carbs / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
+                        <b>Sugars:</b> {{ recipeNutritions.sugar }}g &nbsp;({{recipeNutritions!.sugar / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
+                        <b>Fat:</b> {{ recipeNutritions.fat }}g &nbsp;({{recipeNutritions!.fat / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
+                        <b>Protein:</b> {{ recipeNutritions.protein }}g &nbsp;({{recipeNutritions!.protein / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
+                        <b>Energy: </b>{{ recipeNutritions.kCal }} kCal &nbsp;({{recipeNutritions!.kCal / recipeNutritions!.weight * 100 | number:'1.2-2'}}kCal)<br>
                         
-                        <b>Glikemijsko opterecenje (GL):</b><!-- {{ recipeNutritions?.gl }} <br>-->
+                        <b>Glycemic load (GL):</b><!-- {{ recipeNutritions?.gl }} <br>-->
                         <b><span *ngIf="recipeNutritions && recipeNutritions.gl < 10" style="color:green"> 
                             {{ recipeNutritions.gl | number:'1.2-2' }} </span>
                         <span *ngIf="recipeNutritions && recipeNutritions.gl >= 10 && recipeNutritions.gl < 20" style="color:orange"> 
@@ -58,7 +58,7 @@
                         <span *ngIf="recipeNutritions && recipeNutritions.gl >= 20" style="color:red"> 
                             {{ recipeNutritions.gl | number:'1.2-2' }} </span> </b><br>
                         
-                        <b>Glikemijsko opterecenje za 100g:</b><!-- {{ recipeNutritions?.gl }} <br>-->
+                        <b>Glycemic load per 100g:</b><!-- {{ recipeNutritions?.gl }} <br>-->
                         <b><span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100 < 10" style="color:green"> 
                             {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span>
                         <span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100  >= 10 && recipeNutritions.gl / recipeNutritions.weight * 100 < 20" style="color:orange"> 
@@ -66,20 +66,20 @@
                         <span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100  >= 20" style="color:red"> 
                             {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span> </b><br> 
                             
-                        <br><b>Ukupna kolicina: </b> 
+                        <br><b>Total weight: </b> 
                         <span *ngIf="recipeNutritions && recipeNutritions.weight > 1000"> {{ recipeNutritions.weight / 1000 }} kg</span> 
                         <span *ngIf="recipeNutritions && recipeNutritions.weight <= 1000"> {{ recipeNutritions.weight }} g </span>
                         
-                        <small class="small"><i> *Ukupno(na 100g)</i></small>
+                        <small class="small"><i> *total(per 100g)</i></small>
                         <hr class="solid-hr">
                         
-                        <b>Vreme za pripremu:</b> {{ recipe?.timeToPrepare }} min <br>
-                        <b>Izbaceno: </b> <span>{{ recipe?.createdAt | date:'yyyy-MM-dd' }}</span> <br>
+                        <b>Time to prepare:</b> {{ recipe?.timeToPrepare }} min <br>
+                        <b>Published: </b> <span>{{ recipe?.createdAt | date:'yyyy-MM-dd' }}</span> <br>
 
                         <hr class="solid-hr">
                     </div>
                     <div>
-                        <h1 class="color">Potrebne namirnice</h1>
+                        <h1 class="color">Necessary ingredients</h1>
                         <div *ngFor="let item of recipeIngredients" class="font2">
                             {{item.ingredientName}} - <!--ako je jaje i tako jos nesto poznato sto ide na komad promeniti u kolicini ?!? -->
                             <b><span *ngIf="item.ingredientName.includes('Jaje')">{{ item.quantity }} kom</span></b>
