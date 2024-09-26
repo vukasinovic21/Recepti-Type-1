@@ -101,12 +101,12 @@ export class CreateRecipeComponent implements OnInit
           {
             this.recipeService.addPicture().subscribe({
               next: () => {
-                this.router.navigate(['/recipes/' + this.response]);
+                this.router.navigate(['/recipes/' + this.response], { queryParams: { refresh: new Date().getTime() } });
               }
             });
           }
           else
-            this.router.navigate(['/recipes/' + this.response], { queryParams: { refresh: new Date().getTime() } })
+            this.router.navigate(['/recipes/' + this.response])
       },
       error: (err) => 
       {
