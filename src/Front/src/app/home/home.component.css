@@ -12,7 +12,7 @@
 {
     width: 320px;
     height: 420px;
-  }
+}
   
 .example-header-image 
 {
@@ -32,7 +32,7 @@ mat-card
 
 img
 {
-    height:200px;
+    height:220px;
 }
 
 .search
@@ -46,22 +46,21 @@ img
 }
 
 .mat-card-actions {
-    display: flex; /* Use flexbox layout */
-    justify-content: space-between; /* Distribute space between items, pushing items to the edges */
-    align-items: center; /* Center items vertically */
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 .circle {
     float: right;
-    /*display: inline-block;*/
-    width: 60px; /* Adjust width and height as needed */
-    height: 60px; /* Adjust width and height as needed */
-    line-height: 50px; /* Centers text vertically */
-    text-align: center; /* Centers text horizontally */
-    border-radius: 50%; /* Makes it a circle */
-    border: 3px solid; /* Border color and thickness */
-    background-color: white; /* Circle color */
-    font-weight: bold; /* Optional: make text bold */
+    width: 60px; 
+    height: 60px; 
+    line-height: 50px; 
+    text-align: center; 
+    border-radius: 50%; 
+    border: 3px solid;
+    background-color: white; 
+    font-weight: bold; 
     margin-left: auto;
   }
 
@@ -85,73 +84,51 @@ img
     margin-top: -50px;
 }
 
-.smallb
+.text-center
 {
-    display: flex;
-    align-items: center;
-
-    border: none;
-    background-color: transparent;
-    font-size: 16px; 
-    font-family: Roboto, "Helvetica Neue", sans-serif; 
-    padding: 0.25rem 0;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.87); 
-    transition: border-color 0.3s ease-in-out;
-
-    margin-top: 30px;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
+    padding-top: 100px;
 }
 
-.smallb button 
-{
-    margin: 0 5px;
-    padding: 5px 10px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    border-radius: 3px;
-}
-  
-.smallb button.active 
-{
-    background-color: #3f51b5;
-    color: white;
-}
-  
-.smallb button[disabled] 
-{
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-.smallb p
-{
-    margin-top: 10px;
-}
-
-.inputb
-{
-    border: none;
-    /*border-radius: 3px;*/
-    background-color: white;
-    font-size: inherit;
-    font-family: inherit;
-    width: 35px; 
-    text-align: center;
-    color: inherit; 
-}
-
-.inputb:focus 
-{
-    outline: none;
-    border-bottom: 1px solid gray; 
-}
-  
 .color
 {
-    background-color: #669999; 
+    background-color: hsl(180, 20%, 50%); 
     min-height: 100vh;
+}
+
+.cont
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    width: 99vw; 
+    position: relative;
+    height: 400px; 
+    white-space: nowrap;
+}
+
+.item 
+{
+    width: 50px;
+    height: 100%;
+    animation: moveRight 30s linear infinite;
+    transition: animation-play-state 1s ease-in-out;
+    margin-right: 350px;
+}
+  
+.paused 
+{
+    animation-play-state: paused;
+}
+  
+@keyframes moveRight
+{
+    0% 
+    {
+        transform: translateX(-50px);
+    }
+    100% 
+    {
+        transform: translateX(calc(100vw));
+    }
 }

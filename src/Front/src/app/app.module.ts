@@ -24,7 +24,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export function HttpLoaderFactory(http: HttpClient) 
 {
-  console.log('Loading translations from ../assets/locales/');
   return new TranslateHttpLoader(http, '../assets/locales/', '.json');
 }
 
