@@ -79,6 +79,12 @@ img
     padding-top: 80px;
 }
 
+.naslov
+{
+    font-size: 45px;
+    color: darkgreen;
+}
+
 .color
 {
     background-image: url('../../assets/images/pexels4.jpg');
@@ -87,6 +93,12 @@ img
     /*background-position: bottom; */
     background-position: center 45%;
     background-repeat: no-repeat;
+}
+
+.dalje
+{
+    margin-top: 100px;
+    margin-right: 150px;
 }
 
 .cont
