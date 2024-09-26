@@ -15,6 +15,7 @@ import { NoLoggedGuard } from './guards/no-logged.guard';
 import { IsLoggedGuard } from './guards/is-logged.guard';
 import { AllGuard } from './guards/all-guard';
 import { TranslateService } from '@ngx-translate/core';
+import { InfoComponent } from './info/info.component';
 
 const routes: Routes = 
 [
@@ -75,6 +76,11 @@ const routes: Routes =
     path:"register", 
     component: RegisterComponent,
     canActivate:[NoLoggedGuard]
+  },
+  {
+    path:"info", 
+    component: InfoComponent,
+    canActivate:[AllGuard]
   }
 ];
 

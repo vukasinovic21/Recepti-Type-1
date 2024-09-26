@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body 
+{
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container 
+{
+    width: 80%;
+    margin: 0 auto;
+}
+
+header.hero 
+{
+    background: url('../../assets/images/pexels7.jpg') no-repeat center center/cover;
+    color: #ffffff;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.3); 
+    background-blend-mode: darken;
+}
+
+header.hero h1 
+{
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+header.hero p 
+{
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+h2
+{
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #444;
+    text-align: center;
+}
+
+.content p 
+{
+    margin: 20px 0;
+}
+
+.processing-examples 
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bad-examples
+{
+    color: red;
+    width: 45%;
+}
+
+.good-examples 
+{
+    color:green;
+    width: 45%; 
+}
+
+h4 
+{
+    margin-bottom: 10px;
+    color:#444;
+}
+
+ul 
+{
+    list-style-type: none;
+    padding: 0;
+}
+
+li 
+{
+    margin-bottom: 5px;
+}
+
+.grid 
+{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card, .tip-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 30%;
+    min-width: 250px;
+}
+
+.card h3, .tip-card h3 {
+    color: #333;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.diet {
+    background-color: #fff;
+    padding: 40px 0;
+}
+
+.diet-tips {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.diet-img {
+    width: 50%;
+    border-radius: 10px;
+}
+
+.diet-info {
+    flex: 1;
+}
+
+.diet-info ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+.tips {
+    background-color: #f0f0f0;
+    padding: 40px 0;
+}
+
+.footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    position: relative;
+}
+
+.footer p {
+    font-size: 0.9rem;
+}

@@ -1,5 +1,5 @@
 {
-    "Recepti Type 1": "Recepti Tip 1",
+    "Recipes Type 1": "Recepti Tip 1",
     "All recipes": "Svi recepti",
     "New recipe": "Novi recept",
     "All diets": "Sve dijete",
@@ -7,7 +7,7 @@
     "Login": "Prijava",
     "Register": "Registracija",
     "Logout": "Odjavi se",
-    "Welcome to the Recepti Type 1": "Dobro došli na Recepti Tip 1",
+    "Welcome to the Recipes Type 1": "Dobro došli na Recepti Tip 1",
     "Search": "Pretraga",
     "Sort": "Sortirati",
     "Time: Low to High": "Vreme: Manje",
@@ -126,5 +126,6 @@
     "Do you want to delete the recipe": "Da li ste sigurni da hoćete da obrišete recept",
     "You haven't created any recipe yet": "Trenutno nemate kreiranih recepata",
     "User recipes": "Recepti korisnika",
-    "Delete": "Obriši"
+    "Delete": "Obriši",
+    "Step into the world of healthy recipes":"Zaviri u svet zdravih recepata"
 }

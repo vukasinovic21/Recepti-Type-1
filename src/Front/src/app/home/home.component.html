@@ -1,6 +1,6 @@
 <div class="color">
     <div class="mb-5 text-center">
-        <h1 class="naslov">{{'Welcome to the Recepti Type 1' | translate }} </h1>
+        <h1 class="naslov">{{'Welcome to the Recipes Type 1' | translate }} </h1>
     </div><br>
     <div fxLayout="" fxLayoutAlign="center center" fxLayoutGap="50px grid" class="cont"> 
         <div *ngFor="let item of recipes" class="item" [class.paused]="isPaused" (mouseover)="pauseAnimation()" (mouseleave)="resumeAnimation()"> 
@@ -53,5 +53,5 @@
             </mat-card>
         </div>
     </div>
-    <button class="btn dalje float-end" [routerLink]="['/recipes']">Zaviri u svet zdravih recepata -></button>
+    <button class="btn dalje float-end" [routerLink]="['/recipes']"> {{'Step into the world of healthy recipes' | translate}} -></button>
 </div>

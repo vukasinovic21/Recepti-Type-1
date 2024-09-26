@@ -21,6 +21,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { InfoComponent } from './info/info.component';
+import { InfoModule } from './info/info.module';
 
 export function HttpLoaderFactory(http: HttpClient) 
 {
@@ -46,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient)
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,
+    InfoModule,
     MatIconModule,
     TranslateModule.forRoot({
       loader: {
