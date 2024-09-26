@@ -21,6 +21,7 @@ export class AllRecipesComponent
 
     recipes: Recipe[] = [];  
     filteredRecipes: Recipe[] = [];
+    userId: string = '';
 
     selectedTypes: String[] = []; 
     allTypesOfFood: TypeOfFood[] = [];
@@ -64,6 +65,10 @@ export class AllRecipesComponent
           this.filteredRecipes = recipes;
         });
       });*/
+
+      let userid = localStorage.getItem("userid");
+      if(userid)
+        this.userId = userid;  
 
       this.recipeService.getAllRecipes().subscribe(recipes => {
         this.recipes = recipes; // all recipes
