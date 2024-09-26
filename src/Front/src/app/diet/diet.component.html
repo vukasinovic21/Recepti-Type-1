@@ -7,10 +7,10 @@
     <div>
         <div class="sides">
             <div class="left">
-                &nbsp;<b>Created at: </b> <span>{{ diet?.createdAt | date:'yyyy-MM-dd' }}</span> 
+                &nbsp;<b> {{"Created at" | translate}}: </b> <span>{{ diet?.createdAt | date:'yyyy-MM-dd' }}</span> 
             </div>
             <div class="right no-pdf mb-2" >
-                <button class="btn btn-outline-secondary" (click)="downloadDietPdf()">Download in pdf</button>
+                <button class="btn btn-outline-secondary" (click)="downloadDietPdf()">{{"Download in pdf" | translate}}</button>
             </div>
         </div>
 
@@ -18,20 +18,13 @@
             <thead>
               <tr class="text">
                 <th></th>
-                <!--<th>Ponedeljak</th>
-                <th>Utorak</th>
-                <th>Sreda</th>
-                <th>Cetvrtak</th>
-                <th>Petak</th>
-                <th>Subota</th>
-                <th>Nedelja</th>-->
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-                <th>Saturday</th>
-                <th>Sunday</th>
+                <th>{{"Monday" | translate}}</th>
+                <th>{{"Tuesday" | translate}}</th>
+                <th>{{"Wednesday" | translate}}</th>
+                <th>{{"Thursday" | translate}}</th>
+                <th>{{"Friday" | translate}}</th>
+                <th>{{"Saturday" | translate}}</th>
+                <th>{{"Sunday" | translate}}</th>
               </tr>
             </thead>
             <tbody>
@@ -46,12 +39,12 @@
                       <div class="hover-content">
                          <!--{{getNutritions(cell.recipeId)}}-->
                          <div *ngFor="let nutrition of allNutritions[i][j]">
-                          Carbs: {{ nutrition.carbs / nutrition.weight * 100 | number:'1.2-2' }}g<br>
-                          Sugar: {{ nutrition.sugar / nutrition.weight * 100 | number:'1.2-2' }}g<br>
-                          Fat: {{ nutrition.fat / nutrition.weight * 100 | number:'1.2-2' }}g<br>
-                          Protein: {{ nutrition.protein / nutrition.weight * 100 | number:'1.2-2' }}g<br>
-                          kCal: {{ nutrition.kCal / nutrition.weight * 100 | number:'1.2-2' }}<br>
-                          GL: <span *ngIf="nutrition.gl / nutrition.weight * 100 < 10" style="color:green"> 
+                          {{"Carbs" | translate}}: {{ nutrition.carbs / nutrition.weight * 100 | number:'1.2-2' }}g<br>
+                          {{"Sugars" | translate}}: {{ nutrition.sugar / nutrition.weight * 100 | number:'1.2-2' }}g<br>
+                          {{"Fat" | translate}}: {{ nutrition.fat / nutrition.weight * 100 | number:'1.2-2' }}g<br>
+                          {{"Protein" | translate}}: {{ nutrition.protein / nutrition.weight * 100 | number:'1.2-2' }}g<br>
+                          {{"kCal" | translate}}: {{ nutrition.kCal / nutrition.weight * 100 | number:'1.2-2' }}<br>
+                          {{"GL" | translate}}GL: <span *ngIf="nutrition.gl / nutrition.weight * 100 < 10" style="color:green"> 
                                 {{ nutrition.gl / nutrition.weight * 100 | number:'1.2-2' }} </span>
                               <span *ngIf="nutrition.gl / nutrition.weight * 100 >= 10 && nutrition.gl / nutrition.weight * 100 < 20" style="color:orange"> 
                                 {{ nutrition.gl / nutrition.weight * 100 | number:'1.2-2' }} </span>

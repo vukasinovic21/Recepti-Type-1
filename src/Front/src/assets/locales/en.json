@@ -1,10 +1,12 @@
 {
-    "Recepti Type 1": "Recepti Tip 1",
     "All recipes": "All recipes",
     "New recipe": "New recipe",
     "All diets": "All diets",
     "New diet": "New diet",
     "Login": "Login",
     "Register": "Register",
-    "Logout": "Logout"
+    "Logout": "Logout",
+    "Ime prvog ucitelja/uciteljice": "Name of your first teacher",
+    "Omiljeni sport": "Favourite sport",
+    "Ime prvog kucnog ljubimca": "First pet's name"
 }

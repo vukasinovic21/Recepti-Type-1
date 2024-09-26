@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select';
 import { AppRoutingModule } from '../app-routing.module';
-
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { AppRoutingModule } from '../app-routing.module';
     ReactiveFormsModule,
     MatSelectModule,
     MatInputModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TranslateModule
   ]
 })
 export class DietModule { }

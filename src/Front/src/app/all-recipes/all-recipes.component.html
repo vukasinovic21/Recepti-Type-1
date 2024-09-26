@@ -8,41 +8,41 @@
 
     <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="20px"> <!--OVO JE DODATNO SAMO-->
       <mat-form-field class="search">
-        <input matInput (keyup)="search($event)" placeholder="Search">
+        <input matInput (keyup)="search($event)" placeholder="{{'Search' | translate}}">
       </mat-form-field>
   
       <mat-form-field>
-        <mat-select (selectionChange)="sortRecipes($event.value)" placeholder="Sort">
-          <mat-option value="timeLowHigh">Time: Low to High</mat-option>
-          <mat-option value="timeHighLow">Time: High to Low</mat-option>
-          <mat-option value="nameA-Z">Name: A-Z</mat-option>
-          <mat-option value="nameZ-A">Name: Z-A</mat-option>
-          <mat-option value="newest">Posted: Newest</mat-option>
-          <mat-option value="oldest">Posted: Oldest</mat-option>
+        <mat-select (selectionChange)="sortRecipes($event.value)" placeholder="{{'Sort' | translate}}">
+          <mat-option value="timeLowHigh">{{'Time: Low to High' | translate}}</mat-option>
+          <mat-option value="timeHighLow">{{'Time: High to Low' | translate}}</mat-option>
+          <mat-option value="nameA-Z">{{'Name: A-Z' | translate}}</mat-option>
+          <mat-option value="nameZ-A">{{'Name: Z-A' | translate}}</mat-option>
+          <mat-option value="newest">{{'Posted: Newest' | translate}}</mat-option>
+          <mat-option value="oldest">{{'Posted: Oldest' | translate}}</mat-option>
           <!--<mat-option value="likeLowHigh">Likes: Low to High</mat-option>
           <mat-option value="likeHighLow">Likes: High to Low</mat-option>-->
         </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
-          <mat-label>Type of food</mat-label>
+          <mat-label>{{'Type of food' | translate}}</mat-label>
           <mat-select [(ngModel)]="selectedTypes" multiple>
             <mat-option *ngFor="let type of allTypesOfFood" [value]="type.id">
               <mat-checkbox
                   (change)="filterTypeOfFood(type.id)"
                   [checked]="isSelected(type.id)">
               </mat-checkbox>
-              {{type.typeName}}
+              {{type.typeName | translate}}
             </mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select [(ngModel)]="recipesPerPage" (selectionChange)="perPage($event.value)" placeholder="8 per page">
-            <mat-option value=8>8 per page</mat-option>
-            <mat-option value=16>16 per page</mat-option>
-            <mat-option value=24>24 per page</mat-option>
-            <mat-option value=32>32 per page</mat-option>
+          <mat-select [(ngModel)]="recipesPerPage" (selectionChange)="perPage($event.value)" placeholder="{{'8 per page' | translate}}">
+            <mat-option value=8>{{'8 per page' | translate}}</mat-option>
+            <mat-option value=16>{{'16 per page' | translate}}</mat-option>
+            <mat-option value=24>{{'24 per page' | translate}}</mat-option>
+            <mat-option value=32>{{'32 per page' | translate}}</mat-option>
           </mat-select>
         </mat-form-field>
           
@@ -54,7 +54,7 @@
           <mat-card-header>
             <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');" (click)="showUserId(recipe.userId)"></div><!--KLIKOM NA SLIKU DA SE OTVORI JAVAN PROFIL TOG KORISNIKA -->
               <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
-              <mat-card-subtitle> {{ getTypeName(recipe.typeOfFoodId) }} </mat-card-subtitle><!--<mat-card-subtitle (click)="showTypeOfFoodId(recipe.typeOfFoodId)">{{ recipe.typeOfFoodId }}</mat-card-subtitle> --><!--KLIKOM NA TIP HRANE DA SE OTVORE SVI RECEPTI TOG TIPA -->
+              <mat-card-subtitle> {{getTypeName(recipe.typeOfFoodId) | translate}} </mat-card-subtitle><!--<mat-card-subtitle (click)="showTypeOfFoodId(recipe.typeOfFoodId)">{{ recipe.typeOfFoodId }}</mat-card-subtitle> --><!--KLIKOM NA TIP HRANE DA SE OTVORE SVI RECEPTI TOG TIPA -->
           </mat-card-header>
 
           <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
@@ -69,7 +69,7 @@
               <!--<button mat-button (click)="likeRecipe(recipe.id)">Like</button>
               <button mat-button>Share</button>--> <!--OSTAVITI ZA POJEDINACNI PRIKAZ RECEPTA-->
               <!--BROJ LAJKOVA DA BUDE PRIKAZAN-->
-              <b>Posted: &nbsp;</b> <span> {{ recipe.createdAt | date:'dd-MM-yyyy' }} </span>
+              <b>{{"Posted" | translate}}: &nbsp;</b> <span> {{ recipe.createdAt | date:'dd-MM-yyyy' }} </span>
 
               <span class="circle green" *ngIf="recipe.timeToPrepare <= 15"> <!--NEKAKO DA BUDU ZAOKRUZENO LEPO MOZE I PORED DUGMICA-->
                   {{ recipe.timeToPrepare}} min</span>
@@ -82,9 +82,9 @@
       </div>
     </div>
     <div class="smallb">
-      <p *ngIf="maxPages > 0">Page: <input class="inputb" type="number" placeholder="Page" [(ngModel)]="currentPage" (change)="goToPage(currentPage)" min="1" [max]="maxPages"> of {{ maxPages }}</p> 
-      <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
-      <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === maxPages">Next</button>
+      <p *ngIf="maxPages > 0">{{'Page' | translate}}: <input class="inputb" type="number" placeholder="{{'Page' | translate}}" [(ngModel)]="currentPage" (change)="goToPage(currentPage)" min="1" [max]="maxPages">{{'of' | translate}}  {{ maxPages }}</p> 
+      <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">{{'Previous' | translate}}</button>
+      <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === maxPages">{{'Next' | translate}}</button>
     </div>
 </div>
 <br>

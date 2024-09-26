@@ -1,7 +1,7 @@
 <div class="color">
     <div class="mb-5 text-center">
-        <h1>Welcome to the Recepti Type 1 </h1>
-    </div><br><br><br>
+        <h1>{{'Welcome to the Recepti Type 1' | translate }} </h1>
+    </div><br>
     <div fxLayout="" fxLayoutAlign="center center" fxLayoutGap="50px grid" class="cont"> 
         <div *ngFor="let item of recipes" class="item" [class.paused]="isPaused" (mouseover)="pauseAnimation()" (mouseleave)="resumeAnimation()"> 
             <mat-card class="example-card" appearance="outlined"> 

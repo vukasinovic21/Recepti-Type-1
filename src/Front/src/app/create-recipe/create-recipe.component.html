@@ -1,49 +1,49 @@
 <div class="container col-md-6">
     <div class="text-center mb-5 mt-3">
-        <h2>Create new recipe </h2>
+        <h2> {{"Create new recipe" | translate}}</h2>
     </div>
 
     <form [formGroup]="createForm" (ngSubmit)="onSubmit()" >
 
         <div class="row mb-3">
             <div class="col-8">
-                <label class="form-label">Name of recipe</label>
+                <label class="form-label">{{"Name of recipe" | translate}}</label>
                 <input class="form-control" type="text" formControlName="recipeName">
                 <small class="text-danger" *ngIf="createForm.get('recipeName')?.invalid && createForm.get('recipeName')?.touched">
-                    Name of recipe is required.
+                    {{"Name of recipe is required." | translate}}
                 </small>
             </div>
             <div class="col-4">
-                <label class="form-label">Time needed</label>
+                <label class="form-label">{{"Time needed" | translate}}</label>
                 <input class="form-control" type="number" formControlName="timeToPrepare">
                 <small class="text-danger" *ngIf="createForm.get('timeToPrepare')?.invalid && createForm.get('timeToPrepare')?.touched">
-                    Preparation time is required.
+                    {{"Preparation time is required." | translate}}
                 </small>
             </div>
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Instructions</label>
+            <label class="form-label">{{"Instructions" | translate}}</label>
             <textarea class="form-control" rows="5" formControlName="instructions"></textarea>
             <small class="text-danger" *ngIf="createForm.get('instructions')?.invalid && createForm.get('instructions')?.touched">
-                Instructions are required.
+                {{"Instructions are required." | translate}}
             </small>
         </div>
 
         <div class="row mb-3">
             <div class="col">
-                <label class="form-label">Choose type of food </label><br>
+                <label class="form-label">{{"Choose type of food" | translate}} </label><br>
                 <select class="form-select" aria-label="Default select example" formControlName="typeOfFoodId">
                     <option *ngFor="let typeOfFood of typesOfFood" value={{typeOfFood.id}}>
-                        {{typeOfFood.typeName}} <br><br>
+                        {{typeOfFood.typeName | translate}} <br><br>
                     </option>
                 </select>
                 <small class="text-danger" *ngIf="createForm.get('typeOfFoodId')?.invalid && createForm.get('typeOfFoodId')?.touched">
-                    Type of food is required.
+                    {{"Type of food is required." | translate}}
                 </small>
             </div>  
             <div class="col">
-                <label class="form-label">Choose image</label>
+                <label class="form-label">{{"Choose image" | translate}}</label>
                 <input class="form-control" type="file" (change)="onChange($event)" id="pictures">
                 <input class="form-control" type="hidden" formControlName="picture"> 
             </div>
@@ -51,13 +51,13 @@
         <!--dodato odavde-->
         <div class="row mb-3">
             <div class="col">
-                    <label class="form-label">Choose number of ingredients</label>
-                    <input type="number" class="form-control" min="1" placeholder="Number of ingredients"  formControlName="kolicina" />
+                    <label class="form-label">{{"Choose number of ingredients" | translate}}</label>
+                    <input type="number" class="form-control" min="1" placeholder="{{'Number of ingredients' | translate}}"  formControlName="kolicina" />
             </div>
             <div class="col up-right">
                 <br><br>
                 <div class="form-check form-switch ">
-                    <label class="form-label ">Do you want recipe to be public</label>
+                    <label class="form-label ">{{"Do you want recipe to be public" | translate}}</label>
                     <input class="form-control form-check-input " type="checkbox" formControlName="shared">
                 </div>
             </div>
@@ -67,15 +67,15 @@
             <div formArrayName="recipeItems">
                 <div *ngFor="let item of recipeItems.controls; let i = index" [formGroupName]="i" class="row">
                     <div class="col-8">
-                        <label class="form-label" *ngIf="i === 0">Ingredient</label>
+                        <label class="form-label" *ngIf="i === 0">{{"Ingredient" | translate}}</label>
                         <label class="form-label" *ngIf="i > 0"></label>
                         <select class="form-control" formControlName="ingredientId">
-                            <option value="">Select an ingredient</option>
+                            <option value="">{{"Select an ingredient" | translate}}</option>
                             <option *ngFor="let ingredient of ingredients" [value]="ingredient.id">{{ ingredient.name }}</option>
                         </select>
                     </div>
                     <div class="col-4">
-                        <label class="form-label" *ngIf="i === 0">Quantity</label>
+                        <label class="form-label" *ngIf="i === 0">{{"Quantity" | translate}}</label>
                         <label class="form-label" *ngIf="i > 0"></label>
                         <input class="form-control small-input" type="number" min="0" formControlName="quantity">
                     </div>
@@ -83,7 +83,7 @@
             </div>
         </div>
         
-        <button class="btn btn-success  float-end" type="submit" [disabled]="createForm.invalid" >Create</button>
-        <button [routerLink]="['/']" class="btn btn-danger" >Cancel</button>
+        <button class="btn btn-success  float-end" type="submit" [disabled]="createForm.invalid" >{{"Create" | translate}}</button>
+        <button [routerLink]="['/']" class="btn btn-danger" >{{"Cancel" | translate}}</button>
     </form>
 </div>

@@ -5,17 +5,17 @@
             <div class="col-md-2 p-3 sidebar">
 
                 <div class="div-space1">
-                    <input matInput (keyup)="search($event)" placeholder="Search" class="div-space1">
+                    <input matInput (keyup)="search($event)" placeholder="{{'Search' | translate}}" class="div-space1">
                 </div>
                 
-                <mat-select (selectionChange)="sortDiets($event.value)" placeholder="Sort" class="div-space2">
-                    <mat-option value="nameA-Z">Name: A-Z</mat-option>
-                    <mat-option value="nameZ-A">Name: Z-A</mat-option>
-                    <mat-option value="newest">Posted: Newest</mat-option>
-                    <mat-option value="oldest">Posted: Oldest</mat-option>
+                <mat-select (selectionChange)="sortDiets($event.value)" placeholder="{{'Sort' | translate}}" class="div-space2">
+                    <mat-option value="nameA-Z">{{"Name: A-Z" | translate}}</mat-option>
+                    <mat-option value="nameZ-A">{{"Name: Z-A" | translate}}</mat-option>
+                    <mat-option value="newest">{{"Posted: Newest" | translate}}</mat-option>
+                    <mat-option value="oldest">{{"Posted: Oldest" | translate}}</mat-option>
                 </mat-select>
                 <hr>
-                <h3 *ngIf="filteredDiets.length == 0">Trenutno nemate kreiranih dijeta</h3>
+                <h3 *ngIf="filteredDiets.length == 0">{{"You haven't created any diet yet" | translate}}</h3>
                 <ul class="list-group">
                     <li class="list-group-item " *ngFor="let diet of filteredDiets" [class.active]="diet.id === selectedDietId"  (click)="showDietId(diet.id)">
                     {{ diet.dietName }}
