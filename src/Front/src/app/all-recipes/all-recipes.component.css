@@ -30,6 +30,16 @@ img{
     height:200px;
 }
 
+.razmak
+{
+    margin-bottom: 10px;
+}
+
+.right
+{
+    margin-left: auto; 
+}
+
 .search
 {
     margin-right: 20px;

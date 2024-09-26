@@ -16,9 +16,10 @@ namespace Back.Application.Likes.Commands.CreateLike
                 .Where(l => l.UserId == UserId.Of(command.Like.UserId))
                 .Where(l => l.RecipeId == RecipeId.Of(command.Like.RecipeId))
                 .FirstOrDefaultAsync();
-                //.ToListAsync(cancellationToken);
+            //.ToListAsync(cancellationToken);
 
-            if(alreadyLiked != null) //ako postoji obrisi ga, a ako ne postoji nastavi dalje
+
+            if (alreadyLiked != null) //ako postoji obrisi ga, a ako ne postoji nastavi dalje
             {
                 dbContext.Likes.Remove(alreadyLiked);
                 await dbContext.SaveChangesAsync(cancellationToken);

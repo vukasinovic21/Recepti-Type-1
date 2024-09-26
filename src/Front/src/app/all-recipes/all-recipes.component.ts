@@ -25,6 +25,8 @@ export class AllRecipesComponent
     selectedTypes: String[] = []; 
     allTypesOfFood: TypeOfFood[] = [];
     allUsers: UserInfo[] = [];
+    
+    likedStatus: { [recipeId: string]: boolean } = {};
 
     sortOrder = "";
     recipesPerPage = 8;
@@ -32,6 +34,12 @@ export class AllRecipesComponent
     currentPage = 1; 
 
     like: Like = 
+    {
+      recipeId: '',
+      userId: ''
+    };  
+
+    like2: Like = 
     {
       recipeId: '',
       userId: ''
@@ -59,21 +67,36 @@ export class AllRecipesComponent
 
       this.recipeService.getAllRecipes().subscribe(recipes => {
         this.recipes = recipes; // all recipes
+        recipes.forEach(recipe => {
+          this.isLiked(recipe.id);  
+        });
         this.applyFiltersAndPagination();
       });
 
       this.recipeService.getAllTypesOfMeal().subscribe( types => {
         this.allTypesOfFood = types;
       })
-     
-      /*this.recipeService.getAllRecipesCount().subscribe(number =>{
-        this.numberOfRecipes = number;
-      })*/
 
       this.usersService.getAllUsers().subscribe( users => {
         this.allUsers = users;
       })
     }
+
+    isLiked(recipeId: string): void 
+    {
+      let userid = localStorage.getItem("userid"); 
+      if(userid)
+      {
+        this.like2.userId = userid; 
+      }
+      this.like2.recipeId = recipeId;
+      
+      this.recipeService.isLiked(this.like2).subscribe(isLiked => 
+      {
+        this.likedStatus[recipeId] = isLiked; 
+      });
+    }
+
     showRecipeId(recipeId:string): void
     {
       this.router.navigate(['/recipes/' + recipeId]);
@@ -154,11 +177,16 @@ export class AllRecipesComponent
       {
         this.like.userId = userid; 
       }
-        
-      //na backu neka stoji da ako je lajkovano moze da dislajkuje samo tj ne moze 2 puta isti korisnik da lajkuje isti recept
-      this.recipeService.likeRecipe(this.like).subscribe( str => {
-        console.log(str);
-      })
+      let before = this.likedStatus[recipeId];
+
+      this.recipeService.likeRecipe(this.like).subscribe({
+        next: (str) => {
+          this.likedStatus[recipeId] = !before; 
+        },
+        error: (err) => {
+          this.likedStatus[recipeId] = !before; 
+        }
+      });
     }
 
     sortRecipes(order: string): void 

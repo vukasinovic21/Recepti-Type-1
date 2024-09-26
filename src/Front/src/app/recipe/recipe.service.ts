@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { TypeOfFood } from '../models/type-of-food';
 import { environment } from '../environments/environment';
-import { HttpClient } from '@angular/common/http';
-import { catchError, map, Observable, of } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { catchError, map, Observable, of, throwError } from 'rxjs';
 import { Recipe } from '../models/recipe';
 import { RecipeNutritions } from '../models/recipe-nutritions';
 import { RecipeItem } from '../models/recipe-item';
@@ -132,7 +132,20 @@ export class RecipeService
     const query = {like: like};
     return this.http.post<{id: string}>(this.backUrl + "/likes", query)
     .pipe(
-      map(response => response.id)
+      map(response => response.id),
+      catchError(error => {
+        return throwError(() => new Error('Failed to like the recipe.'));
+      })
+    );
+  }
+
+  isLiked(like: Like): Observable<boolean>
+  {
+    const query = {like: like};
+
+    return this.http.post<{result: boolean}>(this.backUrl + "/likes/check", query)
+    .pipe(
+      map(response => response.result)
     );
   }
 

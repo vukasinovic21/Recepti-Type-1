@@ -54,9 +54,17 @@
           <mat-card-header>
             <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');" (click)="showUserId(recipe.userId)"></div><!--KLIKOM NA SLIKU DA SE OTVORI JAVAN PROFIL TOG KORISNIKA -->
               <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
-              <mat-card-subtitle> {{getTypeName(recipe.typeOfFoodId) | translate}} </mat-card-subtitle><!--<mat-card-subtitle (click)="showTypeOfFoodId(recipe.typeOfFoodId)">{{ recipe.typeOfFoodId }}</mat-card-subtitle> --><!--KLIKOM NA TIP HRANE DA SE OTVORE SVI RECEPTI TOG TIPA -->
+              <mat-card-subtitle> 
+                {{getTypeName(recipe.typeOfFoodId) | translate}}
+              </mat-card-subtitle><!--<mat-card-subtitle (click)="showTypeOfFoodId(recipe.typeOfFoodId)">{{ recipe.typeOfFoodId }}</mat-card-subtitle> --><!--KLIKOM NA TIP HRANE DA SE OTVORE SVI RECEPTI TOG TIPA -->
+              <div class="right">
+                <span *ngIf="likedStatus[recipe.id]" class="material-icons" (click)="likeRecipe(recipe.id)">favorite</span> &nbsp;
+                <span *ngIf="!likedStatus[recipe.id]" class="material-icons" (click)="likeRecipe(recipe.id)">favorite_border</span> &nbsp;
+              </div>
           </mat-card-header>
-
+          <div *ngIf="recipe.recipeName.length <= 17">
+            <div class="razmak"></div>
+          </div>
           <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
           <br>
           <mat-card-content>
@@ -66,7 +74,7 @@
           </mat-card-content>
 
           <mat-card-actions>
-              <!--<button mat-button (click)="likeRecipe(recipe.id)">Like</button>
+              <!--
               <button mat-button>Share</button>--> <!--OSTAVITI ZA POJEDINACNI PRIKAZ RECEPTA-->
               <!--BROJ LAJKOVA DA BUDE PRIKAZAN-->
               <b>{{"Posted" | translate}}: &nbsp;</b> <span> {{ recipe.createdAt | date:'dd-MM-yyyy' }} </span>
