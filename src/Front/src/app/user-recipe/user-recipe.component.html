@@ -1,6 +1,6 @@
 <div class="container">
     <div class="text-center mt-3">
-      <h1> {{ user?.Username }} User recipes</h1>
+      <h1> {{ user?.Username }} {{"User recipes"| translate}}</h1>
     </div>
 </div>
 
@@ -8,17 +8,17 @@
 
     <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="" fxLayoutGap="20px">
         <mat-form-field>
-            <input matInput (keyup)="search($event)" placeholder="Search">
+            <input matInput (keyup)="search($event)" placeholder="{{'Search'| translate}}">
         </mat-form-field>
 
         <mat-form-field class="sort-dropdown">
-            <mat-select (selectionChange)="sortRecipes($event.value)" placeholder="Sort">
-                <mat-option value="timeLowHigh">Time: Low to High</mat-option>
-                <mat-option value="timeHighLow">Time: High to Low</mat-option>
-                <mat-option value="nameA-Z">Name: A-Z</mat-option>
-                <mat-option value="nameZ-A">Name: Z-A</mat-option>
-                <mat-option value="newest">Posted: Newest</mat-option>
-                <mat-option value="oldest">Posted: Oldest</mat-option>
+            <mat-select (selectionChange)="sortRecipes($event.value)" placeholder="{{'Sort'| translate}}">
+                <mat-option value="timeLowHigh">{{"Time: Low to High"| translate}}</mat-option>
+                <mat-option value="timeHighLow">{{"Time: High to Low"| translate}}</mat-option>
+                <mat-option value="nameA-Z">{{"Name: A-Z"| translate}}</mat-option>
+                <mat-option value="nameZ-A">{{"Name: Z-A"| translate}}</mat-option>
+                <mat-option value="newest">{{"Posted: Newest"| translate}}</mat-option>
+                <mat-option value="oldest">{{"Posted: Oldest"| translate}}</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
@@ -31,7 +31,7 @@
             </mat-select>
         </mat-form-field>-->
         <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="50px grid">
-            <div *ngIf="filteredRecipes.length == 0"><h1>Trenutno nemate kreiranih recepata</h1></div>
+            <div *ngIf="filteredRecipes.length == 0"><h1>{{"You haven't created any recipe yet"| translate}}</h1></div>
             <div *ngFor="let recipe of filteredRecipes">
                 <mat-card class="example-card" appearance="outlined"> 
                     <mat-card-header>
@@ -41,7 +41,7 @@
                                 <span *ngIf="recipe.userId == loggedUser" class="material-icons" (click)="delete(recipe.id)">delete</span> &nbsp;
                             </div>
                         <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
-                        <mat-card-subtitle> {{ getTypeName(recipe.typeOfFoodId) }} </mat-card-subtitle>
+                        <mat-card-subtitle> {{getTypeName(recipe.typeOfFoodId) | translate}} </mat-card-subtitle>
                     </mat-card-header>
 
                     <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
@@ -53,7 +53,7 @@
                     </mat-card-content>
 
                     <mat-card-actions>
-                        <b>Posted: &nbsp;</b> <span> {{ recipe.createdAt | date:'dd-MM-yyyy' }} </span>
+                        <b>{{"Posted" | translate}}: &nbsp;</b> <span> {{ recipe.createdAt | date:'dd-MM-yyyy' }} </span>
                         <span class="circle green" *ngIf="recipe.timeToPrepare <= 15"> 
                             {{ recipe.timeToPrepare}} min</span>
                         <span class="circle orange" *ngIf="recipe.timeToPrepare > 15 && recipe.timeToPrepare < 60" >
@@ -66,9 +66,9 @@
         </div>
         <div *ngIf="showAlert" class="custom-alert">
             <div class="alert-content">
-              <p>Do you want to delete the recipe?</p>
-              <button class="button1" (click)="closeAlert()">Cancel</button>&nbsp;&nbsp;
-              <button (click)="closeAlert1()">Delete</button>
+              <p>{{"Do you want to delete the recipe"| translate}}?</p>
+              <button class="button1" (click)="closeAlert()">{{"Cancel"| translate}}</button>&nbsp;&nbsp;
+              <button (click)="closeAlert1()">{{"Delete"| translate}}</button>
             </div>
         </div>
         <!--<div class="smallb">

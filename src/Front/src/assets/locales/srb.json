@@ -122,5 +122,9 @@
     "Ime prvog ucitelja/uciteljice": "Ime prvog ucitelja/uciteljice",
     "Omiljeni sport": "Omiljeni sport",
     "Ime prvog kucnog ljubimca": "Ime prvog kucnog ljubimca",
-    "Posted": "Izbačeno"
+    "Posted": "Izbačeno",
+    "Do you want to delete the recipe": "Da li ste sigurni da hoćete da obrišete recept",
+    "You haven't created any recipe yet": "Trenutno nemate kreiranih recepata",
+    "User recipes": "Recepti korisnika",
+    "Delete": "Obriši"
 }

@@ -20,14 +20,9 @@ const routes: Routes =
 [
   {
     path:"", 
-    component: AllRecipesComponent,
+    component: HomeComponent,
     canActivate:[AllGuard] //mogu i jedni i drugi
   },
-  /*{ path: 'recipes', component: AllRecipesComponent,
-    children: [
-      { path: 'create', component: CreateRecipeComponent }
-    ]
-  },*/
   {
     path:"home", 
     component: HomeComponent,
