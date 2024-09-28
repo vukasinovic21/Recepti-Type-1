@@ -1,11 +1,15 @@
-﻿namespace Back.Application.Extensions
+﻿using Back.Domain.Models;
+using System.Globalization;
+
+namespace Back.Application.Extensions
 {
     public static class RecipeExtensions
     {
         public static IEnumerable<RecipeDto> ToRecipeDtotoList(this IEnumerable<Recipe> recipes)
         {
             return recipes.Select(recipe => new RecipeDto(
-                    Id: recipe.Id.Value,
+            Id: recipe.Id.Value,
+                    CreatedAt: recipe.CreatedAt.Value, 
                     UserId: recipe.UserId.Value,
                     RecipeName: recipe.RecipeName,
                     TypeOfFoodId: recipe.TypeOfFoodId.Value,

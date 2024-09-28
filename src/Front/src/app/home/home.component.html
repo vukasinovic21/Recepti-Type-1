@@ -1,6 +1,57 @@
-<div>
-    <h2>Welcome to the Recepti Type 1 </h2>
-    <button [routerLink]="['/login']">Login</button>
-    <button [routerLink]="['/register']">Register</button>
-</div>
+<div class="color">
+    <div class="mb-5 text-center">
+        <h1 class="naslov">{{'Welcome to the Recipes Type 1' | translate }} </h1>
+    </div><br>
+    <div fxLayout="" fxLayoutAlign="center center" fxLayoutGap="50px grid" class="cont"> 
+        <div *ngFor="let item of recipes" class="item" [class.paused]="isPaused" (mouseover)="pauseAnimation()" (mouseleave)="resumeAnimation()"> 
+            <mat-card class="example-card" appearance="outlined"> 
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(item.userId)}}.svg');" (click)="showUserId(item.userId)"></div>
+                    <mat-card-title (click)="showRecipeId(item.id)">{{ item.recipeName }}</mat-card-title>
+                    <mat-card-subtitle> {{ getTypeName(item.typeOfFoodId) | translate}} </mat-card-subtitle>
+                </mat-card-header>
 
+                <img mat-card-image src="assets/images/{{ item.picture }}" alt="{{ item.recipeName }}"  (click)="showRecipeId(item.id)">
+                <mat-card-content>
+                </mat-card-content>
+                <br>
+                <mat-card-actions>
+                    <b>{{'Posted' | translate}}: &nbsp;</b> <span> {{ item.createdAt | date:'dd-MM-yyyy' }} </span>
+
+                    <span class="circle green" *ngIf="item.timeToPrepare <= 15"> <!--NEKAKO DA BUDU ZAOKRUZENO LEPO MOZE I PORED DUGMICA-->
+                        {{ item.timeToPrepare}} min</span>
+                    <span class="circle orange" *ngIf="item.timeToPrepare > 15 && item.timeToPrepare < 60" >
+                        {{ item.timeToPrepare}} min</span>
+                    <span class="circle red" *ngIf="item.timeToPrepare > 60 ">
+                        {{ item.timeToPrepare}}min</span>   
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        <!--<div *ngIf="recipes?.length"></div>-->
+        <div *ngFor="let item of recipes" class="item" [class.paused]="isPaused" (mouseover)="pauseAnimation()" (mouseleave)="resumeAnimation()"> 
+            <mat-card class="example-card" appearance="outlined"> 
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(item.userId)}}.svg');" (click)="showUserId(item.userId)"></div>
+                    <mat-card-title (click)="showRecipeId(item.id)">{{ item.recipeName }}</mat-card-title>
+                    <mat-card-subtitle> {{ getTypeName(item.typeOfFoodId) | translate}} </mat-card-subtitle>
+                </mat-card-header>
+
+                <img mat-card-image src="assets/images/{{ item.picture }}" alt="{{ item.recipeName }}"  (click)="showRecipeId(item.id)">
+                <mat-card-content>
+                </mat-card-content>
+                <br>
+                <mat-card-actions>
+                    <b>{{'Posted' | translate}}: &nbsp;</b> <span> {{ item.createdAt | date:'dd-MM-yyyy' }} </span>
+
+                    <span class="circle green" *ngIf="item.timeToPrepare <= 15"> <!--NEKAKO DA BUDU ZAOKRUZENO LEPO MOZE I PORED DUGMICA-->
+                        {{ item.timeToPrepare}} min</span>
+                    <span class="circle orange" *ngIf="item.timeToPrepare > 15 && item.timeToPrepare < 60" >
+                        {{ item.timeToPrepare}} min</span>
+                    <span class="circle red" *ngIf="item.timeToPrepare > 60 ">
+                        {{ item.timeToPrepare}}min</span>   
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+    <button class="btn dalje float-end" [routerLink]="['/recipes']"> {{'Step into the world of healthy recipes' | translate}} -></button>
+</div>

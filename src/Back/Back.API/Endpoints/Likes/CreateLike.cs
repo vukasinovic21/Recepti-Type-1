@@ -24,7 +24,8 @@ namespace Back.API.Endpoints.Likes
             .Produces<CreateLikeResponse>(StatusCodes.Status201Created)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Create Like")
-            .WithDescription("Create Like");
+            .WithDescription("Create Like")
+            .RequireAuthorization(); 
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Back.Application.Dtos;
+﻿using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Back.Application.Likes.Commands.CreateLike
 {
@@ -10,6 +10,21 @@ namespace Back.Application.Likes.Commands.CreateLike
             //Create Like entity from command object
             //save to database
             //return result
+
+            var alreadyLiked = await dbContext.Likes //ako vec postoji lajk od ovog korisnika za izabrani recept, to znaci da je sada on odlajkovao recept, tj vise mu se ne svidja.
+                .AsNoTracking()
+                .Where(l => l.UserId == UserId.Of(command.Like.UserId))
+                .Where(l => l.RecipeId == RecipeId.Of(command.Like.RecipeId))
+                .FirstOrDefaultAsync();
+            //.ToListAsync(cancellationToken);
+
+
+            if (alreadyLiked != null) //ako postoji obrisi ga, a ako ne postoji nastavi dalje
+            {
+                dbContext.Likes.Remove(alreadyLiked);
+                await dbContext.SaveChangesAsync(cancellationToken);
+                throw new InvalidOperationException("Like has been removed");
+            }
 
             var like = CreateNewLike(command.Like);
 

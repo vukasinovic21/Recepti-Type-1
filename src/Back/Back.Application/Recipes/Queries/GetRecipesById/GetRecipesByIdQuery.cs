@@ -3,5 +3,5 @@
     public record GetRecipesByIdQuery(Guid Id)
         : IQuery<GetRecipesByIdResult>;
 
-    public record GetRecipesByIdResult(RecipeNutritionsDto RecipeNutritions);
+    public record GetRecipesByIdResult(IEnumerable<RecipeDto> Recipes);
 }

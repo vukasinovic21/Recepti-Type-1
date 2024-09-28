@@ -1,0 +1,66 @@
+.font
+{
+    font-size: 40px;
+    color: #669999;
+}
+
+.sides {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Aligns items vertically centered, optional */
+}
+
+.table-border
+{
+    border: 3px solid #669999;
+}
+
+.table th, .table td, .table tr
+{
+    max-width: 50px;
+}
+
+.img
+{
+    height: 75px;
+    width: 100px;
+    /*display: block;*/
+}
+
+.field
+{
+    max-width: 0px !important;
+}
+
+
+.hover-content
+{
+    display: none; 
+}
+
+.recipe-container:hover .hover-content 
+{
+    display: block; 
+}
+
+.recipe-container:hover .img 
+{
+    display: none;
+}
+
+.field1
+{
+    max-width: 45px !important;
+    vertical-align: middle;
+}
+
+.text
+{
+    text-align: center;
+}
+
+@media (max-width: 1300px) {
+    .img {
+        display: none; 
+    }
+}/*Ne skida mi se dijeta sa slikama ovako ?*/

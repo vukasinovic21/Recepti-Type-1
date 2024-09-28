@@ -2,6 +2,7 @@
 {
     public record RecipeDto(
         Guid Id,
+        DateTime CreatedAt,
         Guid UserId,
         string RecipeName,
         Guid TypeOfFoodId,

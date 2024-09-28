@@ -1,1 +1,71 @@
-<p>create-diet works!</p>
+<div class="container">
+    <div class="text-center mb-5 mt-3">
+        <h2>{{"Create new diet" | translate}}</h2>
+    </div>
+
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()" >
+
+        <div class="row mb-3 size">
+            <div class="col">
+                <label class="form-label">{{"Name of diet" | translate}}</label>
+                <input class="form-control" type="text" formControlName="dietName">
+                <small class="text-danger" *ngIf="createForm.get('dietName')?.invalid && createForm.get('dietName')?.touched">
+                    {{"Name of diet is required." | translate}}
+                </small>
+            </div>
+            <div class="col">
+                <label class="form-label">{{"Number of days" | translate}}</label>
+                <input type="number" class="form-control size3" min="1" max="7" placeholder="{{'Number of days' | translate}}"  formControlName="kolicina" />
+            </div>
+        </div>
+
+        <div>
+            <div class="row text-center">
+                <div class="size2">
+                    <label><b>{{"Breakfast" | translate}}</b></label>
+                </div>
+                <div class="size2">
+                    <label><b>{{"Morning snack" | translate}}</b></label>
+                </div>
+                <div class="size2">
+                    <label><b>{{"Lunch" | translate}}</b></label>
+                </div>
+                <div class="size2">
+                    <label><b>{{"Afternoon snack" | translate}}</b></label>
+                </div>
+                <div class="size2">
+                    <label><b>{{"Dinner" | translate}}</b></label>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="showAlert" class="custom-alert">
+            <div class="alert-content">
+              <p>{{"You need to input at least one meal" | translate}}</p>
+              <button (click)="closeAlert()">OK</button>
+            </div>
+        </div>
+
+        <div class="mb-3" >
+            <div formArrayName="planOfDiets">
+                <div class="row">
+                    <div *ngFor="let item of planOfDiets.controls; let i = index" [formGroupName]="i" class="size2">
+                        <label class="form-label"></label>
+                        <select class="form-control" formControlName="recipeId">
+                            <option value="">{{"Select a recipe" | translate}}</option>
+                            <option *ngFor="let recipe of recipes" [value]="recipe.id">{{ recipe.recipeName }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="float-end">
+            <button class="btn btn-success" type="submit" [disabled]="createForm.invalid">{{"Create new" | translate}}</button>
+            <button [routerLink]="['/diets']" class="btn btn-danger" style="margin-left: 10px;">{{"Cancel" | translate}}</button>
+        </div>
+    </form>
+</div>
+
+<!-- Gde god se preskoci neki obrok dodati vodu ili staviti da moraju da se unesu svi obroci? -->
+<!-- Neka ga prazno ipak -->

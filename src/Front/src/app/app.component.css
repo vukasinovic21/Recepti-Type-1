@@ -1,0 +1,156 @@
+.mat-toolbar
+{
+    background-color:#669999;
+    color:#001a33;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mat-button.color
+{
+    color:white !important;
+}
+
+
+.lang-color
+{
+    background-color: #669999;
+    border: none;
+    color: white;
+}
+
+.lang-color .options 
+{
+    background-color: white; 
+    color: #669999;    
+    cursor: pointer;
+}
+
+.lang-color:focus .options 
+{
+    background-color: white; 
+    color: #669999;    
+    cursor: pointer;
+}
+
+.img
+{
+    width:45px;
+    height: 45px;
+    margin-right: 5px;
+}
+
+.color
+{
+    background-color: transparent;
+    border: transparent;
+    color:white !important;
+    font-size: 80%;
+    margin-left: 15px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.color2
+{
+    background-color: transparent;
+    border: transparent;
+    color:darkred !important;
+    font-size: 80%;
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+.left-buttons 
+{
+    display: flex;
+    align-items: center;
+}
+
+.spacer
+{
+    flex: 1;
+}
+
+.right-buttons
+{
+    display: flex;
+    align-items: center;
+}
+
+.ime
+{
+    cursor: pointer; 
+    height: 90%;
+}
+
+.clickable-header 
+{
+    cursor: pointer; 
+    color: inherit; 
+}
+
+/*.clickable-header 
+{
+    cursor: pointer; 
+    font-family: 'Times New Roman', serif; 
+    font-size: 25px; 
+    color: #001a33; 
+    background: linear-gradient(to bottom, #001a33, #023f77); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+.clickable-header::first-letter 
+{
+    font-size: 30px; 
+    font-weight: bolder;
+}*/
+
+
+.menu-button
+{
+    background-color: #669999;
+    border-color: #001a33;
+    color:#001a33;
+    padding-bottom: 0;
+    border-radius: 10px;
+}
+
+.menu-icon
+{
+    color:#001a33;
+    margin-top: 4px;
+}
+
+@media (max-width: 720px) 
+{
+    .left-buttons {
+        display: none; 
+      }
+    
+      .right-buttons{
+        display: none; 
+      }
+  
+      .menu .mat-icon {
+        font-size: 25px; /* Adjust icon size */
+      }
+
+      .menu  {
+        display: block; /* Ensure button is visible */
+      }
+
+      mat-menu {
+        display: block !important; /* Ensure mat-menu is visible when triggered */
+        color:white;
+        background-color: #669999;
+      }
+}
+@media (min-width: 720px) 
+{
+    .menu  {
+        display: none; 
+      }
+
+}

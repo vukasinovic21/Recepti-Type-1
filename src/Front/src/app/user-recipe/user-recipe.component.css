@@ -1,0 +1,200 @@
+.example-card {
+    width: 332px;
+    height: 432px;
+  }
+  
+.example-header-image {
+background-size: cover;
+}
+
+mat-card:hover{
+    transform: scale(1.10);
+    cursor:pointer;
+}
+
+mat-card{
+    transition: transform .2s;
+}
+
+.right 
+{
+    margin-left: auto; 
+}
+
+.bottom
+{
+    margin-top: -50px;
+}
+
+.mini
+{
+}
+
+img{
+    height:200px;
+}
+
+.sort-dropdown{
+    margin-left: 20px;
+}
+
+.mat-card-actions {
+    display: flex; /* Use flexbox layout */
+    justify-content: space-between; /* Distribute space between items, pushing items to the edges */
+    align-items: center; /* Center items vertically */
+}
+
+.circle {
+    float: right;
+    /*display: inline-block;*/
+    width: 60px; /* Adjust width and height as needed */
+    height: 60px; /* Adjust width and height as needed */
+    line-height: 50px; /* Centers text vertically */
+    text-align: center; /* Centers text horizontally */
+    border-radius: 50%; /* Makes it a circle */
+    border: 3px solid; /* Border color and thickness */
+    background-color: white; /* Circle color */
+    font-weight: bold; /* Optional: make text bold */
+    margin-left: auto;
+  }
+
+.circle.green {
+    border-color: green;
+    color:green;
+}
+
+.circle.orange {
+    border-color: orange;
+    color:orange;
+}
+
+.circle.red {
+    border-color: red;
+    color:red;
+}
+
+
+.smallb
+{
+    display: flex;
+    align-items: center;
+
+    border: none;
+    background-color: transparent;
+    font-size: 16px; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    padding: 0.25rem 0;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87); 
+    transition: border-color 0.3s ease-in-out;
+
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.smallb button 
+{
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 3px;
+}
+  
+.smallb button.active 
+{
+    background-color: #3f51b5;
+    color: white;
+}
+  
+.smallb button[disabled] 
+{
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.smallb p
+{
+    margin-top: 10px;
+}
+
+.inputb
+{
+    border: none;
+    /*border-radius: 3px;*/
+    background-color: white;
+    font-size: inherit;
+    font-family: inherit;
+    width: 35px; 
+    text-align: center;
+    color: inherit; 
+}
+
+.inputb:focus 
+{
+    outline: none;
+    border-bottom: 1px solid gray; 
+}
+
+.custom-alert 
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+  }
+  
+  .alert-content 
+  {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .alert-content p 
+  {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .alert-content button 
+  {
+    background-color:  red;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .alert-content button:hover 
+  {
+    background-color:  darkred ;
+  }
+
+  .alert-content .button1 
+  {
+    background-color:  darkgrey;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .alert-content .button1:hover 
+  {
+    background-color:  grey ;
+  }

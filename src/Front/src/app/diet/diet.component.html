@@ -1,1 +1,98 @@
-<p>diet works!</p>
+
+<div class="container" #content id="content">
+    <div class="text-center">
+        <h1 class="font">{{ diet?.dietName }}</h1> 
+    </div>
+
+    <div>
+        <div class="sides">
+            <div class="left">
+                &nbsp;<b> {{"Created at" | translate}}: </b> <span>{{ diet?.createdAt | date:'yyyy-MM-dd' }}</span> 
+            </div>
+            <div class="right no-pdf mb-2" >
+                <button class="btn btn-outline-secondary" (click)="downloadDietPdf()">{{"Download in pdf" | translate}}</button>
+            </div>
+        </div>
+
+        <table class="table table-striped table-bordered table-border">
+            <thead>
+              <tr class="text">
+                <th></th>
+                <th>{{"Monday" | translate}}</th>
+                <th>{{"Tuesday" | translate}}</th>
+                <th>{{"Wednesday" | translate}}</th>
+                <th>{{"Thursday" | translate}}</th>
+                <th>{{"Friday" | translate}}</th>
+                <th>{{"Saturday" | translate}}</th>
+                <th>{{"Sunday" | translate}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let meal of tableData; let i = index">
+                <th class="field1 text">
+                    {{ rows[i] | translate}}
+                </th>
+                <td *ngFor="let cell of meal; let j = index" class="field text">
+                    <div *ngIf="cell.recipeName" (click)="showRecipeId(cell.recipeId)" class="recipe-container">
+                      <b>{{ cell.recipeName | translate }}</b> <br><!--<br>--> 
+                      <img class="img" src="assets/images/{{ cell.picture }}">  <!--alt="{{ cell.recipeName }}"-->
+                      <div class="hover-content">
+                         <!--{{getNutritions(cell.recipeId)}}-->
+                         <div *ngFor="let nutrition of allNutritions[i][j]">
+                          {{"Carbs" | translate}}: {{ nutrition.carbs / nutrition.weight * 100 | number:'1.2-2' }}g<br>
+                          {{"Sugars" | translate}}: {{ nutrition.sugar / nutrition.weight * 100 | number:'1.2-2' }}g<br>
+                          {{"Fat" | translate}}: {{ nutrition.fat / nutrition.weight * 100 | number:'1.2-2' }}g<br>
+                          {{"Protein" | translate}}: {{ nutrition.protein / nutrition.weight * 100 | number:'1.2-2' }}g<br>
+                          {{"kCal" | translate}}: {{ nutrition.kCal / nutrition.weight * 100 | number:'1.2-2' }}<br>
+                          {{"GL" | translate}}GL: <span *ngIf="nutrition.gl / nutrition.weight * 100 < 10" style="color:green"> 
+                                {{ nutrition.gl / nutrition.weight * 100 | number:'1.2-2' }} </span>
+                              <span *ngIf="nutrition.gl / nutrition.weight * 100 >= 10 && nutrition.gl / nutrition.weight * 100 < 20" style="color:orange"> 
+                                {{ nutrition.gl / nutrition.weight * 100 | number:'1.2-2' }} </span>
+                              <span *ngIf="nutrition.gl / nutrition.weight * 100 >= 20" style="color:red"> 
+                                {{ nutrition.gl / nutrition.weight * 100 | number:'1.2-2' }} </span> <br>
+                          
+                        </div>
+                      </div>
+                    </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        <!--<table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Ponedeljak</th>
+                <th>Utorak</th>
+                <th>Sreda</th>
+                <th>Cetvrtak</th>
+                <th>Petak</th>
+                <th>Subota</th>
+                <th>Nedelja</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of tableData">
+                <td *ngFor="let cell of row">{{ cell }}</td>
+              </tr>
+            </tbody>
+          </table>
+        <div *ngFor="let meal of diet.planOfDiets"> <-- DOBIJA SE POREDJANO PO DANIMA PA PO OBROCIMA --
+            <span *ngIf="meal.typeOfMealId == '01a5ba31-d107-41cc-9902-7da073e9f43b'">
+                Dorucak: {{meal.recipeId}}
+            </span>
+            <span *ngIf="meal.typeOfMealId == '02863f22-e6ca-404f-a909-eb685273e786'">
+                Uzina prepodne: {{meal.recipeId}}
+            </span>
+            <span *ngIf="meal.typeOfMealId == '03d56869-ec65-86e7-4de2-e004e9167ac8'">
+                Rucak: {{meal.recipeId}}
+            </span>
+            <span *ngIf="meal.typeOfMealId == '04bb129c-76e6-3cd1-db54-b41521ed91bb'">
+                Uzina popodne: {{meal.recipeId}}
+            </span>
+            <span *ngIf="meal.typeOfMealId == '056cb8fd-c9c7-435c-ac00-574c82929c34'">
+                Vecera: {{meal.recipeId}}
+            </span>
+        </div>-->
+    </div>
+</div>

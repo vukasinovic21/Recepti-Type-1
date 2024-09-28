@@ -13,7 +13,7 @@ namespace Back.Application.Diets.Commands.CreateDiet
         {
             RuleFor(x => x.Diet.DietName).NotEmpty().WithMessage("Diet name is required");
             RuleFor(x => x.Diet.UserId).NotNull().WithMessage("UserId is required");
-            RuleFor(x => x.Diet.PlanOfDiets).NotEmpty().WithMessage("RecipeItems should not be empty");
+            RuleFor(x => x.Diet.PlanOfDiets).NotEmpty().WithMessage("PlanOfDiets should not be empty");
         }
     }
 }
