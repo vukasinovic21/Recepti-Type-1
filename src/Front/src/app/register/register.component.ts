@@ -52,9 +52,9 @@ export class RegisterComponent implements OnInit
               {
                 localStorage.setItem('jwt', jwt);
                 this.authService.loggedin(); // da se obaveste sve ostale komponente da je ulogovan
-                this.router.navigate(['/'])
+                this.router.navigate(['/home'])
               });
-            this.router.navigate(['/']);
+            this.router.navigate(['/home']);
           },
           error => {
             this.showAlert = true;

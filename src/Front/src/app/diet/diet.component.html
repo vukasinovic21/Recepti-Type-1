@@ -30,11 +30,11 @@
             <tbody>
               <tr *ngFor="let meal of tableData; let i = index">
                 <th class="field1 text">
-                    {{ rows[i] }}
+                    {{ rows[i] | translate}}
                 </th>
                 <td *ngFor="let cell of meal; let j = index" class="field text">
                     <div *ngIf="cell.recipeName" (click)="showRecipeId(cell.recipeId)" class="recipe-container">
-                      <b>{{ cell.recipeName }}</b> <br><!--<br>--> 
+                      <b>{{ cell.recipeName | translate }}</b> <br><!--<br>--> 
                       <img class="img" src="assets/images/{{ cell.picture }}">  <!--alt="{{ cell.recipeName }}"-->
                       <div class="hover-content">
                          <!--{{getNutritions(cell.recipeId)}}-->

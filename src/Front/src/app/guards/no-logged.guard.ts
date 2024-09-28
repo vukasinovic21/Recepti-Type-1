@@ -17,7 +17,7 @@ export class NoLoggedGuard implements CanActivate {
       if(localStorage.getItem("jwt"))
       {
         this.authService.loggedin();
-        this.router.navigate(['/'])
+        this.router.navigate(['home'])
         return false
       }
       else

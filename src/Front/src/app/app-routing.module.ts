@@ -19,10 +19,15 @@ import { InfoComponent } from './info/info.component';
 
 const routes: Routes = 
 [
-  {
+  /*{
     path:"", 
     component: HomeComponent,
     canActivate:[AllGuard] //mogu i jedni i drugi
+  },*/
+  {
+    path:"", 
+    component: LoginComponent,
+    canActivate:[NoLoggedGuard]
   },
   {
     path:"home", 

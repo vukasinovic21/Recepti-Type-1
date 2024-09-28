@@ -30,7 +30,7 @@ export class DietComponent implements OnInit
   constructor(private dietService: DietService, private activatedRoute: ActivatedRoute, private router: Router, private renderer: Renderer2, private recipeService: RecipeService) {}
 
   mealTypeMap: { [key: string]: string } = {
-    '01a5ba31-d107-41cc-9902-7da073e9f43b': 'Breakfast',//'Dorucak',
+    '01a5ba31-d107-41cc-9902-7da073e9f43b': 'Breakfast',//'Dorucak', //prevestii
     '02863f22-e6ca-404f-a909-eb685273e786': 'Morning snack',   //'Uzina prepodne',   
     '03d56869-ec65-86e7-4de2-e004e9167ac8': 'Lunch',//'Rucak',
     '04bb129c-76e6-3cd1-db54-b41521ed91bb': 'Afternoon snack', //'Uzina popodne', 

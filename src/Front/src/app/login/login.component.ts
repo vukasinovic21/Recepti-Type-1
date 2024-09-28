@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit
           { 
             localStorage.setItem('jwt', this.jwt);
             this.authService.loggedin(); // da se obaveste sve ostale komponente da je ulogovan
-            this.router.navigate(['/'])
+            this.router.navigate(['/home'])
           }
         });
       }
