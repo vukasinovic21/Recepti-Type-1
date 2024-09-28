@@ -18,6 +18,17 @@
                 throw new RecipeNotFoundException(command.RecipeId);
             }
 
+            else
+            {
+                // delte all likes for this recipe
+                var likes = await dbContext.Likes
+                    .Where(like => like.RecipeId == recipeId)
+                    .ToListAsync(cancellationToken);
+
+                dbContext.Likes.RemoveRange(likes);
+            }
+
+
             dbContext.Recipes.Remove(recipe);
             await dbContext.SaveChangesAsync(cancellationToken);
 
