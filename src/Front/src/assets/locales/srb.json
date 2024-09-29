@@ -191,6 +191,10 @@
     "Edit Recipe": "Izmeni Recept",
     "Public or Private": "Javan ili Privatan",
     "Public Recipe": "Javan Recept",
-    "Save": "Sačuvaj"
+    "Save": "Sačuvaj",
+    "You haven't liked any recipe yet": "Trenutno nemate recepata koji vam se sviđaju",
+    "Mine Recipes": "Moji Recepti",
+    "Liked Recipes": "Lajkovani Recepti",
+    "What to show": "Šta prikazati"
 
 }
