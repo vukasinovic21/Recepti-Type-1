@@ -149,6 +149,15 @@ export class RecipeService
     );
   }
 
+  getNumberOfLikes(recipeId: string):  Observable<number>
+  {
+    return this.http.get<{number:number}>(this.backUrl + "/likes/recipe/" + recipeId)
+    .pipe(
+      map(response => response.number)
+    );
+  }
+
+
   addPicture() : Observable<string>
   {
     const formData = new FormData(); 

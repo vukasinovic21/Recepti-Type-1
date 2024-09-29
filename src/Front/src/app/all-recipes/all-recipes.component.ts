@@ -28,6 +28,7 @@ export class AllRecipesComponent
     allUsers: UserInfo[] = [];
     
     likedStatus: { [recipeId: string]: boolean } = {};
+    likedNumber: { [recipeId: string]: number } = {};
 
     sortOrder = "";
     recipesPerPage = 8;
@@ -74,6 +75,7 @@ export class AllRecipesComponent
         this.recipes = recipes; // all recipes
         recipes.forEach(recipe => {
           this.isLiked(recipe.id);  
+          this.getRecipeLike(recipe.id);
         });
         this.applyFiltersAndPagination();
       });
@@ -118,6 +120,15 @@ export class AllRecipesComponent
       return type ? type.typeName : 'Unknown';
     }
 
+    getRecipeLike(id:string): void
+    {
+      this.recipeService.getNumberOfLikes(id).subscribe(number =>
+        {
+          this.likedNumber[id] = number; 
+        }
+      )
+    }
+    
     getUserSex(id: string): string 
     {
       const userinfo = this.allUsers.find(userinfo => userinfo.id === id);
@@ -183,13 +194,15 @@ export class AllRecipesComponent
         this.like.userId = userid; 
       }
       let before = this.likedStatus[recipeId];
-
+      let before2 = this.likedNumber[recipeId]; 
       this.recipeService.likeRecipe(this.like).subscribe({
         next: (str) => {
           this.likedStatus[recipeId] = !before; 
+          this.likedNumber[recipeId] = before2 + 1;
         },
         error: (err) => {
           this.likedStatus[recipeId] = !before; 
+          this.likedNumber[recipeId] = before2 - 1;
         }
       });
     }

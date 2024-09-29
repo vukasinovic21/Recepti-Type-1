@@ -30,6 +30,19 @@ img{
     height:200px;
 }
 
+.material-icons 
+{
+    font-size: 40px; 
+}
+
+.heart
+{
+    display: flex; 
+    align-items: center;
+    color:red;
+    margin-right: 5px;
+}
+
 .razmak
 {
     margin-bottom: 10px;
