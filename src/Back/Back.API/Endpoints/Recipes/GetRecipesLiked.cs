@@ -22,7 +22,8 @@ namespace Back.API.Endpoints.Recipes
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .ProducesProblem(StatusCodes.Status404NotFound)
             .WithSummary("GetRecipesLiked By User")
-            .WithDescription("GetRecipesLiked By User"); ;
+            .WithDescription("GetRecipesLiked By User")
+            .RequireAuthorization();  
         }
     }
 }

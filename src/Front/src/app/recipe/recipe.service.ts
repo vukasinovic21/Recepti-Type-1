@@ -154,6 +154,13 @@ export class RecipeService
     );
   }
 
+  getRecipesLiked(id: string): Observable<Recipe[]>
+  {
+    return this.http.get<{recipes: Recipe[]}>(this.backUrl + "/recipes/user/liked/" + id)
+    .pipe(
+      map(response => response.recipes)
+    )
+  }
 
   addPicture() : Observable<string>
   {

@@ -23,6 +23,8 @@ export class UserRecipeComponent
   user?: GetUser;
   recipes: Recipe[] = [];  
   filteredRecipes: Recipe[] = [];
+  likedRecipes: Recipe[] = [];
+
   showAlert = false;
   deleteThis = '';
 
@@ -68,6 +70,11 @@ export class UserRecipeComponent
 
     this.userService.getAllUsers().subscribe( users => {
       this.allUsers = users;
+    })
+
+    this.recipeService.getRecipesLiked(this.userId).subscribe(recipes => {
+      //console.log("LAJKOVANI", recipes)
+      this.likedRecipes = recipes;
     })
   }
 

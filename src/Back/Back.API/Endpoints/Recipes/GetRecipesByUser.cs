@@ -20,7 +20,8 @@ namespace Back.API.Endpoints.Recipes
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .ProducesProblem(StatusCodes.Status404NotFound)
             .WithSummary("Get Recipes By User")
-            .WithDescription("Get Recipes By User"); ;
+            .WithDescription("Get Recipes By User")
+            .RequireAuthorization();
         }
     }
 }
