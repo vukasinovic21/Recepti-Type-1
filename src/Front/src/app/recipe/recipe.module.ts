@@ -13,13 +13,17 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { UserRecipeComponent } from '../user-recipe/user-recipe.component'
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { EditRecipeComponent } from '../edit-recipe/edit-recipe.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 @NgModule({
   declarations: [
     RecipeComponent,
     AllRecipesComponent,
     CreateRecipeComponent,
-    UserRecipeComponent
+    UserRecipeComponent,
+    EditRecipeComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +36,11 @@ import { TranslateModule } from '@ngx-translate/core';
     MatSelectModule,
     MatCheckboxModule,
     MatPaginatorModule,
-    TranslateModule 
+    TranslateModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSlideToggleModule
   ]
 })
 export class RecipeModule { }

@@ -9,7 +9,8 @@ import { GetUser } from '../models/get-user';
 import { Observable } from 'rxjs';
 import { TypeOfFood } from '../models/type-of-food';
 import { UserInfo } from '../models/user-info';
-import LockIcon from '@mui/icons-material/Lock';
+import { MatDialog } from '@angular/material/dialog';
+import { EditRecipeComponent } from '../edit-recipe/edit-recipe.component';
 
 @Component({
   selector: 'app-user-recipe',
@@ -36,7 +37,12 @@ export class UserRecipeComponent
   allTypesOfFood: TypeOfFood[] = [];
   allUsers: UserInfo[] = [];
   
-  constructor(private recipeService: RecipeService, private router: Router, protected activatedRoute: ActivatedRoute, private userService: UserService){}
+  constructor(
+    private recipeService: RecipeService,
+    private router: Router, 
+    protected activatedRoute: ActivatedRoute, 
+    private userService: UserService, 
+    private dialog: MatDialog){}
 
   ngOnInit(): void 
   {
@@ -70,6 +76,24 @@ export class UserRecipeComponent
     this.showAlert = true;
     this.deleteThis = id;
   }
+
+  edit(recipeId: string): void 
+  {
+    const recipe = this.filteredRecipes.find(r => r.id === recipeId);
+    const dialogRef = this.dialog.open(EditRecipeComponent, {
+      width: '650px',
+      data: { ...recipe } 
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) 
+      {
+        console.log(result);
+        this.recipeService.updateRecipe(result);
+      }
+    });
+  }
+
   closeAlert() 
   {
     this.showAlert = false; 

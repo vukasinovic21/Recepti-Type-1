@@ -1,0 +1,31 @@
+<div class="col">
+    <div class="text-center mb-5 mt-3">
+        <h2>{{"Edit Recipe" | translate}}</h2>
+    </div>
+
+    <div mat-dialog-content>
+        <mat-form-field>
+            <mat-label>{{ 'Recipe Name' | translate }}</mat-label>
+            <input matInput [(ngModel)]="data.recipeName">
+        </mat-form-field>&nbsp;&nbsp;
+
+        <mat-form-field>
+            <mat-label>{{ 'Time to prepare' | translate }}</mat-label>
+            <input matInput [(ngModel)]="data.timeToPrepare" type="number">
+        </mat-form-field>&nbsp;&nbsp;
+
+        <mat-slide-toggle [(ngModel)]="data.shared">
+            {{ 'Public Recipe' | translate }}
+        </mat-slide-toggle>
+        
+        <mat-form-field class="width">
+            <mat-label>{{ 'Instructions' | translate }}</mat-label>
+            <textarea  rows="7" matInput [(ngModel)]="data.instructions"></textarea>
+        </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+        <button  (click)="onCancel()">{{ 'Cancel' | translate }}</button>
+        <button  color="primary" (click)="onSave()">{{ 'Save' | translate }}</button>
+    </div>
+</div>

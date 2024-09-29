@@ -185,4 +185,13 @@ export class RecipeService
       map(response => response.isSuccess)
     );
   }
+
+  updateRecipe(recipe: any): Observable<boolean>
+  {
+    const query = {recipe:recipe};
+    return this.http.put<{isSuccess: boolean}>(this.backUrl + "/recipes", query )
+    .pipe(
+      map(response => response.isSuccess)
+    );
+  }
 }
