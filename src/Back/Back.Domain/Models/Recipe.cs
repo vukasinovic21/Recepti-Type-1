@@ -39,12 +39,13 @@ namespace Back.Domain.Models
             return recipe;
         }
 
-        public void Update(string recipename, TypeOfFoodId typeoffoodid, string instructions, int timetoprepare)
+        public void Update(string recipename, TypeOfFoodId typeoffoodid, string instructions, int timetoprepare, bool shared)
         {
             RecipeName = recipename;
             TypeOfFoodId = typeoffoodid;
             Instructions = instructions;
             TimeToPrepare = timetoprepare;
+            Shared = shared;
 
             AddDomainEvent(new RecipeUpdatedEvent(this));
         }

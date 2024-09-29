@@ -35,6 +35,12 @@ public class CustomExceptionHandler
                 exception.GetType().Name,
                 context.Response.StatusCode = StatusCodes.Status400BadRequest
             ),
+            NotSupportedException =>
+            (
+                exception.Message,
+                exception.GetType().Name,
+                context.Response.StatusCode = StatusCodes.Status400BadRequest
+            ),
             NotFoundException =>
             (
                 exception.Message,

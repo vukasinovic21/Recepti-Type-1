@@ -42,4 +42,12 @@ export class DietService {
     );
   }
 
+  delete(id: string) : Observable<boolean>
+  {
+    return this.http.delete<{isSuccess: boolean}>(this.backUrl + "/diets/" + id)
+    .pipe(
+      map(response => response.isSuccess)
+    );
+  }
+
 }

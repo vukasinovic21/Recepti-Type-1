@@ -132,10 +132,7 @@ export class RecipeService
     const query = {like: like};
     return this.http.post<{id: string}>(this.backUrl + "/likes", query)
     .pipe(
-      map(response => response.id),
-      catchError(error => {
-        return throwError(() => new Error('Failed to like the recipe.'));
-      })
+      map(response => response.id)
     );
   }
 
@@ -147,6 +144,22 @@ export class RecipeService
     .pipe(
       map(response => response.result)
     );
+  }
+
+  getNumberOfLikes(recipeId: string):  Observable<number>
+  {
+    return this.http.get<{number:number}>(this.backUrl + "/likes/recipe/" + recipeId)
+    .pipe(
+      map(response => response.number)
+    );
+  }
+
+  getRecipesLiked(id: string): Observable<Recipe[]>
+  {
+    return this.http.get<{recipes: Recipe[]}>(this.backUrl + "/recipes/user/liked/" + id)
+    .pipe(
+      map(response => response.recipes)
+    )
   }
 
   addPicture() : Observable<string>
@@ -175,6 +188,17 @@ export class RecipeService
   delete(id: string) : Observable<boolean>
   {
     return this.http.delete<{isSuccess: boolean}>(this.backUrl + "/recipes/" + id)
+    .pipe(
+      map(response => response.isSuccess)
+    );
+  }
+
+  updateRecipe(recipe: any): Observable<boolean>
+  {
+    const query = {recipe:recipe};
+  
+    console.log(query);
+    return this.http.put<{isSuccess: boolean}>(this.backUrl + "/recipes", query )
     .pipe(
       map(response => response.isSuccess)
     );

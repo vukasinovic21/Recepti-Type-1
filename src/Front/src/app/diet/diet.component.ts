@@ -21,6 +21,8 @@ export class DietComponent implements OnInit
   allNutritions: any[][] = [];
   recipeNutritions: RecipeNutritions[] = [];
 
+  showAlert = false;
+  deleteThis = '';
 
   tableData: any[][] = [];
   headers: string[] = []; 
@@ -162,6 +164,25 @@ export class DietComponent implements OnInit
     });
 
     this.renderer.removeStyle(element, 'width');
+  }
+
+  delete(): void
+  {
+    this.showAlert = true;
+    this.deleteThis = this.dietId;
+  }
+  closeAlert() 
+  {
+    this.showAlert = false; 
+  }
+  closeAlert1() 
+  {
+    this.showAlert = false; 
+    this.dietService.delete(this.deleteThis).subscribe({
+      next: (isDeleted: boolean) => {
+        this.router.navigate(['/diets'], { queryParams: { refresh: new Date().getTime() } })
+      }
+    });
   }
 
 }

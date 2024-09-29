@@ -9,7 +9,8 @@ import { GetUser } from '../models/get-user';
 import { Observable } from 'rxjs';
 import { TypeOfFood } from '../models/type-of-food';
 import { UserInfo } from '../models/user-info';
-import LockIcon from '@mui/icons-material/Lock';
+import { MatDialog } from '@angular/material/dialog';
+import { EditRecipeComponent } from '../edit-recipe/edit-recipe.component';
 
 @Component({
   selector: 'app-user-recipe',
@@ -22,6 +23,10 @@ export class UserRecipeComponent
   user?: GetUser;
   recipes: Recipe[] = [];  
   filteredRecipes: Recipe[] = [];
+  likedRecipes: Recipe[] = [];
+
+  showLiked = false;
+
   showAlert = false;
   deleteThis = '';
 
@@ -35,8 +40,19 @@ export class UserRecipeComponent
 
   allTypesOfFood: TypeOfFood[] = [];
   allUsers: UserInfo[] = [];
+
+  like: Like = 
+    {
+      recipeId: '',
+      userId: ''
+    };  
   
-  constructor(private recipeService: RecipeService, private router: Router, protected activatedRoute: ActivatedRoute, private userService: UserService){}
+  constructor(
+    private recipeService: RecipeService,
+    private router: Router, 
+    protected activatedRoute: ActivatedRoute, 
+    private userService: UserService, 
+    private dialog: MatDialog){}
 
   ngOnInit(): void 
   {
@@ -63,6 +79,19 @@ export class UserRecipeComponent
     this.userService.getAllUsers().subscribe( users => {
       this.allUsers = users;
     })
+
+    this.recipeService.getRecipesLiked(this.userId).subscribe(recipes => {
+      //console.log("LAJKOVANI", recipes)
+      this.likedRecipes = recipes;
+    })
+  }
+
+  switchRecipes(sortValue: string):void
+  {
+    if(sortValue == 'mine')
+      this.showLiked = false;
+    else
+      this.showLiked = true;
   }
 
   delete(id: string): void
@@ -70,6 +99,28 @@ export class UserRecipeComponent
     this.showAlert = true;
     this.deleteThis = id;
   }
+
+  edit(recipeId: string): void 
+  {
+    const recipe = this.filteredRecipes.find(r => r.id === recipeId);
+    const dialogRef = this.dialog.open(EditRecipeComponent, {
+      width: '700px',
+      data: { ...recipe } 
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) 
+      {
+        this.recipeService.updateRecipe(result).subscribe( success =>
+        {
+          if(success)
+            this.router.navigate(['/recipes/user/' + this.userId], { queryParams: { refresh: new Date().getTime() } }) //treba da se reloaduje
+        }
+        );
+      }
+    });
+  }
+
   closeAlert() 
   {
     this.showAlert = false; 
@@ -148,6 +199,11 @@ export class UserRecipeComponent
     this.filteredRecipes = this.recipes.filter(
       recipe => recipe.recipeName.toLowerCase().includes(searchTerm))
 
+    /*let rec = this.likedRecipes.filter(
+      recipe => recipe.recipeName.toLowerCase().includes(searchTerm))
+
+    this.likedRecipes = rec;*/
+
     this.sortRecipes(this.sortOrder);  
   }
 
@@ -159,26 +215,32 @@ export class UserRecipeComponent
     if(this.sortOrder === "timeLowHigh")
     {
       this.filteredRecipes.sort((a,b) => a.timeToPrepare - b.timeToPrepare)
+      this.likedRecipes.sort((a,b) => a.timeToPrepare - b.timeToPrepare)
     }
     else if(this.sortOrder === "timeHighLow")
     {
       this.filteredRecipes.sort((a,b) => b.timeToPrepare - a.timeToPrepare)
+      this.likedRecipes.sort((a,b) => b.timeToPrepare - a.timeToPrepare)
     }
     else if(this.sortOrder === "nameA-Z")
     {
       this.filteredRecipes.sort((a, b) => a.recipeName.localeCompare(b.recipeName));
+      this.likedRecipes.sort((a,b) => b.timeToPrepare - a.timeToPrepare)
     }
     else if(this.sortOrder === "nameZ-A")
     {
       this.filteredRecipes.sort((a, b) => b.recipeName.localeCompare(a.recipeName));
+      this.likedRecipes.sort((a,b) => b.timeToPrepare - a.timeToPrepare)
     }
     else if(this.sortOrder === "newest")
     {
       this.filteredRecipes.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+      this.likedRecipes.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
     }
     else if(this.sortOrder === "oldest")
     {
       this.filteredRecipes.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+      this.likedRecipes.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
     }
     else if(this.sortOrder === "likeLowHigh")
     {
@@ -218,6 +280,26 @@ export class UserRecipeComponent
     this.recipeService.getAllRecipesPage(this.currentPage-1, this.recipesPerPage).subscribe( recipes => {
       this.recipes = recipes;
       this.filteredRecipes = recipes; 
+    });
+  }
+
+  likeRecipe(recipeId:string): void
+  {
+    this.like.recipeId = recipeId;
+    let userid = localStorage.getItem("userid"); 
+    if(userid)
+    {
+      this.like.userId = userid; 
+    }
+    
+    this.recipeService.likeRecipe(this.like).subscribe({
+      next: (str) => {
+        if(str == '00000000-0000-0000-0000-000000000000')
+        {
+          console.log("Uspesno ste otpratili recept.");
+          this.router.navigate(['recipes/user/'+ this.userId], { queryParams: { refresh: new Date().getTime() }})
+        }
+      }
     });
   }
 }

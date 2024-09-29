@@ -23,6 +23,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { InfoComponent } from './info/info.component';
 import { InfoModule } from './info/info.module';
+import { FormsModule } from '@angular/forms';
 
 export function HttpLoaderFactory(http: HttpClient) 
 {
@@ -35,6 +36,7 @@ export function HttpLoaderFactory(http: HttpClient)
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HomeModule,
     UserModule,

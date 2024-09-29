@@ -1,24 +1,37 @@
-.example-card {
+.example-card 
+{
     width: 332px;
     height: 432px;
   }
   
-.example-header-image {
+.example-header-image 
+{
 background-size: cover;
 }
 
-mat-card:hover{
+mat-card:hover
+{
     transform: scale(1.10);
     cursor:pointer;
 }
 
-mat-card{
+mat-card
+{
     transition: transform .2s;
+}
+
+.heart
+{
+    display: flex; 
+    align-items: center;
+    color:red;
+    font-size: 40px; 
 }
 
 .right 
 {
     margin-left: auto; 
+    display: flex;
 }
 
 .bottom
@@ -30,21 +43,25 @@ mat-card{
 {
 }
 
-img{
+img
+{
     height:200px;
 }
 
-.sort-dropdown{
+.sort-dropdown
+{
     margin-left: 20px;
 }
 
-.mat-card-actions {
+.mat-card-actions
+{
     display: flex; /* Use flexbox layout */
     justify-content: space-between; /* Distribute space between items, pushing items to the edges */
     align-items: center; /* Center items vertically */
 }
 
-.circle {
+.circle 
+{
     float: right;
     /*display: inline-block;*/
     width: 60px; /* Adjust width and height as needed */
@@ -58,17 +75,20 @@ img{
     margin-left: auto;
   }
 
-.circle.green {
+.circle.green 
+{
     border-color: green;
     color:green;
 }
 
-.circle.orange {
+.circle.orange 
+{
     border-color: orange;
     color:orange;
 }
 
-.circle.red {
+.circle.red 
+{
     border-color: red;
     color:red;
 }
