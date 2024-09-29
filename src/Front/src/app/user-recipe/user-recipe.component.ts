@@ -81,15 +81,19 @@ export class UserRecipeComponent
   {
     const recipe = this.filteredRecipes.find(r => r.id === recipeId);
     const dialogRef = this.dialog.open(EditRecipeComponent, {
-      width: '650px',
+      width: '700px',
       data: { ...recipe } 
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) 
       {
-        console.log(result);
-        this.recipeService.updateRecipe(result);
+        this.recipeService.updateRecipe(result).subscribe( success =>
+        {
+          if(success)
+            this.router.navigate(['/recipes/user/' + this.userId], { queryParams: { refresh: new Date().getTime() } }) //treba da se reloaduje
+        }
+        );
       }
     });
   }

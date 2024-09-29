@@ -58,14 +58,14 @@
                 {{getTypeName(recipe.typeOfFoodId) | translate}}
               </mat-card-subtitle><!--<mat-card-subtitle (click)="showTypeOfFoodId(recipe.typeOfFoodId)">{{ recipe.typeOfFoodId }}</mat-card-subtitle> --><!--KLIKOM NA TIP HRANE DA SE OTVORE SVI RECEPTI TOG TIPA -->
               <div class="right">
-                <span *ngIf="likedStatus[recipe.id] && this.userId && likedNumber[recipe.id] <= 9" class="heart" (click)="likeRecipe(recipe.id)">
+                <span *ngIf="likedStatus[recipe.id] && this.userId  && likedNumber[recipe.id] <= 9" class="heart" (click)="likeRecipe(recipe.id)">
                   <span class="material-icons">favorite</span>
                   <span style="margin-left: -24px;color:white"><b>{{likedNumber[recipe.id]}}</b></span>
                 </span>
                 
                 <span *ngIf="!likedStatus[recipe.id] && this.userId" class="heart" (click)="likeRecipe(recipe.id)">
                     <span class="material-icons">favorite_border</span>
-                    <span style="margin-left: -24px;color:red"><b>{{likedNumber[recipe.id]}}</b></span>
+                    <span *ngIf="likedNumber[recipe.id] > 0" style="margin-left: -24px;color:red"><b>{{likedNumber[recipe.id]}}</b></span>
                     <!--<span style="margin-left: -20px;"><b>{{likedNumber[recipe.id]}}</b></span>-->
                 </span>
 
