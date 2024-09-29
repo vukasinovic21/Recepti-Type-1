@@ -195,14 +195,19 @@ export class AllRecipesComponent
       }
       let before = this.likedStatus[recipeId];
       let before2 = this.likedNumber[recipeId]; 
+
       this.recipeService.likeRecipe(this.like).subscribe({
         next: (str) => {
-          this.likedStatus[recipeId] = !before; 
-          this.likedNumber[recipeId] = before2 + 1;
-        },
-        error: (err) => {
-          this.likedStatus[recipeId] = !before; 
-          this.likedNumber[recipeId] = before2 - 1;
+          if(str != '00000000-0000-0000-0000-000000000000')
+          {
+            this.likedStatus[recipeId] = !before; 
+            this.likedNumber[recipeId] = before2 + 1;
+          }
+          else
+          {
+            this.likedStatus[recipeId] = !before; 
+            this.likedNumber[recipeId] = before2 - 1;
+          }
         }
       });
     }

@@ -132,10 +132,7 @@ export class RecipeService
     const query = {like: like};
     return this.http.post<{id: string}>(this.backUrl + "/likes", query)
     .pipe(
-      map(response => response.id),
-      catchError(error => {
-        return throwError(() => new Error('Failed to like the recipe.'));
-      })
+      map(response => response.id)
     );
   }
 

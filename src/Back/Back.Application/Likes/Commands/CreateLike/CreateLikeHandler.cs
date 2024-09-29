@@ -1,6 +1,4 @@
-﻿using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-
-namespace Back.Application.Likes.Commands.CreateLike
+﻿namespace Back.Application.Likes.Commands.CreateLike
 {
     public class CreateLikeHandler(IApplicationDbContext dbContext)
         : ICommandHandler<CreateLikeCommand, CreateLikeResult>
@@ -23,7 +21,8 @@ namespace Back.Application.Likes.Commands.CreateLike
             {
                 dbContext.Likes.Remove(alreadyLiked);
                 await dbContext.SaveChangesAsync(cancellationToken);
-                throw new InvalidOperationException("Like has been removed");
+                Guid falseReturn = Guid.Empty;
+                return new CreateLikeResult(falseReturn);
             }
 
             var like = CreateNewLike(command.Like);
