@@ -15,10 +15,19 @@ namespace Back.Application.Auth.Commands.RegisterUser
             var existingUser = await dbContext.Users
                 .FirstOrDefaultAsync(u => u.Email == command.User.Email, cancellationToken);
 
-            if(existingUser != null)
+            var existingUser1 = await dbContext.Users
+                .FirstOrDefaultAsync(u => u.Username == command.User.Username, cancellationToken);
+
+            if (existingUser != null)
             {
                 throw new InvalidOperationException("An user with this email already exists.");
             }
+
+            else if (existingUser1 != null)
+            {
+                throw new InvalidOperationException("An user with this username already exists.");
+            }
+
             else
             {
                 var user = RegisterUser(command.User);

@@ -172,6 +172,7 @@ export class RecipeService
       formData.append('picture', file.files[0]);
 
       return this.http.post<string>(this.backUrl + "/recipes/picture", formData).pipe(
+        map(response => response),
         catchError(error => {
           console.error('Error uploading picture:', error);
           return of('Error uploading picture'); 

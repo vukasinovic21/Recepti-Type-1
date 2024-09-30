@@ -88,6 +88,12 @@
               <button (click)="closeAlert()">OK</button>
             </div>
         </div>
+        <div *ngIf="showAlert1" class="custom-alert">
+            <div class="alert-content">
+              <p>{{"An user with this username already exists" | translate}}.</p>
+              <button (click)="closeAlert()">OK</button>
+            </div>
+        </div>
         <button class="btn btn-success float-end" type="submit" [disabled]="registerForm.invalid">{{"Register" | translate}}</button>
         <button [routerLink]="['/login']" class="btn btn-primary" >{{"Already have account" | translate}}?</button>
     </form>

@@ -104,12 +104,21 @@ export class AuthService
     .pipe(
       map(response => response.id),
       catchError(error => {
-        if (error.status === 500) 
-        {
-          return throwError(() => new Error("An user with this email already exists."));
-        }
-        else
-          return throwError(() => new Error("An unexpected error occurred"));
+        //console.log(error)
+
+          if (error.status === 500 && error.error?.detail) 
+          {
+            const errorMessage = error.error.detail; 
+            if (errorMessage === "An user with this email already exists.") 
+            {
+              return throwError(() => new Error("An user with this email already exists."));
+            } 
+            else if (errorMessage === "An user with this username already exists.") 
+            {
+              return throwError(() => new Error("An user with this username already exists."));
+            }
+          }
+          return throwError(() => new Error("An error occured."));
       })
     );
   }

@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit
   
     questions: Question[] = [];  
     showAlert = false;
+    showAlert1 = false;
 
     registerForm: FormGroup = new FormGroup({});
 
@@ -57,7 +58,11 @@ export class RegisterComponent implements OnInit
             this.router.navigate(['/home']);
           },
           error => {
-            this.showAlert = true;
+            //console.log(error)
+              if(error.message  === "An user with this email already exists.")
+                this.showAlert = true;
+              else if(error.message  === "An user with this username already exists.")
+                this.showAlert1 = true;
           }
         );
       }
@@ -65,5 +70,6 @@ export class RegisterComponent implements OnInit
     closeAlert() 
     {
       this.showAlert = false; 
+      this.showAlert1 = false;
     }
 }

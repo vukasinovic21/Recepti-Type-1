@@ -95,13 +95,13 @@ export class AllRecipesComponent
       if(userid)
       {
         this.like2.userId = userid; 
-      }
-      this.like2.recipeId = recipeId;
+        this.like2.recipeId = recipeId;
       
-      this.recipeService.isLiked(this.like2).subscribe(isLiked => 
-      {
-        this.likedStatus[recipeId] = isLiked; 
-      });
+        this.recipeService.isLiked(this.like2).subscribe(isLiked => 
+        {
+          this.likedStatus[recipeId] = isLiked; 
+        });
+      }
     }
 
     showRecipeId(recipeId:string): void

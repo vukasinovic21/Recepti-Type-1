@@ -125,13 +125,18 @@ export class CreateRecipeComponent implements OnInit
       if(this.createForm.get('picture')?.value != 'defaultRecipe.jpg')
       {
         this.recipeService.addPicture().subscribe({
-          next: () => {
-            this.recipeService.createNewRecipe(recipe).subscribe({ 
-              next: (str) => {
-                this.response = str
-                this.router.navigate(['/recipes/' + this.response], { queryParams: { refresh: new Date().getTime() } });
-              }
-          });}
+          next: (upload) => {
+            if(upload == "Uspesno dodata slika uz recept.")
+            {
+              //console.log(upload, recipe.picture);
+              this.recipeService.createNewRecipe(recipe).subscribe({ 
+                next: (str) => {
+                  this.response = str
+                  this.router.navigate(['/recipes/' + this.response], { queryParams: { refresh: new Date().getTime() } });
+                }
+            });
+            }
+          }
         })
       }
       else
