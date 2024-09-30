@@ -29,10 +29,10 @@
           <mat-select [(ngModel)]="selectedTypes" multiple>
             <mat-option *ngFor="let type of allTypesOfFood" [value]="type.id">
               <mat-checkbox
-                  (change)="filterTypeOfFood(type.id)"
-                  [checked]="isSelected(type.id)">
-              </mat-checkbox>
-              {{type.typeName | translate}}
+                (change)="filterTypeOfFood(type.id)"
+                [checked]="isSelected(type.id)">
+              </mat-checkbox> 
+              <span (click)="filterTypeOfFood(type.id)" style="cursor: pointer;">{{type.typeName | translate}}</span>
             </mat-option>
           </mat-select>
         </mat-form-field>
