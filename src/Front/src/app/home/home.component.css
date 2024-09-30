@@ -92,13 +92,13 @@ img
     min-height: 100vh;/*Vratiti na 100vh */
     background-size: cover; 
     /*background-position: bottom;*/ 
-    background-position: center 45%;
+    background-position: center 30%;/*vratiti center 45%;*/
     background-repeat: no-repeat;
 }
 
 .dalje
 {
-    margin-top: 100px;
+    margin-top: 80px;/*vratiti na 100px*/
     margin-right: 150px;
     background-color: rgba(0, 0, 0, 0.1); 
     transition: transform .2s;
@@ -116,9 +116,9 @@ img
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
-    width: 99vw; /*vratiti na 99vw*/ 
+    width: 98vw; /*vratiti na 99vw*/ 
     position: relative;
-    height: 500px; 
+    height: 435px; /*vratiti na 500px*/
     white-space: nowrap;
 }
 
@@ -131,7 +131,7 @@ img
     margin-right: 350px;
 }
   
-.paused 
+.paused  
 {
     animation-play-state: paused;
 }
