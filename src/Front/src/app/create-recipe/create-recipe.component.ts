@@ -85,10 +85,15 @@ export class CreateRecipeComponent implements OnInit
   { 
     this.imageUrl = <File>event.target.files[0];
     this.createForm.get('picture')?.setValue(this.imageUrl.name); 
+
+    this.recipeService.addPicture().subscribe({
+      next: () => {
+      }
+    });
     //dodeliti picture-u iz createForma pravu vrednost ako se ne doda slika dodace se default slika
   } 
 
-  /*onSubmit()
+  /*1onSubmit()
   {
     if(this.createForm.valid)
     {
@@ -116,7 +121,7 @@ export class CreateRecipeComponent implements OnInit
     }
   }*/
 
-  onSubmit()
+  /*2onSubmit()
   {
     if(this.createForm.valid)
     {
@@ -128,7 +133,6 @@ export class CreateRecipeComponent implements OnInit
           next: (upload) => {
             if(upload == "Uspesno dodata slika uz recept.")
             {
-              //console.log(upload, recipe.picture);
               this.recipeService.createNewRecipe(recipe).subscribe({ 
                 next: (str) => {
                   this.response = str
@@ -147,6 +151,24 @@ export class CreateRecipeComponent implements OnInit
           }
         });
       }
+    }
+  }*/
+
+    onSubmit()
+  {
+    if(this.createForm.valid)
+    {
+      let recipe: CreateRecipe = this.createForm.value;
+      this.recipeService.createNewRecipe(recipe).subscribe({ 
+        next: (str) => {
+          this.response = str
+          this.router.navigate(['/recipes/' + this.response], { queryParams: { refresh: new Date().getTime() } });
+      },
+      error: (err) => 
+      {
+        console.error("An error ocurred during creating new Recipe:", err);
+      }
+    });
     }
   }
 }

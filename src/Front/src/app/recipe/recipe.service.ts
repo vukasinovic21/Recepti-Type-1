@@ -198,7 +198,7 @@ export class RecipeService
   {
     const query = {recipe:recipe};
   
-    console.log(query);
+    //console.log(query);
     return this.http.put<{isSuccess: boolean}>(this.backUrl + "/recipes", query )
     .pipe(
       map(response => response.isSuccess)

@@ -81,7 +81,6 @@ export class UserRecipeComponent
     })
 
     this.recipeService.getRecipesLiked(this.userId).subscribe(recipes => {
-      //console.log("LAJKOVANI", recipes)
       this.likedRecipes = recipes;
     })
   }
@@ -114,7 +113,12 @@ export class UserRecipeComponent
         this.recipeService.updateRecipe(result).subscribe( success =>
         {
           if(success)
-            this.router.navigate(['/recipes/user/' + this.userId], { queryParams: { refresh: new Date().getTime() } }) //treba da se reloaduje
+          {
+            this.recipeService.getRecipeUser(this.userId).subscribe( recipes => {
+              this.filteredRecipes = recipes;
+            });
+            this.router.navigate(['/recipes/user/' + this.userId]) 
+          } 
         }
         );
       }
@@ -297,6 +301,9 @@ export class UserRecipeComponent
         if(str == '00000000-0000-0000-0000-000000000000')
         {
           console.log("Uspesno ste otpratili recept.");
+          this.recipeService.getRecipesLiked(this.userId).subscribe(recipes => {
+            this.likedRecipes = recipes;
+          })
           this.router.navigate(['recipes/user/'+ this.userId], { queryParams: { refresh: new Date().getTime() }})
         }
       }
