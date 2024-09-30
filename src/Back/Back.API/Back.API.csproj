@@ -12,7 +12,6 @@
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="8.0.0" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.0" />
-    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Carter" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.3">
@@ -27,6 +26,11 @@
   <ItemGroup>
     <ProjectReference Include="..\Back.Application\Back.Application.csproj" />
     <ProjectReference Include="..\Back.Infrastructure\Back.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Endpoints\Ingredients\" />
+    <Folder Include="Endpoints\Auth\" />
   </ItemGroup>
 
 </Project>

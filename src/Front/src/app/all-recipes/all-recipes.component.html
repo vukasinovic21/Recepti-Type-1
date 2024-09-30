@@ -84,7 +84,7 @@
           <div *ngIf="recipe.recipeName.length <= 17">
             <div class="razmak"></div>
           </div>
-          <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
+          <img mat-card-image src="https://localhost:8085/wwwroot/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
           <br>
           <mat-card-content>
               {{ recipe.instructions | slice:0:75 }}
@@ -115,3 +115,7 @@
     </div>
 </div>
 <br>
+
+<div [ngBusy] = "subscription">
+
+</div>

@@ -17,6 +17,8 @@ import { EditRecipeComponent } from '../edit-recipe/edit-recipe.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgBusyModule } from 'ng-busy';
 @NgModule({
   declarations: [
     RecipeComponent,
@@ -31,6 +33,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     ReactiveFormsModule,
     RouterModule,
     MatCardModule,
+    BrowserAnimationsModule,
+    NgBusyModule,
     FlexModule,
     MatInputModule,
     MatSelectModule,

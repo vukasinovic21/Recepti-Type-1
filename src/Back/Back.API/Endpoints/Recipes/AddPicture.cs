@@ -10,11 +10,14 @@ namespace Back.API.Endpoints.Recipes
         {
             app.MapPost("/recipes/picture", async (IFormFile picture) =>
             {
-                var currentDirectory = Directory.GetCurrentDirectory();
+                /*var currentDirectory = Directory.GetCurrentDirectory();
+ 
                 var parentDirectory = Directory.GetParent(currentDirectory).Parent.FullName; // K:\\Recepti-Type-1\\src\\Front
                 var uploadsFolder = Path.Combine(parentDirectory, "Front", "src", "assets", "images");
+                var uploadsFolder = Path.Combine( "Front", "src", "assets", "images");*/
 
-                var filePath = Path.Combine(uploadsFolder, picture.FileName);
+                var fileName = Path.GetFileName(picture.FileName);
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\images", fileName);
 
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {

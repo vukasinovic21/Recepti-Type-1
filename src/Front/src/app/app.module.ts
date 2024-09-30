@@ -24,6 +24,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { InfoComponent } from './info/info.component';
 import { InfoModule } from './info/info.module';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgBusyModule } from 'ng-busy';
 
 export function HttpLoaderFactory(http: HttpClient) 
 {
@@ -39,6 +41,8 @@ export function HttpLoaderFactory(http: HttpClient)
     FormsModule,
     AppRoutingModule,
     HomeModule,
+    BrowserAnimationsModule,
+    NgBusyModule,
     UserModule,
     DietModule,
     RecipeModule,

@@ -3,7 +3,7 @@ import { Recipe } from '../models/recipe';
 import { Like } from '../models/like';
 import { RecipeService } from '../recipe/recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map } from 'rxjs';
+import { map, Subscription } from 'rxjs';
 import { TypeOfFood } from '../models/type-of-food';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { AuthService } from '../auth/auth.service';
@@ -22,6 +22,8 @@ export class AllRecipesComponent
     recipes: Recipe[] = [];  
     filteredRecipes: Recipe[] = [];
     userId: string = '';
+
+    subscription?: Subscription;
 
     selectedTypes: String[] = []; 
     allTypesOfFood: TypeOfFood[] = [];
@@ -71,7 +73,7 @@ export class AllRecipesComponent
       if(userid)
         this.userId = userid;  
 
-      this.recipeService.getAllRecipes().subscribe(recipes => {
+      this.subscription=this.recipeService.getAllRecipes().subscribe(recipes => {
         this.recipes = recipes; // all recipes
         recipes.forEach(recipe => {
           this.isLiked(recipe.id);  

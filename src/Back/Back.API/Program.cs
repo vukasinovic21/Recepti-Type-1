@@ -4,6 +4,7 @@ using Back.Infrastructure;
 using Back.Infrastructure.Data.Extentions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -81,6 +82,15 @@ if (app.Environment.IsDevelopment())
     await app.InitializeDatabaseAsync(); //uverava se da se izvrsava Update-Database komanda pri svakom pokretanju
 }
 
+//app.UseStaticFiles();
+
+app.UseStaticFiles(new StaticFileOptions()
+{
+    FileProvider = new PhysicalFileProvider
+        (Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")),
+    RequestPath = new PathString($"/wwwroot")
+});
+
 app.UseCors(MyAllowSpecificOrigins);
 
 app.UseSwagger();
@@ -101,6 +111,8 @@ app.UseAuthentication();
     }
     await next();
 });*/
+
+
 
 app.UseAuthorization();
 
