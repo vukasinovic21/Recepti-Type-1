@@ -263,11 +263,18 @@ export class AllRecipesComponent
 
     perPage(perPage: number)
     {
-      this.recipesPerPage = perPage;
-      this.recipeService.getAllRecipesPage(this.currentPage-1, perPage).subscribe( recipes => {
-        this.recipes = recipes;
-        this.filteredRecipes = recipes; 
-      });
+      if(perPage != 8)
+      {
+        this.recipesPerPage = perPage;
+        this.recipeService.getAllRecipesPage(this.currentPage-1, perPage).subscribe( recipes => {
+          this.recipes = recipes;
+          this.filteredRecipes = recipes; 
+        });
+      }
+      else
+      {
+        this.applyFiltersAndPagination();
+      }
     }
 
     get maxPages(): number 
