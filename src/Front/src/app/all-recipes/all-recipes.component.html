@@ -52,7 +52,7 @@
       <div *ngFor="let recipe of filteredRecipes"> 
         <mat-card class="example-card" appearance="outlined"> <!--lep prikaz pomocu mat-card sa sve slikom-->
           <mat-card-header>
-            <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');" (click)="showUserId(recipe.userId)"></div><!--KLIKOM NA SLIKU DA SE OTVORI JAVAN PROFIL TOG KORISNIKA -->
+            <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');"></div> <!-- (click)="showUserId(recipe.userId)"></div><!--KLIKOM NA SLIKU DA SE OTVORI JAVAN PROFIL TOG KORISNIKA -->
               <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
               <mat-card-subtitle> 
                 {{getTypeName(recipe.typeOfFoodId) | translate}}
@@ -66,7 +66,7 @@
                 <span *ngIf="!likedStatus[recipe.id] && this.userId" class="heart" (click)="likeRecipe(recipe.id)">
                     <span class="material-icons">favorite_border</span>
                     <span *ngIf="likedNumber[recipe.id] > 0" style="margin-left: -24px;color:red"><b>{{likedNumber[recipe.id]}}</b></span>
-                    <!--<span style="margin-left: -20px;"><b>{{likedNumber[recipe.id]}}</b></span>-->
+                    <span *ngIf="likedNumber[recipe.id] == 0" style="margin-left: -24px;color:white"><b>{{likedNumber[recipe.id]}}</b></span>
                 </span>
 
                 <span *ngIf="!this.userId && likedNumber[recipe.id] <= 9" class="heart">

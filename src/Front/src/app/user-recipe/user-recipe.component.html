@@ -1,12 +1,15 @@
 <div class="container">
-    <div class="text-center mt-3">
-      <h1> {{ user?.Username }} {{"User recipes"| translate}}</h1>
+    <div class="text-center mt-3" *ngIf="!showLiked">
+      <h1> {{ user?.Username }} {{"Mine recipes"| translate}}</h1>
     </div>
+    <div class="text-center mt-3" *ngIf="showLiked">
+        <h1> {{"Recipes you follow"| translate}}</h1>
+      </div>
 </div>
 
 <div class="container bottom">
 
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="" fxLayoutGap="20px">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="20px">
         <mat-form-field>
             <input matInput (keyup)="search($event)" placeholder="{{'Search'| translate}}">
         </mat-form-field>
@@ -25,7 +28,7 @@
         <mat-form-field class="which-recipes">
             <mat-select (selectionChange)="switchRecipes($event.value)" placeholder="{{'What to show'| translate}}" >
                 <mat-option value="mine">{{"Mine Recipes"| translate}}</mat-option>
-                <mat-option value="liked">{{"Liked Recipes"| translate}}</mat-option>
+                <mat-option value="liked">{{"Followed Recipes"| translate}}</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
@@ -77,7 +80,7 @@
         </div>
         <div *ngIf="showLiked"> 
             <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="50px grid">
-                <div *ngIf="likedRecipes.length == 0"><h1>{{"You haven't liked any recipe yet"| translate}}</h1></div>
+                <div *ngIf="likedRecipes.length == 0"><h1>{{"You haven't followed any recipe yet"| translate}}</h1></div>
                 <div *ngFor="let recipe of likedRecipes">
                     <mat-card class="example-card" appearance="outlined"> 
                         <mat-card-header>

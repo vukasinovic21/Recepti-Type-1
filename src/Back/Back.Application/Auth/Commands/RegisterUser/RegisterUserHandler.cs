@@ -19,13 +19,15 @@ namespace Back.Application.Auth.Commands.RegisterUser
             {
                 throw new InvalidOperationException("An user with this email already exists.");
             }
+            else
+            {
+                var user = RegisterUser(command.User);
 
-            var user = RegisterUser(command.User);
+                dbContext.Users.Add(user);
+                await dbContext.SaveChangesAsync(cancellationToken);
 
-            dbContext.Users.Add(user);
-            await dbContext.SaveChangesAsync(cancellationToken);
-
-            return new RegisterUserResult(user.Id.Value);
+                return new RegisterUserResult(user.Id.Value);
+            }    
         }
 
         private User RegisterUser(RegisterUserDto userDto)

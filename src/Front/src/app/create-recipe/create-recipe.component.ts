@@ -88,7 +88,7 @@ export class CreateRecipeComponent implements OnInit
     //dodeliti picture-u iz createForma pravu vrednost ako se ne doda slika dodace se default slika
   } 
 
-  onSubmit()
+  /*onSubmit()
   {
     if(this.createForm.valid)
     {
@@ -113,6 +113,35 @@ export class CreateRecipeComponent implements OnInit
         console.error("An error ocurred during creating new Recipe:", err);
       }
     });
+    }
+  }*/
+
+  onSubmit()
+  {
+    if(this.createForm.valid)
+    {
+      let recipe: CreateRecipe = this.createForm.value;
+
+      if(this.createForm.get('picture')?.value != 'defaultRecipe.jpg')
+      {
+        this.recipeService.addPicture().subscribe({
+          next: () => {
+            this.recipeService.createNewRecipe(recipe).subscribe({ 
+              next: (str) => {
+                this.response = str
+                this.router.navigate(['/recipes/' + this.response], { queryParams: { refresh: new Date().getTime() } });
+              }
+          });}
+        })
+      }
+      else
+      {
+        this.recipeService.createNewRecipe(recipe).subscribe({ 
+          next: () => {
+            this.router.navigate(['/recipes/' + this.response])
+          }
+        });
+      }
     }
   }
 }

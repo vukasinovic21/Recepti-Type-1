@@ -89,9 +89,9 @@ img
 .color
 {
     background-image: url('../../assets/images/pexels4.jpg');
-    min-height: 100vh;
+    min-height: 100vh;/*Vratiti na 100vh */
     background-size: cover; 
-    /*background-position: bottom; */
+    /*background-position: bottom;*/ 
     background-position: center 45%;
     background-repeat: no-repeat;
 }
@@ -116,7 +116,7 @@ img
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
-    width: 99vw; 
+    width: 99vw; /*vratiti na 99vw*/ 
     position: relative;
     height: 500px; 
     white-space: nowrap;

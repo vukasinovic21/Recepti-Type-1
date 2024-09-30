@@ -192,9 +192,13 @@
     "Public or Private": "Javan ili Privatan",
     "Public Recipe": "Javan Recept",
     "Save": "Sačuvaj",
-    "You haven't liked any recipe yet": "Trenutno nemate recepata koji vam se sviđaju",
+    "You haven't followed any recipe yet": "Trenutno ne pratite nijedan recept",
     "Mine Recipes": "Moji Recepti",
     "Liked Recipes": "Lajkovani Recepti",
-    "What to show": "Šta prikazati"
-
+    "What to show": "Šta prikazati",
+    "Recipes you follow": "Recepti koje pratiš",
+    "Mine recipes": "Moji recepti",
+    "Followed Recipes": "Recepti koje pratiš",
+    "Pizza": "Pica",
+    "Sandwich and Tortilla": "Sendviči i Tortilje"
 }
