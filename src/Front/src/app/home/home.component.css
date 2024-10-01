@@ -147,3 +147,41 @@ img
         transform: translateX(calc(100vw));
     }
 }
+
+
+@media (min-width: 1366px)  /*za komp*/
+{
+    .color
+    {
+        min-height: 100vh;
+        background-position: center 45%;
+    }
+
+    .dalje
+    {
+        margin-top: 100px;
+    }
+    .cont
+    {
+        width: 99vw;  
+        height: 500px; 
+    }
+}
+@media (min-height: 768px)  /*za komp*/
+{
+    .color
+    {
+        min-height: 100vh;
+        background-position: center 45%;
+    }
+
+    .dalje
+    {
+        margin-top: 100px;
+    }
+    .cont
+    {
+        width: 99vw;  
+        height: 500px; 
+    }
+}

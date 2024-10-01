@@ -33,7 +33,7 @@
     "of": "od",
     "Previous": "Prethodna",
     "Next": "Sledeća",
-    "Create new diet": "Kreiraj novi recept",
+    "Create new diet": "Kreiraj novu dijetu",
     "Name of diet": "Naziv dijete",
     "Name of diet is required.": "Naziv dijete je obavezan",
     "Number of days": "Broj dana",    
@@ -103,7 +103,8 @@
     "Name": "Ime",
     "Name is required": "Ime je obavezno",
     "Lastname": "Prezime",
-    "Lastname is required": "Prezime je obavezno",
+    "Last Name": "Prezime",
+    "Last Name is required": "Prezime je obavezno",
     "Username": "Korisničko ime",
     "Username is required": "Korisničko ime je obavezno",
     "Correct email format is required": "Obavezan je ispravan format mejla",
@@ -201,5 +202,8 @@
     "Followed Recipes": "Recepti koje pratiš",
     "Pizza": "Pica",
     "Sandwich and Tortilla": "Sendviči i Tortilje",
-    "An user with this username already exists": "Korisnik sa ovim korisničkim imenom već postoji"
+    "An user with this username already exists": "Korisnik sa ovim korisničkim imenom već postoji",
+    "Favorite recipes": "Omiljeni recepti",
+    "You don't have any favorite recipes yet": "Trenutno nemate omiljene recepata",
+    "Favorite Recipes": "Omiljeni Recepti"
 }

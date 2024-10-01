@@ -25,7 +25,7 @@
                         <div class="col-md-3">
                             <input type="number" class="form-control" min="0" placeholder="{{'How much will you eat' | translate}}?"  [(ngModel)]="kolicina" /><br>
                         </div>
-                        <div *ngIf="kolicina > 0" class="col-md-9">
+                        <div *ngIf="kolicina > 0" class="col-md-6">
                             <span class="material-icons">directions_walk</span> &nbsp;
                             {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 70 | number:'1.2-2' }}km
                             {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 70 * 11 | number:'1.2-2' }}min
@@ -36,7 +36,8 @@
                             {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 240 | number:'1.2-2' }}km
                             {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 240 * 20 | number:'1.2-2' }}km
                         </div>
-                    </div>
+                        <div class="col-md-3"><button class="btn color" (click)="downloadRecipePdf()">{{"Download in pdf" | translate}}</button></div>
+                    </div>     
                 </div>
             </div>
 
@@ -92,11 +93,11 @@
             </div>
         </div>
         <br>
-        <div class="no-pdf">
+        <!--<div class="no-pdf">
             <button class="btn color" [routerLink]="['/recipes']">{{"All recipes" | translate}}</button>
             <button class="btn color" [routerLink]="['/recipes/user', recipe?.userId]">{{"Users recipes" | translate}}</button>
             <button class="btn color" (click)="downloadRecipePdf()">{{"Download in pdf" | translate}}</button>
-        </div>
+        </div>-->
     </div>
 </div>
    
