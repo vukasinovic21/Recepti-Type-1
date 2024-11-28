@@ -1,2 +1,5 @@
-export interface RecipeItem {
+export interface RecipeItem 
+{
+    ingredientId: string,
+    quantity: number
 }

@@ -1,2 +1,5 @@
-export interface TypeOfFood {
+export interface TypeOfFood 
+{
+    id: string,
+    typeName: string,
 }

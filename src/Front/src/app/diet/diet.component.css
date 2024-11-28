@@ -1,0 +1,141 @@
+.font
+{
+    font-size: 40px;
+    color: #669999;
+}
+
+.sides
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Aligns items vertically centered, optional */
+}
+
+.left {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: -20px;
+}
+
+.delete
+{
+    cursor: pointer;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.table-border
+{
+    border: 3px solid #669999;
+}
+
+.table th, .table td, .table tr
+{
+    max-width: 50px;
+}
+
+.img
+{
+    height: 75px;
+    width: 100px;
+    /*display: block;*/
+}
+
+.field
+{
+    max-width: 0px !important;
+}
+
+
+.hover-content
+{
+    display: none; 
+}
+
+.recipe-container:hover .hover-content 
+{
+    display: block; 
+}
+
+.recipe-container:hover .img 
+{
+    display: none;
+}
+
+.field1
+{
+    max-width: 45px !important;
+    vertical-align: middle;
+}
+
+.text
+{
+    text-align: center;
+}
+
+.custom-alert 
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+  }
+  
+  .alert-content 
+  {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .alert-content p 
+  {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .alert-content button 
+  {
+    background-color:  red;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .alert-content button:hover 
+  {
+    background-color:  darkred ;
+  }
+
+  .alert-content .button1 
+  {
+    background-color:  darkgrey;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .alert-content .button1:hover 
+  {
+    background-color:  grey ;
+  }
+
+@media (max-width: 1300px) {
+    .img {
+        display: none; 
+    }
+}/*Ne skida mi se dijeta sa slikama ovako ?*/
+

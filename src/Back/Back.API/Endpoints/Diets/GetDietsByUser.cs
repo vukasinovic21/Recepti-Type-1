@@ -1,4 +1,5 @@
 ﻿using Back.Application.Diets.Queries.GetDietsByUser;
+using System.Data;
 
 namespace Back.API.Endpoints.Diets
 {
@@ -20,7 +21,9 @@ namespace Back.API.Endpoints.Diets
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .ProducesProblem(StatusCodes.Status404NotFound)
             .WithSummary("Get Diets By User")
-            .WithDescription("Get Diets By User"); ;
+            .WithDescription("Get Diets By User")
+            .RequireAuthorization();
+            //.RequireAuthorization("ADMIN", "USER");//.RequireAuthorization("ADMIN");.RequireAuthorization(new[] { "ADMIN", "USER" });
         }
     }
 }

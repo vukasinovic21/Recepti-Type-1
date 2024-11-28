@@ -24,6 +24,7 @@ namespace Back.Infrastructure.Data.Configurations
                 .HasForeignKey(pod => pod.DietId);
 
             builder.Property(d => d.DietName).HasMaxLength(256).IsRequired();
+            builder.HasIndex(d => d.DietName).IsUnique();
             //builder.Property(d => d.NutritionId).HasConversion;
 
             builder.HasOne<User>()

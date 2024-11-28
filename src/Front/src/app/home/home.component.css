@@ -1,0 +1,187 @@
+.right-space
+{
+    margin-right:auto; 
+}
+
+.hidden
+{
+    display: none;
+}
+
+.example-card 
+{
+    width: 330px;
+    height: 400px;
+}
+  
+.example-header-image 
+{
+background-size: cover;
+}
+
+mat-card:hover
+{
+    transform: scale(1.11);
+    cursor:pointer;
+}
+
+mat-card
+{
+    transition: transform .2s;
+}
+
+img
+{
+    height:220px;
+}
+
+.mat-card-actions 
+{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.circle 
+{
+    float: right;
+    width: 60px; 
+    height: 60px; 
+    line-height: 50px; 
+    text-align: center; 
+    border-radius: 50%; 
+    border: 3px solid;
+    background-color: white; 
+    font-weight: bold; 
+    margin-left: auto;
+}
+
+.circle.green 
+{
+    border-color: green;
+    color:green;
+}
+
+.circle.orange 
+{
+    border-color: orange;
+    color:orange;
+}
+
+.circle.red 
+{
+    border-color: red;
+    color:red;
+}
+
+.text-center
+{
+    padding-top: 80px;
+}
+
+.naslov
+{
+    font-size: 45px;
+    color: darkgreen;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.color
+{
+    background-image: url('../../assets/images/pexels4.jpg');
+    min-height: 100vh;/*Vratiti na 100vh */
+    background-size: cover; 
+    /*background-position: bottom;*/ 
+    background-position: center 30%;/*vratiti center 45%;*/
+    background-repeat: no-repeat;
+}
+
+.dalje
+{
+    margin-top: 80px;/*vratiti na 100px*/
+    margin-right: 150px;
+    background-color: rgba(0, 0, 0, 0.1); 
+    transition: transform .2s;
+}
+.dalje:hover
+{
+    transform: scale(1.11);
+    cursor:pointer;
+}
+
+
+.cont
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    width: 98vw; /*vratiti na 99vw*/ 
+    position: relative;
+    height: 435px; /*vratiti na 500px*/
+    white-space: nowrap;
+}
+
+.item 
+{
+    width: 50px;
+    height: 90%;
+    animation: moveRight 33s linear infinite;
+    transition: animation-play-state 1s ease-in-out;
+    margin-right: 350px;
+}
+  
+.paused  
+{
+    animation-play-state: paused;
+}
+  
+@keyframes moveRight
+{
+    0% 
+    {
+        transform: translateX(-50px);
+    }
+    100% 
+    {
+        transform: translateX(calc(100vw));
+    }
+}
+
+
+@media (min-width: 1566px)  /*za komp*/
+{
+    .color
+    {
+        min-height: 100vh;
+        background-position: center 45%;
+    }
+
+    .dalje
+    {
+        margin-top: 100px;
+    }
+    .cont
+    {
+        width: 99vw;  
+        height: 500px; 
+    }
+}
+@media (min-height: 768px)  /*za komp*/
+{
+    .color
+    {
+        min-height: 100vh;
+        background-position: center 45%;
+    }
+
+    .dalje
+    {
+        margin-top: 100px;
+    }
+    .cont
+    {
+        width: 99vw;  
+        height: 500px; 
+    }
+}

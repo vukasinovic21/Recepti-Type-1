@@ -1,4 +1,6 @@
-﻿using Back.Application.Likes.Commands.CreateLike;
+﻿using Back.Application.Exceptions;
+using Back.Application.Likes.Commands.CreateLike;
+using BuildingBlocks.Exceptions;
 
 namespace Back.API.Endpoints.Likes
 {
@@ -12,6 +14,7 @@ namespace Back.API.Endpoints.Likes
         {
             app.MapPost("/likes", async (CreateLikeRequest request, ISender sender) =>
             {
+
                 var command = request.Adapt<CreateLikeCommand>();
 
                 var result = await sender.Send(command);
@@ -19,12 +22,14 @@ namespace Back.API.Endpoints.Likes
                 var response = result.Adapt<CreateLikeResponse>();
 
                 return Results.Created($"/likes/{response.Id}", response);
+
             })
             .WithName("CreateLike")
             .Produces<CreateLikeResponse>(StatusCodes.Status201Created)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Create Like")
-            .WithDescription("Create Like");
+            .WithDescription("Create Like")
+            .RequireAuthorization(); 
         }
     }
 }

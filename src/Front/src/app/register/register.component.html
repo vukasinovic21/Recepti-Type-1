@@ -1,1 +1,100 @@
-<p>register works!</p>
+<div class="container col-md-6 small">
+    <div class="text-center mb-5 mt-3">
+        <h2>{{"User Registration" | translate}} </h2>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+
+        <div class="row mb-3">
+            <div class="col">
+                <label class="form-label">{{"Name" | translate}}</label>
+                <input class="form-control" type="text" formControlName="name">
+                <small class="text-danger" *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+                    {{"Name is required" | translate}}.
+                </small>
+            </div>
+            <div class="col">
+                <label class="form-label">{{"Last Name" | translate}}</label>
+                <input class="form-control" type="text" formControlName="lastname">
+                <small class="text-danger" *ngIf="registerForm.get('lastname')?.invalid && registerForm.get('lastname')?.touched">
+                    {{"Last Name is required" | translate}}.
+                </small>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">{{"Username" | translate}}</label>
+            <input class="form-control" type="text" formControlName="username">
+            <small class="text-danger" *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+                {{"Username is required" | translate}}.
+            </small>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">{{"Email" | translate}}</label>
+            <input class="form-control" class="form-control" type="email" formControlName="email">
+            <small class="text-danger" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+                {{"Correct email format is required" | translate}}.
+            </small>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">{{"Password" | translate}}</label>
+            <input class="form-control" type="password" formControlName="passwordHash">
+            <small class="text-danger" *ngIf="registerForm.get('passwordHash')?.invalid && registerForm.get('passwordHash')?.touched">
+                {{"Password is required and must be at least 8 characters long" | translate}}.
+            </small>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label class="form-label">{{"Date of birth" | translate}}</label>
+                <input class="form-control" type="date" formControlName="dateOfBirth">
+                <small class="text-danger" *ngIf="registerForm.get('dateOfBirth')?.invalid && registerForm.get('dateOfBirth')?.touched">
+                    {{"Date of birth is required" | translate}}.
+                </small>
+            </div>
+            <div class="col">
+                <label class="form-label">{{"Sex" | translate}}</label>
+                <select class="form-select" aria-label="Default select example" formControlName="sex">
+                    <option value="Female">{{"Female" | translate}}</option>
+                    <option value="Male">{{"Male" | translate}}</option>
+                </select>
+                <small class="text-danger" *ngIf="registerForm.get('sex')?.invalid && registerForm.get('sex')?.touched">
+                    {{"Sex is required" | translate}}.
+                </small>
+            </div>
+        </div>
+
+
+        <div class="row mb-3">
+            <div class="col">
+                <label class="form-label">{{"Choose question for reseting password" | translate}}</label><br>
+                <select class="form-select" aria-label="Default select example" formControlName="questionId">
+                    <option *ngFor="let question of questions" value={{question.id}}>
+                        {{question.questionName | translate}} <br><br>
+                    </option>
+                </select>
+            </div>    
+            <div class="col">
+                <label class="form-label">{{"Answer previously selected question" | translate}}</label>
+                <input class="form-control" type="password" formControlName="forgotPasswordAnswerHash">
+                <small class="text-danger" *ngIf="registerForm.get('forgotPasswordAnswerHash')?.invalid && registerForm.get('forgotPasswordAnswerHash')?.touched">
+                    {{"Answer is required" | translate}}.
+                </small>
+            </div>
+        </div>
+        <div *ngIf="showAlert" class="custom-alert">
+            <div class="alert-content">
+              <p>{{"An user with this email already exists" | translate}}.</p>
+              <button (click)="closeAlert()">OK</button>
+            </div>
+        </div>
+        <div *ngIf="showAlert1" class="custom-alert">
+            <div class="alert-content">
+              <p>{{"An user with this username already exists" | translate}}.</p>
+              <button (click)="closeAlert()">OK</button>
+            </div>
+        </div>
+        <button class="btn btn-success float-end" type="submit" [disabled]="registerForm.invalid">{{"Register" | translate}}</button>
+        <button [routerLink]="['/login']" class="btn btn-primary" >{{"Already have account" | translate}}?</button>
+    </form>
+</div>

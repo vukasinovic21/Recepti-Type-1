@@ -21,7 +21,8 @@ namespace Back.API.Endpoints.Recipes
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .ProducesProblem(StatusCodes.Status404NotFound)
             .WithSummary("Delete Recipe")
-            .WithDescription("Delete Recipe"); ;
+            .WithDescription("Delete Recipe")
+            .RequireAuthorization();  
         }
     }
 }

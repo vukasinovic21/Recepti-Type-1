@@ -32,6 +32,7 @@
                 recipename: recipeDto.RecipeName,
                 typeoffoodid: TypeOfFoodId.Of(recipeDto.TypeOfFoodId),
                 instructions: recipeDto.Instructions,
+                shared: recipeDto.Shared,
                 timetoprepare: recipeDto.TimeToPrepare);
         }
     }

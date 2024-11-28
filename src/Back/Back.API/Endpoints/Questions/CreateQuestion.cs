@@ -24,7 +24,8 @@ namespace Back.API.Endpoints.Questions
             .Produces<CreateQuestionResponse>(StatusCodes.Status201Created)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Create Question")
-            .WithDescription("Create Question");
+            .WithDescription("Create Question")
+            .RequireAuthorization(); //Trebalo bi Admin samo
         }
     }
 }

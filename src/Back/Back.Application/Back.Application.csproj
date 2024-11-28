@@ -12,21 +12,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.0.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Diets\Commands\DeleteDiet\" />
-    <Folder Include="Diets\Commands\UpdateDiet\" />
+    <Folder Include="Auth\Queries\" />
     <Folder Include="Ingredients\Commands\" />
-    <Folder Include="Ingredients\Queries\" />
-    <Folder Include="Likes\Queries\" />
-    <Folder Include="PlanOfDiets\" />
     <Folder Include="RecipeItems\Commands\" />
     <Folder Include="RecipeItems\Queries\" />
-    <Folder Include="TypesOfMeal\Commands\" />
     <Folder Include="Users\Commands\" />
-    <Folder Include="Users\Queries\" />
   </ItemGroup>
 
 </Project>

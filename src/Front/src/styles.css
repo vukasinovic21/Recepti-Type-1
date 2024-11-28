@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body { 
+    height: 100%; 
+}
+
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-color: rgb(244,244,244);
+}
+
+.container{
+    padding: 50px;
+    max-width: 1600px;
+    margin: auto;
+}
+
+.container-sm{
+    padding: 50px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.mat-button.color {
+    color: white !important;
+}
+
+mat-option mat-pseudo-checkbox 
+{
+    display: none !important;
+}

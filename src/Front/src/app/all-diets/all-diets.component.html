@@ -1,1 +1,32 @@
-<p>all-diets works!</p>
+<div >
+    <div class="container-fluid">
+        <div class="row h-100">
+            <!-- Sidebar -->
+            <div class="col-md-2 p-3 sidebar">
+
+                <div class="div-space1">
+                    <input matInput (keyup)="search($event)" placeholder="{{'Search' | translate}}" class="div-space1">
+                </div>
+                
+                <mat-select (selectionChange)="sortDiets($event.value)" placeholder="{{'Sort' | translate}}" class="div-space2">
+                    <mat-option value="nameA-Z">{{"Name: A-Z" | translate}}</mat-option>
+                    <mat-option value="nameZ-A">{{"Name: Z-A" | translate}}</mat-option>
+                    <mat-option value="newest">{{"Posted: Newest" | translate}}</mat-option>
+                    <mat-option value="oldest">{{"Posted: Oldest" | translate}}</mat-option>
+                </mat-select>
+                <hr>
+                <h3 *ngIf="filteredDiets.length == 0">{{"You haven't created any diet yet" | translate}}</h3>
+                <ul class="list-group">
+                    <li class="list-group-item " *ngFor="let diet of filteredDiets" [class.active]="diet.id === selectedDietId"  (click)="showDietId(diet.id)">
+                    {{ diet.dietName }}
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Main Content -->
+            <div class="col-md-10 p-3" > <!--OVO DA SE POPUNI TEK KAD SE IZABERE NEKA DIJETA tj da se otvori komponenta diet-->
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

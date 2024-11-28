@@ -1,6 +1,4 @@
-﻿using Back.Application.Dtos;
-
-namespace Back.Application.Likes.Commands.CreateLike
+﻿namespace Back.Application.Likes.Commands.CreateLike
 {
     public class CreateLikeHandler(IApplicationDbContext dbContext)
         : ICommandHandler<CreateLikeCommand, CreateLikeResult>
@@ -10,6 +8,22 @@ namespace Back.Application.Likes.Commands.CreateLike
             //Create Like entity from command object
             //save to database
             //return result
+
+            var alreadyLiked = await dbContext.Likes //ako vec postoji lajk od ovog korisnika za izabrani recept, to znaci da je sada on odlajkovao recept, tj vise mu se ne svidja.
+                .AsNoTracking()
+                .Where(l => l.UserId == UserId.Of(command.Like.UserId))
+                .Where(l => l.RecipeId == RecipeId.Of(command.Like.RecipeId))
+                .FirstOrDefaultAsync();
+            //.ToListAsync(cancellationToken);
+
+
+            if (alreadyLiked != null) //ako postoji obrisi ga, a ako ne postoji nastavi dalje
+            {
+                dbContext.Likes.Remove(alreadyLiked);
+                await dbContext.SaveChangesAsync(cancellationToken);
+                Guid falseReturn = Guid.Empty;
+                return new CreateLikeResult(falseReturn);
+            }
 
             var like = CreateNewLike(command.Like);
 

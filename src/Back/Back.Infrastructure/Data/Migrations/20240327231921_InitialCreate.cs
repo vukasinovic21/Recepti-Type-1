@@ -91,6 +91,7 @@ namespace Back.Infrastructure.Data.Migrations
                     Username = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: false),
                     Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: false),
                     PasswordHash = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: false),
+                    QuestionId = table.Column<Guid>(type: "uuid", nullable: false),
                     ForgotPasswordAnswerHash = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: false),
                     DateOfBirth = table.Column<DateOnly>(type: "date", nullable: false),
                     Role = table.Column<string>(type: "text", nullable: false, defaultValue: "USER"),
@@ -102,6 +103,12 @@ namespace Back.Infrastructure.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Users_Questions_QuestionId",
+                        column: x => x.QuestionId,
+                        principalTable: "Questions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -344,6 +351,11 @@ namespace Back.Infrastructure.Data.Migrations
                 table: "Users",
                 column: "Username",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_QuestionId",
+                table: "Users",
+                column: "QuestionId");
         }
 
         /// <inheritdoc />

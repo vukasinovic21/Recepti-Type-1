@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserComponent } from './user.component';
 import { AdminComponent } from '../admin/admin.component';
 import { AllUsersComponent } from '../all-users/all-users.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -13,7 +14,8 @@ import { AllUsersComponent } from '../all-users/all-users.component';
     AllUsersComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    TranslateModule
   ]
 })
 export class UserModule { }

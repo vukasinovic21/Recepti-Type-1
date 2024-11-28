@@ -1,0 +1,86 @@
+.img
+{
+    width: 95%; /* Adjust image to be responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Prevent image from being larger than its container */
+    max-height: 550px; /* Optional: limit the maximum height */
+    border-radius: 10px;
+}
+
+
+.instructions
+{
+    width: 95%;
+    text-align: justify;
+}
+
+@media (max-width: 600px) {
+    .img {
+        max-height: 300px; /* Adjust height for smaller screens */
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+    .img {
+        max-height: 400px; /* Adjust height for medium-sized screens */
+    }
+}
+
+.size
+{
+    width:30%
+}
+
+.font
+{
+    font-size: 50px;
+    color: #669999;
+}
+.font2
+{
+    font-size: 18px;/*15px*/
+    line-height: 1.3;
+}
+
+.center 
+{
+    margin: 0 auto;
+    max-width: fit-content; /* Adjust width as needed */
+}
+
+.font2 b
+{
+    font-weight: 600;
+}
+
+.solid-hr {
+    border: 0;                 
+    height: 1.5px;               
+    background-color: #669999;   
+    max-width: 333px;
+}
+
+.color
+{
+    color:#993300; 
+    font-size: 28px;
+    display: inline-block;
+    text-align: left;
+}
+
+.small
+{
+    font-size: 0.8em;
+}
+
+.btn.color
+{
+    background-color:#001a33;
+    color:white;
+    margin-right: 5px;
+}
+
+.no-pdf .btn 
+{
+    font-size: 15px;      
+}
