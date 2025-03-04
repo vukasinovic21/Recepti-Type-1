@@ -34,7 +34,7 @@
                             {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 90 * 6 | number:'1.2-2' }}min
                             <span class="material-icons">pool</span> &nbsp;
                             {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 240 | number:'1.2-2' }}km
-                            {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 240 * 20 | number:'1.2-2' }}km
+                            {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 240 * 20 | number:'1.2-2' }}min
                         </div>
                         <div class="col-md-3"><button class="btn color" (click)="downloadRecipePdf()">{{"Download in pdf" | translate}}</button></div>
                     </div>     
