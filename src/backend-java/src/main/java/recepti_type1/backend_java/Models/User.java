@@ -5,6 +5,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -17,26 +18,24 @@ public class User
     private String LastName;
     private String Username;
     private String Email;
-    private String PasswordHash;
     private UUID QuestionId;
-    private String ForgotPasswordAnswerHash;
+    private LocalDateTime CreatedAt;
     private LocalDate DateOfBirth;
     private String Role;
     private String Sex;
 
     public User(){}
 
-    public User(UUID id, String name, String lastName, String username, String email, String passwordHash,
-                UUID questionId, String forgotPasswordAnswerHash, LocalDate dateOfBirth, String role, String sex)
+    public User(UUID id, String name, String lastName, String username, String email,
+                UUID questionId, LocalDateTime createdAt, LocalDate dateOfBirth, String role, String sex)
     {
         this.Id = id;
         this.Name = name;
         this.LastName = lastName;
         this.Username = username;
         this.Email = email;
-        this.PasswordHash = passwordHash;
         this.QuestionId = questionId;
-        this.ForgotPasswordAnswerHash = forgotPasswordAnswerHash;
+        this.CreatedAt = createdAt;
         this.DateOfBirth = dateOfBirth;
         this.Role = role;
         this.Sex = sex;
@@ -63,16 +62,12 @@ public class User
         return Email;
     }
 
-    public String getPasswordHash() {
-        return PasswordHash;
-    }
-
     public UUID getQuestionId() {
         return QuestionId;
     }
 
-    public String getForgotPasswordAnswerHash() {
-        return ForgotPasswordAnswerHash;
+    public LocalDateTime getCreatedAt() {
+        return CreatedAt;
     }
 
     public LocalDate getDateOfBirth() {
@@ -108,16 +103,12 @@ public class User
         this.Email = email;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.PasswordHash = passwordHash;
-    }
-
     public void setQuestionId(UUID questionId) {
         this.QuestionId = questionId;
     }
 
-    public void setForgotPasswordAnswerHash(String forgotPasswordAnswerHash) {
-        this.ForgotPasswordAnswerHash = forgotPasswordAnswerHash;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.CreatedAt = createdAt;
     }
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
