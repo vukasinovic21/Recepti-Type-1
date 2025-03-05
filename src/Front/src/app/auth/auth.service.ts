@@ -153,9 +153,9 @@ export class AuthService
     }
   }
 
-  reset(loginUser: ForgotPassword) : Observable<String>
+  reset(loginUser: ForgotPassword) : Observable<Boolean>
   {
-    return this.http.post<String>(this.backUrlJava + "/users/question/", loginUser);
+    return this.http.post<Boolean>(this.backUrlJava + "/users/answer", loginUser);
   }
 
 

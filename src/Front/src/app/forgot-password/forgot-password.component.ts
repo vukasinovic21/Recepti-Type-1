@@ -55,8 +55,10 @@ export class ForgotPasswordComponent implements OnInit
               {
                 //console.log(loginUser);
                 this.authService.reset(loginUser).subscribe(
-                  (response: String) =>
+                  (response: Boolean) =>
                   {
+                    //console.log(loginUser);
+                    //console.log(response);
                     this.router.navigate(['/login'])
                   }
                 ); 
