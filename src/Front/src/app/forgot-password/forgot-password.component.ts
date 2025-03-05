@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../models/user';
+import { ForgotPassword } from '../models/forgot-password';
 
 @Component({
   selector: 'app-forgot-password',
@@ -25,7 +26,7 @@ export class ForgotPasswordComponent implements OnInit
     {
       this.resetForm = this.formBuilder.group({
         email: ['', [Validators.required, Validators.email]],
-        //question: ['', [Validators.required]],
+        question: ['', ],
         passwordHash: ['', [Validators.required]],
         passwordHash2: ['', [Validators.required]],
       })
@@ -35,8 +36,8 @@ export class ForgotPasswordComponent implements OnInit
     {
       if(this.resetForm.valid)
       {
-        let loginUser: User = this.resetForm.value;
-        if(loginUser.passwordHash != loginUser.passwordHash)
+        let loginUser: ForgotPassword = this.resetForm.value;
+        if(loginUser.passwordHash != loginUser.passwordHash2)
         {
           this.showAlert = false;
           this.showAlert2 = true;
@@ -44,13 +45,15 @@ export class ForgotPasswordComponent implements OnInit
         }
         else
         {
+          this.showAlert2 = false;
           this.authService.getSafetyQuestion(loginUser.email).subscribe( 
             (question: String) => 
             {
               this.question = question;
               console.log(this.question);
+              console.log(loginUser);
               //this.authService.loggedin(); // da se izbaci sigurnosno pitanje na koje treba da odgovori korisnik
-              this.router.navigate(['/login'])
+              //this.router.navigate(['/login'])
             },
             (error) => 
             {
