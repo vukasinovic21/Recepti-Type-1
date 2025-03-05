@@ -16,8 +16,10 @@ public class Recipe
     @Id
     private UUID Id;
     private String UserId;
+
     @Column(name = "RecipeName")
     private String RecipeName;
+    
     private String TypeOfFoodId;
     private String Instructions;
     private int TimeToPrepare;
