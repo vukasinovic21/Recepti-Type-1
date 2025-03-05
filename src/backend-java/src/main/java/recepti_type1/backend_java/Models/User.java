@@ -24,11 +24,21 @@ public class User
     private LocalDate DateOfBirth;
     private String Role;
     private String Sex;
+    private String ForgotPasswordAnswerHash;
+    private String PasswordHash;
 
     public User(){}
 
+    public String getPasswordHash() {
+        return PasswordHash;
+    }
+
+    public void setPasswordHash(String passwordHash) {
+        PasswordHash = passwordHash;
+    }
+
     public User(UUID id, String name, String lastName, String username, String email,
-                UUID questionId, LocalDateTime createdAt, LocalDate dateOfBirth, String role, String sex)
+                UUID questionId, LocalDateTime createdAt, LocalDate dateOfBirth, String role, String sex, String forgotPasswordAnswerHash, String passwordHash)
     {
         this.Id = id;
         this.Name = name;
@@ -40,6 +50,8 @@ public class User
         this.DateOfBirth = dateOfBirth;
         this.Role = role;
         this.Sex = sex;
+        this.ForgotPasswordAnswerHash = forgotPasswordAnswerHash;
+        this.PasswordHash = passwordHash;
     }
 
     public UUID getId()
@@ -83,6 +95,9 @@ public class User
         return Sex;
     }
 
+    public String getForgotPasswordAnswerHash() {
+        return ForgotPasswordAnswerHash;
+    }
     public void setId(UUID id)
     {
         this.Id = id;
@@ -123,4 +138,10 @@ public class User
     public void setSex(String sex) {
         this.Sex = sex;
     }
+
+    public void setForgotPasswordAnswerHash(String forgotPasswordAnswerHash) {
+        this.ForgotPasswordAnswerHash = forgotPasswordAnswerHash;
+    }
+
+
 }

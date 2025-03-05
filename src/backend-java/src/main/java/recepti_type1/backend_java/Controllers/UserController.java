@@ -1,11 +1,8 @@
 package recepti_type1.backend_java.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import recepti_type1.backend_java.Models.Question;
+import org.springframework.web.bind.annotation.*;
+import recepti_type1.backend_java.Dtos.ForgotPassword;
 import recepti_type1.backend_java.Models.User;
 import recepti_type1.backend_java.Services.QuestionService;
 import recepti_type1.backend_java.Services.UserService;
@@ -56,5 +53,21 @@ public class UserController
     public String getQuestionName(@PathVariable UUID questionId)
     {
         return questionService.getQuestionName(questionId);
+    }
+
+    @PostMapping("/answer")
+    public Boolean getAnswerByEmail(@RequestBody ForgotPassword loginUser)
+    {
+        User u = userService.getUserByEmail(loginUser.getEmail());
+        if(userService.verifyPassword(loginUser.getQuestion(),u.getForgotPasswordAnswerHash()))
+        {
+            String PasswordHash = userService.hashPassword(loginUser.getPasswordHash()); //this encoded password needs to go in the postgre database as new password
+
+            u.setPasswordHash(PasswordHash);
+            userService.savePassword(u);
+
+            return true;
+        }
+        return false;
     }
 }

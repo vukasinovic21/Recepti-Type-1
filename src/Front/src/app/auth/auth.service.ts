@@ -155,19 +155,19 @@ export class AuthService
 
   reset(loginUser: ForgotPassword) : Observable<String>
   {
-    return this.http.get<String>(this.backUrlJava + "/users/question/", { responseType: 'text' as 'json' });
+    return this.http.post<String>(this.backUrlJava + "/users/question/", loginUser);
   }
+
+
 
   delete(id: string): void
   {
     //treba da nadjemo i obrisemo usera
   }
-
   update(id: string): void
   {
     //treba da promenimo nesto kod usera
   }
-
   getUserInfo(id: string): Observable<UserInfo> 
   {
     return this.http.get<{user: UserInfo[]}>(this.backUrl + "/users/id/" + id)
