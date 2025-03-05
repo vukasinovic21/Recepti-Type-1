@@ -17,6 +17,7 @@ public class User
     private String Name;
     private String LastName;
     private String Username;
+    @Column(name = "\"Email\"")
     private String Email;
     private UUID QuestionId;
     private LocalDateTime CreatedAt;

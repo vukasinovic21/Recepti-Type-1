@@ -39,7 +39,20 @@ public class UserController
         return userService.getUserById(userId);
     }
 
-    @GetMapping("/questionId/{questionId}")
+    @GetMapping("/email/{email}") //za poslat email korisnika da dobijemo podatke o korisniku
+    public User getUserByEmail(@PathVariable String email)
+    {
+        return userService.getUserByEmail(email);
+    }
+
+    @GetMapping("/question/{email}") //za poslat email korisnika da dobijemo njegovo sigurnosno pitanje
+    public String getQuestionByEmail(@PathVariable String email)
+    {
+        User u = userService.getUserByEmail(email);
+        return questionService.getQuestionName(u.getQuestionId());
+    }
+
+    @GetMapping("/questionId/{questionId}") //za poslat id pitanja dobijamo sigurnosno pitanje
     public String getQuestionName(@PathVariable UUID questionId)
     {
         return questionService.getQuestionName(questionId);

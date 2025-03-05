@@ -29,4 +29,10 @@ public class UserService
         return userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("User not found for ID: " + userId));
     }
+
+    public User getUserByEmail(String email)
+    {
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new IllegalArgumentException("User not found for email: " + email));
+    }
 }

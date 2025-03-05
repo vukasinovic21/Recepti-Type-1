@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { Jwt } from '../models/jwt';
 import { Question } from '../models/question';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, catchError, map, Observable, throwError, timeout } from 'rxjs';
 import { environment } from '../environments/environment';
 import { jwtDecode } from "jwt-decode";
@@ -34,6 +34,7 @@ export class AuthService
   currentUser = this.user.asObservable();
 
   private backUrl = environment.backUrl;
+  private backUrlJava = environment.backUrlJava;
 
   constructor(private http: HttpClient){}
 
@@ -129,6 +130,26 @@ export class AuthService
     .pipe(
       map(response => response.questions)
     );
+  }
+
+  getSafetyQuestion(email: String): Observable<String>
+  {
+    return this.http.get<String>(this.backUrlJava + "/users/question/" + email, { responseType: 'text' as 'json' })
+    .pipe(
+      catchError(this.handleError) // Catch and handle the error here
+    );;
+  }
+
+  private handleError(error: HttpErrorResponse) 
+  {
+    if (error.status === 404) 
+    {
+      return throwError(`User not found for email: ${error.error}`);
+    } 
+    else 
+    {
+      return throwError('An error occurred while fetching the safety question.');
+    }
   }
 
   delete(id: string): void

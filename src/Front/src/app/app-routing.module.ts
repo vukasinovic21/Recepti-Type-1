@@ -16,6 +16,7 @@ import { IsLoggedGuard } from './guards/is-logged.guard';
 import { AllGuard } from './guards/all-guard';
 import { TranslateService } from '@ngx-translate/core';
 import { InfoComponent } from './info/info.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = 
 [
@@ -71,6 +72,11 @@ const routes: Routes =
       { path: ':id', component: DietComponent }
     ],
     canActivate:[IsLoggedGuard]
+  },
+  {
+    path:"forgotPassword", 
+    component: ForgotPasswordComponent,
+    canActivate:[NoLoggedGuard] 
   },
   {
     path:"login", 

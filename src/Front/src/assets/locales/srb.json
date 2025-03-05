@@ -205,5 +205,13 @@
     "An user with this username already exists": "Korisnik sa ovim korisničkim imenom već postoji",
     "Favorite recipes": "Omiljeni recepti",
     "You don't have any favorite recipes yet": "Trenutno nemate omiljene recepata",
-    "Favorite Recipes": "Omiljeni Recepti"
+    "Favorite Recipes": "Omiljeni Recepti",
+    "Forgot password": "Zaboravili ste lozinku",
+    "Forgot your password?": "Zaboravili ste lozinku?",
+    "Safety question": "Sigurnosno pitanje",
+    "Reset": "Resetuj",
+    "Wrong answer.": "Pogresan odgovor",
+    "Repeat Password": "Ponovi lozinku",
+    "Password do not match. Try again": "Lozinke se ne podudaraju. Pokusaj opet",
+    "Answer": "Odgovorite"
 }
