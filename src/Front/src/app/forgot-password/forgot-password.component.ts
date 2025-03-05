@@ -27,8 +27,8 @@ export class ForgotPasswordComponent implements OnInit
       this.resetForm = this.formBuilder.group({
         email: ['', [Validators.required, Validators.email]],
         question: ['', ],
-        passwordHash: ['', [Validators.required]],
-        passwordHash2: ['', [Validators.required]],
+        passwordHash: ['', [Validators.required, Validators.minLength(8)]],
+        passwordHash2: ['', [Validators.required, Validators.minLength(8)]],
       })
     }
 
@@ -45,15 +45,22 @@ export class ForgotPasswordComponent implements OnInit
         }
         else
         {
+          this.showAlert = false;
           this.showAlert2 = false;
           this.authService.getSafetyQuestion(loginUser.email).subscribe( 
             (question: String) => 
             {
               this.question = question;
-              console.log(this.question);
-              console.log(loginUser);
-              //this.authService.loggedin(); // da se izbaci sigurnosno pitanje na koje treba da odgovori korisnik
-              //this.router.navigate(['/login'])
+              if(loginUser.question != '')
+              {
+                //console.log(loginUser);
+                this.authService.reset(loginUser).subscribe(
+                  (response: String) =>
+                  {
+                    this.router.navigate(['/login'])
+                  }
+                ); 
+              }
             },
             (error) => 
             {

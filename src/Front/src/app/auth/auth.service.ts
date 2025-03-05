@@ -7,6 +7,7 @@ import { BehaviorSubject, catchError, map, Observable, throwError, timeout } fro
 import { environment } from '../environments/environment';
 import { jwtDecode } from "jwt-decode";
 import { UserInfo } from '../models/user-info';
+import { ForgotPassword } from '../models/forgot-password';
 
 @Injectable({
   providedIn: 'root'
@@ -150,6 +151,11 @@ export class AuthService
     {
       return throwError('An error occurred while fetching the safety question.');
     }
+  }
+
+  reset(loginUser: ForgotPassword) : Observable<String>
+  {
+    return this.http.get<String>(this.backUrlJava + "/users/question/", { responseType: 'text' as 'json' });
   }
 
   delete(id: string): void
