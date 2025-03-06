@@ -59,7 +59,10 @@ export class ForgotPasswordComponent implements OnInit
                   {
                     //console.log(loginUser);
                     //console.log(response);
-                    this.router.navigate(['/login'])
+                    if(response == true)
+                      this.router.navigate(['/login'])
+                    else
+                      this.showAlert3 = true;
                   }
                 ); 
               }
