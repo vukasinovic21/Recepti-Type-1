@@ -17,6 +17,7 @@ import { AllGuard } from './guards/all-guard';
 import { TranslateService } from '@ngx-translate/core';
 import { InfoComponent } from './info/info.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = 
 [
@@ -62,7 +63,14 @@ const routes: Routes =
   },
   {
     path:"users", 
-    component: AllUsersComponent
+    component: AllUsersComponent,
+    canActivate:[IsLoggedGuard]
+    
+  },
+  {
+    path:"users/user", 
+    component: UserComponent,
+    canActivate:[IsLoggedGuard]
   },
   { 
     path: 'diets', 

@@ -26,6 +26,7 @@ public class User
     private String Sex;
     private String ForgotPasswordAnswerHash;
     private String PasswordHash;
+    //private LocalDateTime LastModifiedAt;
 
     public User(){}
 
