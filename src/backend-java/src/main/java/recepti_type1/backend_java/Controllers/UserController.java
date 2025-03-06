@@ -3,6 +3,7 @@ package recepti_type1.backend_java.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import recepti_type1.backend_java.Dtos.ForgotPassword;
+import recepti_type1.backend_java.Dtos.UserInfoUpdate;
 import recepti_type1.backend_java.Models.User;
 import recepti_type1.backend_java.Services.QuestionService;
 import recepti_type1.backend_java.Services.UserService;
@@ -55,7 +56,7 @@ public class UserController
         return questionService.getQuestionName(questionId);
     }
 
-    @PostMapping("/answer")
+    @PostMapping("/answer") //when user forgot their password and want to reset it with email and safety question
     public Boolean getAnswerByEmail(@RequestBody ForgotPassword loginUser)
     {
         User u = userService.getUserByEmail(loginUser.getEmail());
@@ -64,10 +65,28 @@ public class UserController
             String PasswordHash = userService.hashPassword(loginUser.getPasswordHash()); //this encoded password needs to go in the postgre database as new password
 
             u.setPasswordHash(PasswordHash);
-            userService.savePassword(u);
+            userService.savePassword(u);// i need to add ModifiedAt so i could change the date of the last change
 
             return true;
         }
         return false;
+    }
+
+    @PutMapping("/infoupdate") //updating user info like username and similar
+    public Boolean updateUserInfo(@RequestBody UserInfoUpdate userUpdate)
+    {
+        //System.out.println(userUpdate.getName() + " " + userUpdate.getEmail());
+        User u = userService.getUserById(userUpdate.getId());
+
+
+        u.setName(userUpdate.getName());// i need to add ModifiedAt so i could change the date of the last change
+        u.setLastName(userUpdate.getLastname());
+        u.setUsername(userUpdate.getUsername());
+        u.setDateOfBirth(userUpdate.getDateOfBirth());
+
+        userService.updateUser(u);
+
+        //System.out.println(u.getName() + " " + u.getEmail());
+        return true;
     }
 }
