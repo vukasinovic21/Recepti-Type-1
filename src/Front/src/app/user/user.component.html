@@ -1,68 +1,114 @@
+<!--
 
 <div class="container">
-    <div class="text-center mt-3">
-        <h1 class="font">User Info</h1>
+    <div class="text-center mt-4">
+        <h1 class="font display-4">{{"User Info" | translate}}</h1>
     </div>
 </div>
 
 <div class="container">
-    <button class="btn btn-success float-end" [routerLink]="['/recipes/user', user?.id]">{{"Users recipes" | translate}}</button>&nbsp;
-    <!--<button class="btn btn-primary float-end" [routerLink]="['/recipes/user', user?.id]">{{"Update profile info" | translate}}</button>&nbsp;-->
+    <div class="col-md-7 mx-auto">
+        <div class="card p-4 shadow-sm border-light">
+            <div class="d-flex justify-content-between mb-4">
+                <button class="btn btn-success" [routerLink]="['/recipes/user', user?.id]">
+                    <i class="bi bi-card-text"></i> {{'Users recipes' | translate}}
+                </button>
+                <div class="d-flex align-items-center">
+                    <div class="font2">
+                        <div class="hover" (click)="edit(user!.id)">
+                            {{"Edit profile" | translate}} 
+                            <span *ngIf="user?.id == loggedUser" class="material-icons">edit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <div class="col-md-8">
-        
-        <div class="font2">
-            {{"Edit profile" | translate}} <span class="hover" *ngIf="user?.id == loggedUser" class="material-icons" (click)="edit(user!.id)">edit</span><br><br>
-            <b>{{"Name" | translate}}: </b> {{user?.name}}<br>
-            <b>{{"Lastname" | translate}}: </b> {{user?.lastName}}<br>
-            <b>{{"Username" | translate}}: </b> {{user?.username}}<br>
-            <b>{{"Joined" | translate}}: </b> {{user?.createdAt | date:'dd-MM-yyyy' }}<br>
-            <b>{{"Birthday" | translate}}: </b> {{user?.dateOfBirth | date:'dd-MM-yyyy' }}<br>
-            <b>{{"Email" | translate}}: </b> {{user?.email}}<br>
-            <b>{{"Role" | translate}}: </b> {{user?.role}}<br>
-            <b>{{"Sex" | translate}}: </b> {{user?.sex}}<br>
+            <h3 class="mb-3">{{"Personal Information" | translate}}</h3>
+            <div class="row font2">
+                <div class="col-md-6 mb-2">
+                    <b>{{"Name" | translate}}: </b> <span>{{user?.name}}</span>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <b>{{"Lastname" | translate}}: </b> <span>{{user?.lastName}}</span>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <b>{{"Username" | translate}}: </b> <span>{{user?.username}}</span>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <b>{{"Email" | translate}}: </b> <span>{{user?.email}}</span>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <b>{{"Birthday" | translate}}: </b> <span>{{user?.dateOfBirth | date:'dd-MM-yyyy' }}</span>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <b>{{"Sex" | translate}}: </b> <span>{{user?.sex ?? 'Not Available' | translate}}</span>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <b>{{"Joined" | translate}}: </b> <span>{{user?.createdAt | date:'dd-MM-yyyy' }}</span>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <b>{{"Role" | translate}}: </b> <span>{{user?.role}}</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+-->
 
+<div class="container">
+    <div class="text-center mt-4">
+        <h1 class="font display-4">{{"User Info" | translate}}</h1>
+    </div>
+</div>
 
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm border-light">
+                <h3 class="mb-3">{{"Personal Information" | translate}}</h3>
+                <div class="row font2">
+                    <div class="col-md-6 mb-2">
+                        <b>{{"Name" | translate}}: </b> <span>{{user?.name}}</span>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <b>{{"Lastname" | translate}}: </b> <span>{{user?.lastName}}</span>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <b>{{"Username" | translate}}: </b> <span>{{user?.username}}</span>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <b>{{"Email" | translate}}: </b> <span>{{user?.email}}</span>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <b>{{"Birthday" | translate}}: </b> <span>{{user?.dateOfBirth | date:'dd-MM-yyyy' }}</span>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <b>{{"Sex" | translate}}: </b> <span>{{user?.sex ?? 'Not Available' | translate}}</span>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <b>{{"Joined" | translate}}: </b> <span>{{user?.createdAt | date:'dd-MM-yyyy' }}</span>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <b>{{"Role" | translate}}: </b> <span>{{user?.role}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<!--<div class="col-md-4">
-    <div class="center ">
-        <h1 class="color">{{"Nutritional values" | translate}}</h1>
-        <div class="font2" *ngIf="recipeNutritions">
-            <b>{{"Carbs" | translate}}:</b> {{ recipeNutritions.carbs }}g &nbsp;({{recipeNutritions!.carbs / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
-            <b>{{"Sugars" | translate}}:</b> {{ recipeNutritions.sugar }}g &nbsp;({{recipeNutritions!.sugar / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
-            <b>{{"Fat" | translate}}:</b> {{ recipeNutritions.fat }}g &nbsp;({{recipeNutritions!.fat / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
-            <b>{{"Protein" | translate}}:</b> {{ recipeNutritions.protein }}g &nbsp;({{recipeNutritions!.protein / recipeNutritions!.weight * 100 | number:'1.2-2'}}g)<br>
-            <b>{{"Energy" | translate}}: </b>{{ recipeNutritions.kCal }} kCal &nbsp;({{recipeNutritions!.kCal / recipeNutritions!.weight * 100 | number:'1.2-2'}}kCal)<br>
-            
-            <b>{{"Glycemic load" | translate}} (GL):</b>
-            <b><span *ngIf="recipeNutritions && recipeNutritions.gl < 10" style="color:green"> 
-                {{ recipeNutritions.gl | number:'1.2-2' }} </span>
-            <span *ngIf="recipeNutritions && recipeNutritions.gl >= 10 && recipeNutritions.gl < 20" style="color:orange"> 
-                {{ recipeNutritions.gl | number:'1.2-2' }} </span>
-            <span *ngIf="recipeNutritions && recipeNutritions.gl >= 20" style="color:red"> 
-                {{ recipeNutritions.gl | number:'1.2-2' }} </span> </b><br>
-            
-            <b>{{"Glycemic load per" | translate}} 100g:</b>
-            <b><span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100 < 10" style="color:green"> 
-                {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span>
-            <span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100  >= 10 && recipeNutritions.gl / recipeNutritions.weight * 100 < 20" style="color:orange"> 
-                {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span>
-            <span *ngIf="recipeNutritions && recipeNutritions.gl / recipeNutritions.weight * 100  >= 20" style="color:red"> 
-                {{ recipeNutritions.gl / recipeNutritions.weight * 100 | number:'1.2-2' }} </span> </b><br> 
-                
-            <br><b>{{"Total weight" | translate}}: </b> 
-            <span *ngIf="recipeNutritions && recipeNutritions.weight > 1000"> {{ recipeNutritions.weight / 1000 }} kg</span> 
-            <span *ngIf="recipeNutritions && recipeNutritions.weight <= 1000"> {{ recipeNutritions.weight }} g </span>
-            
-            <small class="small"><i> *{{"total(per 100g)" | translate}}</i></small>
-            <hr class="solid-hr">
-            
-            <b>{{"Time to prepare" | translate}}:</b> {{ recipe?.timeToPrepare }} min <br>
-            <b>{{"Published" | translate}}: </b> <span>{{ recipe?.createdAt | date:'yyyy-MM-dd' }}</span> <br>
-
+        <div class="col-md-2">
+            <div class="card p-4 shadow-sm border-light">
+                <div class="d-flex flex-column gap-3">
+                    <button class="btn btn-success" [routerLink]="['/recipes/user', user?.id]">
+                        <i class="bi bi-card-text"></i> {{'Users recipes' | translate}}
+                    </button>
+                    <button class="btn btn-primary" (click)="edit(user!.id)">
+                        <i class="material-icons">edit</i> {{'Edit profile' | translate}}
+                    </button>
+                    <button class="btn btn-warning" (click)="resetPassword(user!.id)">
+                        <i class="material-icons">lock_reset</i> {{'Reset password' | translate}}
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
-</div>-->
+</div>

@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ResetPasswordComponent } from '../reset-password/reset-password.component';
 
 
 
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UserComponent,
     AdminComponent,
     AllUsersComponent,
-    EditUserComponent
+    EditUserComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,
