@@ -24,7 +24,7 @@ export class AuthService
 
   private user = new BehaviorSubject<UserInfo>({id: '',
                                                 name: '',
-                                                lastname: '',
+                                                lastName: '',
                                                 username: '',
                                                 email: '',
                                                 dateOfBirth: new Date(),
@@ -74,7 +74,7 @@ export class AuthService
     this.username.next("");
     this.user.next({id: '',
       name: '',
-      lastname: '',
+      lastName: '',
       username: '',
       email: '',
       dateOfBirth: new Date(),

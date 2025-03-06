@@ -72,7 +72,8 @@ export class AppComponent
 
   showUserId()
   {
-    this.router.navigate(['/recipes/user/'+localStorage.getItem("userid")]);
+    //this.router.navigate(['/recipes/user/'+localStorage.getItem("userid")]);
+    this.router.navigate(['/users/user/'+localStorage.getItem("userid")]);
   }
 
   logout() 

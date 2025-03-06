@@ -68,7 +68,7 @@ const routes: Routes =
     
   },
   {
-    path:"users/user", 
+    path:"users/user/:id", 
     component: UserComponent,
     canActivate:[IsLoggedGuard]
   },

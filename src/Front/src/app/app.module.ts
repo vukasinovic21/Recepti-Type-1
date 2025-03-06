@@ -25,6 +25,7 @@ import { InfoComponent } from './info/info.component';
 import { InfoModule } from './info/info.module';
 import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 export function HttpLoaderFactory(http: HttpClient) 
 {

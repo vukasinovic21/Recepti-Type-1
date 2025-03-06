@@ -15,6 +15,8 @@ export class UserService
 
   //in service we want to provide CRUD operations
   private backUrl = environment.backUrl;
+  private backUrlJava = environment.backUrlJava;
+
   private allUsers: User[] = [];
   
   constructor(private http: HttpClient){}
@@ -42,4 +44,12 @@ export class UserService
       map(response => response.user[0])
     );
   }
+
+  editUser(user: any): Observable<boolean>
+  {
+    //const query = {user:user};
+    const userForBackend = {...user, lastname: user.lastName, };
+    return this.http.put<boolean>(this.backUrlJava + "/users/infoupdate", userForBackend);
+  }
+
 }
