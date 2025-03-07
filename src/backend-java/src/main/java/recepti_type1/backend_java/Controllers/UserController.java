@@ -3,6 +3,7 @@ package recepti_type1.backend_java.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import recepti_type1.backend_java.Dtos.ForgotPassword;
+import recepti_type1.backend_java.Dtos.ResetPassword;
 import recepti_type1.backend_java.Dtos.UserInfoUpdate;
 import recepti_type1.backend_java.Models.User;
 import recepti_type1.backend_java.Services.QuestionService;
@@ -90,5 +91,25 @@ public class UserController
         return true;
     }
 
-    
+    @PutMapping("/resetpassword") //Changing password when user is loogged in
+    public Boolean resetPassword(@RequestBody ResetPassword resetPassword)
+    {
+        User u = userService.getUserById(resetPassword.getId());
+        if(!userService.verifyPassword(resetPassword.getOldPasswordHash(), u.getPasswordHash()))
+        {
+            System.out.println("verifyPassword");
+            return false;
+        }
+
+        if(!resetPassword.getPasswordHash().equals(resetPassword.getPasswordHash2()))
+        {
+            System.out.println("pass1 != pass2");
+            return false;
+        }
+
+        u.setPasswordHash(userService.hashPassword(resetPassword.getPasswordHash()));
+        userService.updateUser(u);
+
+        return true;
+    }
 }

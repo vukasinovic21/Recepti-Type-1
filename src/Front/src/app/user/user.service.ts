@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { GetUser } from '../models/get-user';
 import { UserInfo } from '../models/user-info';
+import { ResetPassword } from '../models/reset-password';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,11 @@ export class UserService
     //const query = {user:user};
     const userForBackend = {...user, lastname: user.lastName, };
     return this.http.put<boolean>(this.backUrlJava + "/users/infoupdate", userForBackend);
+  }
+
+  resetPassword(resetPassword: ResetPassword): Observable<boolean>
+  {
+    return this.http.put<boolean>(this.backUrlJava + "/users/resetpassword", resetPassword);
   }
 
 }

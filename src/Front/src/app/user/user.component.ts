@@ -26,7 +26,6 @@ export class UserComponent
   {
     this.userId = this.activatedRoute.snapshot.paramMap.get('id') ?? localStorage.getItem('userid') ?? 'default-value';
     this.getUserInfo(this.userId);
-
   }
 
   getUserInfo(userId:string): void
@@ -72,11 +71,12 @@ export class UserComponent
       if (result) 
       {
         this.newPassword = result;
+        this.newPassword!.id = this.userId;
         if(result.passwordHash != result.passwordHash2)
           console.log("NISU ISTE!")
-        /*else
-        { //change password
-          this.userService.editUser(result).subscribe( success =>
+        else
+        {
+          this.userService.resetPassword(result).subscribe( success =>
           {
             if(success)
             {
@@ -85,9 +85,13 @@ export class UserComponent
               });
               this.router.navigate(['/users/user/' + this.userId]) 
             } 
+            else
+            {
+              alert("Pogresna lozinka");
+            }
           }
           );
-        }*/
+        }
       }
     });
   }
