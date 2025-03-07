@@ -7,6 +7,7 @@ import { environment } from '../environments/environment';
 import { GetUser } from '../models/get-user';
 import { UserInfo } from '../models/user-info';
 import { ResetPassword } from '../models/reset-password';
+import { Ingredient } from '../models/ingredient';
 
 @Injectable({
   providedIn: 'root'
@@ -58,19 +59,20 @@ export class UserService
     return this.http.put<boolean>(this.backUrlJava + "/users/resetpassword", resetPassword);
   }
 
-  addQuestion(resetPassword: ResetPassword): Observable<boolean>
+  addQuestion(name: String): Observable<boolean>
   {
-    return this.http.put<boolean>(this.backUrlJava + "/users/admin/addquestion", resetPassword);
+    const question = {name:name}
+    return this.http.post<boolean>(this.backUrlJava + "/questions/add", question);
   }
 
-  addTypeOfFood(resetPassword: ResetPassword): Observable<boolean>
+  addTypeOfFood(name: String): Observable<boolean>
   {
-    return this.http.put<boolean>(this.backUrlJava + "/users/admin/addtypeoffood", resetPassword);
+    return this.http.post<boolean>(this.backUrlJava + "/types/addtypeoffood", name);
   }
 
-  addIngredient(resetPassword: ResetPassword): Observable<boolean>
+  addIngredient(ingredient: Ingredient): Observable<boolean>
   {
-    return this.http.put<boolean>(this.backUrlJava + "/users/admin/addingredient", resetPassword);
+    return this.http.post<boolean>(this.backUrlJava + "/ingredients/add", ingredient);
   }
 
 }

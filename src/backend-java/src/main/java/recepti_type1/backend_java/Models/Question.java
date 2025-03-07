@@ -1,8 +1,6 @@
 package recepti_type1.backend_java.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
@@ -11,6 +9,7 @@ import java.util.UUID;
 public class Question
 {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID Id;
     private String QuestionName;
 

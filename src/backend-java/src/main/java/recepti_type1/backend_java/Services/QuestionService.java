@@ -3,6 +3,7 @@ package recepti_type1.backend_java.Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import recepti_type1.backend_java.Models.Question;
+import recepti_type1.backend_java.Models.User;
 import recepti_type1.backend_java.Repositories.QuestionRepository;
 
 import java.util.List;
@@ -31,5 +32,10 @@ public class QuestionService
                 .orElseThrow(() -> new IllegalArgumentException("Question not found for ID: " + questionId));
 
         return q.getQuestionName();
+    }
+
+    public void addQuestion(Question q)
+    {
+        questionRepository.save(q);
     }
 }

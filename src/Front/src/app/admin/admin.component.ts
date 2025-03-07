@@ -59,7 +59,7 @@ export class AdminComponent
     dialogRef.afterClosed().subscribe(result => {
       if (result) 
       {
-        this.userService.addQuestion(result).subscribe( success =>
+        this.userService.addQuestion(result.name).subscribe( success =>
         {
           /*if(success)
           { //is it even neccessery ? //ovde ce morati opet da se pozove funkcija koja vraca broj kategorija
@@ -110,6 +110,7 @@ export class AdminComponent
     dialogRef.afterClosed().subscribe(result => {
       if (result) 
       {
+        console.log(result)
         this.userService.addIngredient(result).subscribe( success =>
         {
           /*if(success)

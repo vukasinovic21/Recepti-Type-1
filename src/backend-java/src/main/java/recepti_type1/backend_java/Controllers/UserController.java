@@ -51,7 +51,7 @@ public class UserController
         return questionService.getQuestionName(u.getQuestionId());
     }
 
-    @GetMapping("/questionId/{questionId}") //za poslat id pitanja dobijamo sigurnosno pitanje
+    @GetMapping("/questionId/{questionId}") //za poslat id pitanja dobijamo sigurnosno pitanje //treba da bude u question kontroleru
     public String getQuestionName(@PathVariable UUID questionId)
     {
         return questionService.getQuestionName(questionId);
@@ -112,4 +112,5 @@ public class UserController
 
         return true;
     }
+
 }
