@@ -12,6 +12,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResetPasswordComponent } from '../reset-password/reset-password.component';
+import { AddQuestionComponent } from '../add-question/add-question.component';
+import { AddTypeOfFoodComponent } from '../add-type-of-food/add-type-of-food.component';
+import { AddIngredientComponent } from '../add-ingredient/add-ingredient.component';
 
 
 
@@ -21,7 +24,10 @@ import { ResetPasswordComponent } from '../reset-password/reset-password.compone
     AdminComponent,
     AllUsersComponent,
     EditUserComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    AddQuestionComponent,
+    AddTypeOfFoodComponent,
+    AddIngredientComponent
   ],
   imports: [
     CommonModule,

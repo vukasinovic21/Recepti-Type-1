@@ -78,8 +78,11 @@ export class AppComponent
 
   showUserId()
   {
-    //this.router.navigate(['/recipes/user/'+localStorage.getItem("userid")]);
-    this.router.navigate(['/users/user/'+localStorage.getItem("userid")]);
+    if(this.user?.role == "ADMIN")
+      //this.router.navigate(['/users/admin/'+localStorage.getItem("userid")]);
+      this.router.navigate(['/users/admin']);
+    else
+      this.router.navigate(['/users/user/'+localStorage.getItem("userid")]);
   }
 
   logout() 

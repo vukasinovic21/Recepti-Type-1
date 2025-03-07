@@ -1,0 +1,17 @@
+<div class="col">
+    <div class="text-center mt-3">
+        <h2>{{"Add type of food" | translate}}</h2>
+    </div>
+
+    <div mat-dialog-content class="text-center">
+        <mat-form-field class="width">
+            <mat-label>{{ 'Type of food' | translate }}</mat-label>
+            <textarea rows="2" matInput [(ngModel)]="data.name"></textarea>
+        </mat-form-field>&nbsp;&nbsp;&nbsp;    
+    </div>
+
+    <div class="m-3">
+        <button class="btn btn-success float-end" (click)="onSave()">{{ 'Save' | translate }}</button>
+        <button class="btn btn-danger" (click)="onCancel()">{{ 'Cancel' | translate }}</button>
+    </div>
+</div>

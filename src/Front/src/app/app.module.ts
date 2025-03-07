@@ -27,6 +27,9 @@ import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AddQuestionComponent } from './add-question/add-question.component';
+import { AddTypeOfFoodComponent } from './add-type-of-food/add-type-of-food.component';
+import { AddIngredientComponent } from './add-ingredient/add-ingredient.component';
 
 export function HttpLoaderFactory(http: HttpClient) 
 {
@@ -35,7 +38,7 @@ export function HttpLoaderFactory(http: HttpClient)
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,60 @@
+.size
+{
+    width:30%
+}
+
+.font
+{
+    /*font-size: 50px;
+    color: #669999;*/
+}
+.font2
+{
+    font-size: 17px;/*15px*/
+    line-height: 1.3;
+}
+
+
+.hover:hover
+{
+    cursor:pointer;
+}
+
+
+.center 
+{
+    margin: 0 auto;
+    max-width: fit-content; /* Adjust width as needed */
+}
+
+.font2 b
+{
+    font-weight: 600;
+}
+
+.solid-hr {
+    border: 0;                 
+    height: 1.5px;               
+    background-color: #669999;   
+    max-width: 333px;
+}
+
+.color
+{
+    color:#993300; 
+    font-size: 28px;
+    display: inline-block;
+    text-align: left;
+}
+
+.small
+{
+    font-size: 0.8em;
+}
+
+.btn.color
+{
+    background-color:#001a33;
+    color:white;
+    margin-right: 5px;
+}

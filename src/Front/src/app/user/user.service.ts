@@ -58,4 +58,19 @@ export class UserService
     return this.http.put<boolean>(this.backUrlJava + "/users/resetpassword", resetPassword);
   }
 
+  addQuestion(resetPassword: ResetPassword): Observable<boolean>
+  {
+    return this.http.put<boolean>(this.backUrlJava + "/users/admin/addquestion", resetPassword);
+  }
+
+  addTypeOfFood(resetPassword: ResetPassword): Observable<boolean>
+  {
+    return this.http.put<boolean>(this.backUrlJava + "/users/admin/addtypeoffood", resetPassword);
+  }
+
+  addIngredient(resetPassword: ResetPassword): Observable<boolean>
+  {
+    return this.http.put<boolean>(this.backUrlJava + "/users/admin/addingredient", resetPassword);
+  }
+
 }

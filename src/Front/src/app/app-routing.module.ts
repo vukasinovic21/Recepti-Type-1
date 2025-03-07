@@ -18,6 +18,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { InfoComponent } from './info/info.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { UserComponent } from './user/user.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = 
 [
@@ -62,15 +63,20 @@ const routes: Routes =
     canActivate:[IsLoggedGuard]
   },
   {
-    path:"users", 
-    component: AllUsersComponent,
-    canActivate:[IsLoggedGuard]
-    
-  },
-  {
     path:"users/user/:id", 
     component: UserComponent,
     canActivate:[IsLoggedGuard]
+  },
+  {
+    path:"users/admin", 
+    component: AdminComponent,
+    canActivate:[IsLoggedGuard]
+  },
+  {
+    path:"users/admin/all", 
+    component: AllUsersComponent,
+    canActivate:[IsLoggedGuard]
+    
   },
   { 
     path: 'diets', 
