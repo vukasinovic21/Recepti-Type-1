@@ -71,17 +71,23 @@ export class UserComponent
     dialogRef.afterClosed().subscribe(result => {
       if (result) 
       {
-        this.userService.editUser(result).subscribe( success =>
-        {
-          if(success)
+        this.newPassword = result;
+        if(result.passwordHash != result.passwordHash2)
+          console.log("NISU ISTE!")
+        /*else
+        { //change password
+          this.userService.editUser(result).subscribe( success =>
           {
-            this.userService.getUserInfo(this.userId).subscribe( user => {
-              this.user = user;
-            });
-            this.router.navigate(['/users/user/' + this.userId]) 
-          } 
-        }
-        );
+            if(success)
+            {
+              this.userService.getUserInfo(this.userId).subscribe( user => {
+                this.user = user;
+              });
+              this.router.navigate(['/users/user/' + this.userId]) 
+            } 
+          }
+          );
+        }*/
       }
     });
   }

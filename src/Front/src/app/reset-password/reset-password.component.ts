@@ -10,6 +10,8 @@ export class ResetPasswordComponent
 {
   constructor(public dialogRef: MatDialogRef<ResetPasswordComponent>, @Inject(MAT_DIALOG_DATA) public data: any ) {}
 
+  showAlert = false;
+
   onCancel(): void 
   {
     this.dialogRef.close();
@@ -17,6 +19,9 @@ export class ResetPasswordComponent
 
   onSave(): void 
   {
-    this.dialogRef.close(this.data); 
+    if(this.data.passwordHash != this.data.passwordHash2)
+      this.showAlert = true;
+    else
+      this.dialogRef.close(this.data); 
   }
 }
