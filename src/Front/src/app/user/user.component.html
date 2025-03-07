@@ -57,7 +57,8 @@
 
 <div class="container">
     <div class="text-center mt-4">
-        <h1 class="font display-4">{{"Your profile" | translate}}</h1>
+        <h1 *ngIf="user?.role != 'ADMIN'" class="font display-4">{{"Your profile" | translate}}</h1>
+        <h1 *ngIf="user?.role == 'ADMIN'" class="font display-4">{{"Admin page" | translate}}</h1>
     </div>
 </div>
 

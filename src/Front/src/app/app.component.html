@@ -13,7 +13,7 @@
         <span class="spacer"></span>
         <span class="right-buttons">
 
-            <select class="form-select form-select-sm lang-color" (change)="changeLanguage($event)">
+            <select class="form-select form-select-sm lang-color" (change)="changeLanguage($event)" [value]="language">
                 <option class="options" value="en">English</option>
                 <option class="options" value="srb">Srpski</option>
             </select>

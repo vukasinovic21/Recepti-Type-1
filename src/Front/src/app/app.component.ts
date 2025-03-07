@@ -14,6 +14,7 @@ export class AppComponent
   title = 'Recepti type 1 - Front';
   isMobile: any;
 
+  language: string = localStorage.getItem("language") ?? "en";
   isLogged = false;
   username = '';
 
@@ -25,7 +26,8 @@ export class AppComponent
     private userService: UserService,
     private translate: TranslateService)
     {
-      this.translate.setDefaultLang('en');
+      this.translate.setDefaultLang(this.language);
+      this.translate.use(this.language);
     }
 
   ngOnInit()
@@ -56,16 +58,20 @@ export class AppComponent
     if (this.isLogged) 
     {
       this.username = localStorage.getItem('username') || ''; 
+      this.language = localStorage.getItem("language") ?? "en";
     } 
     else 
     {
       this.username = ''; 
+      this.language = "en";
     }
   }
 
   changeLanguage(event: Event) 
   {
     const selectedLang = (event.target as HTMLSelectElement).value;
+    localStorage.setItem("language", selectedLang);
+    this.language = selectedLang;
     this.translate.use(selectedLang);  
     //staviti u local storage izabrani jezik kako se ne bi resetovao na refresh
   }
@@ -80,6 +86,7 @@ export class AppComponent
   {
     localStorage.removeItem('jwt');
     localStorage.removeItem('userid');
+    localStorage.removeItem('language');
     this.isLogged = false;
     this.username = '';
     this.authService.loggedout();
