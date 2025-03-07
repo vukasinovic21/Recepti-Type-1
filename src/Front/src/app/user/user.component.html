@@ -57,7 +57,7 @@
 
 <div class="container">
     <div class="text-center mt-4">
-        <h1 class="font display-4">{{"User Info" | translate}}</h1>
+        <h1 class="font display-4">{{"Your profile" | translate}}</h1>
     </div>
 </div>
 
@@ -77,10 +77,10 @@
                         <b>{{"Username" | translate}}: </b> <span>{{user?.username}}</span>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <b>{{"Email" | translate}}: </b> <span>{{user?.email}}</span>
+                        <b>{{"Birthday" | translate}}: </b> <span>{{user?.dateOfBirth | date:'dd-MM-yyyy' }}</span>
                     </div>
                     <div class="col-md-6 mb-2">
-                        <b>{{"Birthday" | translate}}: </b> <span>{{user?.dateOfBirth | date:'dd-MM-yyyy' }}</span>
+                        <b>{{"Email" | translate}}: </b> <span>{{user?.email}}</span>
                     </div>
                     <div class="col-md-6 mb-2">
                         <b>{{"Sex" | translate}}: </b> <span>{{user?.sex ?? 'Not Available' | translate}}</span>
