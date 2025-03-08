@@ -28,5 +28,8 @@
 
         <button class="btn btn-success float-end" type="submit" [disabled]="loginForm.invalid">{{"Login" | translate}}</button>
         <button [routerLink]="['/home']" class="btn btn-primary" >{{"Continue as guest" | translate}}</button>
+        <!--&nbsp;<button [routerLink]="['/resetPassword']" class="btn btn-primary" >{{"Forgot password" | translate}}</button>-->
     </form>
+    &nbsp;
+    <a [routerLink]="['/forgotPassword']">Forgot your password?</a>
 </div>

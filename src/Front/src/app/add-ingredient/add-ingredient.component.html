@@ -1,0 +1,48 @@
+<div class="col">
+    <div class="text-center mt-3">
+        <h2>{{"Add ingredient" | translate}}</h2>
+    </div>
+
+    <div mat-dialog-content >
+        <mat-form-field class="width">
+            <mat-label>{{ 'Name' | translate }}</mat-label>
+            <input matInput [(ngModel)]="data.name">
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <mat-label>{{ 'Carbs' | translate }}</mat-label>
+            <input type="number" matInput [(ngModel)]="data.carbs">
+        </mat-form-field>&nbsp;&nbsp;&nbsp;
+
+        <mat-form-field>
+            <mat-label>{{ 'Sugar' | translate }}</mat-label>
+            <input type="number" matInput [(ngModel)]="data.sugar">
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <mat-label>{{ 'Fat' | translate }}</mat-label>
+            <input type="number" matInput [(ngModel)]="data.fat">
+        </mat-form-field>&nbsp;&nbsp;&nbsp;
+
+        <mat-form-field>
+            <mat-label>{{ 'Protein' | translate }}</mat-label>
+            <input type="number" matInput [(ngModel)]="data.protein">
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <mat-label>{{ 'kCal' | translate }}</mat-label>
+            <input type="number" matInput [(ngModel)]="data.kCal">
+        </mat-form-field>&nbsp;&nbsp;&nbsp;
+
+        <mat-form-field>
+            <mat-label>{{ 'GI' | translate }}</mat-label>
+            <input type="number" matInput [(ngModel)]="data.GI">
+        </mat-form-field><br>
+    
+    </div>
+
+    <div class="m-3">
+        <button class="btn btn-success float-end" (click)="onSave()">{{ 'Save' | translate }}</button>
+        <button class="btn btn-danger" (click)="onCancel()">{{ 'Cancel' | translate }}</button>
+    </div>
+</div>

@@ -2,7 +2,7 @@ export interface UserInfo
 {
     id: string,
     name: string,
-    lastname: string
+    lastName: string
     username: string,
     email: string,
     dateOfBirth: Date,

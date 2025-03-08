@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { Jwt } from '../models/jwt';
 import { Question } from '../models/question';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, catchError, map, Observable, throwError, timeout } from 'rxjs';
 import { environment } from '../environments/environment';
 import { jwtDecode } from "jwt-decode";
 import { UserInfo } from '../models/user-info';
+import { ForgotPassword } from '../models/forgot-password';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class AuthService
 
   private user = new BehaviorSubject<UserInfo>({id: '',
                                                 name: '',
-                                                lastname: '',
+                                                lastName: '',
                                                 username: '',
                                                 email: '',
                                                 dateOfBirth: new Date(),
@@ -34,6 +35,7 @@ export class AuthService
   currentUser = this.user.asObservable();
 
   private backUrl = environment.backUrl;
+  private backUrlJava = environment.backUrlJava;
 
   constructor(private http: HttpClient){}
 
@@ -72,7 +74,7 @@ export class AuthService
     this.username.next("");
     this.user.next({id: '',
       name: '',
-      lastname: '',
+      lastName: '',
       username: '',
       email: '',
       dateOfBirth: new Date(),
@@ -131,16 +133,41 @@ export class AuthService
     );
   }
 
+  getSafetyQuestion(email: String): Observable<String>
+  {
+    return this.http.get<String>(this.backUrlJava + "/users/question/" + email, { responseType: 'text' as 'json' })
+    .pipe(
+      catchError(this.handleError) // Catch and handle the error here
+    );;
+  }
+
+  private handleError(error: HttpErrorResponse) 
+  {
+    if (error.status === 404) 
+    {
+      return throwError(`User not found for email: ${error.error}`);
+    } 
+    else 
+    {
+      return throwError('An error occurred while fetching the safety question.');
+    }
+  }
+
+  reset(loginUser: ForgotPassword) : Observable<Boolean>
+  {
+    return this.http.post<Boolean>(this.backUrlJava + "/users/answer", loginUser);
+  }
+
+
+
   delete(id: string): void
   {
     //treba da nadjemo i obrisemo usera
   }
-
   update(id: string): void
   {
     //treba da promenimo nesto kod usera
   }
-
   getUserInfo(id: string): Observable<UserInfo> 
   {
     return this.http.get<{user: UserInfo[]}>(this.backUrl + "/users/id/" + id)

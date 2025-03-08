@@ -1,1 +1,93 @@
-<p>admin works!</p>
+<div class="container">
+    <div class="text-center mt-4">
+        <h1 *ngIf="user?.role == 'ADMIN'" class="font display-4">{{"Admin page" | translate}}</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 ">
+            <div class="card p-4 shadow-sm border-light">
+                <h2 class="mb-5 text-center" style="color: green;">{{"General Information" | translate}}</h2>
+                <div class="row font2 text-center">
+                    <div class="col-md-6 mb-3">
+                        <b>{{"App name" | translate}}: </b> <span>{{"Recipes Type 1" | translate}}</span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <b>{{"Active since" | translate}}: </b> <span>{{user?.dateOfBirth | date:'dd-MM-yyyy' }}</span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <b>{{"Founder" | translate}}: </b> <span>WooKash</span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <b>{{"Active for" | translate}}: </b> <span>{{activeFor}}</span> {{"days" | translate}}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <b>{{"Email" | translate}}: </b> <span>{{user?.email}}</span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <b>{{"Number of recipes" | translate}}: </b> <span>{{21}}</span>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <b>{{"Number of users" | translate}}: </b> <span>{{12}}</span>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <b>{{"Number of food types" | translate}}: </b> <span>{{10}}</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="card p-4 shadow-sm border-light">
+                <div class="d-flex flex-column gap-3">
+                    <button class="btn btn-success" [routerLink]="['/users/admin/all']">
+                        <i class="bi bi-card-text"></i> {{'All users' | translate}}
+                    </button>
+                    <button class="btn btn-primary" (click)="addQuestion()">
+                        <i class="material-icons">add</i> {{'Add safety query' | translate}} <!--add safety question-->
+                    </button>
+                    <button class="btn btn-primary" (click)="addTypeOfFood()">
+                        <i class="material-icons">add</i> {{'Add type of food' | translate}}
+                    </button>
+                    <button class="btn btn-primary" (click)="addIngredient()">
+                        <i class="material-icons">add</i> {{'Add ingredient' | translate}}
+                    </button>
+                </div>
+            </div>
+        </div>
+<!--
+        <div class="col-md-2">
+            <div class="card p-4 shadow-sm border-light">
+                <div class="d-flex flex-column gap-3 mb-3">
+                    <button class="btn btn-success" [routerLink]="['/users/admin/all']">
+                        <i class="bi bi-card-text"></i> {{'All users' | translate}}
+                    </button>
+                    <button class="btn btn-success">
+                        <i class="bi bi-card-text"></i> {{'All questions' | translate}}
+                    </button>
+                    <button class="btn btn-success">
+                        <i class="bi bi-card-text"></i> {{'All types of food' | translate}}
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card p-4 shadow-sm border-light">
+                <div class="d-flex flex-column gap-3">
+                    <button class="btn btn-primary">
+                        <i class="material-icons">add</i> {{'Add safety query' | translate}} 
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="material-icons">add</i> {{'Add type of food' | translate}}
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="material-icons">add</i> {{'Add ingredient' | translate}}
+                    </button>
+                </div>
+            </div>
+        </div>
+-->
+    </div>
+</div>

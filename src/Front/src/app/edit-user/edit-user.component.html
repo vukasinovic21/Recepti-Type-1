@@ -1,0 +1,33 @@
+<div class="col">
+    <div class="text-center mt-3">
+        <h2>{{"Edit profile" | translate}}</h2>
+    </div>
+
+    <div mat-dialog-content >
+        <mat-form-field>
+            <mat-label>{{ 'Name' | translate }}</mat-label>
+            <input matInput [(ngModel)]="data.name">
+        </mat-form-field>&nbsp;&nbsp;&nbsp;
+
+        <mat-form-field>
+            <mat-label>{{ 'Lastname' | translate }}</mat-label>
+            <input matInput [(ngModel)]="data.lastName">
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <mat-label>{{ 'Username' | translate }}</mat-label>
+            <input matInput [(ngModel)]="data.username">
+        </mat-form-field>&nbsp;&nbsp;&nbsp;
+
+        <mat-form-field>
+            <mat-label>{{ 'Birthday' | translate }}</mat-label>
+            <input matInput [(ngModel)]="data.dateOfBirth">
+        </mat-form-field>
+    
+    </div>
+
+    <div class="m-3">
+        <button class="btn btn-success float-end" (click)="onSave()">{{ 'Save' | translate }}</button>
+        <button class="btn btn-danger" (click)="onCancel()">{{ 'Cancel' | translate }}</button>
+    </div>
+</div>
