@@ -67,7 +67,8 @@ export class UserService
 
   addTypeOfFood(name: String): Observable<boolean>
   {
-    return this.http.post<boolean>(this.backUrlJava + "/types/addtypeoffood", name);
+    const type = {name:name}
+    return this.http.post<boolean>(this.backUrlJava + "/typeoffood/add", type);
   }
 
   addIngredient(ingredient: Ingredient): Observable<boolean>

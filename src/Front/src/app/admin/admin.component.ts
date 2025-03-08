@@ -84,7 +84,7 @@ export class AdminComponent
     dialogRef.afterClosed().subscribe(result => {
       if (result) 
       {
-        this.userService.addTypeOfFood(result).subscribe( success =>
+        this.userService.addTypeOfFood(result.name).subscribe( success =>
         {
           /*if(success)
           { //is it even neccessery ? //ovde ce morati opet da se pozove funkcija koja vraca broj kategorija
