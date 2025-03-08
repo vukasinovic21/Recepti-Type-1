@@ -1,8 +1,6 @@
 package recepti_type1.backend_java.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
@@ -11,6 +9,7 @@ import java.util.UUID;
 public class Ingredient
 {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID Id;
     private String Name;
     private Float Carbs;
@@ -21,6 +20,17 @@ public class Ingredient
     private Float GI; // Glycemic Index
 
     public Ingredient() {}
+
+    public Ingredient(Ingredient i)
+    {
+        this.Name = i.Name;
+        this.Carbs = i.Carbs;
+        this.Sugar = i.Sugar;
+        this.Fat = i.Fat;
+        this.Protein = i.Protein;
+        this.kCal = i.kCal;
+        this.GI = i.GI;
+    }
 
     public Ingredient(UUID id, String name, Float carbs, Float sugar,
                       Float fat, Float protein, Float kcal, Float gi)
@@ -71,5 +81,38 @@ public class Ingredient
                                     Float fat, Float protein, Float kcal, Float gi)
     {
         return new Ingredient(id, name, carbs, sugar, fat, protein, kcal, gi);
+    }
+
+
+    public void setId(UUID id) {
+        Id = id;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public void setCarbs(Float carbs) {
+        Carbs = carbs;
+    }
+
+    public void setSugar(Float sugar) {
+        Sugar = sugar;
+    }
+
+    public void setFat(Float fat) {
+        Fat = fat;
+    }
+
+    public void setProtein(Float protein) {
+        Protein = protein;
+    }
+
+    public void setGI(Float GI) {
+        this.GI = GI;
+    }
+
+    public void setkCal(Float kCal) {
+        this.kCal = kCal;
     }
 }

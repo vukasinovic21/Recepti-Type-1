@@ -61,13 +61,16 @@ export class AdminComponent
       {
         this.userService.addQuestion(result.name).subscribe( success =>
         {
-          /*if(success)
+          if(success)
           { //is it even neccessery ? //ovde ce morati opet da se pozove funkcija koja vraca broj kategorija
-            this.userService.getUserInfo(this.userId).subscribe( user => {
+            /*this.userService.getUserInfo(this.userId).subscribe( user => {
               this.user = user;
             });
-            this.router.navigate(['/users/admin']) 
-          } */
+            this.router.navigate(['/users/admin']) */
+            alert("Successfully added new safety question! :)");
+          } 
+          else
+            alert("Error while adding new question! :(");
         }
         );
       }
@@ -86,13 +89,16 @@ export class AdminComponent
       {
         this.userService.addTypeOfFood(result.name).subscribe( success =>
         {
-          /*if(success)
+          if(success)
           { //is it even neccessery ? //ovde ce morati opet da se pozove funkcija koja vraca broj kategorija
-            this.userService.getUserInfo(this.userId).subscribe( user => {
+            /*this.userService.getUserInfo(this.userId).subscribe( user => {
               this.user = user;
             });
-            this.router.navigate(['/users/admin']) 
-          } */
+            this.router.navigate(['/users/admin']) */
+            alert("Successfully added new type of food! :)");
+          } 
+          else
+            alert("Error while adding new type of food! :(");
         }
         );
       }
@@ -113,13 +119,16 @@ export class AdminComponent
         console.log(result)
         this.userService.addIngredient(result).subscribe( success =>
         {
-          /*if(success)
+          if(success)
           { //is it even neccessery ? //ovde ce morati opet da se pozove funkcija koja vraca broj kategorija
-            this.userService.getUserInfo(this.userId).subscribe( user => {
+            /*this.userService.getUserInfo(this.userId).subscribe( user => {
               this.user = user;
             });
-            this.router.navigate(['/users/admin']) 
-          } */
+            this.router.navigate(['/users/admin']) */
+            alert("Successfully added new ingredient! :)");
+          } 
+          else
+            alert("Error while adding new ingredient! :(");
         }
         );
       }
