@@ -1,1 +1,32 @@
-<p>all-users works!</p>
+<div >
+    <div class="container-fluid">
+        <div class="row h-100">
+            <!-- Sidebar -->
+            <div class="col-md-2 p-3 sidebar">
+
+                <div class="div-space1">
+                    <input matInput (keyup)="search($event)" placeholder="{{'Search' | translate}}" class="div-space1">
+                </div>
+                
+                <mat-select (selectionChange)="sortUsers($event.value)" placeholder="{{'Sort' | translate}}" class="div-space2">
+                    <mat-option value="nameA-Z">{{"Username: A-Z" | translate}}</mat-option>
+                    <mat-option value="nameZ-A">{{"Username: Z-A" | translate}}</mat-option>
+                    <mat-option value="newest">{{"Date joined: Newest" | translate}}</mat-option>
+                    <mat-option value="oldest">{{"Date joined: Oldest" | translate}}</mat-option>
+                </mat-select>
+                <hr>
+                <h3 *ngIf="filteredUsers.length == 0">{{"There is no users yet" | translate}}</h3>
+                <ul class="list-group">
+                    <li class="list-group-item " *ngFor="let user of filteredUsers" [class.active]="user.id === selectedUserId"  (click)="showUserId(user.id)">
+                    {{ user.username }}
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Main Content -->
+            <div class="col-md-10 p-3" > <!--OVO DA SE POPUNI TEK KAD SE IZABERE NEKI USER tj da se otvori komponenta user-->
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

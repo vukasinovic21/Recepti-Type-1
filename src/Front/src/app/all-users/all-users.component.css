@@ -1,0 +1,31 @@
+.div-space1
+{
+    width: 100%;
+    margin-bottom: 5px;
+    border-color: #669999;
+    border-radius: 5%;
+    background-color: transparent;
+}
+
+.div-space2
+{
+    width: 100%;
+    margin-left: 3px;
+}
+
+.list-group-item
+{
+    cursor: pointer; 
+}
+
+.list-group-item:hover {
+    background-color:  #669999;
+    color: white; 
+    border-color:  #669999;
+}
+
+.list-group-item.active {
+    background-color: #669999;
+    color: white; 
+    border-color: #669999;
+}

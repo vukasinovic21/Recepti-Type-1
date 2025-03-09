@@ -30,6 +30,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { AddTypeOfFoodComponent } from './add-type-of-food/add-type-of-food.component';
 import { AddIngredientComponent } from './add-ingredient/add-ingredient.component';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 export function HttpLoaderFactory(http: HttpClient) 
 {
@@ -38,7 +39,7 @@ export function HttpLoaderFactory(http: HttpClient)
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

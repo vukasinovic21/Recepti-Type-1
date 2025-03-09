@@ -75,6 +75,10 @@ const routes: Routes =
   {
     path:"users/admin/all", 
     component: AllUsersComponent,
+    children: 
+    [
+      { path: ':id', component: UserComponent }
+    ],
     canActivate:[IsLoggedGuard]
     
   },

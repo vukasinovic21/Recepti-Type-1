@@ -15,6 +15,8 @@ import { ResetPasswordComponent } from '../reset-password/reset-password.compone
 import { AddQuestionComponent } from '../add-question/add-question.component';
 import { AddTypeOfFoodComponent } from '../add-type-of-food/add-type-of-food.component';
 import { AddIngredientComponent } from '../add-ingredient/add-ingredient.component';
+import { UserInfoComponent } from '../user-info/user-info.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -27,7 +29,8 @@ import { AddIngredientComponent } from '../add-ingredient/add-ingredient.compone
     ResetPasswordComponent,
     AddQuestionComponent,
     AddTypeOfFoodComponent,
-    AddIngredientComponent
+    AddIngredientComponent,
+    UserInfoComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +41,8 @@ import { AddIngredientComponent } from '../add-ingredient/add-ingredient.compone
     MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSelectModule
   ]
 })
 export class UserModule { }
