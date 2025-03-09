@@ -17,6 +17,7 @@ import { AddTypeOfFoodComponent } from '../add-type-of-food/add-type-of-food.com
 import { AddIngredientComponent } from '../add-ingredient/add-ingredient.component';
 import { UserInfoComponent } from '../user-info/user-info.component';
 import { MatSelectModule } from '@angular/material/select';
+import { ChangeRoleComponent } from '../change-role/change-role.component';
 
 
 
@@ -30,7 +31,8 @@ import { MatSelectModule } from '@angular/material/select';
     AddQuestionComponent,
     AddTypeOfFoodComponent,
     AddIngredientComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    ChangeRoleComponent
   ],
   imports: [
     CommonModule,

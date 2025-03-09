@@ -31,6 +31,7 @@ import { AddQuestionComponent } from './add-question/add-question.component';
 import { AddTypeOfFoodComponent } from './add-type-of-food/add-type-of-food.component';
 import { AddIngredientComponent } from './add-ingredient/add-ingredient.component';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { ChangeRoleComponent } from './change-role/change-role.component';
 
 export function HttpLoaderFactory(http: HttpClient) 
 {

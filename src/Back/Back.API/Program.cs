@@ -52,6 +52,7 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("ADMIN", policy => policy.RequireRole("http://schemas.microsoft.com/ws/2008/06/identity/claims/role", "ADMIN"));
     options.AddPolicy("USER", policy => policy.RequireRole("http://schemas.microsoft.com/ws/2008/06/identity/claims/role", "USER"));
+    options.AddPolicy("VERIFIED USER", policy => policy.RequireRole("http://schemas.microsoft.com/ws/2008/06/identity/claims/role", "VERIFIED USER"));
 });
 /*builder.Services.AddAuthorization(options =>
 {

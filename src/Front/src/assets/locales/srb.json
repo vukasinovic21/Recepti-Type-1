@@ -252,5 +252,10 @@
     "Date joined: Oldest": "Datum pristupa: Stariji",
     "There is no users yet": "Trenutno nema korisnika",
     "Username: A-Z": "Korisnicko ime: A-Z",
-    "Username: Z-A": "Korisnicko ime: Z-A"
+    "Username: Z-A": "Korisnicko ime: Z-A",
+    "Glycemic index": "Glikemijski indeks",
+    "Change role": "Promeni ulogu",
+    "Delete user": "Izbrisi korisnika",
+    "Change user's role": "Promeni korisnikovu ulogu",
+    "Do you want to delete this user": "Da li zelite da obrisete ovog korisnika"
 }

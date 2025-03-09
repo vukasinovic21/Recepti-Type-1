@@ -11,32 +11,32 @@
 
         <mat-form-field>
             <mat-label>{{ 'Carbs' | translate }}</mat-label>
-            <input type="number" matInput [(ngModel)]="data.carbs">
+            <input type="number" matInput [(ngModel)]="data.carbs" min="0">
         </mat-form-field>&nbsp;&nbsp;&nbsp;
 
         <mat-form-field>
             <mat-label>{{ 'Sugar' | translate }}</mat-label>
-            <input type="number" matInput [(ngModel)]="data.sugar">
+            <input type="number" matInput [(ngModel)]="data.sugar" min="0">
         </mat-form-field><br>
 
         <mat-form-field>
             <mat-label>{{ 'Fat' | translate }}</mat-label>
-            <input type="number" matInput [(ngModel)]="data.fat">
+            <input type="number" matInput [(ngModel)]="data.fat" min="0">
         </mat-form-field>&nbsp;&nbsp;&nbsp;
 
         <mat-form-field>
             <mat-label>{{ 'Protein' | translate }}</mat-label>
-            <input type="number" matInput [(ngModel)]="data.protein">
+            <input type="number" matInput [(ngModel)]="data.protein" min="0">
         </mat-form-field><br>
 
         <mat-form-field>
             <mat-label>{{ 'kCal' | translate }}</mat-label>
-            <input type="number" matInput [(ngModel)]="data.kCal">
+            <input type="number" matInput [(ngModel)]="data.kCal" min="0">
         </mat-form-field>&nbsp;&nbsp;&nbsp;
 
         <mat-form-field>
-            <mat-label>{{ 'GI' | translate }}</mat-label>
-            <input type="number" matInput [(ngModel)]="data.gi">
+            <mat-label>{{ 'Glycemic index' | translate }}</mat-label>
+            <input type="number" matInput [(ngModel)]="data.gi" min="0">
         </mat-form-field><br>
     
     </div>

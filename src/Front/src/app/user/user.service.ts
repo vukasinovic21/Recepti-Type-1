@@ -82,5 +82,15 @@ export class UserService
     return this.http.post<boolean>(this.backUrlJava + "/ingredients/add", ingredient);
   }
 
+  changeRole(user: any): Observable<boolean>
+  {
+    return this.http.put<boolean>(this.backUrlJava + "/users/changerole", user);
+  }
+
+  delete(id: String): Observable<boolean>
+  {
+    const user = {id:id}
+    return this.http.delete<boolean>(this.backUrlJava + "users/delete", { body: user });
+  }
 
 }

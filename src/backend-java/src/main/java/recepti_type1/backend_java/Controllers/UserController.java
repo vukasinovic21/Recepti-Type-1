@@ -2,10 +2,7 @@ package recepti_type1.backend_java.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import recepti_type1.backend_java.Dtos.ForgotPassword;
-import recepti_type1.backend_java.Dtos.GeneralInfo;
-import recepti_type1.backend_java.Dtos.ResetPassword;
-import recepti_type1.backend_java.Dtos.UserInfoUpdate;
+import recepti_type1.backend_java.Dtos.*;
 import recepti_type1.backend_java.Models.User;
 import recepti_type1.backend_java.Services.QuestionService;
 import recepti_type1.backend_java.Services.RecipeService;
@@ -13,6 +10,7 @@ import recepti_type1.backend_java.Services.TypeOfFoodService;
 import recepti_type1.backend_java.Services.UserService;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @RestController
@@ -126,6 +124,20 @@ public class UserController
         }
 
         u.setPasswordHash(userService.hashPassword(resetPassword.getPasswordHash()));
+        userService.updateUser(u);
+
+        return true;
+    }
+
+    @PutMapping("/changerole") //Changing users role when admin wants it
+    public Boolean changeRole(@RequestBody NewRole newRole)
+    {
+        User u = userService.getUserById(newRole.getId());
+
+        if(u == null)
+            return false;
+
+        u.setRole(newRole.getRole());
         userService.updateUser(u);
 
         return true;
