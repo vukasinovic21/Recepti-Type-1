@@ -3,10 +3,13 @@ package recepti_type1.backend_java.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import recepti_type1.backend_java.Dtos.ForgotPassword;
+import recepti_type1.backend_java.Dtos.GeneralInfo;
 import recepti_type1.backend_java.Dtos.ResetPassword;
 import recepti_type1.backend_java.Dtos.UserInfoUpdate;
 import recepti_type1.backend_java.Models.User;
 import recepti_type1.backend_java.Services.QuestionService;
+import recepti_type1.backend_java.Services.RecipeService;
+import recepti_type1.backend_java.Services.TypeOfFoodService;
 import recepti_type1.backend_java.Services.UserService;
 
 import java.util.List;
@@ -18,18 +21,33 @@ public class UserController
 {
     private final UserService userService;
     private final QuestionService questionService;
+    private final RecipeService recipeService;
+    private final TypeOfFoodService typeOfFoodService;
 
     @Autowired
-    public UserController(UserService userService, QuestionService questionService)
+    public UserController(UserService userService, QuestionService questionService, RecipeService recipeService, TypeOfFoodService typeOfFoodService)
     {
         this.userService = userService;
         this.questionService = questionService;
+        this.recipeService = recipeService;
+        this.typeOfFoodService = typeOfFoodService;
     }
 
     @GetMapping("/all")
     public List<User> getAllUsers()
     {
         return userService.getAllUsers();
+    }
+
+    @GetMapping("/generalinfo")
+    public GeneralInfo getGeneralInfo()
+    {
+        GeneralInfo info = new GeneralInfo();
+        info.setNumberOfUsers(userService.getAllUsersNumber()); // admin is included in this number
+        info.setNumberOfFoodTypes(typeOfFoodService.getAllTypesNumber());
+        info.setNumberOfRecipes(recipeService.getAllRecipesNumber());
+
+        return info;
     }
 
     @GetMapping("/id/{userId}")
@@ -112,5 +130,7 @@ public class UserController
 
         return true;
     }
+
+
 
 }

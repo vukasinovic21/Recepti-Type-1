@@ -14,6 +14,7 @@ import java.util.UUID;
 public class Recipe
 {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID Id;
     private String UserId;
 

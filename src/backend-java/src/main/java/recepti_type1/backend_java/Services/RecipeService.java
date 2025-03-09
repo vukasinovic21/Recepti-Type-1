@@ -23,4 +23,10 @@ public class RecipeService
         return recipeRepository.findAll();
         //return recipeRepository.findAllFromTable();
     }
+
+    public long getAllRecipesNumber()
+    {
+        return recipeRepository.count();
+    }
+
 }

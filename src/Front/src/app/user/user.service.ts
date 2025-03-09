@@ -8,6 +8,7 @@ import { GetUser } from '../models/get-user';
 import { UserInfo } from '../models/user-info';
 import { ResetPassword } from '../models/reset-password';
 import { Ingredient } from '../models/ingredient';
+import { GeneralInfo } from '../models/general-info';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,11 @@ export class UserService
     );
   }
 
+  getGeneralInfo(): Observable<GeneralInfo>
+  {
+    return this.http.get<GeneralInfo>(this.backUrlJava + "/users/generalinfo");
+  }
+
   editUser(user: any): Observable<boolean>
   {
     //const query = {user:user};
@@ -75,5 +81,6 @@ export class UserService
   {
     return this.http.post<boolean>(this.backUrlJava + "/ingredients/add", ingredient);
   }
+
 
 }

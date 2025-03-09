@@ -14,4 +14,5 @@ public interface RecipeRepository extends JpaRepository<Recipe, UUID>
 
     @Query(value = "SELECT * FROM \"Recipes\" r", nativeQuery = true)
     List<Recipe> findAllFromTable();
+
 }

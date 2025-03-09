@@ -58,4 +58,9 @@ public class UserService
     {
         userRepository.save(u);
     }
+
+    public long getAllUsersNumber()
+    {
+        return userRepository.count();
+    }
 }

@@ -7,6 +7,7 @@ import { UserService } from '../user/user.service';
 import { AddQuestionComponent } from '../add-question/add-question.component';
 import { AddTypeOfFoodComponent } from '../add-type-of-food/add-type-of-food.component';
 import { AddIngredientComponent } from '../add-ingredient/add-ingredient.component';
+import { GeneralInfo } from '../models/general-info';
 
 @Component({
   selector: 'app-admin',
@@ -17,6 +18,7 @@ export class AdminComponent
 {
 
   user?: UserInfo;
+  generalInfo?: GeneralInfo;
   userId: string = '';
   loggedUser = localStorage.getItem("userid");
   newPassword?: ResetPassword;//treba newQuestion, newTypeOfMeal, newIngredient da se ubaci i posebne komponente za sve ili moze jedna sa id-jem i imenom ???
@@ -33,12 +35,20 @@ export class AdminComponent
   {
     this.userId = this.activatedRoute.snapshot.paramMap.get('id') ?? localStorage.getItem('userid') ?? 'default-value';
     this.getUserInfo(this.userId);
+    this.getGeneralInfo();
   }
 
   getUserInfo(userId:string): void
   {
     this.userService.getUserInfo(userId).subscribe(user => {
       this.user = user;
+    });
+  }
+
+  getGeneralInfo(): void
+  {
+    this.userService.getGeneralInfo().subscribe(generalInfo => {
+      this.generalInfo = generalInfo;
     });
   }
 
@@ -62,7 +72,9 @@ export class AdminComponent
         this.userService.addQuestion(result.name).subscribe( success =>
         {
           if(success)
-          { //is it even neccessery ? //ovde ce morati opet da se pozove funkcija koja vraca broj kategorija
+          { 
+            this.getGeneralInfo();
+            //is it even neccessery ? //ovde ce morati opet da se pozove funkcija koja vraca broj kategorija
             /*this.userService.getUserInfo(this.userId).subscribe( user => {
               this.user = user;
             });
@@ -90,7 +102,9 @@ export class AdminComponent
         this.userService.addTypeOfFood(result.name).subscribe( success =>
         {
           if(success)
-          { //is it even neccessery ? //ovde ce morati opet da se pozove funkcija koja vraca broj kategorija
+          { 
+            this.getGeneralInfo();
+            //is it even neccessery ? //ovde ce morati opet da se pozove funkcija koja vraca broj kategorija
             /*this.userService.getUserInfo(this.userId).subscribe( user => {
               this.user = user;
             });
@@ -120,7 +134,9 @@ export class AdminComponent
         this.userService.addIngredient(result).subscribe( success =>
         {
           if(success)
-          { //is it even neccessery ? //ovde ce morati opet da se pozove funkcija koja vraca broj kategorija
+          { 
+            this.getGeneralInfo();
+            //is it even neccessery ? //ovde ce morati opet da se pozove funkcija koja vraca broj kategorija
             /*this.userService.getUserInfo(this.userId).subscribe( user => {
               this.user = user;
             });

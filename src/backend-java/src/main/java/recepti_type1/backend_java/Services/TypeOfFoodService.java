@@ -27,4 +27,10 @@ public class TypeOfFoodService
     {
         typeOfFoodRepository.save(tof);
     }
+
+    public long getAllTypesNumber()
+    {
+        return typeOfFoodRepository.count();
+    }
+
 }
