@@ -63,4 +63,11 @@ public class UserService
     {
         return userRepository.count();
     }
+
+    public boolean deleteUser(User u)
+    {
+        userRepository.delete(u);
+
+        return true;
+    }
 }

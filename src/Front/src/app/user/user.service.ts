@@ -90,7 +90,7 @@ export class UserService
   delete(id: String): Observable<boolean>
   {
     const user = {id:id}
-    return this.http.delete<boolean>(this.backUrlJava + "users/delete", { body: user });
+    return this.http.delete<boolean>(this.backUrlJava + "/users/delete", { body: user });
   }
 
 }

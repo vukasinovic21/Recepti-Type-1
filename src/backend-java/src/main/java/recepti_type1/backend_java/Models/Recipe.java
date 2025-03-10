@@ -16,6 +16,7 @@ public class Recipe
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID Id;
+    @Column(name = "UserId")
     private String UserId;
 
     @Column(name = "RecipeName")

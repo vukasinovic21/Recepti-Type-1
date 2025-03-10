@@ -2,12 +2,15 @@ package recepti_type1.backend_java.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import recepti_type1.backend_java.Models.Recipe;
+import recepti_type1.backend_java.Models.User;
 import recepti_type1.backend_java.Services.RecipeService;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/recipes")
@@ -30,4 +33,11 @@ public class RecipeController
     {
         return recipeService.getAllRecipes();
     }
+
+    @GetMapping("/countbyuser/{userId}")
+    public long getRecipesCountByUser(@PathVariable UUID userId)
+    {
+        return recipeService.countRecipesByUser(userId);
+    }
+
 }

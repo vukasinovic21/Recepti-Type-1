@@ -6,6 +6,7 @@ import recepti_type1.backend_java.Models.Recipe;
 import recepti_type1.backend_java.Repositories.RecipeRepository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class RecipeService
@@ -27,6 +28,11 @@ public class RecipeService
     public long getAllRecipesNumber()
     {
         return recipeRepository.count();
+    }
+
+    public long countRecipesByUser(UUID UserId)
+    {
+        return recipeRepository.countByUserId(UserId);
     }
 
 }

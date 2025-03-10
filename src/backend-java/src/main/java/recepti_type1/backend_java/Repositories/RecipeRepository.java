@@ -15,4 +15,6 @@ public interface RecipeRepository extends JpaRepository<Recipe, UUID>
     @Query(value = "SELECT * FROM \"Recipes\" r", nativeQuery = true)
     List<Recipe> findAllFromTable();
 
+    @Query(value = "SELECT COUNT(*) FROM \"Recipes\" WHERE \"UserId\" = ?", nativeQuery = true)
+    long countByUserId(UUID UserId);
 }

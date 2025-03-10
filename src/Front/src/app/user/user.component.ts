@@ -23,7 +23,7 @@ export class UserComponent
   isAdmin?: UserInfo;
 
   showAlert = false;
-  deleteUser = '';
+  deleteUser: string = '';
 
   newPassword?: ResetPassword;
 

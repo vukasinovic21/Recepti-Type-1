@@ -143,6 +143,21 @@ public class UserController
         return true;
     }
 
+    @DeleteMapping("/delete") //Delete user all user's recipes are also deleted as are recipeItems
+    public Boolean deleteUser(@RequestBody NewRole newRole)
+    {
+        User u = userService.getUserById(newRole.getId());
+
+        /*if(recipeService.countRecipesByUser(newRole.getId()) > 0)
+            return false; */
+
+        if(u == null)
+            return false;
+
+        userService.deleteUser(u);
+
+        return true;
+    }
 
 
 }
