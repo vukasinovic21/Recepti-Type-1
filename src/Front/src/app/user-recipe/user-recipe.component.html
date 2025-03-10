@@ -47,7 +47,9 @@
                     <div *ngIf="loggedUser || (recipe.shared && isAdmin?.role == 'ADMIN')">
                         <mat-card class="example-card" appearance="outlined"> 
                             <mat-card-header>
-                                <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');"></div>  
+                                <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');">
+                                    <i class="material-icons verified-icon" *ngIf="getUserRole(recipe.userId) == 'VERIFIED USER'">verified</i>
+                                </div>  
                                     
                                     <div class="right">
                                         <span *ngIf="recipe.userId == loggedUser || isAdmin?.role == 'ADMIN'" class="material-icons" (click)="edit(recipe.id)">edit</span> 

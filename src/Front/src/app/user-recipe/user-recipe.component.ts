@@ -155,6 +155,12 @@ export class UserRecipeComponent
     return userinfo ? userinfo.sex : 'Unknown';
   }
 
+  getUserRole(id: string): string 
+  {
+    const userinfo = this.allUsers.find(userinfo => userinfo.id === id);
+    return userinfo ? userinfo.role : 'Unknown';
+  }
+
   getUserInfo(userId:string): void
   {
     this.userService.getUser(userId).subscribe( user1 => {

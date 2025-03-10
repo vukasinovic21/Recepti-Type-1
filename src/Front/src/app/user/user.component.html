@@ -103,7 +103,7 @@
             <div class="card p-4 shadow-sm border-light">
                 <div class="d-flex flex-column gap-3" *ngIf="isAdmin?.role == 'USER' || isAdmin?.role == 'VERIFIED USER'">
                     <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{user?.sex}}.svg');">
-                        <i class="material-icons verified-icon" *ngIf="user?.role == 'VERIFIED USER'">verified</i>
+                        <i class="material-icons verified-icon" *ngIf="user?.role == 'VERIFIED USER' || user?.role == 'ADMIN'">verified</i>
                     </div>
                     <button class="btn btn-success" [routerLink]="['/recipes/user', user?.id]">
                         <i class="bi bi-card-text"></i> {{'Users recipes' | translate}}
@@ -121,7 +121,7 @@
                 </div>
                 <div class="d-flex flex-column gap-3" *ngIf="isAdmin?.role == 'ADMIN'" >
                     <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{user?.sex}}.svg');">
-                        <i class="material-icons verified-icon" *ngIf="user?.role == 'VERIFIED USER'">verified</i>
+                        <i class="material-icons verified-icon" *ngIf="user?.role == 'VERIFIED USER' || user?.role == 'ADMIN'">verified</i>
                     </div>
                     <button class="btn btn-success" [routerLink]="['/recipes/user', user?.id]">
                         <i class="bi bi-card-text"></i> {{'Users recipes' | translate}}
