@@ -6,7 +6,9 @@
         <div *ngFor="let item of recipes" class="item" [class.paused]="isPaused" (mouseover)="pauseAnimation()" (mouseleave)="resumeAnimation()"> 
             <mat-card class="example-card" appearance="outlined"> 
                 <mat-card-header>
-                    <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(item.userId)}}.svg');" (click)="showUserId(item.userId)"></div>
+                    <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(item.userId)}}.svg');">
+                        <i class="material-icons verified-icon" *ngIf="getUserRole(item.userId) == 'VERIFIED USER'">verified</i>
+                    </div> <!--(click)="showUserId(item.userId)"-->
                     <mat-card-title (click)="showRecipeId(item.id)">{{ item.recipeName }}</mat-card-title>
                     <mat-card-subtitle> {{ getTypeName(item.typeOfFoodId) | translate}} </mat-card-subtitle>
                 </mat-card-header>
@@ -31,7 +33,9 @@
         <div *ngFor="let item of recipes" class="item" [class.paused]="isPaused" (mouseover)="pauseAnimation()" (mouseleave)="resumeAnimation()"> 
             <mat-card class="example-card" appearance="outlined"> 
                 <mat-card-header>
-                    <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(item.userId)}}.svg');" (click)="showUserId(item.userId)"></div>
+                    <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(item.userId)}}.svg');">
+                        <i class="material-icons verified-icon" *ngIf="getUserRole(item.userId) == 'VERIFIED USER'">verified</i>
+                    </div> <!--(click)="showUserId(item.userId)"-->
                     <mat-card-title (click)="showRecipeId(item.id)">{{ item.recipeName }}</mat-card-title>
                     <mat-card-subtitle> {{ getTypeName(item.typeOfFoodId) | translate}} </mat-card-subtitle>
                 </mat-card-header>

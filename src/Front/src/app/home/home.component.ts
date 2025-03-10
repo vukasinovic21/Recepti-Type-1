@@ -78,6 +78,13 @@ export class HomeComponent implements AfterViewInit
     return userinfo ? userinfo.sex : 'Unknown';
   }
 
+  getUserRole(id: string): string 
+  {
+    const userinfo = this.allUsers.find(userinfo => userinfo.id === id);
+    return userinfo ? userinfo.role : 'Unknown';
+  }
+
+
   showUserId(userId:string): void
   {
     this.router.navigate(['/recipes/user/' + userId]);
