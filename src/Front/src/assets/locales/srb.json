@@ -257,5 +257,7 @@
     "Change role": "Promeni ulogu",
     "Delete user": "Izbrisi korisnika",
     "Change user's role": "Promeni korisnikovu ulogu",
-    "Do you want to delete this user": "Da li zelite da obrisete ovog korisnika"
+    "Do you want to delete this user": "Da li zelite da obrisete ovog korisnika",
+    "Author": "Autor",
+    "User info page": "Informativna stranica korisnika"
 }

@@ -38,6 +38,8 @@ export class UserRecipeComponent
   userId: string = '';
   loggedUser = localStorage.getItem("userid");
 
+  isAdmin?: UserInfo;
+
   allTypesOfFood: TypeOfFood[] = [];
   allUsers: UserInfo[] = [];
 
@@ -60,6 +62,7 @@ export class UserRecipeComponent
     
     //this.getRecipeUser(this.userId);
     this.getUserInfo(this.userId);
+    this.getAdminInfo(localStorage.getItem("userid") ?? "");
 
     /*this.activatedRoute.queryParams.subscribe(() => {
       this.recipeService.getRecipeUser(this.userId).subscribe( recipes => {
@@ -93,6 +96,13 @@ export class UserRecipeComponent
       this.showLiked = true;
   }
 
+  getAdminInfo(loggedUser:string): void
+  {
+    this.userService.getUserInfo(loggedUser).subscribe(admin => {
+      this.isAdmin = admin;
+    });
+  }
+  
   delete(id: string): void
   {
     this.showAlert = true;

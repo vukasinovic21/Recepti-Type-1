@@ -9,6 +9,8 @@ import { RecipeIngredients } from '../models/recipe-ingredients';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import { TypeOfFood } from '../models/type-of-food';
+import { UserInfo } from '../models/user-info';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-recipe',
@@ -25,9 +27,12 @@ export class RecipeComponent
     allTypesOfFood: TypeOfFood[] = [];
     type?: string;
     kolicina!: number;
+
+    user?: UserInfo;
+
     @ViewChild('content', { static: false }) content!: ElementRef;
 
-    constructor(private recipeService: RecipeService, private router: Router, private activatedRoute: ActivatedRoute, private renderer: Renderer2){}
+    constructor(private recipeService: RecipeService, private router: Router, private activatedRoute: ActivatedRoute, private renderer: Renderer2, private userService: UserService){}
 
     ngOnInit(): void 
     {
@@ -47,10 +52,18 @@ export class RecipeComponent
       });
     }
 
+    getUserInfo(userId:string): void
+    {
+      this.userService.getUserInfo(userId).subscribe(user => {
+        this.user = user;
+      });
+    }
+
     getInfo(recipeId:string): void //recipes/id{id}
     {
       this.recipeService.getRecipeInfo(recipeId).subscribe( recipe => {
         this.recipe = recipe[0]
+        this.getUserInfo(recipe[0].userId)
       });
     }
 
