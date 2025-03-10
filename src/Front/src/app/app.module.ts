@@ -32,6 +32,7 @@ import { AddTypeOfFoodComponent } from './add-type-of-food/add-type-of-food.comp
 import { AddIngredientComponent } from './add-ingredient/add-ingredient.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { ChangeRoleComponent } from './change-role/change-role.component';
+import { AllIngredientsComponent } from './all-ingredients/all-ingredients.component';
 
 export function HttpLoaderFactory(http: HttpClient) 
 {

@@ -1,0 +1,42 @@
+<div >
+    <div class="container-fluid">
+        <div class="row h-100">
+            <!-- Sidebar -->
+            <div class="col-md-2 p-3 sidebar">
+
+                <div class="div-space1">
+                    <input matInput (keyup)="search($event)" placeholder="{{'Search' | translate}}" class="div-space1">
+                </div>
+                
+                <mat-select (selectionChange)="sortIngredients($event.value)" placeholder="{{'Sort' | translate}}" class="div-space2">
+                    <mat-option value="nameA-Z">{{"Name: A-Z" | translate}}</mat-option>
+                    <mat-option value="nameZ-A">{{"Name: Z-A" | translate}}</mat-option>
+                    <mat-option value="lowSugar">{{"Sugar: Low" | translate}}</mat-option>
+                    <mat-option value="highSugar">{{"Sugar: High" | translate}}</mat-option>
+                    <mat-option value="lowCarbs">{{"Carbs: Low" | translate}}</mat-option>
+                    <mat-option value="highCarbs">{{"Carbs: High" | translate}}</mat-option>
+                    <mat-option value="lowFat">{{"Fat: Low" | translate}}</mat-option>
+                    <mat-option value="highFat">{{"Fat: High" | translate}}</mat-option>
+                    <mat-option value="lowProtein">{{"Protein: Low" | translate}}</mat-option>
+                    <mat-option value="highProtein">{{"Protein: High" | translate}}</mat-option>
+                    <mat-option value="lowkCal">{{"kCal: Low" | translate}}</mat-option>
+                    <mat-option value="highkCal">{{"kCal: High" | translate}}</mat-option>
+                    <mat-option value="lowGi">{{"Glycemic index: Low" | translate}}</mat-option>
+                    <mat-option value="highGi">{{"Glycemic index: High" | translate}}</mat-option>
+                </mat-select>
+                <hr>
+                <h3 *ngIf="filteredIngredients.length == 0">{{"You haven't created any diet yet" | translate}}</h3>
+                <ul class="list-group">
+                    <li class="list-group-item " *ngFor="let ingredient of filteredIngredients" [class.active]="ingredient.id === selectedIngredientId"  (click)="showIngredientId(ingredient.id)">
+                    {{ ingredient.name }}
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Main Content -->
+            <div class="col-md-10 p-3" > <!--OVO DA SE POPUNI TEK KAD SE IZABERE NEKi SASTOJAK tj da se otvori komponenta ingredient-->
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

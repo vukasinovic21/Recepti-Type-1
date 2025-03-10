@@ -262,5 +262,19 @@
     "User info page": "Informativna stranica korisnika",
     "User": "Korisnik",
     "Verified user": "Verifikovani korisnik",
-    "Admin": "Admin"
+    "Admin": "Admin",
+    "Edit ingredient": "Izmeni sastojak",
+    "Sugar: Low": "Šećeri: Nisko",
+    "Sugar: High": "Šećeri: Visoko",
+    "All ingredients": "Svi sastojci",
+    "Carbs: Low": "UH: Nisko",
+    "Carbs: High": "UH: Visoko",
+    "Fat: Low": "Masti: Nisko",
+    "Fat: High": "Masti: Visoko",
+    "Protein: Low": "Proteini: Nisko",
+    "Protein: High": "Proteini: Visoko",
+    "kCal: Low": "kCal: Nisko",
+    "kCal: High": "kCal: Visoko",
+    "Glycemic index: Low": "Glikemijski indeks: Nisko",
+    "Glycemic index: High": "Glikemijski indeks: Visoko"
 }

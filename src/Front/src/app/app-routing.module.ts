@@ -19,6 +19,8 @@ import { InfoComponent } from './info/info.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
+import { AllIngredientsComponent } from './all-ingredients/all-ingredients.component';
+import { IngredientComponent } from './ingredient/ingredient.component';
 
 const routes: Routes = 
 [
@@ -70,6 +72,15 @@ const routes: Routes =
   {
     path:"users/admin", 
     component: AdminComponent,
+    canActivate:[IsLoggedGuard]
+  },
+  {
+    path:"users/admin/ingredients", 
+    component: AllIngredientsComponent,
+    children: 
+    [
+      { path: ':id', component: IngredientComponent }
+    ],
     canActivate:[IsLoggedGuard]
   },
   {

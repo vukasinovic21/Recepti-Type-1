@@ -17,13 +17,15 @@ import { EditRecipeComponent } from '../edit-recipe/edit-recipe.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { AllIngredientsComponent } from '../all-ingredients/all-ingredients.component';
 @NgModule({
   declarations: [
     RecipeComponent,
     AllRecipesComponent,
     CreateRecipeComponent,
     UserRecipeComponent,
-    EditRecipeComponent
+    EditRecipeComponent,
+    AllIngredientsComponent
   ],
   imports: [
     CommonModule,

@@ -18,6 +18,7 @@ export class RecipeService
 {
 
   private backUrl = environment.backUrl;
+  private backUrlJava = environment.backUrlJava;
 
   constructor(private http: HttpClient){}
 

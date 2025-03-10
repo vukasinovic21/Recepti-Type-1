@@ -76,15 +76,20 @@ export class UserService
     return this.http.post<boolean>(this.backUrlJava + "/questions/add", question);
   }
 
-  addTypeOfFood(name: String): Observable<boolean>
+  addTypeOfFood(name: String): Observable<boolean> //ovo treba u typeoffoodService
   {
     const type = {name:name}
     return this.http.post<boolean>(this.backUrlJava + "/typeoffood/add", type);
   }
 
-  addIngredient(ingredient: Ingredient): Observable<boolean>
+  addIngredient(ingredient: Ingredient): Observable<boolean> //ovo treba u ingredientService
   {
     return this.http.post<boolean>(this.backUrlJava + "/ingredients/add", ingredient);
+  }
+
+  editIngredient(ingredient: Ingredient): Observable<boolean> //ovo treba u ingredientService
+  {
+    return this.http.put<boolean>(this.backUrlJava + "/ingredients/edit", ingredient);
   }
 
   changeRole(user: any): Observable<boolean>

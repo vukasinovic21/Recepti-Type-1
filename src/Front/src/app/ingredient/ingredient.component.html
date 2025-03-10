@@ -1,1 +1,37 @@
-<p>ingredient works!</p>
+<div class="container">
+    <div class="text-center mt-4">
+        <h1 class="font display-4">{{ingredient?.name}}</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm border-light">
+                <h2 class="mb-5 text-center" style="color: green;">{{"Nutritional values" | translate}}
+                    <i class="material-icons float-end right" style="color: black;" (click)="editIngredient()">edit</i></h2>
+                    
+                <div class="row font2 text-center">
+                    <div class="col-md-6 mb-3">
+                        <b>{{"Carbs" | translate}}: </b> <span>{{ingredient?.carbs}}</span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <b>{{"Sugars" | translate}}: </b> <span>{{ingredient?.sugar}}</span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <b>{{"Fat" | translate}}: </b> <span>{{ingredient?.fat}}</span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <b>{{"Protein" | translate}}: </b> <span>{{ingredient?.protein}}</span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <b>{{"Energy" | translate}}: </b> <span>{{ingredient?.kCal}}</span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <b>{{"Glycemic index" | translate}} (GI): </b> <span>{{ingredient?.gI}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

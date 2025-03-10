@@ -130,7 +130,6 @@ export class AdminComponent
     dialogRef.afterClosed().subscribe(result => {
       if (result) 
       {
-        console.log(result)
         this.userService.addIngredient(result).subscribe( success =>
         {
           if(success)
@@ -150,4 +149,5 @@ export class AdminComponent
       }
     });
   }
+
 }
