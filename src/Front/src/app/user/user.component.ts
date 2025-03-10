@@ -31,11 +31,13 @@ export class UserComponent
   constructor(private userService: UserService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog){}
 
   ngOnInit(): void
-  {
-    this.userId = this.activatedRoute.snapshot.paramMap.get('id') ?? localStorage.getItem('userid') ?? 'default-value';
-    this.getUserInfo(this.userId);
-    this.getAdminInfo(localStorage.getItem("userid") ?? "");
-    this.getNumberOfRecipes(this.userId);
+  { 
+    this.activatedRoute.params.subscribe(params => {
+      this.userId = params['id']; 
+      this.getUserInfo(this.userId);
+      this.getAdminInfo(localStorage.getItem("userid") ?? "");
+      this.getNumberOfRecipes(this.userId);
+    });
   }
 
   getNumberOfRecipes(userId:string): void
