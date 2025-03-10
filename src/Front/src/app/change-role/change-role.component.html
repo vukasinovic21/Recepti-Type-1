@@ -6,7 +6,12 @@
     <div mat-dialog-content class="text-center">
         <mat-form-field class="width">
             <mat-label>{{ 'Role' | translate }}</mat-label>
-            <input matInput [(ngModel)]="data.role">
+            <!--<input matInput [(ngModel)]="data.role">-->
+            <mat-select [(ngModel)]="data.role">
+                <mat-option value="USER">{{ 'User' | translate }}</mat-option>
+                <mat-option value="VERIFIED USER">{{ 'Verified user' | translate }}</mat-option>
+                <mat-option value="ADMIN">{{ 'Admin' | translate }}</mat-option>
+            </mat-select>
         </mat-form-field>&nbsp;&nbsp;&nbsp;    
     </div>
 
