@@ -44,7 +44,7 @@
             <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="50px grid">
                 <div *ngIf="filteredRecipes.length == 0"><h1>{{"You haven't created any recipe yet"| translate}}</h1></div>
                 <div *ngFor="let recipe of filteredRecipes">
-                    <div *ngIf="recipe.shared && isAdmin?.role == 'ADMIN'">
+                    <div *ngIf="loggedUser || (recipe.shared && isAdmin?.role == 'ADMIN')">
                         <mat-card class="example-card" appearance="outlined"> 
                             <mat-card-header>
                                 <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');"></div>  
@@ -84,7 +84,7 @@
             <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="50px grid">
                 <div *ngIf="likedRecipes.length == 0"><h1>{{"You don't have any favorite recipes yet"| translate}}</h1></div>
                 <div *ngFor="let recipe of likedRecipes">
-                    <div *ngIf="recipe.shared && isAdmin?.role == 'ADMIN'">
+                    <div *ngIf="recipe.shared || isAdmin?.role == 'ADMIN'">
                         <mat-card class="example-card" appearance="outlined"> 
                             <mat-card-header>
                                 <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');"></div>  
