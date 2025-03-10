@@ -135,6 +135,12 @@ export class AllRecipesComponent
       return userinfo ? userinfo.sex : 'Unknown';
     }
 
+    getUserRole(id: string): string 
+    {
+      const userinfo = this.allUsers.find(userinfo => userinfo.id === id);
+      return userinfo ? userinfo.role : 'Unknown';
+    }
+
     showUserId(userId:string): void
     {
       this.router.navigate(['/recipes/user/' + userId]); //svi recepti tog korisnika

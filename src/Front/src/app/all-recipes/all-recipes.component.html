@@ -52,7 +52,9 @@
       <div *ngFor="let recipe of filteredRecipes"> 
         <mat-card class="example-card" appearance="outlined"> <!--lep prikaz pomocu mat-card sa sve slikom-->
           <mat-card-header>
-            <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');"></div> <!-- (click)="showUserId(recipe.userId)"></div><!--KLIKOM NA SLIKU DA SE OTVORI JAVAN PROFIL TOG KORISNIKA -->
+            <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');">
+              <i class="material-icons verified-icon" *ngIf="getUserRole(recipe.userId) == 'VERIFIED USER'">verified</i>
+            </div> <!-- (click)="showUserId(recipe.userId)"></div><!--KLIKOM NA SLIKU DA SE OTVORI JAVAN PROFIL TOG KORISNIKA -->
               <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
               <mat-card-subtitle> 
                 {{getTypeName(recipe.typeOfFoodId) | translate}}
