@@ -53,6 +53,11 @@ export class UserService
     return this.http.get<GeneralInfo>(this.backUrlJava + "/users/generalinfo");
   }
 
+  getNumberOfRecipes(userId: string): Observable<number>
+  {
+    return this.http.get<number>(this.backUrlJava + "/recipes/countbyuser/" + userId);
+  }
+
   editUser(user: any): Observable<boolean>
   {
     //const query = {user:user};

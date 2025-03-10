@@ -21,6 +21,7 @@ export class UserComponent
   userId: string = '';
   loggedUser: string = '';
   isAdmin?: UserInfo;
+  numberOfRecipes?: number;
 
   showAlert = false;
   deleteUser: string = '';
@@ -34,6 +35,14 @@ export class UserComponent
     this.userId = this.activatedRoute.snapshot.paramMap.get('id') ?? localStorage.getItem('userid') ?? 'default-value';
     this.getUserInfo(this.userId);
     this.getAdminInfo(localStorage.getItem("userid") ?? "");
+    this.getNumberOfRecipes(this.userId);
+  }
+
+  getNumberOfRecipes(userId:string): void
+  {
+    this.userService.getNumberOfRecipes(userId).subscribe(number => {
+      this.numberOfRecipes = number;
+    });
   }
 
   getUserInfo(userId:string): void

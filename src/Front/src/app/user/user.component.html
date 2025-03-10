@@ -86,11 +86,14 @@
                     <div class="col-md-6 mb-3">
                         <b>{{"Sex" | translate}}: </b> <span>{{user?.sex ?? 'Not Available' | translate}}</span>
                     </div>
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-3">
                         <b>{{"Joined" | translate}}: </b> <span>{{user?.createdAt | date:'dd-MM-yyyy' }}</span>
                     </div>
-                    <div class="col-md-6 mb-2">
+                    <div class="col-md-6 mb-3">
                         <b>{{"Role" | translate}}: </b> <span>{{user?.role}}</span>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <b>{{"Number of recipes" | translate}}: </b> <span>{{numberOfRecipes}}</span>
                     </div>
                 </div>
             </div>
