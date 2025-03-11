@@ -10,7 +10,7 @@
             <div class="card p-4 shadow-sm border-light position-relative">
 
                 <span class="badge-sugar-free" *ngIf="ingredient!.sugar < 0.5">
-                    <i class="material-icons">pentagon</i> Sugar<br>Free
+                    <i class="material-icons">pentagon</i> {{ "Sugar" | translate }}<br> {{ "Free" | translate }}
                 </span>
 
                 <h2 class="mb-5 text-center" style="color: green; margin-left: 50px;">{{"Nutritional values" | translate}}

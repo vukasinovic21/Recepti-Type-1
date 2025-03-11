@@ -95,12 +95,12 @@
     position: absolute;
     top: 15px;
     left: 15px;
-    background-color: #28a745; /* Green color for sugar-free */
+    background-color: #28a745; 
     color: white;
     padding: 5px 15px;
     font-size: 14px;
     font-weight: bold;
-    border-radius: 50px; /* Rounded shape for the badge */
+    border-radius: 50px; 
     display: flex;
     align-items: center;
     justify-content: center;
