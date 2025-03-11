@@ -37,4 +37,11 @@ export class IngredientService
   {
     return this.http.put<boolean>(this.backUrlJava + "/ingredients/edit", ingredient);
   }
+
+  deleteIngredient(id: string): Observable<boolean> 
+  {
+    const ingredient = {id:id}
+    return this.http.delete<boolean>(this.backUrlJava + "/ingredients/delete", { body: ingredient });
+  }
+
 }

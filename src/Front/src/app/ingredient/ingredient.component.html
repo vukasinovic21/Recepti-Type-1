@@ -7,9 +7,16 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card p-4 shadow-sm border-light">
-                <h2 class="mb-5 text-center" style="color: green;">{{"Nutritional values" | translate}}
-                    <i class="material-icons float-end right" style="color: black;" (click)="editIngredient()">edit</i></h2>
+            <div class="card p-4 shadow-sm border-light position-relative">
+
+                <span class="badge-sugar-free" *ngIf="ingredient!.sugar < 0.5">
+                    <i class="material-icons">pentagon</i> Sugar<br>Free
+                </span>
+
+                <h2 class="mb-5 text-center" style="color: green; margin-left: 50px;">{{"Nutritional values" | translate}}
+                    <i class="material-icons float-end " style="color: black;" (click)="delete(ingredient!.id)">delete</i>
+                    <i class="material-icons float-end right" style="color: black;" (click)="editIngredient()">edit</i>
+                </h2>
                     
                 <div class="row font2 text-center">
                     <div class="col-md-6 mb-3">
@@ -31,6 +38,13 @@
                         <b>{{"Glycemic index" | translate}} (GI): </b> <span>{{ingredient?.gI}}</span>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div *ngIf="showAlert" class="custom-alert">
+            <div class="alert-content">
+              <p>{{"Do you want to delete this ingredient"| translate}}?</p>
+              <button class="button1" (click)="closeAlert()">{{"Cancel"| translate}}</button>&nbsp;&nbsp;
+              <button (click)="closeAlert1()">{{"Delete"| translate}}</button>
             </div>
         </div>
     </div>

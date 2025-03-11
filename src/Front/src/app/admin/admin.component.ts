@@ -21,7 +21,6 @@ export class AdminComponent
   generalInfo?: GeneralInfo;
   userId: string = '';
   loggedUser = localStorage.getItem("userid");
-  newPassword?: ResetPassword;//treba newQuestion, newTypeOfMeal, newIngredient da se ubaci i posebne komponente za sve ili moze jedna sa id-jem i imenom ???
 
   activeSince: Date = new Date(2024, 3, 4); //same as admins birthday
   activeFor?: number; 
@@ -74,11 +73,6 @@ export class AdminComponent
           if(success)
           { 
             this.getGeneralInfo();
-            //is it even neccessery ? //ovde ce morati opet da se pozove funkcija koja vraca broj kategorija
-            /*this.userService.getUserInfo(this.userId).subscribe( user => {
-              this.user = user;
-            });
-            this.router.navigate(['/users/admin']) */
             alert("Successfully added new safety question! :)");
           } 
           else
@@ -104,11 +98,6 @@ export class AdminComponent
           if(success)
           { 
             this.getGeneralInfo();
-            //is it even neccessery ? //ovde ce morati opet da se pozove funkcija koja vraca broj kategorija
-            /*this.userService.getUserInfo(this.userId).subscribe( user => {
-              this.user = user;
-            });
-            this.router.navigate(['/users/admin']) */
             alert("Successfully added new type of food! :)");
           } 
           else

@@ -3,7 +3,6 @@ package recepti_type1.backend_java.Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import recepti_type1.backend_java.Models.Ingredient;
-import recepti_type1.backend_java.Models.User;
 import recepti_type1.backend_java.Repositories.IngredientRepository;
 
 import java.util.List;
@@ -40,6 +39,11 @@ public class IngredientService
     public void updateIngredient(Ingredient i)
     {
         ingredientRepository.save(i);
+    }
+
+    public void deleteIngredient(Ingredient i)
+    {
+        ingredientRepository.delete(i);
     }
 
 }

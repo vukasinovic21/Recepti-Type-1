@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Ingredient } from '../models/ingredient';
 import { IngredientService } from './ingredient.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,6 +17,9 @@ export class IngredientComponent
   ingredientId: string = '';  
 
   showAlert = false;
+  deleteIngredient: string = '';
+
+  @Output() ingredientDeleted = new EventEmitter<string>(); 
 
   constructor(private ingredientService: IngredientService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog){}
   
@@ -38,27 +41,48 @@ export class IngredientComponent
   }
 
   editIngredient(): void 
-    {
-      const dialogRef = this.dialog.open(AddIngredientComponent, {
-        width: '500px',
-        data: { ... this.ingredient } 
-        });
-  
-      dialogRef.afterClosed().subscribe(result => {
-        if (result) 
-        {
-          this.ingredientService.editIngredient(result).subscribe( success =>
-          {
-            if(success)
-            { 
-              this.getIngredientInfo(this.ingredientId);
-              alert("Successfully edited new ingredient! :)");
-            } 
-            else
-              alert("Error while editing new ingredient! :(");
-          }
-          );
-        }
+  {
+    const dialogRef = this.dialog.open(AddIngredientComponent, {
+      width: '500px',
+      data: { ... this.ingredient } 
       });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) 
+      {
+        this.ingredientService.editIngredient(result).subscribe( success =>
+        {
+          if(success)
+          { 
+            this.getIngredientInfo(this.ingredientId);
+            alert("Successfully edited new ingredient! :)");
+          } 
+          else
+            alert("Error while editing new ingredient! :(");
+        }
+        );
+      }
+    });
+  }
+
+  closeAlert() 
+  {
+    this.showAlert = false; 
+  }
+  closeAlert1() 
+  {
+    this.showAlert = false; 
+    this.ingredientService.deleteIngredient(this.deleteIngredient).subscribe({
+      next: (isDeleted: boolean) => {
+        this.ingredientDeleted.emit(this.deleteIngredient);
+        this.router.navigate(['/users/admin/ingredients']) 
     }
+    });
+  }
+  delete(ingredientId: string): void 
+  {
+    this.showAlert = true;
+    this.deleteIngredient = ingredientId;
+  }
+
 }

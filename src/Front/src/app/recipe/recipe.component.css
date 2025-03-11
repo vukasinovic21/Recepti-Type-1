@@ -84,3 +84,32 @@
 {
     font-size: 15px;      
 }
+
+.position-relative 
+{
+  position: relative;
+}
+
+.badge-sugar-free 
+  {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #28a745; /* Green color for sugar-free */
+    color: white;
+    padding: 5px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50px; /* Rounded shape for the badge */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .badge-sugar-free i 
+  {
+    margin-right: 8px; 
+    font-size: 20px; 
+  }

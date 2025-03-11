@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Ingredient } from '../models/ingredient';
 import { Router, ActivatedRoute } from '@angular/router';
 import { IngredientService } from '../ingredient/ingredient.service';
@@ -15,7 +15,7 @@ export class AllIngredientsComponent
   sortOrder = "";
   selectedIngredientId: string | null = null;
 
-  constructor(private ingredientService: IngredientService, private router: Router, private activatedRoute: ActivatedRoute){}
+  constructor(private ingredientService: IngredientService, private router: Router, private activatedRoute: ActivatedRoute, private cdr: ChangeDetectorRef){}
   
   ngOnInit(): void 
   {
@@ -108,5 +108,12 @@ export class AllIngredientsComponent
     {
       this.filteredIngredients.sort((a,b) => b.gI - a.gI)
     }
+  }
+
+  onIngredientDeleted(ingredientId: string) 
+  {
+    this.ingredients = this.ingredients.filter((ingredient) => ingredient.id !== ingredientId);
+    this.filteredIngredients = this.filteredIngredients.filter((ingredient) => ingredient.id !== ingredientId);
+    this.cdr.detectChanges();
   }
 }

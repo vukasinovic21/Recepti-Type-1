@@ -3,6 +3,7 @@ package recepti_type1.backend_java.Controllers;
 import jakarta.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import recepti_type1.backend_java.Dtos.NewRole;
 import recepti_type1.backend_java.Models.Ingredient;
 import recepti_type1.backend_java.Models.User;
 import recepti_type1.backend_java.Services.IngredientService;
@@ -64,6 +65,19 @@ public class IngredientController
         i.setGI(ingredientUpdate.getGi());
 
         ingredientService.updateIngredient(i);
+
+        return true;
+    }
+
+    @DeleteMapping("/delete") //Delete ingredient
+    public Boolean deleteIngredient(@RequestBody NewRole newRole)
+    {
+        Ingredient i = ingredientService.getIngredientById(newRole.getId());
+
+        if(i == null)
+            return false;
+
+        ingredientService.deleteIngredient(i);
 
         return true;
     }
