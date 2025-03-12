@@ -1,0 +1,65 @@
+
+<div class="text-center">
+    <h1 class="font display-4">{{"If you don't know what to eat" | translate}}</h1>
+</div>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            <div class="card p-4 shadow-sm border-light">
+                <div class="d-flex flex-column gap-3">
+
+                    <button class="btn btn-primary" (click)="getRandom()">
+                        <i class="material-icons">shuffle</i> {{'Random recipe' | translate}}
+                    </button>
+                    <button class="btn btn-primary" (click)="getRandomForType(type)">
+                        <i class="material-icons">shuffle</i> {{'Random recipe for type' | translate}} 
+                    </button>
+                    <button class="btn btn-primary" (click)="getRecipesByIngredients(ingredients)"> 
+                        <i class="material-icons">shuffle</i> {{'Recipes for your ingredients' | translate}}
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" *ngIf="recipeId != '' && recipe != undefined">
+            <div class="card p-4 shadow-sm border-light">
+                <div class="row ">
+                    <mat-card class="example-card" appearance="outlined"> 
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');">
+                                <i class="material-icons verified-icon" *ngIf="getUserRole(recipe.userId) == 'VERIFIED USER'">verified</i>
+                            </div> 
+                            <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
+                            <mat-card-subtitle> {{ getTypeName(recipe.typeOfFoodId) | translate}} </mat-card-subtitle>
+                        </mat-card-header>
+        
+                        <div *ngIf="recipe.recipeName.length <= 17">
+                            <div class="razmak"></div>
+                          </div>
+                          <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
+                          <br>
+                          <mat-card-content>
+                              {{ recipe.instructions | slice:0:125 }}
+                              <span *ngIf="recipe.instructions.length <= 125"><br><br></span>
+                              <span *ngIf="recipe.instructions.length > 125">...</span>
+                          </mat-card-content>
+                        <br>
+                        <mat-card-actions>
+                            <b>{{'Posted' | translate}}: &nbsp;</b> <span> {{ recipe.createdAt | date:'dd-MM-yyyy' }} </span>
+        
+                            <span class="circle green" *ngIf="recipe.timeToPrepare <= 15"> 
+                                {{ recipe.timeToPrepare}} min</span>
+                            <span class="circle orange" *ngIf="recipe.timeToPrepare > 15 && recipe.timeToPrepare < 60" >
+                                {{ recipe.timeToPrepare}} min</span>
+                            <span class="circle red" *ngIf="recipe.timeToPrepare > 60 ">
+                                {{ recipe.timeToPrepare}}min</span>   
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+        </div>    
+
+    </div>
+</div>

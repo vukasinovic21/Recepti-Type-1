@@ -1,12 +1,8 @@
 package recepti_type1.backend_java.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import recepti_type1.backend_java.Models.Recipe;
-import recepti_type1.backend_java.Models.User;
 import recepti_type1.backend_java.Services.RecipeService;
 
 import java.util.List;
@@ -22,13 +18,19 @@ public class RecipeController
         this.recipeService = recipeService;
     }
 
-    @GetMapping("/random")
-    public String getRandom()
+    @GetMapping("/random") //treba da stavim samo gde je shared == true
+    public Recipe getRandom()
     {
-        return "Get random recipes from chosen category.";
+        return recipeService.getRandomRecipe();
     }
 
-    @GetMapping("/all")
+    @GetMapping("/randomfortype/{typeOfFoodId}") //treba da stavim samo gde je shared == true
+    public Recipe getRandomForType(@PathVariable UUID typeOfFoodId)
+    {
+        return recipeService.getRandomRecipeForType(typeOfFoodId);
+    }
+
+    @GetMapping("/all") //treba da stavim samo gde je shared == true
     public List<Recipe> getAllRecipes()
     {
         return recipeService.getAllRecipes();

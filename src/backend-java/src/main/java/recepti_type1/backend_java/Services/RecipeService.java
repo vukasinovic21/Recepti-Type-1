@@ -6,6 +6,7 @@ import recepti_type1.backend_java.Models.Recipe;
 import recepti_type1.backend_java.Repositories.RecipeRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -23,6 +24,16 @@ public class RecipeService
     {
         return recipeRepository.findAll();
         //return recipeRepository.findAllFromTable();
+    }
+
+    public Recipe getRandomRecipe()
+    {
+        return recipeRepository.findRandomRecipe();
+    }
+
+    public Recipe getRandomRecipeForType(UUID TypeOfFoodId)
+    {
+        return recipeRepository.findRandomRecipeForCategory(TypeOfFoodId);
     }
 
     public long getAllRecipesNumber()

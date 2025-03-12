@@ -1,0 +1,174 @@
+.size
+{
+    width:30%
+}
+
+.font
+{
+    /*font-size: 50px;
+    color: #669999;*/
+}
+.font2
+{
+    font-size: 17px;/*15px*/
+    line-height: 1.3;
+}
+
+
+.hover:hover
+{
+    cursor:pointer;
+}
+
+
+.center 
+{
+    margin: 0 auto;
+    max-width: fit-content; /* Adjust width as needed */
+}
+
+.font2 b
+{
+    font-weight: 600;
+}
+
+.solid-hr {
+    border: 0;                 
+    height: 1.5px;               
+    background-color: #669999;   
+    max-width: 333px;
+}
+
+.color
+{
+    color:#993300; 
+    font-size: 28px;
+    display: inline-block;
+    text-align: left;
+}
+
+.small
+{
+    font-size: 0.8em;
+}
+
+.btn.color
+{
+    background-color:#001a33;
+    color:white;
+    margin-right: 5px;
+}
+
+
+.right-space
+{
+    margin-right:auto; 
+}
+
+.hidden
+{
+    display: none;
+}
+
+.example-card 
+{
+    width: 460px;
+    height: 500px;
+}
+  
+.example-header-image 
+{
+    position: relative;
+    background-size: cover;
+}
+
+mat-card:hover
+{
+    cursor:pointer;
+}
+
+mat-card
+{
+    transition: transform .2s;
+}
+
+.razmak
+{
+    margin-bottom: 10px;
+}
+
+.right
+{
+    margin-left: auto; 
+}
+
+.verified-icon 
+{
+    position: absolute;
+    bottom: -9px; 
+    right: -9px;  
+    transform: scale(0.8);
+    background-color: rgba(255, 255, 255, 0.5); 
+    border-radius: 50%;
+    padding: 1px;
+    color:#4099FF;
+}
+
+img
+{
+    height:220px;
+}
+
+.mat-card-actions 
+{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.circle 
+{
+    float: right;
+    width: 60px; 
+    height: 60px; 
+    line-height: 50px; 
+    text-align: center; 
+    border-radius: 50%; 
+    border: 3px solid;
+    background-color: white; 
+    font-weight: bold; 
+    margin-left: auto;
+}
+
+.circle.green 
+{
+    border-color: green;
+    color:green;
+}
+
+.circle.orange 
+{
+    border-color: orange;
+    color:orange;
+}
+
+.circle.red 
+{
+    border-color: red;
+    color:red;
+}
+
+.text-center
+{
+    padding-top: 80px;
+}
+
+.color
+{
+    background-image: url('../../assets/images/pexels4.jpg');
+    min-height: 100vh;/*Vratiti na 100vh */
+    background-size: cover; 
+    /*background-position: bottom;*/ 
+    background-position: center 30%;/*vratiti center 45%;*/
+    background-repeat: no-repeat;
+}

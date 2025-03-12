@@ -1,6 +1,4 @@
 package recepti_type1.backend_java.Models;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.UUID;
@@ -11,24 +9,17 @@ public class RecipeItem
 {
     @Id
     private UUID Id;
-
-    @ManyToOne
-    @JoinColumn(name = "\"RecipeId\"")
-    @JsonBackReference
-    private Recipe recipe;
-
-    @ManyToOne
-    @JoinColumn(name = "\"IngredientId\"")
-    private Ingredient ingredient;
+    private UUID RecipeId;
+    private UUID IngredientId;
     private Float Quantity;
 
     public RecipeItem() {}
 
-    public RecipeItem(Recipe recipeId, Ingredient ingredientId, Float quantity)
+    public RecipeItem(UUID recipeId, UUID ingredientId, Float quantity)
     {
         this.Id = UUID.randomUUID();
-        this.recipe = recipeId;
-        this.ingredient = ingredientId;
+        this.RecipeId = recipeId;
+        this.IngredientId = ingredientId;
         this.Quantity = quantity;
     }
 
@@ -40,20 +31,20 @@ public class RecipeItem
         this.Id = id;
     }
 
-        public Recipe getRecipeId() {
-        return recipe;
+        public UUID getRecipeId() {
+        return RecipeId;
     }
 
-        public void setRecipeId(Recipe recipeId) {
-        this.recipe = recipeId;
+        public void setRecipeId(UUID recipeId) {
+        this.RecipeId = recipeId;
     }
 
-        public Ingredient getIngredientId() {
-        return ingredient;
+        public UUID getIngredientId() {
+        return IngredientId;
     }
 
-        public void setIngredientId(Ingredient ingredientId) {
-        this.ingredient = ingredientId;
+        public void setIngredientId(UUID ingredientId) {
+        this.IngredientId = ingredientId;
     }
 
         public Float getQuantity() {

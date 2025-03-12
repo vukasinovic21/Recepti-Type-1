@@ -18,6 +18,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AllIngredientsComponent } from '../all-ingredients/all-ingredients.component';
+import { RandomRecipeComponent } from '../random-recipe/random-recipe.component';
 @NgModule({
   declarations: [
     RecipeComponent,
@@ -25,7 +26,8 @@ import { AllIngredientsComponent } from '../all-ingredients/all-ingredients.comp
     CreateRecipeComponent,
     UserRecipeComponent,
     EditRecipeComponent,
-    AllIngredientsComponent
+    AllIngredientsComponent,
+    RandomRecipeComponent
   ],
   imports: [
     CommonModule,

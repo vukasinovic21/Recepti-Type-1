@@ -203,7 +203,7 @@ export class UserRecipeComponent
 
   showRecipeId(recipeId:string): void
   {
-    this.router.navigate(['/recipes/' + recipeId]);
+    this.router.navigate(['/recipes/id/' + recipeId]);
   }
 
   showTypeOfFoodId(typeOfFoodId:string): void

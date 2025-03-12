@@ -46,6 +46,11 @@ export class RecipeService
     );
   }
 
+  getRandomRecipe(): Observable<Recipe>
+  {
+    return this.http.get<Recipe>(this.backUrlJava + "/recipes/random");
+  }
+
   getAllRecipesCount():  Observable<number>
   {
     return this.http.get<{recipes: {count:number}}>(this.backUrl + "/recipesPublic")

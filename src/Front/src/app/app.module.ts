@@ -33,6 +33,7 @@ import { AddIngredientComponent } from './add-ingredient/add-ingredient.componen
 import { UserInfoComponent } from './user-info/user-info.component';
 import { ChangeRoleComponent } from './change-role/change-role.component';
 import { AllIngredientsComponent } from './all-ingredients/all-ingredients.component';
+import { RandomRecipeComponent } from './random-recipe/random-recipe.component';
 
 export function HttpLoaderFactory(http: HttpClient) 
 {

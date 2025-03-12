@@ -1,15 +1,16 @@
 package recepti_type1.backend_java.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 
 @Entity
-//@Table(name = "Recipes", schema = "public")
 @Table(name = "\"Recipes\"")
 public class Recipe
 {
@@ -27,15 +28,17 @@ public class Recipe
     private int TimeToPrepare;
     private String Picture;
     private boolean Shared;
+    private Date CreatedAt;
 
-    @OneToMany(mappedBy = "recipe", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "RecipeId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<RecipeItem> RecipeItems = new ArrayList<>();
 
     public Recipe() {}
 
     public Recipe(UUID id, String userId, String recipeName, String typeOfFoodId,
-                  String instructions, int timeToPrepare, String picture, boolean shared)
+                  String instructions, int timeToPrepare, String picture, boolean shared, Date createdAt)
     {
         this.Id = id;
         this.UserId = userId;
@@ -45,6 +48,7 @@ public class Recipe
         this.TimeToPrepare = timeToPrepare;
         this.Picture = picture;
         this.Shared = shared;
+        this.CreatedAt = createdAt;
         this.RecipeItems = new ArrayList<>();
     }
 
@@ -118,5 +122,13 @@ public class Recipe
 
     public void setRecipeItems(List<RecipeItem> recipeItems) {
         this.RecipeItems = recipeItems;
+    }
+
+    public Date getCreatedAt() {
+        return CreatedAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        CreatedAt = createdAt;
     }
 }

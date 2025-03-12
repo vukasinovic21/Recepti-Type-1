@@ -21,6 +21,7 @@ import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { AllIngredientsComponent } from './all-ingredients/all-ingredients.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
+import { RandomRecipeComponent } from './random-recipe/random-recipe.component';
 
 const routes: Routes = 
 [
@@ -40,7 +41,7 @@ const routes: Routes =
     canActivate:[AllGuard] 
   },
   {
-    path:"recipes/:id", 
+    path:"recipes/id/:id", 
     component: RecipeComponent,
     canActivate:[AllGuard]
   },
@@ -52,6 +53,16 @@ const routes: Routes =
   {
     path:"recipes", component: 
     AllRecipesComponent,
+    canActivate:[AllGuard]
+  },
+  {
+    path:"recipes/random", component: 
+    RandomRecipeComponent,
+    canActivate:[AllGuard]
+  },
+  {
+    path:"recipes/random/:id", component: //za sad neka ga tako
+    RandomRecipeComponent,
     canActivate:[AllGuard]
   },
   {

@@ -5,6 +5,7 @@
         <h1 [routerLink]="['/home']" class="clickable-header">{{ 'Recipes Type 1' | translate }}</h1>
         <span class="left-buttons">
             <button *ngIf="!isMobile" [routerLink]="['/recipes']" class="color">{{'All recipes' | translate}}</button>
+            <button *ngIf="!isMobile && isLogged" [routerLink]="['/recipes/random']" class="color">{{'What to eat' | translate}}</button>
             <button *ngIf="!isMobile && isLogged" [routerLink]="['/create']" class="color">{{'New recipe' | translate}}</button>
             <button *ngIf="!isMobile && isLogged" [routerLink]="['/diets']" class="color">{{'All diets' | translate}}</button>
             <button *ngIf="!isMobile && isLogged" [routerLink]="['/diets/create']" class="color">{{'New diet' | translate}}</button>
@@ -32,6 +33,7 @@
               </button>
               <mat-menu #menu="matMenu">
                 <button mat-menu-item [routerLink]="['/recipes']">{{'All recipes' | translate}}</button>
+                <button mat-menu-item [routerLink]="['/recipes/random']">{{'What to eat' | translate}}</button>
                 <button *ngIf="isLogged" mat-menu-item [routerLink]="['/create']">{{'New recipe' | translate}}</button>
                 <button *ngIf="isLogged" mat-menu-item [routerLink]="['/diets']">{{'All diets' | translate}}</button>
                 <button *ngIf="isLogged" mat-menu-item [routerLink]="['/diets/create']">{{'New diet' | translate}}</button>
