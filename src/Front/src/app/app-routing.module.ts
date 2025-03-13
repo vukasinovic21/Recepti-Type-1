@@ -22,6 +22,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AllIngredientsComponent } from './all-ingredients/all-ingredients.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
 import { RandomRecipeComponent } from './random-recipe/random-recipe.component';
+import { SelectedIngredientsComponent } from './selected-ingredients/selected-ingredients.component';
 
 const routes: Routes = 
 [
@@ -56,8 +57,12 @@ const routes: Routes =
     canActivate:[AllGuard]
   },
   {
-    path:"recipes/random", component: 
-    RandomRecipeComponent,
+    path:"recipes/random", 
+    component: RandomRecipeComponent,
+    children: 
+    [
+      { path: 'ingredients', component: SelectedIngredientsComponent }
+    ],
     canActivate:[AllGuard]
   },
   {

@@ -60,7 +60,7 @@ export class RandomRecipeComponent
 
   getRecipesByIngredients(ingredients: string[]): void //poslati listu id-jeva sastojaka
   {
-
+    this.router.navigate(['/recipes/random/ingredients'])
   }
 
   showRecipeId(recipeId:string): void

@@ -162,7 +162,7 @@ export class CreateRecipeComponent implements OnInit
       this.recipeService.createNewRecipe(recipe).subscribe({ 
         next: (str) => {
           this.response = str
-          this.router.navigate(['/recipes/' + this.response], { queryParams: { refresh: new Date().getTime() } });
+          this.router.navigate(['/recipes/id/' + this.response], { queryParams: { refresh: new Date().getTime() } });
       },
       error: (err) => 
       {

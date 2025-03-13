@@ -286,5 +286,8 @@
     "Random recipe for selected type": "Nasumičan recept za izabrani tip",
     "Recipes for your ingredients": "Recepti sa Vašim sastojcima",
     "Select food type": "Izaberite tip hrane",
-    "Nutritive values (100g)": "Nutrijenti za 100g"
+    "Nutritive values (100g)": "Nutrijenti za 100g",
+    "Please select ingredients that you have": "Molim Vas izaberite sastojke koje imate",
+    "Get recipes": "Daj recepte",
+    "Please select ingredients that you don't have": "Molim Vas izaberite sastojke koje nemate"
 }

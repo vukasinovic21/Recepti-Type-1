@@ -1,0 +1,62 @@
+.ingredient-selector {
+    max-width: 400px;
+    margin: 50px auto;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .suggestions {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+  }
+  
+  .suggestions li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .suggestions li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .selected-ingredients {
+    margin-top: 10px;
+  }
+  
+  .selected-ingredients .tag {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .selected-ingredients .tag:hover {
+    background-color: #0056b3;
+  }
+
+  .selected-ingredients .tag2 {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .selected-ingredients .tag2:hover {
+    background-color: darkred;
+  }
+  

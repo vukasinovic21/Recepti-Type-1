@@ -19,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AllIngredientsComponent } from '../all-ingredients/all-ingredients.component';
 import { RandomRecipeComponent } from '../random-recipe/random-recipe.component';
+import { SelectedIngredientsComponent } from '../selected-ingredients/selected-ingredients.component';
 @NgModule({
   declarations: [
     RecipeComponent,
@@ -27,7 +28,8 @@ import { RandomRecipeComponent } from '../random-recipe/random-recipe.component'
     UserRecipeComponent,
     EditRecipeComponent,
     AllIngredientsComponent,
-    RandomRecipeComponent
+    RandomRecipeComponent,
+    SelectedIngredientsComponent
   ],
   imports: [
     CommonModule,

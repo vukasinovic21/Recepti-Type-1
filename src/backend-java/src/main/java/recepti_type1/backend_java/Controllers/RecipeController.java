@@ -2,6 +2,7 @@ package recepti_type1.backend_java.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import recepti_type1.backend_java.Dtos.IngredientRequest;
 import recepti_type1.backend_java.Models.Recipe;
 import recepti_type1.backend_java.Services.RecipeService;
 
@@ -18,13 +19,13 @@ public class RecipeController
         this.recipeService = recipeService;
     }
 
-    @GetMapping("/random") //treba da stavim samo gde je shared == true
+    @GetMapping("/random")
     public Recipe getRandom()
     {
         return recipeService.getRandomRecipe();
     }
 
-    @GetMapping("/randomfortype/{typeOfFoodId}") //treba da stavim samo gde je shared == true
+    @GetMapping("/randomfortype/{typeOfFoodId}")
     public Recipe getRandomForType(@PathVariable UUID typeOfFoodId)
     {
         return recipeService.getRandomRecipeForType(typeOfFoodId);
@@ -40,6 +41,13 @@ public class RecipeController
     public long getRecipesCountByUser(@PathVariable UUID userId)
     {
         return recipeService.countRecipesByUser(userId);
+    }
+
+    @PostMapping("/byIngredient")
+    public List<Recipe> getRecipesByIngredients(@RequestBody IngredientRequest ingredientRequest)
+    {
+        List<UUID> ingredientIds = ingredientRequest.getIngredientIds();
+        return recipeService.getAllRecipesByIngredients(ingredientIds);
     }
 
 }

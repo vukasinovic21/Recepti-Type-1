@@ -27,6 +27,7 @@ public class Recipe
     private String Instructions;
     private int TimeToPrepare;
     private String Picture;
+    @Column(name = "Shared")
     private boolean Shared;
     private Date CreatedAt;
 

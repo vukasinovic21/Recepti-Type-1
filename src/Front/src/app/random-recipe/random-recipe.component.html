@@ -11,7 +11,7 @@
                 <div class="d-flex flex-column gap-3">
 
                     <button class="btn btn-primary" (click)="getRandom()">
-                        <i class="material-icons">shuffle</i> {{'Random recipe' | translate}}
+                        {{'Random recipe' | translate}} <i class="material-icons">shuffle</i> 
                     </button>
                     <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedTypeId">
                         <option value="" disabled selected>{{ 'Select food type' | translate }}</option>
@@ -20,10 +20,10 @@
                         </option>
                     </select>
                     <button class="btn btn-primary" (click)="getRandomForType(selectedTypeId)">
-                        <i class="material-icons">shuffle</i> {{'Random recipe for selected type' | translate}} 
+                        {{'Random recipe for selected type' | translate}} <i class="material-icons">shuffle</i>
                     </button>
                     <button class="btn btn-primary" (click)="getRecipesByIngredients(ingredients)"> 
-                        <i class="material-icons">shuffle</i> {{'Recipes for your ingredients' | translate}}
+                        {{'Recipes for your ingredients' | translate}} <i class="material-icons">list</i> 
                     </button>
 
                 </div>
@@ -98,6 +98,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-md-9 p-3" > 
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>
