@@ -7,10 +7,7 @@ import recepti_type1.backend_java.Models.RecipeItem;
 import recepti_type1.backend_java.Repositories.RecipeItemRepository;
 import recepti_type1.backend_java.Repositories.RecipeRepository;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -51,6 +48,30 @@ public class RecipeService
                 .collect(Collectors.toSet());
 
         return recipeRepository.findAllByIdInAndSharedTrue(recipeIds);
+    }
+
+    public List<Recipe> filterRecipesWithoutIngredients(List<Recipe> recipes, List<UUID> ingredientIdsDontHave)
+    {
+        List<Recipe> filteredRecipes = new ArrayList<>();
+
+        for (Recipe recipe : recipes)
+        {
+            boolean containsUnwanted = false;
+            for (RecipeItem recipeItem : recipe.getRecipeItems())
+            {
+                if (ingredientIdsDontHave.contains(recipeItem.getIngredientId()))
+                {
+                    containsUnwanted = true;
+                    break;
+                }
+            }
+            if (!containsUnwanted)
+            {
+                filteredRecipes.add(recipe);
+            }
+        }
+
+        return filteredRecipes;
     }
 
     public long getAllRecipesNumber()

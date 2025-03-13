@@ -56,10 +56,13 @@ export class RecipeService
     return this.http.get<Recipe>(this.backUrlJava + "/recipes/randomfortype/" + type);
   }
 
-  getRecipesByIngredients(ingredients: Ingredient[]): Observable<Recipe[]>
+  getRecipesByIngredients(ingredients: Ingredient[], ingredientsDontHave: Ingredient[]): Observable<Recipe[]>
   {
     const ingredientIds = ingredients.map(ingredient => ingredient.id); 
-    return this.http.post<Recipe[]>(this.backUrlJava + "/recipes/byIngredient", { ingredientIds });
+    const ingredientIdsDontHave = ingredientsDontHave.map(ingredient => ingredient.id); 
+    return this.http.post<Recipe[]>(this.backUrlJava + "/recipes/byIngredient", { 
+      ingredientIds,
+      ingredientIdsDontHave });
   }
 
   getAllRecipesCount():  Observable<number>

@@ -99,7 +99,7 @@ export class SelectedIngredientsComponent
       return;
     }
     
-    this.recipeService.getRecipesByIngredients(this.selectedIngredients).subscribe({ 
+    this.recipeService.getRecipesByIngredients(this.selectedIngredients, this.selectedIngredients2).subscribe({ 
       next: (str) => {
         this.recipes = str
         console.log(str)

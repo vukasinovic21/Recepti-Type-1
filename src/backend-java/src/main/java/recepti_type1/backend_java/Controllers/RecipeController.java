@@ -47,7 +47,13 @@ public class RecipeController
     public List<Recipe> getRecipesByIngredients(@RequestBody IngredientRequest ingredientRequest)
     {
         List<UUID> ingredientIds = ingredientRequest.getIngredientIds();
-        return recipeService.getAllRecipesByIngredients(ingredientIds);
+        List<UUID> ingredientIdsDontHave = ingredientRequest.getIngredientIdsDontHave();
+
+        List<Recipe> recipes = recipeService.getAllRecipesByIngredients(ingredientIds);
+
+        recipes = recipeService.filterRecipesWithoutIngredients(recipes, ingredientIdsDontHave);
+
+        return recipes;
     }
 
 }

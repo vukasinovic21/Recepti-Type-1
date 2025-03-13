@@ -6,6 +6,7 @@ import java.util.UUID;
 public class IngredientRequest
 {
     private List<UUID> ingredientIds;
+    private List<UUID> ingredientIdsDontHave;
 
     public List<UUID> getIngredientIds()
     {
@@ -15,5 +16,13 @@ public class IngredientRequest
     public void setIngredientIds(List<UUID> ingredientIds)
     {
         this.ingredientIds = ingredientIds;
+    }
+
+    public List<UUID> getIngredientIdsDontHave() {
+        return ingredientIdsDontHave;
+    }
+
+    public void setIngredientIdsDontHave(List<UUID> ingredientIdsDontHave) {
+        this.ingredientIdsDontHave = ingredientIdsDontHave;
     }
 }
