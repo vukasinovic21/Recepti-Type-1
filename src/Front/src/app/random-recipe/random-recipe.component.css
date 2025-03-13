@@ -178,8 +178,8 @@ img
 .badge-sugar-free 
   {
     position: absolute;
-    top: 15px;
     left: 320px;
+    top: 15px;
     background-color: #28a745; 
     color: white;
     padding: 5px 15px;
@@ -188,7 +188,7 @@ img
     border-radius: 50px; 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
   }

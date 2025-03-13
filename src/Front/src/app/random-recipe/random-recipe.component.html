@@ -33,7 +33,7 @@
             <div class="card p-4 shadow-sm border-light">
                 <div class="row ">
                     <mat-card class="example-card" appearance="outlined"> 
-                        <mat-card-header>
+                        <mat-card-header style="display:flex;">
                             <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');">
                                 <i class="material-icons verified-icon" *ngIf="getUserRole(recipe.userId) == 'VERIFIED USER'">verified</i>
                             </div> 
@@ -75,8 +75,8 @@
         <div class="col-md-2" *ngIf="recipeNutritions">
             <div class="card p-4 shadow-sm border-light">
                 <div class="d-flex flex-column gap-3">
-                    <!--<h3 >{{"Nutritional values" | translate}}</h3>-->
                     <div class="font2 text-center">
+                        <h3 >{{"Nutritive values (100g)" | translate}}</h3>
                         <div class="col-md-20 mb-3 mt-0">
                             <b>{{"Carbs" | translate}}: </b> <span>{{recipeNutritions!.carbs / recipeNutritions!.weight * 100 | number:'1.2-2'}}g</span>
                         </div>
