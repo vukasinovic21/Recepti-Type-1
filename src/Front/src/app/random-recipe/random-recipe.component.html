@@ -13,8 +13,14 @@
                     <button class="btn btn-primary" (click)="getRandom()">
                         <i class="material-icons">shuffle</i> {{'Random recipe' | translate}}
                     </button>
-                    <button class="btn btn-primary" (click)="getRandomForType(type)">
-                        <i class="material-icons">shuffle</i> {{'Random recipe for type' | translate}} 
+                    <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedTypeId">
+                        <option value="" disabled selected>{{ 'Select food type' | translate }}</option>
+                        <option *ngFor="let typeOfFood of allTypesOfFood" value={{typeOfFood.id}}>
+                            {{typeOfFood.typeName | translate}} <br><br>
+                        </option>
+                    </select>
+                    <button class="btn btn-primary" (click)="getRandomForType(selectedTypeId)">
+                        <i class="material-icons">shuffle</i> {{'Random recipe for selected type' | translate}} 
                     </button>
                     <button class="btn btn-primary" (click)="getRecipesByIngredients(ingredients)"> 
                         <i class="material-icons">shuffle</i> {{'Recipes for your ingredients' | translate}}
@@ -33,6 +39,12 @@
                             </div> 
                             <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
                             <mat-card-subtitle> {{ getTypeName(recipe.typeOfFoodId) | translate}} </mat-card-subtitle>
+
+                            <div *ngIf="recipeNutritions"> <!-- Ovde ne moze absolute positioning ako se smanjuje stranica bezi -->
+                                <span class="badge-sugar-free" *ngIf="(recipeNutritions!.sugar) < 0.5">
+                                    <i class="material-icons">pentagon</i> Sugar<br>Free
+                                </span>
+                            </div>
                         </mat-card-header>
         
                         <div *ngIf="recipe.recipeName.length <= 17">
@@ -60,6 +72,32 @@
                 </div>
             </div>
         </div>    
-
+        <div class="col-md-2" *ngIf="recipeNutritions">
+            <div class="card p-4 shadow-sm border-light">
+                <div class="d-flex flex-column gap-3">
+                    <!--<h3 >{{"Nutritional values" | translate}}</h3>-->
+                    <div class="font2 text-center">
+                        <div class="col-md-20 mb-3 mt-0">
+                            <b>{{"Carbs" | translate}}: </b> <span>{{recipeNutritions!.carbs / recipeNutritions!.weight * 100 | number:'1.2-2'}}g</span>
+                        </div>
+                        <div class="col-md-20 mb-3">
+                            <b>{{"Sugars" | translate}}: </b> <span>{{recipeNutritions!.sugar / recipeNutritions!.weight * 100 | number:'1.2-2'}}g</span>
+                        </div>
+                        <div class="col-md-20 mb-3">
+                            <b>{{"Fat" | translate}}: </b> <span>{{recipeNutritions!.fat / recipeNutritions!.weight * 100 | number:'1.2-2'}}g</span>
+                        </div>
+                        <div class="col-md-20 mb-3">
+                            <b>{{"Protein" | translate}}: </b> <span>{{recipeNutritions!.protein / recipeNutritions!.weight * 100 | number:'1.2-2'}}g</span>
+                        </div>
+                        <div class="col-md-20 mb-3">
+                            <b>{{"Energy" | translate}}: </b> <span>{{recipeNutritions!.kCal / recipeNutritions!.weight * 100 | number:'1.2-2'}}kCal</span>
+                        </div>
+                        <div class="col-md-20 mb-3">
+                            <b>{{"Glycemic load" | translate}}: </b> <span>{{ recipeNutritions.gl | number:'1.2-2' }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

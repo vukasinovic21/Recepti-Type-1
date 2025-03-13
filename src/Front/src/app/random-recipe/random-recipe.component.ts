@@ -6,6 +6,7 @@ import { RecipeService } from '../recipe/recipe.service';
 import { TypeOfFood } from '../models/type-of-food';
 import { UserInfo } from '../models/user-info';
 import { UserService } from '../user/user.service';
+import { RecipeNutritions } from '../models/recipe-nutritions';
 
 @Component({
   selector: 'app-random-recipe',
@@ -15,8 +16,9 @@ import { UserService } from '../user/user.service';
 export class RandomRecipeComponent 
 {
 
-  type: string = '';
+  selectedTypeId: string = '';
   ingredients: string[] = [];
+  recipeNutritions?: RecipeNutritions;
 
   allTypesOfFood: TypeOfFood[] = [];
   allUsers: UserInfo[] = [];
@@ -41,13 +43,19 @@ export class RandomRecipeComponent
     this.recipeService.getRandomRecipe().subscribe(recipe => {
       this.recipe = recipe;
       this.recipeId = recipe.id;
+      this.getNutritions(recipe.id);
       this.router.navigate(['/recipes/random/' + recipe.id])
     });
   }
 
   getRandomForType(type: string): void //poslati id tipa hrane
   {
-
+    this.recipeService.getRandomRecipeForType(type).subscribe(recipe => {
+      this.recipe = recipe;
+      this.recipeId = recipe.id;
+      this.getNutritions(recipe.id);
+      this.router.navigate(['/recipes/random/' + recipe.id])
+    });
   }
 
   getRecipesByIngredients(ingredients: string[]): void //poslati listu id-jeva sastojaka
@@ -84,6 +92,13 @@ export class RandomRecipeComponent
     this.usersService.getAllUsers().subscribe( users => {
       this.allUsers = users;
     })
+  }
+
+  getNutritions(recipeId:string): void 
+  {
+    this.recipeService.getRecipeNutritions(recipeId).subscribe( recipeNutritions => {
+      this.recipeNutritions = recipeNutritions;
+    });
   }
 
   getTypeName(id: string): string 

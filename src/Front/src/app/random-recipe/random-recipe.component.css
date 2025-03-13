@@ -12,6 +12,7 @@
 {
     font-size: 17px;/*15px*/
     line-height: 1.3;
+    margin-top: -50px;
 }
 
 
@@ -172,3 +173,28 @@ img
     background-position: center 30%;/*vratiti center 45%;*/
     background-repeat: no-repeat;
 }
+
+
+.badge-sugar-free 
+  {
+    position: absolute;
+    top: 15px;
+    left: 320px;
+    background-color: #28a745; 
+    color: white;
+    padding: 5px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .badge-sugar-free i 
+  {
+    margin-right: 8px; 
+    font-size: 20px; 
+  }

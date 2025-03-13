@@ -283,6 +283,7 @@
     "What to eat": "Šta da jedem",
     "If you don't know what to eat": "Ako ne znate šta da jedete",
     "Random recipe": "Nasumičan recept",
-    "Random recipe for type": "Nasumičan recept za tip",
-    "Recipes for your ingredients": "Recepti sa Vašim sastojcima"
+    "Random recipe selected type": "Nasumičan recept za izabrani tip",
+    "Recipes for your ingredients": "Recepti sa Vašim sastojcima",
+    "Select food type": "Izaberite tip hrane"
 }
