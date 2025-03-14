@@ -5,6 +5,9 @@ import { Ingredient } from '../models/ingredient';
 import { RecipeService } from '../recipe/recipe.service';
 import { Recipe } from '../models/recipe';
 import { Router } from '@angular/router';
+import { TypeOfFood } from '../models/type-of-food';
+import { UserInfo } from '../models/user-info';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-selected-ingredients',
@@ -24,9 +27,12 @@ export class SelectedIngredientsComponent
   selectedIngredients2: Ingredient[] = [];
   filteredIngredients2: Ingredient[] = [];
 
+  allTypesOfFood: TypeOfFood[] = [];
+  allUsers: UserInfo[] = [];
+
   recipes: Recipe[] = [];
 
-  constructor(private recipeService: RecipeService, private router: Router) 
+  constructor(private recipeService: RecipeService, private router: Router, private usersService: UserService) 
   {
     this.ingredientInput.valueChanges.pipe(
       debounceTime(100),
@@ -52,6 +58,32 @@ export class SelectedIngredientsComponent
     this.recipeService.getAllIngredients().subscribe( ingredients => {
       this.ingredients = ingredients;
     })
+
+    this.recipeService.getAllTypesOfMeal().subscribe( types => {
+      this.allTypesOfFood = types;
+    })
+
+    this.usersService.getAllUsers().subscribe( users => {
+      this.allUsers = users;
+    })
+  }
+
+  getUserSex(id: string): string 
+  {
+    const userinfo = this.allUsers.find(userinfo => userinfo.id === id);
+    return userinfo ? userinfo.sex : 'Unknown';
+  }
+
+  getUserRole(id: string): string 
+  {
+    const userinfo = this.allUsers.find(userinfo => userinfo.id === id);
+    return userinfo ? userinfo.role : 'Unknown';
+  }
+
+  getTypeName(id: string): string 
+  {
+    const type = this.allTypesOfFood.find(type => type.id === id);
+    return type ? type.typeName : 'Unknown';
   }
 
   filterIngredients(query: string): Ingredient[] 

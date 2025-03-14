@@ -60,3 +60,89 @@
     background-color: darkred;
   }
   
+
+  .example-card 
+{
+    width: 330px;
+    height: 430px;
+  }
+  
+.example-header-image 
+{
+    position: relative;
+    background-size: cover;
+}
+
+mat-card:hover
+{
+    transform: scale(1.10);
+    cursor:pointer;
+}
+
+mat-card
+{
+    transition: transform .2s;
+}
+
+.verified-icon 
+{
+    position: absolute;
+    bottom: -17px; 
+    right: -17px;  
+    transform: scale(0.5);
+    background-color: rgba(255, 255, 255, 0.5); 
+    border-radius: 50%;
+    padding: 1px;
+    color:#4099FF;
+}
+
+img
+{
+    height:200px;
+}
+
+.material-icons 
+{
+    font-size: 40px; 
+}
+
+.mat-card-actions {
+  display: flex; /* Use flexbox layout */
+  justify-content: space-between; /* Distribute space between items, pushing items to the edges */
+  align-items: center; /* Center items vertically */
+}
+
+.circle {
+  float: right;
+  /*display: inline-block;*/
+  width: 60px; /* Adjust width and height as needed */
+  height: 60px; /* Adjust width and height as needed */
+  line-height: 50px; /* Centers text vertically */
+  text-align: center; /* Centers text horizontally */
+  border-radius: 50%; /* Makes it a circle */
+  border: 3px solid; /* Border color and thickness */
+  background-color: white; /* Circle color */
+  font-weight: bold; /* Optional: make text bold */
+  margin-left: auto;
+}
+
+.circle.green {
+  border-color: green;
+  color:green;
+}
+
+.circle.orange {
+  border-color: orange;
+  color:orange;
+}
+
+.circle.red {
+  border-color: red;
+  color:red;
+}
+
+.bottom
+{
+  margin-top: 50px;
+}
+

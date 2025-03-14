@@ -1,6 +1,6 @@
 
 
-<div class="card p-4 shadow-sm border-light">
+<div class="card p-4 shadow-sm border-light razmak" >
     <div class="ingredient-selector">
         <form (ngSubmit)="onSubmit()">
             <h3>{{"Please select ingredients that you have" | translate}}</h3>
@@ -38,10 +38,53 @@
     </div>
 </div>
 
-<div *ngIf="recipes.length > 0">
+<!--<div *ngIf="recipes.length > 0">
     <div>
         <span *ngFor="let recipe of recipes" (click)="showRecipeId(recipe.id)">
             {{ recipe.recipeName }} 
         </span>
+    </div>
+</div>-->
+<div *ngIf="recipes.length > 0" class="bottom">
+    <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="50px grid"> 
+        <div *ngFor="let recipe of recipes"> 
+          <mat-card class="example-card" appearance="outlined"> 
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');">
+                <i class="material-icons verified-icon" *ngIf="getUserRole(recipe.userId) == 'VERIFIED USER'">verified</i>
+              </div> 
+                <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
+                <mat-card-subtitle> 
+                  <!--{{getTypeName(recipe.typeOfFoodId) | translate}}-->
+                </mat-card-subtitle>
+                <div class="right">
+                </div>
+            </mat-card-header>
+            <div *ngIf="recipe.recipeName.length <= 17">
+              <div class="razmak"></div>
+            </div>
+            <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
+            <br>
+            <mat-card-content>
+                {{ recipe.instructions | slice:0:75 }}
+                <span *ngIf="recipe.instructions.length <= 75"><br><br></span>
+                <span *ngIf="recipe.instructions.length > 75">...</span>
+            </mat-card-content>
+    
+            <mat-card-actions>
+                <!--
+                <button mat-button>Share</button>--> <!--OSTAVITI ZA POJEDINACNI PRIKAZ RECEPTA-->
+                <!--BROJ LAJKOVA DA BUDE PRIKAZAN-->
+                <b>{{"Posted" | translate}}: &nbsp;</b> <span> {{ recipe.createdAt | date:'dd-MM-yyyy' }} </span>
+    
+                <span class="circle green" *ngIf="recipe.timeToPrepare <= 15"> <!--NEKAKO DA BUDU ZAOKRUZENO LEPO MOZE I PORED DUGMICA-->
+                    {{ recipe.timeToPrepare}} min</span>
+                <span class="circle orange" *ngIf="recipe.timeToPrepare > 15 && recipe.timeToPrepare < 60" >
+                    {{ recipe.timeToPrepare}} min</span>
+                <span class="circle red" *ngIf="recipe.timeToPrepare > 60 ">
+                    {{ recipe.timeToPrepare}}min</span>   
+            </mat-card-actions>
+          </mat-card>
+        </div>
     </div>
 </div>
