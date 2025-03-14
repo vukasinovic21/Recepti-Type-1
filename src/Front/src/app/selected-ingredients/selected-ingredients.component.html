@@ -37,3 +37,11 @@
         </form>
     </div>
 </div>
+
+<div *ngIf="recipes.length > 0">
+    <div>
+        <span *ngFor="let recipe of recipes" (click)="showRecipeId(recipe.id)">
+            {{ recipe.recipeName }} 
+        </span>
+    </div>
+</div>

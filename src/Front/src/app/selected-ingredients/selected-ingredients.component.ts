@@ -4,6 +4,7 @@ import { debounceTime, map, filter } from 'rxjs';
 import { Ingredient } from '../models/ingredient';
 import { RecipeService } from '../recipe/recipe.service';
 import { Recipe } from '../models/recipe';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-selected-ingredients',
@@ -25,7 +26,7 @@ export class SelectedIngredientsComponent
 
   recipes: Recipe[] = [];
 
-  constructor(private recipeService: RecipeService) 
+  constructor(private recipeService: RecipeService, private router: Router) 
   {
     this.ingredientInput.valueChanges.pipe(
       debounceTime(100),
@@ -62,6 +63,12 @@ export class SelectedIngredientsComponent
 
   addIngredient(ingredient: Ingredient): void 
   {
+    if (this.selectedIngredients2.some(item => item.id === ingredient.id)) 
+    {
+      console.log('This ingredient is already in the second list');
+      return; 
+    }
+
     if (!this.selectedIngredients.some(item => item.id === ingredient.id)) 
     {
       this.selectedIngredients.push(ingredient);
@@ -77,6 +84,12 @@ export class SelectedIngredientsComponent
 
   addIngredient2(ingredient: Ingredient): void 
   {
+    if (this.selectedIngredients.some(item => item.id === ingredient.id)) 
+      {
+      console.log('This ingredient is already in the first list');
+      return; 
+    }
+
     if (!this.selectedIngredients2.some(item => item.id === ingredient.id)) 
     {
       this.selectedIngredients2.push(ingredient);
@@ -110,5 +123,11 @@ export class SelectedIngredientsComponent
         console.error("An error ocurred during getting all recipes by selected ingredients:", err);
       }
     });
+  }
+
+  showRecipeId(recipeId: string)
+  {
+    console.log(recipeId);
+    this.router.navigate(['recipes/id/' + recipeId]);
   }
 }
