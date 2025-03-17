@@ -31,9 +31,9 @@ namespace Back.Domain.Models
             DietName = dietname;
         }
 
-        public void Add(RecipeId recipeId, TypeOfMealId typeOfMealId, DayOfWeek dayOfWeek)
+        public void Add(RecipeId recipeId, TypeOfMealId typeOfMealId, DayOfWeek dayOfWeek, decimal quantity)
         {
-            var planOfDiet = new PlanOfDiet(Id, recipeId, typeOfMealId, dayOfWeek);
+            var planOfDiet = new PlanOfDiet(Id, recipeId, typeOfMealId, dayOfWeek, quantity);
             _planOfDiets.Add(planOfDiet);
         }
         

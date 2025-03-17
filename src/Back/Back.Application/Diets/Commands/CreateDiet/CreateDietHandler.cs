@@ -28,7 +28,7 @@
 
             foreach (var PlanOfDietDto in dietDto.PlanOfDiets)
             {
-                newDiet.Add(RecipeId.Of(PlanOfDietDto.RecipeId), TypeOfMealId.Of(PlanOfDietDto.TypeOfMealId), PlanOfDietDto.DayOfWeek);
+                newDiet.Add(RecipeId.Of(PlanOfDietDto.RecipeId), TypeOfMealId.Of(PlanOfDietDto.TypeOfMealId), PlanOfDietDto.DayOfWeek, PlanOfDietDto.Quantity);
             }
 
             return newDiet;

@@ -5,6 +5,7 @@
         Guid RecipeId,
         Guid TypeOfMealId,
         DayOfWeek DayOfWeek,
+        decimal Quantity,
         string RecipeName,
         string Picture);
 }

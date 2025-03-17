@@ -41,6 +41,7 @@ namespace Back.Application.Diets.Queries.GetDietsById
                             pod.RecipeId.Value,
                             pod.TypeOfMealId.Value,
                             pod.DayOfWeek,
+                            pod.Quantity,
                             recipe!.RecipeName,
                             recipe.Picture
                         );

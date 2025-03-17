@@ -9,8 +9,8 @@ namespace Back.Infrastructure.Data.Extentions
         public static IEnumerable<User> Users =>
            new List<User>
            {
-               User.Create(UserId.Of(new Guid("58c49479-ec65-4de2-86e7-033c546291aa")),"Admin", "Admin", "Admin", "Admin@gmail.com", "$2a$11$5W4TW3T2F4BHyhZ.rNx/O.AUeA00AKCZsHHyQsfwBmTUrK4S7QNzm", QuestionId.Of(new Guid("47b38368-3cd1-76e6-db54-574c82929c34")), "AdminResponseHash", new DateOnly(2000, 4, 21), "Male"), //adminadmin
-               User.Create(UserId.Of(new Guid("f8a9e484-65e9-4b01-94b6-7da073e9f43b")),"Ivana", "Vukasinovic", "Ivana", "i.vukasinovic69@gmail.com", "$2a$11$rTpBwB3G8GvzFAWF6OC8ietfvK.M.bFglE5UYVvOCQZNB0308Ah1q", QuestionId.Of(new Guid("47b38368-3cd1-76e6-db54-574c82929c34")), "BadiResponseHash", new DateOnly(1969, 7, 14), "Female") //123456789
+               User.Create(UserId.Of(new Guid("58c49479-ec65-4de2-86e7-033c546291aa")),"Admin", "Admin", "Admin", "Admin@gmail.com", "$2a$11$5W4TW3T2F4BHyhZ.rNx/O.AUeA00AKCZsHHyQsfwBmTUrK4S7QNzm", QuestionId.Of(new Guid("47b38368-3cd1-76e6-db54-574c82929c34")), "$2a$11$HMWc5HubG/eykKuZcQv0SutAlYFqKkiObwz5Nf6hJRdkAHK6rRuQS", new DateOnly(2000, 4, 21), "Male"), //adminadmin
+               User.Create(UserId.Of(new Guid("f8a9e484-65e9-4b01-94b6-7da073e9f43b")),"Ivana", "Vukasinovic", "Ivana", "i.vukasinovic69@gmail.com", "$2a$11$rTpBwB3G8GvzFAWF6OC8ietfvK.M.bFglE5UYVvOCQZNB0308Ah1q", QuestionId.Of(new Guid("47b38368-3cd1-76e6-db54-574c82929c34")), "$2a$11$HMWc5HubG/eykKuZcQv0SutAlYFqKkiObwz5Nf6hJRdkAHK6rRuQS", new DateOnly(1969, 7, 14), "Female") //123456789
            };
 
         public static IEnumerable<Ingredient> Ingredients =>

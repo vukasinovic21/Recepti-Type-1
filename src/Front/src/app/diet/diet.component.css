@@ -41,6 +41,7 @@
     /*display: block;*/
 }
 
+
 .field
 {
     max-width: 0px !important;
@@ -58,6 +59,11 @@
 }
 
 .recipe-container:hover .img 
+{
+    display: none;
+}
+
+.recipe-container:hover .hide 
 {
     display: none;
 }

@@ -14,7 +14,7 @@ namespace Back.Application.Extensions
                     NutritionId: diet.NutritionId.Value,
                     CreatedAt: diet.CreatedAt.Value,
                     PlanOfDiets: diet.PlanOfDiets
-                      .Select(pod => new PlanOfDietDto(pod.DietId.Value, pod.RecipeId.Value, pod.TypeOfMealId.Value, pod.DayOfWeek))
+                      .Select(pod => new PlanOfDietDto(pod.DietId.Value, pod.RecipeId.Value, pod.TypeOfMealId.Value, pod.DayOfWeek, pod.Quantity))
                       .OrderBy(dto => dto.DayOfWeek)         // First sort by DayOfWeek
                       .ThenBy(dto => dto.TypeOfMealId)       // Then sort by TypeOfMealId
                       .ToList()
@@ -30,7 +30,7 @@ namespace Back.Application.Extensions
                     NutritionId: diet.NutritionId.Value,
                     CreatedAt: diet.CreatedAt.Value,
                     PlanOfDiets: diet.PlanOfDiets
-                      .Select(pod => new PlanOfDietInfoDto(pod.DietId.Value, pod.RecipeId.Value, pod.TypeOfMealId.Value, pod.DayOfWeek, "pod.RecipeName", "pod.Picture"))
+                      .Select(pod => new PlanOfDietInfoDto(pod.DietId.Value, pod.RecipeId.Value, pod.TypeOfMealId.Value, pod.DayOfWeek, pod.Quantity, "pod.RecipeName", "pod.Picture"))
                       .OrderBy(dto => dto.DayOfWeek)         
                       .ToList()
                     ));

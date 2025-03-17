@@ -4,6 +4,7 @@ export interface PlanOfDiet
     recipeId: string,
     typeOfMealId: string,
     dayOfWeek: number,
+    quantity: number,
     recipeName: string,
     picture: string
 }

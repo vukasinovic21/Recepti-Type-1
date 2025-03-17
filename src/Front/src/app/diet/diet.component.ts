@@ -46,7 +46,6 @@ export class DietComponent implements OnInit
       this.dietId = params['id']; 
       this.showDiet(this.dietId); 
     });
-
   }
 
   showDiet(dietId: string): void
@@ -62,6 +61,27 @@ export class DietComponent implements OnInit
     this.recipeService.getRecipeNutritions(recipeId).subscribe(recipeNutritions => {
       this.allNutritions[mealIndex][dayIndex] = recipeNutritions;
     });
+  }
+
+  getDailyCalories(dayIndex: number): number 
+  {
+    let calories = 0;
+    for (let i = 0; i < this.allNutritions.length; i++) 
+    {
+      for (const recipe of this.allNutritions[i][dayIndex]) 
+      {        
+        if (recipe && recipe.kCal) 
+        {
+          const cell = this.tableData[i]?.[dayIndex];
+
+          if (cell && cell.quantity) 
+          {
+            calories += (recipe.kCal / recipe.weight) * cell.quantity;
+          }
+        } 
+      }
+    }
+    return calories;
   }
 
   makeTable():void
@@ -80,8 +100,9 @@ export class DietComponent implements OnInit
         {
           recipeName: meal.recipeName,
           recipeId: meal.recipeId,
+          quantity: meal.quantity,
           picture: meal.picture
-        } : { recipeName: '', recipeId: '', picture: '' };
+        } : { recipeName: '', recipeId: '', quantity: null, picture: '' };
       });
     });
 
@@ -90,13 +111,23 @@ export class DietComponent implements OnInit
 
   makeNutritions(): void
   {
+    let requestsCompleted = 0;
+
     this.tableData.forEach((meal, i) => {
       this.allNutritions[i] = [];
       meal.forEach((cell, j) => {
+        if (!this.allNutritions[i][j]) 
+        {
+          this.allNutritions[i][j] = []; 
+        }
+
         if (cell.recipeId) 
         {
           this.recipeService.getRecipeNutritions(cell.recipeId).subscribe(recipeNutritions => {
             this.allNutritions[i][j] = Array.isArray(recipeNutritions) ? recipeNutritions : [recipeNutritions];
+            requestsCompleted++;
+            /*if(requestsCompleted === 5)
+              this.getDailyCalories(0);*/
           });
         } 
         else

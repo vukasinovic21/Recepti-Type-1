@@ -4,5 +4,6 @@
         Guid DietId, 
         Guid RecipeId, 
         Guid TypeOfMealId, 
-        DayOfWeek DayOfWeek);
+        DayOfWeek DayOfWeek,
+        decimal Quantity);
 }

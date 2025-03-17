@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <div class="mb-3" >
+<!--        <div class="mb-3" >
             <div formArrayName="planOfDiets">
                 <div class="row">
                     <div *ngFor="let item of planOfDiets.controls; let i = index" [formGroupName]="i" class="size2">
@@ -55,6 +55,23 @@
                             <option value="">{{"Select a recipe" | translate}}</option>
                             <option *ngFor="let recipe of recipes" [value]="recipe.id">{{ recipe.recipeName }}</option>
                         </select>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+        <div class="mb-3" >
+            <div formArrayName="planOfDiets">
+                <div class="row">
+                    <div *ngFor="let item of planOfDiets.controls; let i = index" [formGroupName]="i" class="size2 flex-container">
+                        <label class="form-label"></label>
+                        <div class="input-group">
+                            <select class="form-control select-width" formControlName="recipeId">
+                                <option value="">{{"Select a recipe" | translate}}</option>
+                                <option *ngFor="let recipe of recipes" [value]="recipe.id">{{ recipe.recipeName }}</option>
+                            </select>
+                            <input type="number" class="form-control input-width" min="1" placeholder="{{'xG?' | translate}}" formControlName="quantity"/><!--placeholder="{{'Number of grams' | translate}}-->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -69,3 +86,5 @@
 
 <!-- Gde god se preskoci neki obrok dodati vodu ili staviti da moraju da se unesu svi obroci? -->
 <!-- Neka ga prazno ipak -->
+
+

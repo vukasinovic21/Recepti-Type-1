@@ -35,27 +35,38 @@
                 </th>
                 <td *ngFor="let cell of meal; let j = index" class="field text">
                     <div *ngIf="cell.recipeName" (click)="showRecipeId(cell.recipeId)" class="recipe-container">
-                      <b>{{ cell.recipeName | translate }}</b> <br><!--<br>--> 
+                      <b>{{ cell.recipeName | translate }}</b><br><!--<br>--> 
                       <img class="img" src="assets/images/{{ cell.picture }}">  <!--alt="{{ cell.recipeName }}"-->
+                      <br><div class="hide">{{cell.quantity}}g</div>
                       <div class="hover-content">
                          <!--{{getNutritions(cell.recipeId)}}-->
                          <div *ngFor="let nutrition of allNutritions[i][j]">
-                          {{"Carbs" | translate}}: {{ nutrition.carbs / nutrition.weight * 100 | number:'1.2-2' }}g<br>
-                          {{"Sugars" | translate}}: {{ nutrition.sugar / nutrition.weight * 100 | number:'1.2-2' }}g<br>
-                          {{"Fat" | translate}}: {{ nutrition.fat / nutrition.weight * 100 | number:'1.2-2' }}g<br>
-                          {{"Protein" | translate}}: {{ nutrition.protein / nutrition.weight * 100 | number:'1.2-2' }}g<br>
-                          {{"kCal" | translate}}: {{ nutrition.kCal / nutrition.weight * 100 | number:'1.2-2' }}<br>
-                          {{"GL" | translate}}GL: <span *ngIf="nutrition.gl / nutrition.weight * 100 < 10" style="color:green"> 
-                                {{ nutrition.gl / nutrition.weight * 100 | number:'1.2-2' }} </span>
-                              <span *ngIf="nutrition.gl / nutrition.weight * 100 >= 10 && nutrition.gl / nutrition.weight * 100 < 20" style="color:orange"> 
-                                {{ nutrition.gl / nutrition.weight * 100 | number:'1.2-2' }} </span>
-                              <span *ngIf="nutrition.gl / nutrition.weight * 100 >= 20" style="color:red"> 
-                                {{ nutrition.gl / nutrition.weight * 100 | number:'1.2-2' }} </span> <br>
-                          
+                          {{"Quantity" | translate}}: {{cell.quantity}} g <br>
+                          {{"Carbs" | translate}}: {{ nutrition.carbs / nutrition.weight * cell.quantity | number:'1.2-2' }}g<br>
+                          {{"Sugars" | translate}}: {{ nutrition.sugar / nutrition.weight * cell.quantity | number:'1.2-2' }}g<br>
+                          {{"Fat" | translate}}: {{ nutrition.fat / nutrition.weight * cell.quantity | number:'1.2-2' }}g<br>
+                          {{"Protein" | translate}}: {{ nutrition.protein / nutrition.weight * cell.quantity | number:'1.2-2' }}g<br>
+                          {{"kCal" | translate}}: {{ nutrition.kCal / nutrition.weight * cell.quantity | number:'1.2-2' }}<br>
+                          {{"GL" | translate}}: <span *ngIf="nutrition.gl / nutrition.weight * cell.quantity < 10" style="color:green"> 
+                                {{ nutrition.gl / nutrition.weight * cell.quantity | number:'1.2-2' }} </span>
+                              <span *ngIf="nutrition.gl / nutrition.weight * cell.quantity >= 10 && nutrition.gl / nutrition.weight * cell.quantity < 20" style="color:orange"> 
+                                {{ nutrition.gl / nutrition.weight * cell.quantity | number:'1.2-2' }} </span>
+                              <span *ngIf="nutrition.gl / nutrition.weight * cell.quantity >= 20" style="color:red"> 
+                                {{ nutrition.gl / nutrition.weight * cell.quantity | number:'1.2-2' }} </span> <br>
                         </div>
                       </div>
                     </div>
                 </td>
+              </tr>
+              <tr class="text">
+                <th>{{"Daily calories" | translate}}</th>
+                <td> <span *ngIf="getDailyCalories(0) > 0">{{getDailyCalories(0) | number:'1.2-2'}} kCal </span> </td>
+                <td> <span *ngIf="getDailyCalories(1) > 0">{{getDailyCalories(1) | number:'1.2-2'}} kCal </span> </td>
+                <td> <span *ngIf="getDailyCalories(2) > 0">{{getDailyCalories(2) | number:'1.2-2'}} kCal </span> </td>
+                <td> <span *ngIf="getDailyCalories(3) > 0">{{getDailyCalories(3) | number:'1.2-2'}} kCal </span> </td>
+                <td> <span *ngIf="getDailyCalories(4) > 0">{{getDailyCalories(4) | number:'1.2-2'}} kCal </span> </td>
+                <td> <span *ngIf="getDailyCalories(5) > 0">{{getDailyCalories(5) | number:'1.2-2'}} kCal </span> </td>
+                <td> <span *ngIf="getDailyCalories(6) > 0">{{getDailyCalories(6) | number:'1.2-2'}} kCal </span> </td>
               </tr>
             </tbody>
           </table>

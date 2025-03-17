@@ -66,6 +66,7 @@ export class CreateDietComponent implements OnInit
         items.push(
           this.formBuilder.group({
             recipeId: [''],
+            quantity: [Validators.min(1)],
             typeOfMealId: [meals[i], Validators.required], 
             dayOfWeek: [day, [Validators.required, Validators.min(1), Validators.max(7)]] 
           })
