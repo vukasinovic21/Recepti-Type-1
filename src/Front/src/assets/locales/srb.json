@@ -291,5 +291,9 @@
     "Get recipes": "Daj recepte",
     "Please select ingredients that you don't have": "Molim Vas izaberite sastojke koje nemate",
     "Number of grams": "Broj grama",
-    "Daily calories": "Dnevne kalorije"
+    "Daily calories": "Dnevne kalorije",
+    "Approved": "Odobreni",
+    "All": "Svi",
+    "Unapproved": "Neodobreni",
+    "Approve": "Odobri"
 }

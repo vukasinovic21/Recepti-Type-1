@@ -10,7 +10,9 @@
 .div-space2
 {
     width: 100%;
-    margin-left: 3px;
+
+    margin-bottom: -3px;
+    margin-top: -3px;
 }
 
 .list-group-item

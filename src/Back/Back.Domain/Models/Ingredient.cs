@@ -12,6 +12,7 @@ namespace Back.Domain.Models
         public decimal Protein { get; private set; } = default!;
         public decimal kCal { get; private set; } = default!;
         public decimal GI { get; private set; } = default!; //GlygemicIndex
+        public Boolean IsApproved { get; private set; } = default!;
 
         public static Ingredient Create(IngredientId id, string name, decimal carbs, decimal sugar, decimal fat, decimal protein, decimal kcal, decimal gi)
         {
@@ -32,7 +33,8 @@ namespace Back.Domain.Models
                 Fat = fat,
                 Protein = protein,
                 kCal = kcal,
-                GI = gi
+                GI = gi,
+                IsApproved = false
             };
 
             return ingredient;

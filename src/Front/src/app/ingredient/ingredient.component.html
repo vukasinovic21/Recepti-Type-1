@@ -37,6 +37,9 @@
                     <div class="col-md-6 mb-3">
                         <b>{{"Glycemic index" | translate}} (GI): </b> <span>{{ingredient?.gI}}</span>
                     </div>
+                    <div *ngIf="!ingredient?.isApproved">
+                        <button class="btn btn-success" (click)="approveIngredient()">{{"Approve" | translate }}</button>
+                    </div>
                 </div>
             </div>
         </div>

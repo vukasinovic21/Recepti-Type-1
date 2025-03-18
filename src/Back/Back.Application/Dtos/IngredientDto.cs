@@ -9,5 +9,6 @@ namespace Back.Application.Dtos
         decimal Fat,
         decimal Protein,
         decimal kCal,
-        decimal GI);
+        decimal GI,
+        Boolean IsApproved);
 }

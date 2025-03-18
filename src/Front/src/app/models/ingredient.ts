@@ -7,5 +7,6 @@ export interface Ingredient
     fat: number,
     protein: number,
     kCal: number,
-    gI: number
+    gI: number,
+    isApproved: boolean
 }

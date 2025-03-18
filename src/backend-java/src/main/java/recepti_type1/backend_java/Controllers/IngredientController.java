@@ -69,6 +69,18 @@ public class IngredientController
         return true;
     }
 
+    @PutMapping("/approve") //for admin to approve ingredient
+    public Boolean approveIngredient(@RequestBody Ingredient ingredientUpdate)
+    {
+        Ingredient i = ingredientService.getIngredientById(ingredientUpdate.getId());
+
+        i.setIsApproved(true);
+
+        ingredientService.updateIngredient(i);
+
+        return true;
+    }
+
     @DeleteMapping("/delete") //Delete ingredient
     public Boolean deleteIngredient(@RequestBody NewRole newRole)
     {

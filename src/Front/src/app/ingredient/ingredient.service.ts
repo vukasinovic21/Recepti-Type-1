@@ -38,6 +38,11 @@ export class IngredientService
     return this.http.put<boolean>(this.backUrlJava + "/ingredients/edit", ingredient);
   }
 
+  approveIngredient(ingredient: Ingredient): Observable<boolean> 
+  {
+    return this.http.put<boolean>(this.backUrlJava + "/ingredients/approve", ingredient);
+  }
+
   deleteIngredient(id: string): Observable<boolean> 
   {
     const ingredient = {id:id}

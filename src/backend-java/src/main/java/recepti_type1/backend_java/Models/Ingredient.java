@@ -18,6 +18,7 @@ public class Ingredient
     private Float Protein;
     private Float kCal;
     private Float GI; // Glycemic Index
+    private Boolean IsApproved;
 
     public Ingredient() {}
 
@@ -30,10 +31,11 @@ public class Ingredient
         this.Protein = i.Protein;
         this.kCal = i.kCal;
         this.GI = i.GI;
+        this.IsApproved = false;
     }
 
     public Ingredient(UUID id, String name, Float carbs, Float sugar,
-                      Float fat, Float protein, Float kcal, Float gi)
+                      Float fat, Float protein, Float kcal, Float gi, Boolean isApproved)
     {
         this.Id = id;
         this.Name = name;
@@ -43,6 +45,7 @@ public class Ingredient
         this.Protein = protein;
         this.kCal = kcal;
         this.GI = gi;
+        this.IsApproved = isApproved;
     }
 
     public UUID getId() {
@@ -80,7 +83,7 @@ public class Ingredient
     public static Ingredient create(UUID id, String name, Float carbs, Float sugar,
                                     Float fat, Float protein, Float kcal, Float gi)
     {
-        return new Ingredient(id, name, carbs, sugar, fat, protein, kcal, gi);
+        return new Ingredient(id, name, carbs, sugar, fat, protein, kcal, gi, false);
     }
 
 
@@ -114,5 +117,13 @@ public class Ingredient
 
     public void setkCal(Float kCal) {
         this.kCal = kCal;
+    }
+
+    public Boolean getIsApproved() {
+        return IsApproved;
+    }
+
+    public void setIsApproved(Boolean isapproved) {
+        IsApproved = isapproved;
     }
 }

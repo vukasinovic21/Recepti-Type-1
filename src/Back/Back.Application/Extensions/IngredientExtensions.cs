@@ -14,7 +14,8 @@ namespace Back.Application.Extensions
                     Fat: ingredient.Fat,
                     Protein: ingredient.Protein,
                     kCal: ingredient.kCal,
-                    GI: ingredient.GI));
+                    GI: ingredient.GI,
+                    IsApproved: ingredient.IsApproved));
         }
     }
 }

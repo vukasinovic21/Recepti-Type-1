@@ -14,6 +14,7 @@ export class AllIngredientsComponent
   filteredIngredients: Ingredient[] = [];
   sortOrder = "";
   selectedIngredientId: string | null = null;
+  approvedFilter: string = "all";
 
   constructor(private ingredientService: IngredientService, private router: Router, private activatedRoute: ActivatedRoute, private cdr: ChangeDetectorRef){}
   
@@ -108,6 +109,24 @@ export class AllIngredientsComponent
     {
       this.filteredIngredients.sort((a,b) => b.gI - a.gI)
     }
+  }
+
+  filterUnapproved(): void 
+  {
+    if (this.approvedFilter === "approved") 
+    {
+      this.filteredIngredients = this.ingredients.filter(a => a.isApproved);
+    } 
+    else if (this.approvedFilter === "unapproved") 
+    {
+      this.filteredIngredients = this.ingredients.filter(a => !a.isApproved);
+    } 
+    else 
+    {
+      this.filteredIngredients = [...this.ingredients]; 
+    }
+  
+    this.sortIngredients(this.sortOrder); 
   }
 
   onIngredientDeleted(ingredientId: string) 

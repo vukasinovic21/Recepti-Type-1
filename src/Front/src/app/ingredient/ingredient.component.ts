@@ -40,6 +40,25 @@ export class IngredientComponent
     });
   }
 
+  approveIngredient(): void
+  {
+    if(this.ingredient)
+    {
+      this.ingredientService.approveIngredient(this.ingredient).subscribe( success =>
+      {
+        if(success)
+        { 
+          this.getIngredientInfo(this.ingredientId);
+          alert("Successfully approved this ingredient! :)");
+          this.router.navigate(['/users/admin/ingredients/' + this.ingredientId], { queryParams: { refresh: new Date().getTime() } })
+        } 
+        else
+          alert("Error while approving this ingredient! :(");
+      }
+      );
+    }
+  }
+
   editIngredient(): void 
   {
     const dialogRef = this.dialog.open(AddIngredientComponent, {
