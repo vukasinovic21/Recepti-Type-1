@@ -55,7 +55,7 @@
             <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');">
               <i class="material-icons verified-icon" *ngIf="getUserRole(recipe.userId) == 'VERIFIED USER'">verified</i>
             </div> <!-- (click)="showUserId(recipe.userId)"></div><!--KLIKOM NA SLIKU DA SE OTVORI JAVAN PROFIL TOG KORISNIKA -->
-              <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
+              <mat-card-title (click)="showRecipeId(recipe.id, $event)">{{ recipe.recipeName }}</mat-card-title>
               <mat-card-subtitle> 
                 {{getTypeName(recipe.typeOfFoodId) | translate}}
               </mat-card-subtitle><!--<mat-card-subtitle (click)="showTypeOfFoodId(recipe.typeOfFoodId)">{{ recipe.typeOfFoodId }}</mat-card-subtitle> --><!--KLIKOM NA TIP HRANE DA SE OTVORE SVI RECEPTI TOG TIPA -->
@@ -86,7 +86,7 @@
           <div *ngIf="recipe.recipeName.length <= 17">
             <div class="razmak"></div>
           </div>
-          <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
+          <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id, $event)">
           <br>
           <mat-card-content>
               {{ recipe.instructions | slice:0:75 }}

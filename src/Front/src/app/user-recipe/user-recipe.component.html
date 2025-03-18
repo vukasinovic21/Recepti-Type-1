@@ -55,11 +55,11 @@
                                         <span *ngIf="recipe.userId == loggedUser || isAdmin?.role == 'ADMIN'" class="material-icons" (click)="edit(recipe.id)">edit</span> 
                                         <span *ngIf="recipe.userId == loggedUser || isAdmin?.role == 'ADMIN'" class="material-icons" (click)="delete(recipe.id)">delete</span> 
                                     </div>
-                                <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
+                                <mat-card-title (click)="showRecipeId(recipe.id, $event)">{{ recipe.recipeName }}</mat-card-title>
                                 <mat-card-subtitle> {{getTypeName(recipe.typeOfFoodId) | translate}} </mat-card-subtitle>
                             </mat-card-header>
 
-                            <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
+                            <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id, $event)">
                             <br>
                             <mat-card-content>
                                 {{ recipe.instructions | slice:0:75 }}
@@ -94,11 +94,11 @@
                                     <div class="right">
                                         <span (click)="likeRecipe(recipe.id)" class="material-icons heart">favorite</span>
                                     </div>
-                                <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
+                                <mat-card-title (click)="showRecipeId(recipe.id, $event)">{{ recipe.recipeName }}</mat-card-title>
                                 <mat-card-subtitle> {{getTypeName(recipe.typeOfFoodId) | translate}} </mat-card-subtitle>
                             </mat-card-header>
 
-                            <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
+                            <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id, $event)">
                             <br>
                             <mat-card-content>
                                 {{ recipe.instructions | slice:0:75 }}

@@ -9,11 +9,11 @@
                     <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(item.userId)}}.svg');">
                         <i class="material-icons verified-icon" *ngIf="getUserRole(item.userId) == 'VERIFIED USER'">verified</i>
                     </div> <!--(click)="showUserId(item.userId)"-->
-                    <mat-card-title (click)="showRecipeId(item.id)">{{ item.recipeName }}</mat-card-title>
+                    <mat-card-title (click)="showRecipeId(item.id, $event)">{{ item.recipeName }}</mat-card-title>
                     <mat-card-subtitle> {{ getTypeName(item.typeOfFoodId) | translate}} </mat-card-subtitle>
                 </mat-card-header>
 
-                <img mat-card-image src="assets/images/{{ item.picture }}" alt="{{ item.recipeName }}"  (click)="showRecipeId(item.id)">
+                <img mat-card-image src="assets/images/{{ item.picture }}" alt="{{ item.recipeName }}"  (click)="showRecipeId(item.id, $event)">
                 <mat-card-content>
                 </mat-card-content>
                 <br>
@@ -36,11 +36,11 @@
                     <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(item.userId)}}.svg');">
                         <i class="material-icons verified-icon" *ngIf="getUserRole(item.userId) == 'VERIFIED USER'">verified</i>
                     </div> <!--(click)="showUserId(item.userId)"-->
-                    <mat-card-title (click)="showRecipeId(item.id)">{{ item.recipeName }}</mat-card-title>
+                    <mat-card-title (click)="showRecipeId(item.id, $event)">{{ item.recipeName }}</mat-card-title>
                     <mat-card-subtitle> {{ getTypeName(item.typeOfFoodId) | translate}} </mat-card-subtitle>
                 </mat-card-header>
 
-                <img mat-card-image src="assets/images/{{ item.picture }}" alt="{{ item.recipeName }}"  (click)="showRecipeId(item.id)">
+                <img mat-card-image src="assets/images/{{ item.picture }}" alt="{{ item.recipeName }}"  (click)="showRecipeId(item.id, $event)">
                 <mat-card-content>
                 </mat-card-content>
                 <br>

@@ -37,7 +37,7 @@
                             <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');">
                                 <i class="material-icons verified-icon" *ngIf="getUserRole(recipe.userId) == 'VERIFIED USER'">verified</i>
                             </div> 
-                            <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
+                            <mat-card-title (click)="showRecipeId(recipe.id, $event)">{{ recipe.recipeName }}</mat-card-title>
                             <mat-card-subtitle> {{ getTypeName(recipe.typeOfFoodId) | translate}} </mat-card-subtitle>
 
                             <div *ngIf="recipeNutritions"> <!-- Ovde ne moze absolute positioning ako se smanjuje stranica bezi -->
@@ -50,7 +50,7 @@
                         <div *ngIf="recipe.recipeName.length <= 17">
                             <div class="razmak"></div>
                           </div>
-                          <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
+                          <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id, $event)">
                           <br>
                           <mat-card-content>
                               {{ recipe.instructions | slice:0:125 }}

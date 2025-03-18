@@ -37,14 +37,6 @@
         </form>
     </div>
 </div>
-
-<!--<div *ngIf="recipes.length > 0">
-    <div>
-        <span *ngFor="let recipe of recipes" (click)="showRecipeId(recipe.id)">
-            {{ recipe.recipeName }} 
-        </span>
-    </div>
-</div>-->
 <div *ngIf="recipes.length > 0" class="bottom">
     <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="50px grid"> 
         <div *ngFor="let recipe of recipes"> 
@@ -53,9 +45,9 @@
               <div mat-card-avatar class="example-header-image" style="background-image: url('assets/images/{{getUserSex(recipe.userId)}}.svg');">
                 <i class="material-icons verified-icon" *ngIf="getUserRole(recipe.userId) == 'VERIFIED USER'">verified</i>
               </div> 
-                <mat-card-title (click)="showRecipeId(recipe.id)">{{ recipe.recipeName }}</mat-card-title>
+              <mat-card-title (click)="showRecipeId(recipe.id, $event)">{{ recipe.recipeName }}</mat-card-title>
                 <mat-card-subtitle> 
-                  <!--{{getTypeName(recipe.typeOfFoodId) | translate}}-->
+                  {{getTypeName(recipe.typeOfFoodId) | translate}}
                 </mat-card-subtitle>
                 <div class="right">
                 </div>
@@ -63,7 +55,7 @@
             <div *ngIf="recipe.recipeName.length <= 17">
               <div class="razmak"></div>
             </div>
-            <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id)">
+            <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id, $event)">
             <br>
             <mat-card-content>
                 {{ recipe.instructions | slice:0:75 }}

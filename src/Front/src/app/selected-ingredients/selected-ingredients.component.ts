@@ -157,9 +157,17 @@ export class SelectedIngredientsComponent
     });
   }
 
-  showRecipeId(recipeId: string)
+  showRecipeId(recipeId: string, event?: MouseEvent): void 
   {
-    console.log(recipeId);
-    this.router.navigate(['recipes/id/' + recipeId]);
+    const url = this.router.serializeUrl(this.router.createUrlTree(['recipes/id/', recipeId]));
+  
+    if (event && (event.ctrlKey || event.metaKey || event.button === 1)) 
+    {
+      window.open(url, '_blank');
+    } 
+    else
+    {
+      this.router.navigate(['recipes/id/', recipeId]);
+    }
   }
 }

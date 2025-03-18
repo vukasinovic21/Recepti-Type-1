@@ -34,7 +34,7 @@
                     {{ rows[i] | translate}}
                 </th>
                 <td *ngFor="let cell of meal; let j = index" class="field text">
-                    <div *ngIf="cell.recipeName" (click)="showRecipeId(cell.recipeId)" class="recipe-container">
+                    <div *ngIf="cell.recipeName" (click)="showRecipeId(cell.recipeId, $event)" class="recipe-container">
                       <b>{{ cell.recipeName | translate }}</b><br><!--<br>--> 
                       <img class="img" src="assets/images/{{ cell.picture }}">  <!--alt="{{ cell.recipeName }}"-->
                       <br><div class="hide">{{cell.quantity}}g</div>
