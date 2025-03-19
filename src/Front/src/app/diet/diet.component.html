@@ -8,7 +8,7 @@
         <div class="sides">
             <div class="left">
               &nbsp;<b> {{"Created at" | translate}}:&nbsp; </b> <span>{{ diet?.createdAt | date:'yyyy-MM-dd' }}</span> 
-              <span class="material-icons delete" (click)="delete()">delete</span> &nbsp;
+              <span class="material-icons delete no-pdf" (click)="delete()">delete</span> &nbsp;
             </div>
             <div class="right no-pdf mb-2" >
                 <button class="btn btn-outline-secondary" (click)="downloadDietPdf()">{{"Download in pdf" | translate}}</button>
