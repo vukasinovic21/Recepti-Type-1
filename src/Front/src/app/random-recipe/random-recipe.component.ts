@@ -33,28 +33,55 @@ export class RandomRecipeComponent
   ngOnInit(): void
   {
     this.userId = localStorage.getItem('userid') ?? 'default-value';
-    this.recipeId = this.activatedRoute.snapshot.paramMap.get('id') ?? '';
     this.getAllTypes();
     this.getAllUsers();
+    
+    //this.recipeId = this.activatedRoute.snapshot.paramMap.get('id') ?? '';
+    this.activatedRoute.params.subscribe(params => {
+      const newRecipeId = params['id'];
+      if (newRecipeId !== this.recipeId) 
+      {
+        this.recipeId = newRecipeId;
+        this.loadRecipe(newRecipeId); 
+      }
+    });
   }
 
+  loadRecipe(recipeId: string): void 
+  {
+    this.recipeService.getRecipeInfo(recipeId).subscribe(recipe => {
+      this.recipe = recipe[0];
+      this.getNutritions(this.recipe.id);
+    });
+  }
+  
   getRandom(): void
   {
     this.recipeService.getRandomRecipe().subscribe(recipe => {
       this.recipe = recipe;
       this.recipeId = recipe.id;
       this.getNutritions(recipe.id);
-      this.router.navigate(['/recipes/random/' + recipe.id])
+      this.router.navigate(['/recipes/random/' + recipe.id], { queryParams: { refresh: new Date().getTime() }, replaceUrl: true })
     });
   }
 
   getRandomForType(type: string): void //poslati id tipa hrane
   {
     this.recipeService.getRandomRecipeForType(type).subscribe(recipe => {
-      this.recipe = recipe;
-      this.recipeId = recipe.id;
-      this.getNutritions(recipe.id);
-      this.router.navigate(['/recipes/random/' + recipe.id])
+      if(recipe)
+      {
+        this.recipe = recipe;
+        this.recipeId = recipe.id;
+        this.getNutritions(recipe.id);
+        this.router.navigate(['/recipes/random/' + recipe.id])
+      }
+      else
+      {
+        this.recipeNutritions = undefined;
+        this.recipe = undefined;
+        this.recipeId = '';
+        alert("There is no recipes with this type unfortunately :(")
+      }
     });
   }
 
