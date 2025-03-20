@@ -7,3 +7,4 @@ Frontend deo aplikacije cu raditi u Angularu 17.
 
 Za Bazu cu da koristim PostgreSQL.
 
+Kasnije dodat servis u Java - Springbootu za funkcionalnosti dodate nakon diplomiranja.
