@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CreateRecipe } from '../models/create-recipe';
 import { Ingredient } from '../models/ingredient';
+import { IngredientService } from '../ingredient/ingredient.service';
 
 @Component({
   selector: 'app-create-recipe',
@@ -23,7 +24,7 @@ export class CreateRecipeComponent implements OnInit
 
   response: string = '';
 
-  constructor(private formBuilder: FormBuilder, private recipeService: RecipeService, private router: Router){}
+  constructor(private formBuilder: FormBuilder, private recipeService: RecipeService, private router: Router, private ingredientService: IngredientService){}
 
   ngOnInit(): void 
   {
@@ -32,8 +33,8 @@ export class CreateRecipeComponent implements OnInit
         this.typesOfFood = types;
     });
 
-    this.recipeService.getAllIngredients().subscribe( ingredients => {
-      this.ingredients = ingredients;
+    this.ingredientService.getAllIngredients().subscribe( ingredients => {
+      this.ingredients = ingredients.filter(a => a.isApproved);
     })
 
     this.createForm = this.formBuilder.group({
