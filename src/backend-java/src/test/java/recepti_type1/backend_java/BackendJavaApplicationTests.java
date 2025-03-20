@@ -1,8 +1,7 @@
 package recepti_type1.backend_java;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.mockito.Mock;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,6 +20,11 @@ class BackendJavaApplicationTests
 	WebDriver driver;
 	WebDriverWait wait;
 
+	@BeforeAll
+	public static void init()
+	{
+	}
+
 	@BeforeEach // Ovo se izvrsava pre svih testova iz klase
     public void setUp()
 	{
@@ -32,7 +36,8 @@ class BackendJavaApplicationTests
 		
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Ceka 10 sekundi an drajver
 	}
-
+	
+	@DisplayName("First test")
 	@Test // Jedan od testova u klasi
 	void loadAllRecipes()
 	{
@@ -52,5 +57,10 @@ class BackendJavaApplicationTests
 	{
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		driver.quit();
+	}
+
+	@AfterAll
+	public static void cleanup()
+	{
 	}
 }
