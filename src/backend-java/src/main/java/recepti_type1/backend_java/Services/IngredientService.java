@@ -1,6 +1,7 @@
 package recepti_type1.backend_java.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Service;
 import recepti_type1.backend_java.Models.Ingredient;
 import recepti_type1.backend_java.Repositories.IngredientRepository;

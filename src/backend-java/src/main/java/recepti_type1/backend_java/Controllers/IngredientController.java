@@ -7,7 +7,9 @@ import recepti_type1.backend_java.Dtos.NewRole;
 import recepti_type1.backend_java.Models.Ingredient;
 import recepti_type1.backend_java.Models.User;
 import recepti_type1.backend_java.Services.IngredientService;
+import recepti_type1.backend_java.Services.TranslationService;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,6 +26,10 @@ public class IngredientController
         this.ingredientService = ingredientService;
     }
 
+    @Autowired
+    private TranslationService translationService;
+
+
     @GetMapping("/all")
     public List<Ingredient> getAllIngredients()
     {
@@ -37,7 +43,7 @@ public class IngredientController
     }
 
     @PostMapping("/add") //for admin to add new ingredient
-    public Boolean addType(@RequestBody Ingredient newIngredient) //we need to make sure that new ingredient is not in the db already
+    public Boolean addType(@RequestBody Ingredient newIngredient) throws IOException //we need to make sure that new ingredient is not in the db already
     {
         /*if (ingredientService.existsByName(newIngredient.name))
         {
@@ -45,8 +51,10 @@ public class IngredientController
         }*/
         Ingredient i = new Ingredient(newIngredient);
 
-        System.out.println(i.getName());
         ingredientService.addIngredient(i);
+
+        /*String translatedName = translationService.translateToEnglish(newIngredient.getName());
+        translationService.addToJsonFile(newIngredient.getName(), translatedName);*/
 
         return true;
     }
