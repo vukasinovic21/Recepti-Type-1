@@ -53,8 +53,7 @@ public class IngredientController
 
         ingredientService.addIngredient(i);
 
-        /*String translatedName = translationService.translateToEnglish(newIngredient.getName());
-        translationService.addToJsonFile(newIngredient.getName(), translatedName);*/
+        translationService.translateText(newIngredient.getName(), "en"); // translate the name to english and store it in en.json
 
         return true;
     }
