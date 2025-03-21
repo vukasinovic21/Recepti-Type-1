@@ -40,7 +40,7 @@
                 <h3 *ngIf="filteredIngredients.length == 0">{{"You haven't created any diet yet" | translate}}</h3>
                 <ul class="list-group">
                     <li class="list-group-item " *ngFor="let ingredient of filteredIngredients" [class.active]="ingredient.id === selectedIngredientId"  (click)="showIngredientId(ingredient.id)">
-                    {{ ingredient.name }}
+                    {{ ingredient.name | translate}}
                     </li>
                 </ul>
             </div>
