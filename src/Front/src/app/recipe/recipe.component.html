@@ -88,7 +88,7 @@
                     <div>
                         <h1 class="color">{{"Necessary ingredients" | translate}}</h1>
                         <div *ngFor="let item of recipeIngredients" class="font2">
-                            {{item.ingredientName}} - <!--ako je jaje i tako jos nesto poznato sto ide na komad promeniti u kolicini ?!? -->
+                            {{item.ingredientName | translate}} - <!--ako je jaje i tako jos nesto poznato sto ide na komad promeniti u kolicini ?!? -->
                             <b><span *ngIf="item.ingredientName.includes('Jaje')">{{ item.quantity }} {{"pieces" | translate}}</span></b>
                             <b><span *ngIf="item.quantity >= 1000 && item.quantity % 1000 != 0 && !item.ingredientName.includes('Jaje')">{{ item.quantity / 1000 | number:'1.2-2' }} Kg</span></b>
                             <b><span *ngIf="item.quantity >= 1000 && item.quantity % 1000 == 0 && !item.ingredientName.includes('Jaje')">{{ item.quantity / 1000 }} Kg</span></b>

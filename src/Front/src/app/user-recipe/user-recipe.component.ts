@@ -109,7 +109,7 @@ export class UserRecipeComponent
     this.deleteThis = id;
   }
 
-  edit(recipeId: string): void 
+  edit(recipeId: string): void // ako admin promeni recept nakon toga mu se izlistavaju i privatni recepti korisnika
   {
     const recipe = this.filteredRecipes.find(r => r.id === recipeId);
     const dialogRef = this.dialog.open(EditRecipeComponent, {
