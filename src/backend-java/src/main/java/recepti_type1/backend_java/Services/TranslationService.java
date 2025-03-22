@@ -18,13 +18,9 @@ public class TranslationService
     {
         try
         {
-            System.out.println("\nEntered translateText method\n");
-
             String urlString = "https://libretranslate.de/translate";
             URL url = new URL(urlString);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-            System.out.println("\nBefore setting request properties\n");
 
             connection.setConnectTimeout(10000);
             connection.setReadTimeout(10000);
@@ -37,20 +33,17 @@ public class TranslationService
             requestData.put("q", text);
             requestData.put("source", "auto");
             requestData.put("target", targetLanguage);
-            System.out.println("\nBefore sending request\n");
             try (OutputStream os = connection.getOutputStream()) {
                 byte[] input = requestData.toString().getBytes("utf-8");
                 os.write(input, 0, input.length);
             }
 
             int status = connection.getResponseCode();
-            System.out.println("HTTP Response Code: " + status);
             if (status != 200) {
                 System.err.println("Error: Unable to get a successful response from the API.");
                 return;  // Exit the method if the API request fails
             }
 
-            System.out.println("\nRequest sent. Waiting for response...\n");
             StringBuilder response = new StringBuilder();
             try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"))) {
                 String inputLine;
@@ -59,12 +52,8 @@ public class TranslationService
                 }
             }
 
-            System.out.println("\nResponse received from API\n");
-
             JSONObject jsonResponse = new JSONObject(response.toString());
             String translatedName = jsonResponse.getJSONArray("translatedText").getString(0);
-
-            System.out.println("\nTranslation received: " + translatedName + "\n");
 
             writeToJsonFile(text, translatedName);
         }
@@ -84,7 +73,6 @@ public class TranslationService
     {
         try
         {
-            System.out.println("\nEntering writeToJsonFile method\n");
             File file = new File("K:/Recepti-Type-1/src/Front/src/assets/locales/en.json");
             StringBuilder jsonContent = new StringBuilder();
             try (BufferedReader br = new BufferedReader(new FileReader(file)))
@@ -104,7 +92,6 @@ public class TranslationService
             {
                 writer.write(jsonObject.toString(4));
             }
-            System.out.println("\nUpdated en.json file with new translation\n");
 
         }
         catch (IOException e)
