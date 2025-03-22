@@ -9,5 +9,6 @@ export interface UserInfo
     role: string,
     createdAt: Date, 
     sex: string,
-    questionId: string
+    questionId: string,
+    banned: boolean
 }

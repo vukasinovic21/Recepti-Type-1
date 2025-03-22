@@ -16,7 +16,8 @@ namespace Back.Application.Extensions
                     Role: user.Role,
                     CreatedAt: user.CreatedAt.Value,
                     Sex: user.Sex,
-                    QuestionId: user.QuestionId.Value
+                    QuestionId: user.QuestionId.Value,
+                    Banned: user.Banned
                     ));
         }
     }

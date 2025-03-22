@@ -143,6 +143,20 @@ public class UserController
         return true;
     }
 
+    @PutMapping("/ban") //For admin to ban/unban user from creating new recipes if there is need
+    public Boolean banUser(@RequestBody NewRole newRole)
+    {
+        User u = userService.getUserById(newRole.getId());
+
+        if(u == null)
+            return false;
+
+        u.setBanned(!u.getBanned()); // If it were false put true values and vice versa
+        userService.updateUser(u);
+
+        return true;
+    }
+
     @DeleteMapping("/delete") //Delete user all user's recipes are also deleted as are recipeItems
     public Boolean deleteUser(@RequestBody NewRole newRole)
     {

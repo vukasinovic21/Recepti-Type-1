@@ -18,7 +18,10 @@
                 <h3 *ngIf="filteredUsers.length == 0">{{"There is no users yet" | translate}}</h3>
                 <ul class="list-group"> 
                     <li class="list-group-item " *ngFor="let user of filteredUsers" [class.active]="user.id === selectedUserId"  (click)="showUserId(user.id)">
-                    {{ user.username }}
+                        {{ user.username }} 
+                        <span *ngIf="user.banned" [title]="'User is banned from adding new recipes!' | translate">
+                            <i class="material-icons float-end" style="color: darkred;">block</i>
+                        </span>
                     </li>
                 </ul>
             </div>

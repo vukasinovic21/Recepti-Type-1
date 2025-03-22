@@ -31,7 +31,8 @@ export class AuthService
                                                 role: '',
                                                 createdAt: new Date(), 
                                                 sex: '',
-                                                questionId: ''});
+                                                questionId: '',
+                                                banned: true});
   currentUser = this.user.asObservable();
 
   private backUrl = environment.backUrl;
@@ -81,7 +82,8 @@ export class AuthService
       role: '',
       createdAt: new Date(), 
       sex: '',
-      questionId: ''});
+      questionId: '',
+      banned: true});
   }
 
   login(email:string, passwordHash:string): Observable<string>

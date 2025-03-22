@@ -1,3 +1,8 @@
+.banned {
+    position: relative;
+    cursor: pointer;
+}
+
 .div-space1
 {
     width: 100%;

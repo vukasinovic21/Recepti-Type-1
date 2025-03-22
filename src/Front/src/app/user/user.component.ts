@@ -24,7 +24,10 @@ export class UserComponent
   numberOfRecipes?: number;
 
   showAlert = false;
+  showAlert1 = false;
+  showAlert2 = false;
   deleteUser: string = '';
+  banUser: string = '';
 
   newPassword?: ResetPassword;
 
@@ -179,13 +182,15 @@ export class UserComponent
   closeAlert() 
   {
     this.showAlert = false; 
+    this.showAlert1 = false; 
+    this.showAlert2 = false; 
   }
   closeAlert1() 
   {
     this.showAlert = false; 
     this.userService.delete(this.deleteUser).subscribe({
       next: (isDeleted: boolean) => {
-        this.router.navigate(['/users/admin/all']) 
+        this.router.navigate(['/users/admin/all'], { queryParams: { refresh: new Date().getTime() } }) 
     }
     });
   }
@@ -194,5 +199,27 @@ export class UserComponent
   {
     this.showAlert = true;
     this.deleteUser = userId;
+  }
+
+  closeAlert2() 
+  {
+    this.showAlert1 = false; 
+    this.userService.banUser(this.banUser).subscribe({
+      next: (isBanned: boolean) => {
+        this.router.navigate(['/users/admin/all/' + this.banUser], { queryParams: { refresh: new Date().getTime() } }) 
+    }
+    });
+  }
+
+  ban(userId: string): void
+  {
+    this.showAlert1 = true;
+    this.banUser = userId;
+  }
+
+  unban(userId: string): void
+  {
+    this.showAlert2 = true;
+    this.banUser = userId;
   }
 }

@@ -137,3 +137,31 @@
   {
     background-color:  grey ;
   }
+
+  .alert-content .button2 
+  {
+    background-color:  rgb(58, 201, 22);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .alert-content .button2:hover 
+  {
+    background-color:  darkgreen ;
+  }
+
+.banned
+{
+  margin-top: -50px;
+  color:darkred;
+  padding: 2px;
+  text-align: center;
+}  
+
+.banned:hover
+{
+  cursor: pointer;
+}

@@ -295,5 +295,13 @@
     "Approved": "Odobreni",
     "All": "Svi",
     "Unapproved": "Neodobreni",
-    "Approve": "Odobri"
+    "Approve": "Odobri",
+    "User is banned from adding new recipes!": "Korisnik ima zabranu objavljivanja novih recepata!",
+    "Banned": "Zabrana",
+    "Do you want to ban this user from creating recipes": "Da li želite da zabranite korisniku da objavljuje recepte",
+    "Ban": "Zabrani",
+    "Unban": "Prekini zabranu",
+    "You are banned from adding new recipes!": "Imate zabranu objavljivanja recepata!",
+    "Ban user from adding new recipe?": "Zabrani korisniku da objavljuje nove recepte",
+    "Do you want to remove ban for this user": "Da li želite da poništite zabranu ovom korisniku"
 }

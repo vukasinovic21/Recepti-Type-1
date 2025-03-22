@@ -27,6 +27,7 @@ public class User
     private String ForgotPasswordAnswerHash;
     private String PasswordHash;
     //private LocalDateTime LastModifiedAt;
+    private Boolean Banned;
 
     public User(){}
 
@@ -39,7 +40,7 @@ public class User
     }
 
     public User(UUID id, String name, String lastName, String username, String email,
-                UUID questionId, LocalDateTime createdAt, LocalDate dateOfBirth, String role, String sex, String forgotPasswordAnswerHash, String passwordHash)
+                UUID questionId, LocalDateTime createdAt, LocalDate dateOfBirth, String role, String sex, String forgotPasswordAnswerHash, String passwordHash, Boolean banned)
     {
         this.Id = id;
         this.Name = name;
@@ -53,6 +54,7 @@ public class User
         this.Sex = sex;
         this.ForgotPasswordAnswerHash = forgotPasswordAnswerHash;
         this.PasswordHash = passwordHash;
+        this.Banned = banned;
     }
 
     public UUID getId()
@@ -144,5 +146,11 @@ public class User
         this.ForgotPasswordAnswerHash = forgotPasswordAnswerHash;
     }
 
+    public Boolean getBanned() {
+        return Banned;
+    }
 
+    public void setBanned(Boolean banned) {
+        Banned = banned;
+    }
 }

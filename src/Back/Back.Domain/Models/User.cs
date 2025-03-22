@@ -16,6 +16,7 @@ namespace Back.Domain.Models
         public string Role { get; private set; } = default!;
 
         public string Sex {  get; private set; } = default!;
+        public Boolean Banned { get; private set; } = default!;
 
         public static User Create(UserId id, string name, string lastname, string username, string email, string passwordhash, QuestionId questionId, string forgotpasswordanswerhash, DateOnly dateofbirth, string Sex)
         {
@@ -39,7 +40,8 @@ namespace Back.Domain.Models
                 ForgotPasswordAnswerHash = forgotpasswordanswerhash,
                 DateOfBirth = dateofbirth,
                 Role = "USER",
-                Sex = Sex
+                Sex = Sex,
+                Banned = false
             };
 
             if (id == UserId.Of(new Guid("58c49479-ec65-4de2-86e7-033c546291aa")))

@@ -97,6 +97,12 @@ export class UserService
     return this.http.put<boolean>(this.backUrlJava + "/users/changerole", user);
   }
 
+  banUser(id: any): Observable<boolean>
+  {
+    const user = {id:id}
+    return this.http.put<boolean>(this.backUrlJava + "/users/ban",  user );
+  }
+
   delete(id: String): Observable<boolean>
   {
     const user = {id:id}

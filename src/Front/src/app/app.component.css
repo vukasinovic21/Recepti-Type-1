@@ -107,6 +107,10 @@
     font-weight: bolder;
 }*/
 
+.disabled-btn 
+{
+    cursor: not-allowed;
+}
 
 .menu-button
 {

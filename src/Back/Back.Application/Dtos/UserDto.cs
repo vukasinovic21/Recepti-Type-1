@@ -10,5 +10,6 @@
         string Role,
         DateTime CreatedAt,
         string Sex,
-        Guid QuestionId);
+        Guid QuestionId,
+        Boolean Banned);
 }
