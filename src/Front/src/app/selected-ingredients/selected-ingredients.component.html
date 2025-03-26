@@ -4,32 +4,32 @@
     <div class="ingredient-selector">
         <form (ngSubmit)="onSubmit()">
             <h3>{{"Please select ingredients that you have" | translate}}</h3>
-            <input [formControl]="ingredientInput" placeholder="Type to select ingredients that you have..."/>
+            <input [formControl]="ingredientInput" [placeholder]="'Select ingredients that you have...' | translate"/>
         
             <ul *ngIf="filteredIngredients.length > 0" class="suggestions">
             <li *ngFor="let ingredient of filteredIngredients" (click)="addIngredient(ingredient)">
-                {{ ingredient.name }}
+                {{ ingredient.name | translate }} <!--{{ ingredient.name | translate }} kuca se samo na srpskom a izlistava se na izabranom jeziku-->
             </li>
             </ul>
 
             <div class="selected-ingredients">
                 <span *ngFor="let ingredient of selectedIngredients" class="tag" (click)="removeIngredient(ingredient)">
-                    {{ ingredient.name }} &times;
+                    {{ ingredient.name | translate }} &times;
                 </span>
             </div>
 
             <h3>{{"Please select ingredients that you don't have" | translate}}</h3>
-            <input [formControl]="ingredientInput2" placeholder="Type to select ingredients that you don't have..."/>
+            <input [formControl]="ingredientInput2" [placeholder]="'Select ingredients that you do not have...' | translate"/>
         
             <ul *ngIf="filteredIngredients2.length > 0" class="suggestions">
             <li *ngFor="let ingredient2 of filteredIngredients2" (click)="addIngredient2(ingredient2)">
-                {{ ingredient2.name }}
+                {{ ingredient2.name | translate }}
             </li>
             </ul>
 
             <div class="selected-ingredients">
                 <span *ngFor="let ingredient2 of selectedIngredients2" class="tag2" (click)="removeIngredient2(ingredient2)">
-                    {{ ingredient2.name }} &times;
+                    {{ ingredient2.name | translate }} &times;
                 </span>
             </div>
 

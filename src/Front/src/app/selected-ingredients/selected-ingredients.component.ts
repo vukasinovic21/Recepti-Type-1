@@ -56,7 +56,7 @@ export class SelectedIngredientsComponent
   ngOnInit(): void 
   {
     this.recipeService.getAllIngredients().subscribe( ingredients => {
-      this.ingredients = ingredients;
+      this.ingredients = ingredients.filter(a => a.isApproved);
     })
 
     this.recipeService.getAllTypesOfMeal().subscribe( types => {

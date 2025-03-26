@@ -5,7 +5,7 @@
         <h1 [routerLink]="['/home']" class="clickable-header">{{ 'Recipes Type 1' | translate }}</h1>
         <span class="left-buttons">
             <button *ngIf="!isMobile" [routerLink]="['/recipes']" class="color">{{'All recipes' | translate}}</button>
-            <button *ngIf="!isMobile && isLogged" [routerLink]="['/recipes/random']" class="color">{{'What to eat' | translate}}</button>
+            <button *ngIf="!isMobile" [routerLink]="['/recipes/random']" class="color">{{'What to eat' | translate}}</button>
             <button *ngIf="!isMobile && isLogged" [routerLink]="['/create']" class="color" [disabled]="user?.banned" [ngClass]="{'disabled-btn': user?.banned}">{{'New recipe' | translate}}</button>
             <button *ngIf="!isMobile && isLogged" [routerLink]="['/diets']" class="color">{{'All diets' | translate}}</button>
             <button *ngIf="!isMobile && isLogged" [routerLink]="['/diets/create']" class="color">{{'New diet' | translate}}</button>
