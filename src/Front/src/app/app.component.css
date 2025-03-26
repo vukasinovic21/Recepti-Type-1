@@ -33,6 +33,17 @@
     cursor: pointer;
 }
 
+.lang-color:hover
+{
+    cursor: pointer;
+}
+
+.options:hover
+{
+    cursor: pointer;
+}
+
+
 .img
 {
     width:45px;
