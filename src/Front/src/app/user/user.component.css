@@ -155,13 +155,17 @@
 
 .banned
 {
+  display: inline-block;
   margin-top: -50px;
   color:darkred;
-  padding: 2px;
+  padding: 5px 10px;
   text-align: center;
+  background-color: lightgray;
+  border-radius: 5px;
 }  
 
 .banned:hover
 {
   cursor: pointer;
+  background-color: darkgray;
 }

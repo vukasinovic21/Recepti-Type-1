@@ -63,7 +63,7 @@ export class AppComponent
     else 
     {
       this.username = ''; 
-      this.language = "en";
+      this.language = localStorage.getItem("language") ?? "en";
     }
   }
 
@@ -89,7 +89,7 @@ export class AppComponent
   {
     localStorage.removeItem('jwt');
     localStorage.removeItem('userid');
-    localStorage.removeItem('language');
+    //localStorage.removeItem('language');
     this.isLogged = false;
     this.username = '';
     this.authService.loggedout();
