@@ -9,10 +9,19 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using System.Security.Claims;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(8085, listenOptions =>
+    {
+        listenOptions.UseHttps("D:\\DOWNLOADS\\certificateSSL.pfx", "oblak");
+    });
+});
 
 builder.Services.AddCors(options =>
 {

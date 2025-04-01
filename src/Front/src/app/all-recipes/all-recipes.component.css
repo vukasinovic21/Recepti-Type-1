@@ -61,6 +61,11 @@ img
     margin-right: 5px;
 }
 
+.heart:hover
+{
+    scale: 1.1;
+}
+
 .razmak
 {
     margin-bottom: 10px;

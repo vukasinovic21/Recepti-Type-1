@@ -16,6 +16,10 @@
   color:#4099FF;
 }
 
+.btn-success
+{
+  
+}
 
 .size
 {
@@ -160,12 +164,30 @@
   color:darkred;
   padding: 5px 10px;
   text-align: center;
-  background-color: lightgray;
+  background-color: white;
   border-radius: 5px;
 }  
 
 .banned:hover
 {
   cursor: pointer;
-  background-color: darkgray;
+  background-color: #e6e6e6;
+}
+
+
+.ban
+{
+  display: inline-block;
+  margin-top: -50px;
+  color:darkred;
+  padding: 5px 10px;
+  text-align: center;
+  background-color: #e6e6e6;
+  border-radius: 5px;
+}  
+
+.ban:hover
+{
+  cursor: pointer;
+  background-color: lightgray;
 }

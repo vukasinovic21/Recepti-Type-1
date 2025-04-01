@@ -133,7 +133,7 @@
                         <span *ngIf="user?.banned" class="banned float-end" [title]="'User is banned from adding new recipes!' | translate" (click)="unban(user!.id)">
                             {{"Banned" | translate}} <i class="material-icons">block</i>
                         </span>
-                        <span *ngIf="!user?.banned" class="banned float-end" [title]="'Ban user from adding new recipes?' | translate" (click)="ban(user!.id)">
+                        <span *ngIf="!user?.banned" class="ban float-end" [title]="'Ban user from adding new recipes?' | translate" (click)="ban(user!.id)">
                             {{"Ban" | translate}} <i class="material-icons">block</i>
                         </span>
                     </div>

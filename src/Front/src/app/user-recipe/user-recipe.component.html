@@ -52,8 +52,8 @@
                                 </div>  
                                     
                                     <div class="right">
-                                        <span *ngIf="recipe.userId == loggedUser || isAdmin?.role == 'ADMIN'" class="material-icons" (click)="edit(recipe.id)">edit</span> 
-                                        <span *ngIf="recipe.userId == loggedUser || isAdmin?.role == 'ADMIN'" class="material-icons" (click)="delete(recipe.id)">delete</span> 
+                                        <span *ngIf="recipe.userId == loggedUser || isAdmin?.role == 'ADMIN'" class="material-icons right1" (click)="edit(recipe.id)">edit</span> 
+                                        <span *ngIf="recipe.userId == loggedUser || isAdmin?.role == 'ADMIN'" class="material-icons right2" (click)="delete(recipe.id)">delete</span> 
                                     </div>
                                 <mat-card-title (click)="showRecipeId(recipe.id, $event)">{{ recipe.recipeName }}</mat-card-title>
                                 <mat-card-subtitle> {{getTypeName(recipe.typeOfFoodId) | translate}} </mat-card-subtitle>

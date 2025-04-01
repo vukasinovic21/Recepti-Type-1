@@ -15,6 +15,10 @@
     margin-top: -50px;
 }
 
+.form-select:hover
+{
+    cursor: pointer;
+}
 
 .hover:hover
 {

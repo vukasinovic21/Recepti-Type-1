@@ -80,6 +80,11 @@
     margin-right: 5px;
 }
 
+.btn.color:hover
+{
+    scale:1.05;
+}
+
 .no-pdf .btn 
 {
     font-size: 15px;      

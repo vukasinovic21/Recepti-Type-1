@@ -47,6 +47,15 @@
     max-width: 0px !important;
 }
 
+.field:hover
+{
+    cursor: pointer;
+}
+
+.delete:hover
+{
+    scale: 1.1;
+}
 
 .hover-content
 {
@@ -77,6 +86,11 @@
 .text
 {
     text-align: center;
+}
+
+.btn:hover
+{
+    background-color: #999999;
 }
 
 .custom-alert 

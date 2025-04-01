@@ -41,10 +41,25 @@ mat-card
     font-size: 40px; 
 }
 
+.heart:hover
+{
+    scale: 1.1;
+}
+
 .right 
 {
     margin-left: auto; 
     display: flex;
+}
+
+.right1:hover
+{
+    scale: 1.1;
+}
+
+.right2:hover
+{
+    scale: 1.1;
 }
 
 .bottom
