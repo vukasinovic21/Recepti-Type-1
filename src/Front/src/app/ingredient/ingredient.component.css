@@ -11,12 +11,14 @@
 
 .right:hover
 {
-    cursor: pointer;
+  cursor: pointer;
+  scale:1.1;
 }
 
 .hover:hover
 {
   cursor:pointer;
+  scale:1.1;
 }
 
 .custom-alert 

@@ -41,6 +41,9 @@
                 <ul class="list-group">
                     <li class="list-group-item " *ngFor="let ingredient of filteredIngredients" [class.active]="ingredient.id === selectedIngredientId"  (click)="showIngredientId(ingredient.id)">
                     {{ ingredient.name | translate}}
+                    <span *ngIf="!ingredient.isApproved" [title]="'Unapproved!' | translate">
+                        <i class="material-icons float-end" style="color: darkred;">block</i>
+                    </span>
                     </li>
                 </ul>
             </div>
