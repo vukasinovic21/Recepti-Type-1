@@ -246,3 +246,42 @@ img
   {
     background-color:  grey ;
   }
+
+.text-center 
+{
+    margin-top: 1rem; 
+}
+  
+@media (max-width: 450px) 
+{
+    .container
+    {
+        padding:30px;
+    }
+
+    .search
+    {
+        margin-right: 0;
+    }
+
+    .form
+    {
+        width: 80%; 
+        margin-bottom: 0px; 
+        margin-top: 0px;
+        margin-left: 10%;
+        padding: 0;
+    }
+
+    .text-center 
+    {
+        margin-top: 0em; 
+        margin-bottom: 0;
+    }
+
+
+    .bottom
+    {
+        padding:25px;
+    }
+}

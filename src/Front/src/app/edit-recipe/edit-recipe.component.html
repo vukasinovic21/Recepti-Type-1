@@ -3,7 +3,7 @@
         <h2>{{"Edit Recipe" | translate}}</h2>
     </div>
 
-    <div mat-dialog-content >
+    <div mat-dialog-content class="col2">
         <mat-form-field>
             <mat-label>{{ 'Recipe Name' | translate }}</mat-label>
             <input matInput [(ngModel)]="data.recipeName">
@@ -14,7 +14,7 @@
             <input matInput [(ngModel)]="data.timeToPrepare" type="number">
         </mat-form-field>&nbsp;&nbsp;
 
-        <mat-slide-toggle [(ngModel)]="data.shared">
+        <mat-slide-toggle [(ngModel)]="data.shared" class="mobile">
             {{ 'Public Recipe' | translate }}
         </mat-slide-toggle>
         

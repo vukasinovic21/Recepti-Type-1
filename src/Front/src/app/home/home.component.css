@@ -161,6 +161,17 @@ img
     }
 }
 
+@media (max-width: 450px) and (min-height: 768px)  /*za fon*/
+{
+    .dalje
+    {
+        margin-right: 20%;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.1); 
+        transition: transform .2s;
+    }
+}
+
 
 @media (min-width: 1566px)  /*za komp*/
 {
@@ -198,3 +209,4 @@ img
         height: 500px; 
     }
 }
+

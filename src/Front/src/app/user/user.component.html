@@ -1,62 +1,6 @@
-<!--
 
-<div class="container">
-    <div class="text-center mt-4">
-        <h1 class="font display-4">{{"User Info" | translate}}</h1>
-    </div>
-</div>
-
-<div class="container">
-    <div class="col-md-7 mx-auto">
-        <div class="card p-4 shadow-sm border-light">
-            <div class="d-flex justify-content-between mb-4">
-                <button class="btn btn-success" [routerLink]="['/recipes/user', user?.id]">
-                    <i class="bi bi-card-text"></i> {{'Users recipes' | translate}}
-                </button>
-                <div class="d-flex align-items-center">
-                    <div class="font2">
-                        <div class="hover" (click)="edit(user!.id)">
-                            {{"Edit profile" | translate}} 
-                            <span *ngIf="user?.id == loggedUser" class="material-icons">edit</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="mb-3">{{"Personal Information" | translate}}</h3>
-            <div class="row font2">
-                <div class="col-md-6 mb-2">
-                    <b>{{"Name" | translate}}: </b> <span>{{user?.name}}</span>
-                </div>
-                <div class="col-md-6 mb-2">
-                    <b>{{"Lastname" | translate}}: </b> <span>{{user?.lastName}}</span>
-                </div>
-                <div class="col-md-6 mb-2">
-                    <b>{{"Username" | translate}}: </b> <span>{{user?.username}}</span>
-                </div>
-                <div class="col-md-6 mb-2">
-                    <b>{{"Email" | translate}}: </b> <span>{{user?.email}}</span>
-                </div>
-                <div class="col-md-6 mb-2">
-                    <b>{{"Birthday" | translate}}: </b> <span>{{user?.dateOfBirth | date:'dd-MM-yyyy' }}</span>
-                </div>
-                <div class="col-md-6 mb-2">
-                    <b>{{"Sex" | translate}}: </b> <span>{{user?.sex ?? 'Not Available' | translate}}</span>
-                </div>
-                <div class="col-md-6 mb-2">
-                    <b>{{"Joined" | translate}}: </b> <span>{{user?.createdAt | date:'dd-MM-yyyy' }}</span>
-                </div>
-                <div class="col-md-6 mb-2">
-                    <b>{{"Role" | translate}}: </b> <span>{{user?.role}}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
--->
-
-<div class="container">
-    <div class="text-center mt-4">
+<div class="container m">
+    <div class="text-center">
         <h1 *ngIf="isAdmin?.role != 'ADMIN'" class="font display-4">{{"Your profile" | translate}}</h1>
         <h1 *ngIf="isAdmin?.role == 'ADMIN'" class="font display-4">{{"User info page" | translate}}</h1>
     </div>
@@ -66,27 +10,27 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card p-4 shadow-sm border-light">
-                <h2 class="mb-5 text-center" style="color: green;">{{"Personal Information" | translate}}</h2>
+                <h2 class="n text-center" style="color: green;">{{"Personal Information" | translate}}</h2>
                 <div class="row font2 text-center">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-6 ">
                         <b>{{"Name" | translate}}: </b> <span>{{user?.name}}</span>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-6 ">
                         <b>{{"Lastname" | translate}}: </b> <span>{{user?.lastName}}</span>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-6 ">
                         <b>{{"Username" | translate}}: </b> <span>{{user?.username}}</span>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-6 ">
                         <b>{{"Birthday" | translate}}: </b> <span>{{user?.dateOfBirth | date:'dd-MM-yyyy' }}</span>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-6 ">
                         <b>{{"Email" | translate}}: </b> <span>{{user?.email}}</span>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-6 ">
                         <b>{{"Sex" | translate}}: </b> <span>{{user?.sex ?? 'Not Available' | translate}}</span>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-6 ">
                         <b>{{"Joined" | translate}}: </b> <span>{{user?.createdAt | date:'dd-MM-yyyy' }}</span>
                     </div>
                     <!--<div class="col-md-6 mb-3">

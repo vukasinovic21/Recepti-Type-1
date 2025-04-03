@@ -23,6 +23,15 @@ export class IngredientComponent
 
   constructor(private ingredientService: IngredientService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog){}
   
+  ngAfterViewInit(): void 
+  {
+    if (window.innerWidth < 450) 
+    {
+      window.scrollTo(0, document.body.scrollHeight);  
+    }
+  }
+
+
   ngOnInit(): void
   { 
     this.activatedRoute.params.subscribe(params => {

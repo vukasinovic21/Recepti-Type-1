@@ -113,8 +113,60 @@
     font-family: 'Roboto', sans-serif;
   }
   
-  .badge-sugar-free i 
-  {
+.badge-sugar-free i 
+{
     margin-right: 8px; 
     font-size: 20px; 
-  }
+}
+
+.container 
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 450px) 
+{
+    .no-pdf 
+    {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        order: 99; 
+    }
+
+    .color
+    {
+        font-size: 21px;
+    }
+
+    .btn
+    {
+        margin-top: 10px;
+    }
+
+    .row
+    {
+        padding: 0;
+    }
+
+    .col-md-8, .col-md-4
+    {
+        padding: 0;
+    }
+
+    .container
+    {
+        padding-top: 35px;
+    }
+
+    .font
+    {
+        font-size: 40px;
+    }
+
+    .img
+    {
+        width: 100%;
+    }
+}

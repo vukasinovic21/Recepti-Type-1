@@ -23,27 +23,6 @@
                         {{ recipe?.instructions }} <br><br> 
                     </div>
                 </div>
-                
-                <div class="no-pdf">
-                    <h1 class="color">{{"How to burn up the calories" | translate}}</h1>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <input type="number" class="form-control" min="0" placeholder="{{'How much will you eat' | translate}}?"  [(ngModel)]="kolicina" /><br>
-                        </div>
-                        <div *ngIf="kolicina > 0" class="col-md-6">
-                            <span class="material-icons">directions_walk</span> &nbsp;
-                            {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 70 | number:'1.2-2' }}km
-                            {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 70 * 11 | number:'1.2-2' }}min
-                            <span class="material-icons">directions_run</span> &nbsp;
-                            {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 90 | number:'1.2-2' }}km
-                            {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 90 * 6 | number:'1.2-2' }}min
-                            <span class="material-icons">pool</span> &nbsp;
-                            {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 240 | number:'1.2-2' }}km
-                            {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 240 * 20 | number:'1.2-2' }}min
-                        </div>
-                        <div class="col-md-3"><button class="btn color" (click)="downloadRecipePdf()">{{"Download in pdf" | translate}}</button></div>
-                    </div>     
-                </div>
             </div>
 
             <div class="col-md-4">
@@ -96,6 +75,26 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="no-pdf col-md-8">
+                <h1 class="color">{{"How to burn up the calories" | translate}}</h1>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="number" class="form-control" min="0" placeholder="{{'How much will you eat' | translate}}?"  [(ngModel)]="kolicina" /><br>
+                    </div>
+                    <div *ngIf="kolicina > 0" class="col-md-6">
+                        <span class="material-icons">directions_walk</span> &nbsp;
+                        {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 70 | number:'1.2-2' }}km
+                        {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 70 * 11 | number:'1.2-2' }}min
+                        <span class="material-icons">directions_run</span> &nbsp;
+                        {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 90 | number:'1.2-2' }}km
+                        {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 90 * 6 | number:'1.2-2' }}min
+                        <span class="material-icons">pool</span> &nbsp;
+                        {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 240 | number:'1.2-2' }}km
+                        {{ recipeNutritions!.kCal/recipeNutritions!.weight * kolicina / 240 * 20 | number:'1.2-2' }}min
+                    </div>
+                    <div class="col-md-3"><button class="btn color" (click)="downloadRecipePdf()">{{"Download in pdf" | translate}}</button></div>
+                </div>     
             </div>
         </div>
         <br>

@@ -75,7 +75,42 @@
     cursor: pointer;
   }
   
-  .alert-content button:hover {
-    background-color:  #486D6D ;
+.alert-content button:hover 
+{
+  background-color:  #486D6D ;
+}
+
+
+.text-center
+{
+  margin-top: 16px;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 450px) 
+{
+  .container
+  {
+    padding-top:30px;
+    padding-bottom: 30px;
+    padding-left: 23px;
+    padding-right: 23px;
   }
-  
+
+  .text-center
+  {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  .size
+  {
+    width: 120%;
+  }
+
+  .size2
+  {
+    padding: 0.6%;
+    max-width: 20%; 
+  }
+}

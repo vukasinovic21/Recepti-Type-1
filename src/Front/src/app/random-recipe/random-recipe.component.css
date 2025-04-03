@@ -202,3 +202,70 @@ img
     margin-right: 8px; 
     font-size: 20px; 
   }
+
+  .d-flex
+  {
+    gap: 1rem; 
+  }
+
+  .col-md-20
+  {
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 450px) 
+  {
+    .text-center
+    {
+        padding-top: 30px;
+    }
+    .container
+    {
+        padding:30px;
+    }
+
+    .d-flex
+    {
+        gap: 0.5rem; 
+    }
+
+    .col-md-20
+    {
+        margin-bottom: 0.5rem;
+    }
+
+    .badge-sugar-free 
+    {
+        position: absolute;
+        left: 214px;
+        top: 15px;
+        background-color: #28a745; 
+        color: white;
+        padding: 5px 13px;
+        font-size: 13px;
+        font-weight: bold;
+        border-radius: 50px; 
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        text-transform: uppercase;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    .badge-sugar-free i 
+    {
+        margin-right: 8px; 
+        font-size: 18px; 
+    }
+
+    .col-md-4
+    {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    .card
+    {
+        padding-bottom: 30px;
+    }
+  }

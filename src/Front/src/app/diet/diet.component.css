@@ -159,3 +159,38 @@
     }
 }/*Ne skida mi se dijeta sa slikama ovako ?*/
 
+@media (max-width: 450px) 
+{
+  .container
+  {
+    padding-top:30px;
+    padding-bottom:30px;
+    padding-left:0px;
+    padding-right:0px;
+  }
+
+.table 
+  {
+    transform: rotate(-90deg); 
+    transform-origin: top left; 
+    width: 800px;
+    height: auto;
+    margin:0px;
+    margin-top: 800px;
+  }
+  
+
+  .table th, .table td 
+  {
+    word-wrap: break-word;  
+    overflow-wrap: break-word; 
+    text-align: center;
+    white-space: nowrap; 
+  }
+
+  .n {
+    display: block;
+    word-break: break-word;
+    font-weight: bold;
+  }
+}

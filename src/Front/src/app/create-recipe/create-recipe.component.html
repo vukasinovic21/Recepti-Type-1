@@ -15,7 +15,7 @@
             </div>
             <div class="col-4">
                 <label class="form-label">{{"Time to prepare" | translate}}</label>
-                <input class="form-control" type="number" formControlName="timeToPrepare">
+                <input class="form-control da" type="number" formControlName="timeToPrepare">
                 <small class="text-danger" *ngIf="createForm.get('timeToPrepare')?.invalid && createForm.get('timeToPrepare')?.touched">
                     {{"Preparation time is required." | translate}}
                 </small>
@@ -77,7 +77,7 @@
                     <div class="col-4">
                         <label class="form-label" *ngIf="i === 0">{{"Quantity" | translate}}</label>
                         <label class="form-label" *ngIf="i > 0"></label>
-                        <input class="form-control small-input" type="number" min="0" formControlName="quantity">
+                        <input class="form-control small-input da" type="number" min="0" formControlName="quantity">
                     </div>
                 </div>
             </div>

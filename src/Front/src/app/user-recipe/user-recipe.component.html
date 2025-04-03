@@ -1,20 +1,20 @@
 <div class="container">
-    <div class="text-center mt-3" *ngIf="!showLiked">
+    <div class="text-center " *ngIf="!showLiked">
       <h1> {{ user?.Username }} {{"Mine recipes"| translate}}</h1>
     </div>
-    <div class="text-center mt-3" *ngIf="showLiked">
+    <div class="text-center " *ngIf="showLiked">
         <h1> {{"Favorite recipes"| translate}}</h1>
       </div>
 </div>
 
 <div class="container bottom">
 
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="20px">
-        <mat-form-field>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="20px" fxLayoutGap.xs="-5px">
+        <mat-form-field class="search form">
             <input matInput (keyup)="search($event)" placeholder="{{'Search'| translate}}">
         </mat-form-field>
 
-        <mat-form-field class="sort-dropdown">
+        <mat-form-field class="sort-dropdown form">
             <mat-select (selectionChange)="sortRecipes($event.value)" placeholder="{{'Sort'| translate}}">
                 <mat-option value="timeLowHigh">{{"Time: Low to High"| translate}}</mat-option>
                 <mat-option value="timeHighLow">{{"Time: High to Low"| translate}}</mat-option>
@@ -25,7 +25,7 @@
             </mat-select>
         </mat-form-field>
 
-        <mat-form-field class="which-recipes">
+        <mat-form-field class="which-recipes form">
             <mat-select (selectionChange)="switchRecipes($event.value)" placeholder="{{'What to show'| translate}}" >
                 <mat-option value="mine">{{"Mine Recipes"| translate}}</mat-option>
                 <mat-option value="liked">{{"Favorite Recipes"| translate}}</mat-option>

@@ -1,4 +1,30 @@
 .width
 {
+    width:98%;
+}
+
+.space
+{
+    margin-bottom: 0.1em;
+}
+
+.space2 
+{
+    margin-right: 2ch; 
+}
+
+@media (max-width: 450px) 
+{
+  .width2
+  {
     width:100%;
+  }
+    .space
+    {
+        margin-bottom: 0;
+    }
+    .space2
+    {
+        margin-bottom: 0;
+    }
 }

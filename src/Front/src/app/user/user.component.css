@@ -191,3 +191,43 @@
   cursor: pointer;
   background-color: lightgray;
 }
+
+.m
+{
+  margin-top:24px;
+}
+
+.n
+{
+  margin-bottom: 48px;
+}
+
+.col-md-6
+{
+  margin-bottom: 16px;
+}
+
+@media (max-width: 450px) 
+{
+  .container
+  {
+    padding:30px;
+  }
+
+  .m
+  {
+    margin-top:0px;
+    padding-bottom: 0px;
+  }
+
+  .text-center
+  {
+    margin-bottom: 12px;
+  }
+
+  .col-md-6
+  {
+    margin-bottom: 12px;
+  }
+ 
+}

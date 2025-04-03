@@ -37,6 +37,10 @@ export class AllIngredientsComponent
   {
     this.selectedIngredientId = ingredientId;
     this.router.navigate(['users/admin/ingredients/' + ingredientId]); 
+    if (window.innerWidth < 450) 
+    {
+      window.scrollTo(0, document.body.scrollHeight);  
+    }
   }
 
   search(event: Event): void

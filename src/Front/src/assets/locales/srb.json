@@ -87,7 +87,7 @@
     "Glycemic load per": "Glikemijsko opterećenje na",
     "Total weight": "Ukupna količina",
     "total(per 100g)": "ukupno (na 100g)",
-    "Time to prepare": "Vreme za pripremu",
+    "Time to prepare": "Vreme spremanja",
     "Published": "Izbačeno",
     "Necessary ingredients": "Potrebne namirnice",
     "pieces": "kom",
@@ -306,5 +306,6 @@
     "Do you want to remove ban for this user": "Da li želite da poništite zabranu ovom korisniku",
     "Select ingredients that you have...": "Izaberete sastojke koje imate...",
     "Select ingredients that you do not have...": "Izaberite sastojke koje nemate...",
-    "Unapproved!": "Neodobreno!"
+    "Unapproved!": "Neodobreno!",
+    "Free": "Bez"
 }

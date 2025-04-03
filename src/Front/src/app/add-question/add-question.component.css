@@ -1,4 +1,13 @@
 .width
 {
     width:80%;
+    margin-left: 5%;
+}
+
+@media (max-width: 450px) 
+{
+  .width
+  {
+    width:90%;
+  }
 }

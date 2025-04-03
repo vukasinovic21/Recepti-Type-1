@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-3">
             <div class="card p-4 shadow-sm border-light">
-                <div class="d-flex flex-column gap-3">
+                <div class="d-flex flex-column">
 
                     <button class="btn btn-primary" (click)="getRandom()">
                         {{'Random recipe' | translate}} <i class="material-icons">shuffle</i> 
@@ -47,7 +47,7 @@
                             </div>
                         </mat-card-header>
         
-                        <div *ngIf="recipe.recipeName.length <= 17">
+                        <div *ngIf="recipe.recipeName.length <= 17"> <!-- Ovde moze da se iskoristi ako ne odgovara sugar free badge -->
                             <div class="razmak"></div>
                           </div>
                           <img mat-card-image src="assets/images/{{ recipe.picture }}" alt="{{ recipe.recipeName }}"  (click)="showRecipeId(recipe.id, $event)">
@@ -74,25 +74,25 @@
         </div>    
         <div class="col-md-2" *ngIf="recipeNutritions">
             <div class="card p-4 shadow-sm border-light">
-                <div class="d-flex flex-column gap-3">
+                <div class="d-flex flex-column">
                     <div class="font2 text-center">
                         <h3 >{{"Nutritive values (100g)" | translate}}</h3>
-                        <div class="col-md-20 mb-3 mt-0">
+                        <div class="col-md-20 mt-0">
                             <b>{{"Carbs" | translate}}: </b> <span>{{recipeNutritions!.carbs / recipeNutritions!.weight * 100 | number:'1.2-2'}}g</span>
                         </div>
-                        <div class="col-md-20 mb-3">
+                        <div class="col-md-20 ">
                             <b>{{"Sugars" | translate}}: </b> <span>{{recipeNutritions!.sugar / recipeNutritions!.weight * 100 | number:'1.2-2'}}g</span>
                         </div>
-                        <div class="col-md-20 mb-3">
+                        <div class="col-md-20 ">
                             <b>{{"Fat" | translate}}: </b> <span>{{recipeNutritions!.fat / recipeNutritions!.weight * 100 | number:'1.2-2'}}g</span>
                         </div>
-                        <div class="col-md-20 mb-3">
+                        <div class="col-md-20 ">
                             <b>{{"Protein" | translate}}: </b> <span>{{recipeNutritions!.protein / recipeNutritions!.weight * 100 | number:'1.2-2'}}g</span>
                         </div>
-                        <div class="col-md-20 mb-3">
+                        <div class="col-md-20 ">
                             <b>{{"Energy" | translate}}: </b> <span>{{recipeNutritions!.kCal / recipeNutritions!.weight * 100 | number:'1.2-2'}}kCal</span>
                         </div>
-                        <div class="col-md-20 mb-3">
+                        <div class="col-md-20 ">
                             <b>{{"Glycemic load" | translate}}: </b> <span>{{ recipeNutritions.gl | number:'1.2-2' }}</span>
                         </div>
                     </div>

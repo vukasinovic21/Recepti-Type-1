@@ -36,6 +36,10 @@ export class AllUsersComponent
   {
     this.selectedUserId = userId;
     this.router.navigate(['/users/admin/all/' + userId]); 
+    if (window.innerWidth < 450) 
+    {
+      window.scrollTo(0, document.body.scrollHeight);  
+    }
   }
 
   search(event: Event): void
